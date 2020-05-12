@@ -1,3 +1,7 @@
+body {
+font-family: Sk-Modernist;
+}
+
 .texto-nav {
     font-size: 12px;
     color: white;
@@ -5,4 +9,20 @@
 
 i {
     color: white;
+}
+
+header {
+    background-color: #7AE7C7;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    height: 3.8rem;
+    padding-bottom: 0.5rem;
+    padding-top: 0.7rem;
+    padding-left: 1rem;
+    color: white;
+;
+}
+
+h4 {
+    color: #4E6969;
 }
