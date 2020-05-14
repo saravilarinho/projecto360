@@ -1,5 +1,6 @@
 body {
 font-family: Sk-Modernist;
+    background-color: #EEF7F7;
 }
 
 .texto-nav {
@@ -25,4 +26,22 @@ header {
 
 h4 {
     color: #4E6969;
+}
+
+
+
+a.tabs:active {
+border-bottom: 2px solid #4E6969}
+
+.card_perfil {
+    width: 75%;
+    background-color: white;
+    border-radius: 30px;
+    -webkit-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.33);
+    -moz-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.33);
+    box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.33);
+    font-size: 15px;
+    line-height: 19px;
+    margin-top: 5px;
+margin-bottom: 7px
 }
