@@ -38,7 +38,7 @@ h4 {
 a.tabs:active {
 border-bottom: 2px solid #4E6969}
 
-.card {
+.card_perfil {
     background-color: white;
     border-radius: 25px;
     -webkit-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.33);
@@ -98,4 +98,21 @@ hr {
 .small_feed {
     color: #4E6969;
     font-size:10px;
+}
+
+.card_eventos {
+    background-color: white;
+    border-radius: 10px;
+    -webkit-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.33);
+    -moz-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.33);
+    box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.33);
+    font-size: 16px;
+    line-height: 19px;
+    margin-top: 5px;
+    margin-bottom: 7px;
+    border: none;
+    width: 85%;
+    height: 14rem;
+    color: #4E6969;
+
 }
