@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c4db7b8-196a-4820-98f3-16652de93eaf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/projecto360.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evento_semsubscricao.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pesquisa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/estilos.css" beforeDir="false" afterPath="$PROJECT_DIR$/estilos.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evento_semsubscricao.html" beforeDir="false" afterPath="$PROJECT_DIR$/evento_semsubscricao.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventos.html" beforeDir="false" afterPath="$PROJECT_DIR$/eventos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/perfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/perfil.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +73,7 @@
       <workItem from="1589535433480" duration="8667000" />
       <workItem from="1589730094138" duration="18921000" />
       <workItem from="1589881437345" duration="69000" />
-      <workItem from="1589881509232" duration="23076000" />
+      <workItem from="1589881509232" duration="36884000" />
     </task>
     <task id="LOCAL-00001" summary="socorro">
       <created>1588171715315</created>
@@ -128,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589883691343</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="socorro">
+      <created>1590082817044</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1590082817045</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,16 +146,16 @@
       <screen x="0" y="23" width="1440" height="813" />
     </state>
     <state x="184" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.813@0.23.1440.813" timestamp="1589538754120" />
-    <state x="301" y="41" key="CommitChangelistDialog2" timestamp="1589883691150">
+    <state x="301" y="41" key="CommitChangelistDialog2" timestamp="1590082816848">
       <screen x="0" y="23" width="1440" height="813" />
     </state>
     <state x="301" y="55" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1588171715154" />
-    <state x="301" y="41" key="CommitChangelistDialog2/0.23.1440.813@0.23.1440.813" timestamp="1589883691150" />
-    <state x="320" y="196" key="Vcs.Push.Dialog.v2" timestamp="1589883704500">
+    <state x="301" y="41" key="CommitChangelistDialog2/0.23.1440.813@0.23.1440.813" timestamp="1590082816848" />
+    <state x="320" y="196" key="Vcs.Push.Dialog.v2" timestamp="1590082832761">
       <screen x="0" y="23" width="1440" height="813" />
     </state>
     <state x="320" y="191" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1588171737203" />
-    <state x="320" y="196" key="Vcs.Push.Dialog.v2/0.23.1440.813@0.23.1440.813" timestamp="1589883704500" />
+    <state x="320" y="196" key="Vcs.Push.Dialog.v2/0.23.1440.813@0.23.1440.813" timestamp="1590082832761" />
     <state x="374" y="280" key="com.intellij.ide.util.TipDialog" timestamp="1589535436570">
       <screen x="0" y="23" width="1440" height="813" />
     </state>
@@ -162,10 +165,14 @@
       <screen x="0" y="23" width="1440" height="813" />
     </state>
     <state x="378" y="65" width="683" height="729" key="find.popup/0.23.1440.813@0.23.1440.813" timestamp="1589539812743" />
-    <state x="394" y="249" key="git4idea.merge.GitPullDialog" timestamp="1589883698437">
+    <state x="394" y="249" key="git4idea.merge.GitPullDialog" timestamp="1590082825553">
       <screen x="0" y="23" width="1440" height="813" />
     </state>
     <state x="394" y="250" key="git4idea.merge.GitPullDialog/0.0.1440.900@0.0.1440.900" timestamp="1588954646271" />
-    <state x="394" y="249" key="git4idea.merge.GitPullDialog/0.23.1440.813@0.23.1440.813" timestamp="1589883698437" />
+    <state x="394" y="249" key="git4idea.merge.GitPullDialog/0.23.1440.813@0.23.1440.813" timestamp="1590082825553" />
+    <state x="385" y="160" width="670" height="676" key="search.everywhere.popup" timestamp="1590156325064">
+      <screen x="0" y="23" width="1440" height="813" />
+    </state>
+    <state x="385" y="160" width="670" height="676" key="search.everywhere.popup/0.23.1440.813@0.23.1440.813" timestamp="1590156325064" />
   </component>
 </project>

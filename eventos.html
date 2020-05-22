@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
 
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -31,203 +30,137 @@
 
 <main>
 
-    <div class="container">
-        <div class="row row-cols-2 mt-4">
-            <div class="col align-content-center">
-                <div class="card card_eventos h-100">
-                    <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title mb-1 titulo_card_eventos"><b>Garagem do Reitor</b></p>
-                        <p class="card-text texto_card_eventos m-0"><small>16 de Março</small></p>
-                        <p class="card-text texto_card_eventos m-0"><small>Parque das Nações, Lisboa</small></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col align-content-center">
-                <div class="card card_eventos h-100">
-                    <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title mb-1 titulo_card_eventos"><b>Encontro Nacional de Design</b></p>
-                        <p class="card-text texto_card_eventos m-0"><small>16 de Março</small></p>
-                        <p class="card-text texto_card_eventos m-0"><small>Parque das Nações, Lisboa</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- <div class="container">
-        <div class="row row-cols-2">
-            <div class="col-6">
-                <div class="card card_eventos h-100">
-                    <img class="card-img-top" src="imagens/evento1.jpeg">
-                    <div class="card-body">
-                        <p class="card-title mb-1"><b>Garagem do Reitor</b></p>
-                        <p class="mb-0 mt-0"><small class="card-text">16 de Março</small></p>
-                        <small class="card-text">Parque das Nações, Lisboa</small>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-6">
-                <div class="card card_eventos h-100">
-                    <img class="card-img-top" src="imagens/evento1.jpeg">
-                    <div class="card-body">
-                        <p class="card-title mb-1"><b>Garagem do Reitor</b></p>
-                        <small class="card-text">16 de Março</small>
-                        <small class="card-text">Parque das Nações, Lisboa</small>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-
-    </div>-->
-</main>
-
-
-<!--<main>
-
-
     <div class="container mt-4">
+        <ul class="nav nav-tabs justify-content-center">
+            <li class="active mr-4"><a data-toggle="tab" href="#home">Meus Eventos</a></li>
+            <li class="mr-4"><a data-toggle="tab" href="#menu2">Favoritos</a></li>
+            <li><a data-toggle="tab" href="#menu3">Subscritos</a></li>
+        </ul>
 
-        <div class="row row-cols-2">
-            <div class="col">
-                <div class="card card_eventos">
-                    <img class="card-img-top" src="imagens/evento1.jpeg">
-                    <div class="card-body">
-                        <p class="card-title">Garagem do Reitor</p>
-                        <small class="card-text">16 de Março</small>
-                        <small class="card-text">Parque das Nações, Lisboa</small>
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active show">
+                <div class="container">
+                    <div class="row row-cols-2 mt-4">
+                        <div class="col align-content-center">
+                            <div class="card card_eventos h-100">
+                                <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
+                                <div class="card-body pb-0">
+                                    <div class="row">
+                                        <p class="card-title mb-1 titulo_card_eventos col-10"><b>Garagem do Reitor</b></p>
+                                        <img class="icone_categoria" src="imagens/icones/icone_festa.png">
+                                    </div>
+                                    <p class="card-text texto_card_eventos m-0"><small>16 de Março</small></p>
+                                    <p class="card-text texto_card_eventos m-0"><small>Parque das Nações, Lisboa</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col align-content-center">
+                            <div class="card card_eventos h-100">
+                                <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
+                                <div class="card-body pb-1">
+                                    <div class="row">
+                                        <p class="card-title mb-1 titulo_card_eventos col-10"><b>Encontro Nacional de
+                                            Design</b></p>
+                                        <img class="icone_categoria" src="imagens/icones/icone_festa.png">
+                                    </div>
+                                    <p class="card-text texto_card_eventos m-0"><small>16 de Março</small></p>
+                                    <p class="card-text texto_card_eventos m-0"><small>Parque das Nações, Lisboa</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
-            <div class="col">
-                <div class="card card_eventos">
 
-                    <img class="card-img-top" src="imagens/evento1.jpeg">
-                    <div class="card-body">
-                        <p class="card-title">Garagem do Reitor</p>
-                        <small class="card-text">16 de Março</small>
-                        <small class="card-text">Parque das Nações, Lisboa</small>
-
+            <div id="menu2" class="tab-pane fade">
+                <div class="container">
+                    <div class="row row-cols-2 mt-4">
+                        <div class="col align-content-center">
+                            <div class="card card_eventos h-100">
+                                <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
+                                <div class="card-body pb-0">
+                                    <div class="row">
+                                        <p class="card-title mb-1 titulo_card_eventos col-10"><b>Encontro Nacional de
+                                            Design</b></p>
+                                        <img class="icone_categoria" src="imagens/icones/icone_festa.png">
+                                    </div>
+                                    <p class="card-text texto_card_eventos m-0"><small>16 de Março</small></p>
+                                    <p class="card-text texto_card_eventos m-0"><small>Parque das Nações, Lisboa</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col align-content-center">
+                        </div>
                     </div>
                 </div>
+
             </div>
-        </div>
+            <div id="menu3" class="tab-pane fade">
+                <div class="container">
+                    <div class="row row-cols-2 mt-4">
+                        <div class="col align-content-center">
+                            <div class="card card_eventos h-100">
+                                <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
+                                <div class="card-body pb-0">
+                                    <div class="row">
+                                        <p class="card-title mb-1 titulo_card_eventos col-10"><b>Encontro Nacional de
+                                            Design</b></p>
+                                        <img class="icone_categoria" src="imagens/icones/icone_festa.png">
+                                    </div>
+                                    <p class="card-text texto_card_eventos m-0"><small>16 de Março</small></p>
+                                    <p class="card-text texto_card_eventos m-0"><small>Parque das Nações, Lisboa</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col align-content-center">
+                            <div class="card card_eventos h-100">
+                                <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
+                                <div class="card-body pb-1">
+                                    <div class="row">
+                                        <p class="card-title mb-1 titulo_card_eventos col-10"><b>Encontro Nacional de
+                                            Design</b></p>
+                                        <img class="icone_categoria" src="imagens/icones/icone_festa.png">
+                                    </div>
+                                    <p class="card-text texto_card_eventos m-0"><small>16 de Março</small></p>
+                                    <p class="card-text texto_card_eventos m-0"><small>Parque das Nações, Lisboa</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 mt-4">
+                        <div class="col align-content-center">
+                            <div class="card card_eventos h-100">
+                                <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
+                                <div class="card-body pb-0">
+                                    <div class="row">
+                                        <p class="card-title mb-1 titulo_card_eventos col-10"><b>Encontro Nacional de
+                                            Design</b></p>
+                                        <img class="icone_categoria" src="imagens/icones/icone_festa.png">
+                                    </div>
+                                    <p class="card-text texto_card_eventos m-0"><small>16 de Março</small></p>
+                                    <p class="card-text texto_card_eventos m-0"><small>Parque das Nações, Lisboa</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
-        <div class="row row-cols-2">
-            <div class="col">
-                <div class="card card_eventos">
-                    <img class="card-img-top" src="imagens/evento1.jpeg">
-                    <div class="card-body">
-                        <p class="card-title">Garagem do Reitor</p>
-                        <small class="card-text">16 de Março</small>
-                        <small class="card-text">Parque das Nações, Lisboa</small>
-                    </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card card_eventos">
-                    <img class="card-img-top" src="imagens/evento1.jpeg">
-                    <div class="card-body">
-                        <p class="card-title">Garagem do Reitor</p>
-                        <small class="card-text">16 de Março</small>
-                        <small class="card-text">Parque das Nações, Lisboa</small>
-                    </div>
-                </div>
+
+
             </div>
         </div>
     </div>
-</main>-->
-
-<!--
-<main>
-
-    <ul class="nav nav-tabs nav-justified">
-        <li class="active">
-            <a class="tabs" data-toggle="tab" href="#home">Meus Eventos</a>
-        </li>
-        <li>
-            <a class="tabs" data-toggle="tab" href="#menu1">Favoritos</a>
-        </li>
-        <li>
-            <a class="tabs" data-toggle="tab" href="#menu2">Eventos Subscritos</a>
-        </li>
-    </ul>
 
 
-    <div class="tab-content container mt-4">
-
-        <div id="home" class="tab-pane fade active show">
-            <div class="row row-cols-2">
-                <div class="col">
-                    <div class="card card_eventos">
-
-                        <img class="card-img-top" src="imagens/evento1.jpeg">
-                        <div class="card-body">
-                            <p class="card-title">Garagem do Reitor</p>
-                            <small class="card-text">16 de Março</small>
-                            <small class="card-text">Parque das Nações, Lisboa</small>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card card_eventos">
-
-                        <img class="card-img-top" src="imagens/evento1.jpeg">
-                        <div class="card-body">
-                            <p class="card-title">Garagem do Reitor</p>
-                            <small class="card-text">16 de Março</small>
-                            <small class="card-text">Parque das Nações, Lisboa</small>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div id="menu1" class="tab-pane fade">
-
-            <div class="row row-cols-2">
-                <div class="col">
-                    <div class="card card_eventos">
-
-                        <img class="card-img-top" src="imagens/evento1.jpeg">
-                        <div class="card-body">
-                            <p class="card-title">Garagem do Reitor</p>
-                            <small class="card-text">16 de Março</small>
-                            <small class="card-text">Parque das Nações, Lisboa</small>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card card_eventos">
-
-                        <img class="card-img-top" src="imagens/evento1.jpeg">
-                        <div class="card-body">
-                            <p class="card-title">Garagem do Reitor</p>
-                            <small class="card-text">16 de Março</small>
-                            <small class="card-text">Parque das Nações, Lisboa</small>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="menu2" class="tab-pane fade">
-
-            <p> olá</p>
-        </div>
-    </div>
 </main>
--->
 
 
 <footer>

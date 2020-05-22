@@ -80,7 +80,7 @@ margin: 0;
 
 }
 
-.icone_historico {
+.icone_categoria {
   height: 17px;
 
 }
@@ -141,10 +141,44 @@ hr {
     font-weight: bold;
 }
 
+.texto_descricao_evento {
+    font-size: 15px;
+    color: #4E6969;
+}
+
 i.fa-map-marker-alt {
     color: #1ec5bc !important;
 }
 
 i.fa-calendar-alt {
     color: #1ec5bc !important;
+}
+
+.botao_grande {
+    background-color: #3e3f80;
+    color: white;
+    text-align: center;
+    width: 80%;
+    -webkit-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.33);
+    -moz-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.33);
+    box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.33);
+    border-radius: 10px;
+}
+
+.superior_redondo {
+    z-index: 1000;
+    margin-top: -50px;
+    position: absolute;
+    border-radius: 20px 20px 0 0;
+    background-color: #EEF7F7
+}
+
+.info_evento {
+    margin-top: 0;
+    padding: 0;
+    line-height: 9px;
+}
+
+.alinhamento_icones {
+    align-items: baseline;
 }
