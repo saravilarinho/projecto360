@@ -43,14 +43,18 @@ border-bottom: 2px solid #4E6969}
     -webkit-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.33);
     -moz-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.33);
     box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.33);
-    font-size: 16px;
-    line-height: 19px;
+    font-size: 13px;
+    line-height: 17px;
     margin-top: 5px;
     margin-bottom: 7px;
     color: #1ec5bc;
     border: none;
-    width: 92%;
+    text-align: center;
+}
 
+.img_card_stats {
+    max-width: 50%;
+    border: #EEF7F7 2px solid;
 }
 
 .tab-content{
@@ -170,7 +174,8 @@ i.fa-calendar-alt {
     margin-top: -50px;
     position: absolute;
     border-radius: 20px 20px 0 0;
-    background-color: #EEF7F7
+    background-color: #EEF7F7;
+    width: 100%;
 }
 
 .info_evento {
@@ -182,3 +187,6 @@ i.fa-calendar-alt {
 .alinhamento_icones {
     align-items: baseline;
 }
+
+
+
