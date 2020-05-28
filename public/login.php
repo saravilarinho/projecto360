@@ -54,7 +54,9 @@ if(isset($_GET["message"])){
 
                 //outras mensagens
 
-                if ($mensagem_erro = 5){ echo "<p class='col-sm-10 text-danger mt-2 mb-0 text-left' style='font-size: 12px'>Ocorreu um erro. Tenta de novo.</p>"; }
+                if ($mensagem_erro = 1){ echo "<p class='col-sm-10 text-danger mt-2 mb-0 text-left' style='font-size: 12px'>E-mail ou password incorretos. Tente de novo. </p>"; }
+
+                if ($mensagem_erro = 2){ echo "<p class='col-sm-10 text-danger mt-2 mb-0 text-left' style='font-size: 12px'>Ocorreu um erro. Tenta de novo.</p>"; }
 
 
             }

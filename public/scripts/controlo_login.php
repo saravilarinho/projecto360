@@ -11,7 +11,7 @@ if(isset ($POST["email"]) && (isset ($POST["password"]))){
 
     $stmt = mysqli_stmt_init($link);
 
-    $query = "SELECT password, role_id_role, id_utilizador 
+    $query = "SELECT password, id_utilizador 
               FROM utilizadores 
               WHERE email LIKE ?";
 
@@ -25,7 +25,7 @@ if(isset ($POST["email"]) && (isset ($POST["password"]))){
 
         if (mysqli_stmt_execute($stmt)) {
 
-            mysqli_stmt_bind_result($stmt, $password_hash, $role, $id_utilizador);
+            mysqli_stmt_bind_result($stmt, $password_hash, $id_utilizador);
 
             if (mysqli_stmt_fetch($stmt)) {
                 if (password_verify($password, $password_hash)) {
@@ -33,14 +33,11 @@ if(isset ($POST["email"]) && (isset ($POST["password"]))){
                     // Guardar sessão de utilizador
                     session_start();
                     $_SESSION["email"] = $email;
-                   // $_SESSION["role"] = $role;
                     $_SESSION["id_utilizador"] = $id_utilizador;
 
 
                     // Feedback de sucesso
                     header("Location: ../feed.php");
-
-
                 }
                 else {
                     // password errada ou user nao tem acesso
@@ -50,7 +47,7 @@ if(isset ($POST["email"]) && (isset ($POST["password"]))){
             }
             else {
                 // Username não existe
-                header("Location: ../login.php?message=4");
+                header("Location: ../login.php?message=2");
             }
             mysqli_stmt_close($stmt);
             mysqli_close($link);
@@ -67,10 +64,7 @@ if(isset ($POST["email"]) && (isset ($POST["password"]))){
 }
 
 else {
-    header("Location: ../login.php?message=5");
+    header("Location: ../login.php?message=2");
 }
-
-
-
 
 ?>
