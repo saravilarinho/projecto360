@@ -26,7 +26,7 @@
     <nav class="navbar navbar-expand fixed-bottom container p-0 pt-2" style="background-color: #1ec5bc">
         <div class="row no-gutters justify-content-around w-100">
             <a class=" col-2 justify-content-center text-center" id="feed"
-               href="../feed.html">
+               href="../feed.php">
                 <i class="far fa-2x fa-newspaper"></i>
                 <br/>
                 <span class="texto-nav">FEED</span>
@@ -44,13 +44,13 @@
                 <span class="texto-nav">ADICIONAR</span>
             </a>
             <a class="col-2  justify-content-center text-center" id="eventos"
-               href="../eventos.html">
+               href="../eventos.php">
                 <i class="far fa-2x fa-calendar-plus"></i>
                 <br/>
                 <span class="texto-nav">EVENTOS</span>
             </a>
             <a class="col-2  justify-content-center text-center" id="perfil"
-               href="../perfil.html">
+               href="../perfil.php">
                 <i class="far fa-2x fa-user"></i>
                 <br/>
                 <span class="texto-nav">PERFIL</span>
