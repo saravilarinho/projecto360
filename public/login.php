@@ -1,3 +1,15 @@
+<?php
+
+
+if(isset($_GET["message"])){
+
+    $mensagem_erro = $_GET["message"];
+
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,17 +39,31 @@
 
 <div>
 
-    <form class="form-horizontal mt-4" action="/action_page.php" role="form" method="post">
+    <form class="form-horizontal mt-4" action="scripts/controlo_login.php" role="form" method="post">
         <div class="form-group">
             <div class="col-sm-10 mb-2">
-                <input type="text" class="form-control texto_form_pesquisa" id="email" placeholder="E-mail">
+                <input type="email" class="form-control texto_form_pesquisa" name="email" id="email" placeholder="E-mail">
             </div>
             <div class="col-sm-10">
-                <input type="password" class="form-control texto_form_pesquisa" id="password" placeholder="Password">
+                <input type="password" class="form-control texto_form_pesquisa" name="password" id="password" placeholder="Password">
             </div>
-<div class="justify-content-center d-flex">
-            <button type="submit" class="btn mt-3 botao_grande"> Entrar </button>
-        </div>
+
+            <?php
+
+            if (isset($mensagem_erro)){
+
+                //outras mensagens
+
+                if ($mensagem_erro = 5){ echo "<p class='col-sm-10 text-danger mt-2 mb-0 text-left' style='font-size: 12px'>Ocorreu um erro. Tenta de novo.</p>"; }
+
+
+            }
+            ?>
+
+
+            <div class="justify-content-center d-flex">
+                <button type="submit" class="btn mt-3 botao_grande"> Entrar </button>
+            </div>
         </div>
     </form>
 

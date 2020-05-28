@@ -27,19 +27,19 @@
 
 <div class="justify-content-center d-flex mt-5">
 
-
+<a href="login.php" style="width: 100%; text-align: center;">
     <button type="button" class="btn botao_grande">
         Entrar
     </button>
-
+    </a>
 </div>
 
 <div class="justify-content-center d-flex mt-3">
-
+    <a href="" style="width: 100%; text-align: center;">
     <button class="btn botao_grande">
         Registar
     </button>
-
+    </a>
 </div>
 </body>
 </html>
