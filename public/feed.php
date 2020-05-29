@@ -1,5 +1,6 @@
 <?php
 
+// if isset id utilziador
 
 ?>
 
@@ -35,15 +36,28 @@
     </h3>
 
 </header>
+<!--
+--><?php
+/*require_once "../admin/connections/connection2db.php";
+$link = new_db_connection();
+$stmt = mysqli_stmt_init($link);
+
+$query = "SELECT nome_utilizador, foto, 
+          FROM utilizadores
+          INNER JOIN cidade
+          ON cidade.id_cidade = utilizador.cidade_utilizador
+          WHERE id_utilizador = ?";
+
+if (mysqli_stmt_prepare($stmt, $query)) {
+mysqli_stmt_bind_param($stmt, "i", $id_utilizador);
+$id_utilizador = $id;
+
+mysqli_stmt_execute($stmt);
+mysqli_stmt_bind_result($stmt, $nome, $foto);
+
+if (mysqli_stmt_fetch($stmt)) { */?>
 
 <main>
-
-    <?php
-
-    // fazer a ligação a bd
-    // condição para ir buscar o numero de coisas que existem e listar com count?
-
-    ?>
 
     <div class="card mt-4 ml-2 mx-auto">
         <div class="row  mt-2 mb-2 mr-0">
@@ -91,44 +105,18 @@
     </div>
 </main>
 
-<footer>
 
-    <nav class="navbar navbar-expand fixed-bottom container p-0 pt-2" style="background-color: #1ec5bc">
-        <div class="row no-gutters justify-content-around w-100">
-            <a class=" col-2 justify-content-center text-center" id="feed"
-               href="feed.php">
-                <i class="far fa-2x fa-newspaper"></i>
-                <br/>
-                <span class="texto-nav">FEED</span>
-            </a>
-            <a class="col-2  justify-content-center text-center" id="pesquisa"
-               href="pesquisa.html">
-                <i class="fas fa-2x fa-search"></i>
-                <br/>
-                <span class="texto-nav">PESQUISA</span>
-            </a>
-            <a class="col-3  justify-content-center text-center" id="adicionar"
-               href="meu_perfil.php">
-                <i class="fas fa-2x fa-plus-circle"></i>
-                <br/>
-                <span class="texto-nav">ADICIONAR</span>
-            </a>
-            <a class="col-2  justify-content-center text-center" id="eventos"
-               href="eventos.php">
-                <i class="far fa-2x fa-calendar-plus"></i>
-                <br/>
-                <span class="texto-nav">EVENTOS</span>
-            </a>
-            <a class="col-2  justify-content-center text-center" id="perfil"
-               href="perfil.php">
-                <i class="far fa-2x fa-user"></i>
-                <br/>
-                <span class="texto-nav">PERFIL</span>
-            </a>
-        </div>
-    </nav>
-    <div>
-    </div>
-</footer>
+    <?php
+/*}
+    mysqli_stmt_close($stmt); // Close statement
+}
+mysqli_close($link); // Close connection*/
+
+include_once "components/footer.php";
+
+
+?>
+
+
 </body>
 </html>

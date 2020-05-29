@@ -16,7 +16,6 @@ if(isset ($_POST["email"]) && (isset ($_POST["password"]))){
               FROM utilizadores 
               WHERE email LIKE ?";
 
-    //query mudar
 
     if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 's', $email);
