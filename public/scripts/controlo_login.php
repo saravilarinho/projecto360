@@ -4,8 +4,9 @@
 require_once "../../admin/connections/connection2db.php";
 
 
-if(isset ($POST["email"]) && (isset ($POST["password"]))){
-
+if(isset ($_POST["email"]) && (isset ($_POST["password"]))){
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
     $link = new_db_connection();
 
@@ -64,7 +65,8 @@ if(isset ($POST["email"]) && (isset ($POST["password"]))){
 }
 
 else {
-    header("Location: ../login.php?message=2");
+
+   header("Location: ../login.php?message=2");
 }
 
 ?>
