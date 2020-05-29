@@ -5,10 +5,10 @@ error_reporting(E_ALL);
 function new_db_connection()
 {
     // Variables for the database connection
-    $hostname = 'labmm.clients.ua.pt';
-    $username = "deca_18L4_04_web";
-    $password = "IR6Y9A";
-    $dbname = "mydb";
+    $hostname = 'localhost';
+    $username = "id13881220_projeto360";
+    $password = "QtN%<0TXo}o2+*d7";
+    $dbname = "id13881220_projeto";
 
 
 // Makes the connection
