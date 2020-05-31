@@ -6,9 +6,17 @@ function new_db_connection()
 {
     // Variables for the database connection
     $hostname = 'localhost';
+    $username = "root";
+    $password = " ";
+    $dbname = "id13881220_projeto";
+
+
+    /*
+       $hostname = 'localhost';
     $username = "id13881220_projeto360";
     $password = "?=|W0+V9NOe~CVO|";
     $dbname = "id13881220_projeto";
+      */
 
 
 // Makes the connection

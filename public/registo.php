@@ -21,9 +21,6 @@
 </head>
 <body>
 
-
-</header>
-
 <header>
     <h3>
         <a href="inicio.php" style="text-decoration: none; color: #03bd03;">
