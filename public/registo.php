@@ -40,37 +40,39 @@
 
         <div class="col-10">
 
-            <form action="scripts/user_register.php" method="post">
+            <form action="scripts/registo_utilizadores.php" role="form" method="post">
 
                 <p class="mt-2 mb-0 text-left">Nome</p>
-                <input class="pl-2 mt-1 w-100" type="text" name="nome" placeholder="ex: Tiago"
+                <input class="pl-2 mt-1 w-100" type="text" name="name" placeholder="ex: Tiago"
                        required="required">
 
-                <p class="mt-1 mb-0 text-left">Apelido</p>
+              <!--  <p class="mt-1 mb-0 text-left">Apelido</p>
                 <input class="pl-2 mt-1 w-100" type="text" name="nome" placeholder="ex: Santos"
                        required="required">
 
                 <p class="mt-1 mb-0 text-left">Nome de Utilizador</p>
                 <input class="pl-2 mt-1 w-100" type="text" name="nome" placeholder="@exemplo"
-                       required="required">
+                       required="required">-->
 
                 <p class="mt-2 mb-0 text-left">E-mail</p>
-                <input class="pl-2 mt-1 w-100" type="email" name="mail" placeholder="exemplo@gmail.com"
+                <input class="pl-2 mt-1 w-100" type="email" name="email" placeholder="exemplo@gmail.com"
                        required="required">
 
-                <p class="mt-2 mb-0 text-left">Data de Nascimento</p>
+               <!-- <p class="mt-2 mb-0 text-left">Data de Nascimento</p>
                 <input class="pl-2 mt-1 w-100" type="date" name="data_nasc" placeholder="dd/mm/yyyy"
-                       required="required">
+                       required="required">-->
 
                 <p class="mt-2 mb-0 text-left">Palavra-passe</p>
-                <input class="pl-2 mt-1 w-100" type="password" name="pass" required="required" placeholder="Palavra-passe">
+                <input class="pl-2 mt-1 w-100" type="password" name="password_hash" required="required" placeholder="Palavra-passe">
 
+
+                <div class="justify-content-center d-flex">
+                    <button type="submit" class="btn mt-3 botao_grande"> Confirmar </button>
+                </div>
             </form>
         </div>
     </div>
-    <div class="justify-content-center d-flex">
-        <button type="submit" class="btn mt-3 botao_grande"> Confirmar </button>
-    </div>
+
 </main>
 </body>
 </html>
