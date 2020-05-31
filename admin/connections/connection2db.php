@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 function new_db_connection()
 {
     // Variables for the database connection
-    $hostname = 'databases.000webhost.com';
+    $hostname = 'localhost';
     $username = "id13881220_projeto360";
     $password = "?=|W0+V9NOe~CVO|";
     $dbname = "id13881220_projeto";

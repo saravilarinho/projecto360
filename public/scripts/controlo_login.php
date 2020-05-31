@@ -37,11 +37,13 @@ if(isset ($_POST["email"]) && (isset ($_POST["password"]))){
 
 
                     // Feedback de sucesso
-                    header("Location: ../feed.php");
+                    //header("Location: ../feed.php");
+                    var_dump("socorro");
                 }
                 else {
                     // password errada ou user nao tem acesso
                     header("Location: ../login.php?message=1");
+                    var_dump("socorromesmo");
 
                 }
             }
@@ -65,7 +67,7 @@ if(isset ($_POST["email"]) && (isset ($_POST["password"]))){
 
 else {
 
-   header("Location: ../login.php?message=2");
+   header("Location: ../login.php?message=3");
 }
 
 ?>
