@@ -1,10 +1,8 @@
 <?php
-
+session_start();
 
 if(isset($_GET["message"])){
-
     $mensagem_erro = $_GET["message"];
-
 }
 
 ?>
