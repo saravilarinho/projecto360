@@ -8,6 +8,7 @@ if(isset ($_POST["email"]) && (isset ($_POST["password"]))){
     $email = $_POST["email"];
     $password = $_POST["password"];
 
+
     $link = new_db_connection();
 
     $stmt = mysqli_stmt_init($link);
@@ -23,12 +24,17 @@ if(isset ($_POST["email"]) && (isset ($_POST["password"]))){
         $email = $_POST["email"];
         $password = $_POST["password"];
 
+
         if (mysqli_stmt_execute($stmt)) {
 
             mysqli_stmt_bind_result($stmt, $password_hash, $id_utilizador);
 
             if (mysqli_stmt_fetch($stmt)) {
+
                 if (password_verify($password, $password_hash)) {
+
+                    var_dump($email);
+                    var_dump($password);
 
                     // Guardar sessão de utilizador
                     session_start();
@@ -37,11 +43,11 @@ if(isset ($_POST["email"]) && (isset ($_POST["password"]))){
 
 
                     // Feedback de sucesso
-                    header("Location: ../feed.php");
+                    header("Location: ../feed.php?x=1");
                 }
                 else {
                     // password errada ou user nao tem acesso
-                    header("Location: ../login.php?message=1");
+                   header("Location: ../login.php?message=1");
 
                 }
             }
@@ -65,7 +71,7 @@ if(isset ($_POST["email"]) && (isset ($_POST["password"]))){
 
 else {
 
-   header("Location: ../login.php?message=2");
+   header("Location: ../login.php?message=3");
 }
 
 ?>

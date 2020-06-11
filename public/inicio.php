@@ -35,8 +35,8 @@
 </div>
 
 <div class="justify-content-center d-flex mt-3">
-    <a href="" style="width: 100%; text-align: center;">
-    <button class="btn botao_grande">
+    <a href="registo.php" style="width: 100%; text-align: center;">
+    <button type="button" class="btn botao_grande">
         Registar
     </button>
     </a>
