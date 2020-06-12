@@ -1,6 +1,10 @@
 <?php
- //if issset id utilizador
+session_start();
+if (isset($_SESSION['id_utilizador'])){
 
+    $id_utilizador = $_SESSION['id_utilizador'];
+
+}
 
 ?>
 
@@ -61,11 +65,33 @@ if (mysqli_stmt_fetch($stmt)) { */?>
 
 <main>
 
+    <?php
+
+
+    require_once "../admin/connections/connection2db.php";
+
+    $link = new_db_connection();
+    $stmt = mysqli_stmt_init($link);
+
+    $query = "SELECT id_utilizador, nome_utilizador, eventos_criados, eventos_subscritos, conteudos_partilhados
+                  FROM utilizadores
+                  WHERE id_utilizador = $id_utilizador";
+
+    if (mysqli_stmt_prepare($stmt, $query)) {
+
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt, $id, $nome, $eventos_criados, $eventos_subscritos, $conteudos_partilhados);
+
+
+        if (mysqli_stmt_fetch($stmt)) {
+
+            ?>
+
     <div class="text-center mt-4">
 
         <img style="width: 125px;" class="rounded-circle" src="imagens/img_perfil.jpg">
 
-<h4 class="mt-2"> Leonor Lima    </h4>
+        <h4 class="mt-2"> <?php echo $nome ?> </h4>
 
     </div>
 
@@ -83,7 +109,7 @@ if (mysqli_stmt_fetch($stmt)) { */?>
                     <div class="card_perfil mt-4 mx-auto w-100">
                         <div class="row align-items-center">
                             <div class="col-4">
-                                <p class="mt-2 mb-0 pl-2 titulo_card_stats">2</p>
+                                <p class="mt-2 mb-0 pl-2 titulo_card_stats"><?php echo $eventos_criados?></p>
                                 <p class="mb-2 mt-0 pl-2 titulo_card_stats">Eventos Criados</p>
                             </div>
                             <div class="imgs-stats col-6 align-middle">
@@ -99,7 +125,7 @@ if (mysqli_stmt_fetch($stmt)) { */?>
                     <div class="card_perfil mt-4 mx-auto">
                         <div class="row align-items-center">
                             <div class="col-4">
-                                <p class="mt-2 mb-0 pl-2 titulo_card_stats">10</p>
+                                <p class="mt-2 mb-0 pl-2 titulo_card_stats"><?php echo $eventos_subscritos?></p>
                                 <p class="mb-2 mt-0 pl-2 titulo_card_stats">Eventos Subscritos</p>
                             </div>
                             <div class="imgs-stats col-6 align-middle">
@@ -115,7 +141,7 @@ if (mysqli_stmt_fetch($stmt)) { */?>
                     <div class="card_perfil mt-4 mx-auto">
                         <div class="row align-items-center">
                             <div class="col-4">
-                                <p class="mt-2 mb-0 pl-2 titulo_card_stats">30</p>
+                                <p class="mt-2 mb-0 pl-2 titulo_card_stats"><?php echo $conteudos_partilhados?></p>
                                 <p class="mb-2 mt-0 pl-2 titulo_card_stats">Conteúdos Partilhados</p>
                             </div>
                             <div class="imgs-stats col-6 align-middle">
@@ -184,11 +210,13 @@ if (mysqli_stmt_fetch($stmt)) { */?>
 
 </main>
 
-    <?php
-/*}
+
+<?php
+}
+
     mysqli_stmt_close($stmt); // Close statement
 }
-mysqli_close($link); // Close connection*/
+mysqli_close($link); // Close connection
 
 
 

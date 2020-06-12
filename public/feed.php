@@ -1,7 +1,11 @@
 <?php
+session_start();
 
-// if isset id utilziador
 
+if (isset($_SESSION['id_utilizador'])) {
+    $id_utilizador = $_SESSION['id_utilizador'] ;
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +69,7 @@ if (mysqli_stmt_fetch($stmt)) { */?>
                 <img class="img_card_feed rounded-circle ml-2" src="imagens/img_perfil.jpg">
             </div>
             <div class="col-6 align-self-center">
-                <p class="texto_card_historico"><b>Garagem do Reitor</b> alterou o seu horário.</p>
+                <p class="texto_card_historico"><b> Garagem do Reitor</b> alterou o seu horário.</p>
                 <img class="icone_categoria" src="imagens/icones/icone_festa.png"> <small class="small_feed">há 1 dia</small>
             </div>
             <div class="col-3 align-self-center">

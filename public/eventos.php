@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+
+
+if (isset($_SESSION['id_utilizador'])){
+    $id_utilizador = $_SESSION['id_utilizador'];
+
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +43,6 @@
 </header>
 
 <main>
-
     <div class="container mt-4">
         <ul class="nav nav-tabs justify-content-center">
             <li class="active mr-4"><a data-toggle="tab" href="#home">Meus Eventos</a></li>
@@ -38,6 +51,33 @@
         </ul>
 
         <div class="tab-content">
+
+    <?php
+
+    require_once "../admin/connections/connection2db.php";
+
+    $link = new_db_connection();
+    $stmt = mysqli_stmt_init($link);
+
+    $query = "SELECT utilizadores.id_utilizador, utilizadores.nome_utilizador, 
+utilizadores_has_eventos.eventos_id_evento, utilizadores_has_eventos.roles_id_role, eventos.nome_evento, eventos.data_inicio_evento
+FROM utilizadores
+INNER JOIN utilizadores_has_eventos
+ON utilizadores.id_utilizador = utilizadores_has_eventos.utilizadores_id_utilizador
+INNER JOIN eventos
+ON eventos.id_evento = utilizadores_has_eventos.eventos_id_evento
+WHERE utilizadores.id_utilizador = $id_utilizador AND utilizadores_has_eventos.roles_id_role = 1";
+
+    if (mysqli_stmt_prepare($stmt, $query)) {
+
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $id, $nome_utilizador, $id_evento, $role_evento, $nome_evento, $data_evento);
+
+
+    while (mysqli_stmt_fetch($stmt)) {
+
+    ?>
+
             <div id="home" class="tab-pane fade in active show">
                 <div class="container">
                     <div class="row row-cols-2 mt-4">
@@ -46,26 +86,15 @@
                                 <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body pb-0">
                                     <div class="row">
-                                        <p class="card-title mb-1 titulo_card_eventos col-10"><b>Garagem do Reitor</b></p>
+                                        <p class="card-title mb-1 titulo_card_eventos col-10"><b> <?php echo $nome_evento ?></b>
+                                        </p>
                                         <img class="icone_categoria" src="imagens/icones/icone_festa.png">
                                     </div>
-                                    <p class="card-text texto_card_eventos m-0"><small>16 de Março</small></p>
-                                    <p class="card-text texto_card_eventos m-0"><small>Parque das Nações, Lisboa</small>
+                                    <p class="card-text texto_card_eventos m-0">
+                                        <small><?php echo $data_evento?></small>
                                     </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col align-content-center">
-                            <div class="card card_eventos h-100">
-                                <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
-                                <div class="card-body pb-1">
-                                    <div class="row">
-                                        <p class="card-title mb-1 titulo_card_eventos col-10"><b>Encontro Nacional de
-                                            Design</b></p>
-                                        <img class="icone_categoria" src="imagens/icones/icone_festa.png">
-                                    </div>
-                                    <p class="card-text texto_card_eventos m-0"><small>16 de Março</small></p>
-                                    <p class="card-text texto_card_eventos m-0"><small>Parque das Nações, Lisboa</small>
+                                    <p class="card-text texto_card_eventos m-0">
+                                        <small>Parque das Nações, Lisboa</small>
                                     </p>
                                 </div>
                             </div>
@@ -74,6 +103,11 @@
                 </div>
 
             </div>
+            <?php }
+
+            }
+
+            ?>
 
             <div id="menu2" class="tab-pane fade">
                 <div class="container">
@@ -99,6 +133,9 @@
                 </div>
 
             </div>
+
+
+
             <div id="menu3" class="tab-pane fade">
                 <div class="container">
                     <div class="row row-cols-2 mt-4">

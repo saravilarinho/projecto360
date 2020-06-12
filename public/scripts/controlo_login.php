@@ -5,9 +5,6 @@ require_once "../../admin/connections/connection2db.php";
 
 
 if(isset ($_POST["email"]) && (isset ($_POST["password"]))){
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-
 
     $link = new_db_connection();
 
@@ -33,17 +30,15 @@ if(isset ($_POST["email"]) && (isset ($_POST["password"]))){
 
                 if (password_verify($password, $password_hash)) {
 
-                    var_dump($email);
-                    var_dump($password);
 
                     // Guardar sessão de utilizador
                     session_start();
-                    $_SESSION["email"] = $email;
-                    $_SESSION["id_utilizador"] = $id_utilizador;
+                    $_SESSION['email'] = $email;
+                    $_SESSION['id_utilizador'] = $id_utilizador;
 
 
                     // Feedback de sucesso
-                    header("Location: ../feed.php?x=1");
+                    header("Location: ../feed.php?x=1&y=$id_utilizador");
                 }
                 else {
                     // password errada ou user nao tem acesso
