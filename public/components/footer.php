@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="js/scripts.js" ></script>
+    <script src="../interacoes.js" ></script>
     <link rel="stylesheet" type="text/css" href="../estilos.css">
     <title>footer</title>
 </head>
@@ -32,13 +32,12 @@
                 <span class="texto-nav">FEED</span>
             </a>
             <a class="col-2  justify-content-center text-center" id="pesquisa"
-               href="pesquisa.html">
+               href="pesquisa.php">
                 <i class="fas fa-2x fa-search"></i>
                 <br/>
                 <span class="texto-nav">PESQUISA</span>
             </a>
-            <a class="col-3  justify-content-center text-center" id="adicionar"
-               href="meu_perfil.php">
+            <a class="col-3 add justify-content-center text-center" onclick="on()" id="adicionar" >
                 <i class="fas fa-2x fa-plus-circle"></i>
                 <br/>
                 <span class="texto-nav">ADICIONAR</span>
