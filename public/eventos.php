@@ -98,6 +98,7 @@ if (isset($_SESSION['id_utilizador'])){
 
                         <div class="col align-content-center">
                             <div class="card card_eventos h-100">
+                                <a class="linkar" href="eventocomsubscricao.html">
                                 <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body pb-0">
                                     <div class="row">
@@ -112,6 +113,8 @@ if (isset($_SESSION['id_utilizador'])){
                                         <small> <?= $localizacao ?></small>
                                     </p>
                                 </div>
+
+                                </a>
                             </div>
                         </div>
 
@@ -149,6 +152,7 @@ if (isset($_SESSION['id_utilizador'])){
 
                         <div class="col align-content-center">
                             <div class="card card_eventos h-100">
+                                <a class="linkar" href="eventocomsubscricao.html">
                                 <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body pb-0">
                                     <div class="row">
@@ -159,6 +163,7 @@ if (isset($_SESSION['id_utilizador'])){
                                     <p class="card-text texto_card_eventos m-0"><small><?=$localizacao ?></small>
                                     </p>
                                 </div>
+                                    </a>
                             </div>
                         </div>
 
@@ -194,6 +199,7 @@ if (isset($_SESSION['id_utilizador'])){
 
                         <div class="col align-content-center">
                             <div class="card card_eventos h-100">
+                                <a class="linkar" href="eventocomsubscricao.html">
                                 <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body pb-0">
                                     <div class="row">
@@ -204,6 +210,7 @@ if (isset($_SESSION['id_utilizador'])){
                                     <p class="card-text texto_card_eventos m-0"><small><?= $localizacao ?></small>
                                     </p>
                                 </div>
+                                </a>
                             </div>
                         </div>
 

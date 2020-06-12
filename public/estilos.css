@@ -114,8 +114,12 @@ hr {
     margin-bottom: 7px;
     border: none;
     height: 14rem;
-    color: #4E6969;
+    color: #4E6969; !important;
 
+}
+
+.linkar{
+    color: #4E6969; !important;
 }
 
 .texto_card_eventos {
@@ -243,4 +247,7 @@ i.fa-calendar-alt {
 .add {
     display: contents;
 }
+
+
+
 
