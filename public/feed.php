@@ -25,7 +25,7 @@ if (isset($_SESSION['id_utilizador'])) {
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="js/scripts.js" ></script>
+    <script src="interacoes.js" ></script>
     <link rel="stylesheet" type="text/css" href="estilos.css">
     <title>Feed</title>
 

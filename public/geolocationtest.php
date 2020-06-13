@@ -12,7 +12,7 @@
         }
         /* Optional: Makes the sample page fill the window. */
         html, body {
-            height: 100%;
+            height: 75%;
             margin: 0;
             padding: 0;
         }
@@ -63,12 +63,12 @@
     }
 </script>
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqx4hBCg47FnZfxDoCHJMK6a1hPuPfGo&callback=initMap">
 </script>
 </body>
-</html>-->
+</html>
 
-
+-->
 
 
 <!DOCTYPE html >
@@ -168,7 +168,7 @@
 
     function doNothing() {}
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AlzaSyDoNO0JU21hhJtLCZdGQGwWnXd4TSwV4cs&callback=initMap">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqx4hBCg47FnZfxDoCHJMK6a1hPuPfGo&callback=initMap">
 </script>
 </body>
 </html>

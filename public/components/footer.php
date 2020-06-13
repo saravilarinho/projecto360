@@ -20,6 +20,27 @@
     <title>footer</title>
 </head>
 
+<body>
+
+<main>
+<div id="overlay" onclick="off()">
+    <div id="text" class="row">
+
+        <div class="rounded-circle overlay_icone col-5 p-3">
+            <i class="far fa-3x fa-calendar-plus icone"></i>
+            <p class="mb-0">Evento</p>
+        </div>
+
+        <div class="rounded-circle overlay_icone col-5 p-3" style="margin-left: 23px">
+            <i class="far fa-3x fa-clone icone"></i>
+            <p class="mb-0">Conteúdo</p>
+        </div>
+
+    </div>
+</div>
+
+
+</main>
 
 <footer>
 
@@ -37,11 +58,12 @@
                 <br/>
                 <span class="texto-nav">PESQUISA</span>
             </a>
-            <a class="col-3 add justify-content-center text-center" onclick="on()" id="adicionar" >
-                <i class="fas fa-2x fa-plus-circle"></i>
-                <br/>
-                <span class="texto-nav">ADICIONAR</span>
-            </a>
+            <div onclick="on()" class="add">
+                <a class="col-3 text-center" id="adicionar">
+                    <i class="fas fa-2x fa-plus-circle"></i>
+                    <br/>
+                    <span class="texto-nav">ADICIONAR</span></a>
+            </div>
             <a class="col-2  justify-content-center text-center" id="eventos"
                href="eventos.php">
                 <i class="far fa-2x fa-calendar-plus"></i>
@@ -59,3 +81,5 @@
     <div>
     </div>
 </footer>
+
+</body>

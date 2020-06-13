@@ -29,7 +29,7 @@ if (isset($_SESSION['id_utilizador'])){
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="js/scripts.js"></script>
+    <script src="interacoes.js"></script>
     <link rel="stylesheet" type="text/css" href="estilos.css">
     <title>Eventos</title>
 
@@ -232,46 +232,7 @@ if (isset($_SESSION['id_utilizador'])){
 
 </main>
 
-
-<footer>
-
-    <nav class="navbar navbar-expand fixed-bottom container p-0 pt-2" style="background-color: #1ec5bc">
-        <div class="row no-gutters justify-content-around w-100">
-            <a class=" col-2 justify-content-center text-center" id="feed"
-               href="feed.php">
-                <i class="far fa-2x fa-newspaper"></i>
-                <br/>
-                <span class="texto-nav">FEED</span>
-            </a>
-            <a class="col-2  justify-content-center text-center" id="pesquisa"
-               href="pesquisa.html">
-                <i class="fas fa-2x fa-search"></i>
-                <br/>
-                <span class="texto-nav">PESQUISA</span>
-            </a>
-            <a class="col-3  justify-content-center text-center" id="adicionar"
-               href="meu_perfil.php">
-                <i class="fas fa-2x fa-plus-circle"></i>
-                <br/>
-                <span class="texto-nav">ADICIONAR</span>
-            </a>
-            <a class="col-2  justify-content-center text-center" id="eventos"
-               href="eventos.php">
-                <i class="far fa-2x fa-calendar-plus"></i>
-                <br/>
-                <span class="texto-nav">EVENTOS</span>
-            </a>
-            <a class="col-2  justify-content-center text-center" id="perfil"
-               href="perfil.php">
-                <i class="far fa-2x fa-user"></i>
-                <br/>
-                <span class="texto-nav">PERFIL</span>
-            </a>
-        </div>
-    </nav>
-    <div>
-    </div>
-</footer>
+<?php include_once "components/footer.php";  ?>
 
 </body>
 
