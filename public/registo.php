@@ -11,9 +11,31 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/2a97b08cd6.js" crossorigin="anonymous"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-client_id" content="937588741569-d3fubg088md23rede8sllanc4erir62s.apps.googleusercontent.com">
+
+
+    <script>
+        function onSignIn(googleUser) {
+
+
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId());
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail());
+
+            var id_token = googleUser.getAuthResponse().id_token;
+
+            console.log(id_token)
+        }
+
+
+
+    </script>
 
     <script src="js/scripts.js"></script>
     <link rel="stylesheet" type="text/css" href="estilos.css">
@@ -40,39 +62,41 @@
 
         <div class="col-10">
 
+            <div class="g-signin2" data-onsuccess="onSignIn" >
+            </div>
+
+            <p>OU</p>
+
+
             <form action="scripts/registo_utilizadores.php" role="form" method="post">
 
                 <p class="mt-2 mb-0 text-left">Nome</p>
                 <input class="pl-2 mt-1 w-100" type="text" name="name" placeholder="ex: Tiago"
                        required="required">
 
-              <!--  <p class="mt-1 mb-0 text-left">Apelido</p>
-                <input class="pl-2 mt-1 w-100" type="text" name="nome" placeholder="ex: Santos"
-                       required="required">
-
-                <p class="mt-1 mb-0 text-left">Nome de Utilizador</p>
-                <input class="pl-2 mt-1 w-100" type="text" name="nome" placeholder="@exemplo"
-                       required="required">-->
-
                 <p class="mt-2 mb-0 text-left">E-mail</p>
                 <input class="pl-2 mt-1 w-100" type="email" name="email" placeholder="exemplo@gmail.com"
                        required="required">
 
-               <!-- <p class="mt-2 mb-0 text-left">Data de Nascimento</p>
-                <input class="pl-2 mt-1 w-100" type="date" name="data_nasc" placeholder="dd/mm/yyyy"
-                       required="required">-->
-
                 <p class="mt-2 mb-0 text-left">Palavra-passe</p>
                 <input class="pl-2 mt-1 w-100" type="password" name="password_hash" required="required" placeholder="Palavra-passe">
+
+
+
+
+
 
 
                 <div class="justify-content-center d-flex">
                     <button type="submit" class="btn mt-3 botao_grande"> Confirmar </button>
                 </div>
             </form>
+
         </div>
     </div>
 
 </main>
 </body>
+
+
 </html>

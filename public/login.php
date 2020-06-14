@@ -24,6 +24,10 @@ if(isset($_GET["message"])){
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-client_id" content="937588741569-d3fubg088md23rede8sllanc4erir62s.apps.googleusercontent.com">
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
 
     <script src="js/scripts.js" ></script>
     <link rel="stylesheet" type="text/css" href="estilos.css">
