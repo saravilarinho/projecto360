@@ -48,6 +48,14 @@
 
     </div>
 
+
+    <div class="ml-4">
+        <?php
+        include_once "geolocationtest.php";
+        ?>
+    </div>
+
+
     <div id="overlay" onclick="off()">
         <div id="text" class="row">
 
