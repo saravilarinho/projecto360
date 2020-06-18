@@ -1,31 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <title>Using MySQL and PHP with Google Maps</title>
-    <style>
-        /* Always set the map height explicitly to define the size of the div
-         * element that contains the map. */
-        #map {
-            height: 60%;
-            width: 80%;
-            position: absolute;
-            overflow: hidden;
-            left: 40px;
-        }
-        /* Optional: Makes the sample page fill the window. */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-</head>
-
-<body>
-<div id="map"></div>
+<!--<!DOCTYPE html>
 
 <script>
     var customLabel = {
@@ -39,7 +12,7 @@
 
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-            center: new google.maps.LatLng(-33.863276, 151.207977),
+            center: new google.maps.LatLng(40.6300, 8.6571),
             zoom: 12
         });
         var infoWindow = new google.maps.InfoWindow;
@@ -80,8 +53,6 @@
         });
     }
 
-
-
     function downloadUrl(url, callback) {
         var request = window.ActiveXObject ?
             new ActiveXObject('Microsoft.XMLHTTP') :
@@ -101,5 +72,139 @@
     function doNothing() {}
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqx4hBCg47FnZfxDoCHJMK6a1hPuPfGo&callback=initMap"> </script>
+</body>
+</html>-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #map {
+            width: 90%;
+            height: 365px;
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+<!--The div element for the map -->
+<div id="map"></div>
+
+
+<?php
+
+require_once "../admin/connections/connection2db.php";
+
+$link = new_db_connection();
+$stmt = mysqli_stmt_init($link);
+
+$query = "SELECT id_evento, nome_evento, data_inicio_evento, localizacao_evento, coor_lat, coor_long 
+FROM `eventos` ";
+
+
+if (mysqli_stmt_prepare($stmt, $query)) {
+
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $id, $nome, $data_inicio, $localizacao, $latitude, $longitude);
+
+    ?>
+
+
+<script>
+    // Initialize and add the map
+    var map, infoWindow;
+    function initMap() {
+        // The location
+       // var localizacao = {lat: <?= $latitude ?>, lng: <?= $longitude ?>};
+        // The map, centered at Uluru
+        var map = new google.maps.Map(document.getElementById('map'), {zoom: 16, center: localizacao});
+        infoWindow = new google.maps.InfoWindow;
+
+
+        <?php
+        while (mysqli_stmt_fetch($stmt)) {
+?>
+        // The location
+        var localizacao = {lat: <?= $latitude ?>, lng: <?= $longitude ?>};
+        // The markers, positioned at localizacao
+
+
+        var contentString = '<div  class=" h-100">'+
+            '<a class="linkar" href="eventocomsubscricao.html">'+
+            '<img src="imagens/evento1.jpeg" class="card-img-top" alt="...">'+
+            '<div style="padding: 8%">'+
+            '<div class="row">'+
+            '<p class=" mb-1 titulo_card_eventos col-10"><b> EVENTINHO </b></p> ' +
+            '<img class="icone_categoria" src="imagens/icones/icone_festa.png">' +
+            '</div> '+
+            '<p class=" texto_card_eventos m-0">' +
+            '<small> enfim ne </small>' +
+            '</p>'+
+            '<p class=" texto_card_eventos m-0"> <small> nao sei </small>' +
+            '</p> </div>  </a> </div>';
+
+        var infowindow = new google.maps.InfoWindow({
+            content: '<div class="ok">' + contentString + '</div>',
+            maxWidth: 250});
+
+
+        // The markers, positioned at localizacao
+        var marker = new google.maps.Marker({position: localizacao, map: map, title: 'Uluru (Ayers Rock)'});
+
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+        <?php
+
+        }
+
+        }
+
+        ?>
+
+
+
+        // user location
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('Estás aqui');
+                infoWindow.open(map);
+                map.setCenter(pos);
+
+                var marker = new google.maps.Marker({position: pos, map: map});
+
+            }, function() {
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+    }
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser does not support geolocation.');
+        infoWindow.open(map);
+    }
+
+</script>
+
+
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqx4hBCg47FnZfxDoCHJMK6a1hPuPfGo&callback=initMap">
+</script>
 </body>
 </html>

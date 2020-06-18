@@ -249,7 +249,23 @@ i.fa-calendar-alt {
 }
 
 
+.gm-style .gm-style-iw-c {
+    overflow: hidden; !important;
+    padding: 0; !important;
+}
+
+.gm-style .gm-style-iw {
+    max-height: 475px;
+    height: 43vh;
+    width: 32VH;
+
+}
 
 
-
-
+.ok{
+    width: 45vw;
+    height: 24vh;
+    line-height: 1.35; !important;
+    overflow: hidden; !important;
+    white-space: nowrap; !important;
+}
