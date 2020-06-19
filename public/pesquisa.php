@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+
+if (isset($_SESSION['id_utilizador'])) {
+    $id_utilizador = $_SESSION['id_utilizador'] ;
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

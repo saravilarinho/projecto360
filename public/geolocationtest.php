@@ -75,6 +75,14 @@
 </body>
 </html>-->
 
+<?php
+
+if (isset($_SESSION['id_utilizador'])) {
+    $id_utilizador = $_SESSION['id_utilizador'] ;
+
+
+}
+?>
 
 
 
@@ -133,17 +141,17 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
 
         var contentString = '<div  class=" h-100">'+
-            '<a class="linkar" href="eventocomsubscricao.html">'+
+            '<a class="linkar" href="scripts/verifica_evento.php?id=<?=$id?>">' +
             '<img src="imagens/evento1.jpeg" class="card-img-top" alt="...">'+
             '<div style="padding: 8%">'+
             '<div class="row">'+
-            '<p class=" mb-1 titulo_card_eventos col-10"><b> EVENTINHO </b></p> ' +
+            '<p class=" mb-1 titulo_card_eventos col-10"><b> <?=$nome?> </b></p> ' +
             '<img class="icone_categoria" src="imagens/icones/icone_festa.png">' +
             '</div> '+
             '<p class=" texto_card_eventos m-0">' +
-            '<small> enfim ne </small>' +
+            '<small> <?=$data_inicio?> </small>' +
             '</p>'+
-            '<p class=" texto_card_eventos m-0"> <small> nao sei </small>' +
+            '<p class=" texto_card_eventos m-0"> <small> <?=$localizacao?> </small>' +
             '</p> </div>  </a> </div>';
 
         var infowindow = new google.maps.InfoWindow({
