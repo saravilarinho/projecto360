@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (isset($_SESSION['id_utilizador']) && isset($_GET['id'])) {
+    $id_utilizador = $_SESSION['id_utilizador'] ;
+    $id_evento = $_GET['id'];
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <!DOCTYPE html>
@@ -34,28 +44,51 @@
 
 
 
-    <script src="js/scripts.js" ></script>
+    <script src="interacoes.js" ></script>
     <link rel="stylesheet" type="text/css" href="estilos.css">
-    <title>Evento sem subscrição</title>
+    <title>Evento</title>
 </head>
 
 <body>
 
 <main>
+<?php
 
-    <img class="w-100" src="imagens/evento2.jpeg">
 
+require_once "../admin/connections/connection2db.php";
+
+$link = new_db_connection();
+$stmt = mysqli_stmt_init($link);
+
+$query = "SELECT nome_evento, data_inicio_evento, data_fim_evento, localizacao_evento, descricao_evento,
+categorias_id_categoria, niveis_privacidade_id_nivel_privacidade, imagem_evento, coor_lat, coor_long
+                  FROM eventos
+                  WHERE id_evento = ?";
+
+if (mysqli_stmt_prepare($stmt, $query)) {
+
+    mysqli_stmt_bind_param($stmt, 'i', $id_evento);
+
+    $id_evento = $_GET['id'];
+
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $nome, $data_inicio, $data_fim, $localizacao, $descricao, $categoria, $privacidade, $imagem, $lat, $long);
+
+
+    if (mysqli_stmt_fetch($stmt)) {
+
+        ?>
+
+        <img class="w-100" src="imagens/evento2.jpeg">
     <div class="pl-4 container superior_redondo">
-
-
         <div class="info_evento">
-            <p class="titulo_evento mb-3 mt-4"> NOS Primavera Sound 2020</p>
+            <p class="titulo_evento mb-3 mt-4"> <?= $nome?></p>
             <div class="row alinhamento_icones">
                 <i class="col-1 fas fa-map-marker-alt"></i>
-                <p class="col-11 texto_descricao_evento">Parque da Cidade do Porto, Porto</p></div>
+                <p class="col-11 texto_descricao_evento"><?= $localizacao?></p></div>
             <div class="row alinhamento_icones">
                 <i class="col-1 far fa-calendar-alt"></i>
-                <p class="col-11 texto_descricao_evento">12 - 14 de Abril</p>
+                <p class="col-11 texto_descricao_evento"><?= $data_inicio?> - <?= $data_fim?></p>
             </div>
             <div class="row mb-0 alinhamento_icones" >
                 <p class="col-7 texto_descricao_evento">+ 47 participantes</p>
@@ -65,9 +98,7 @@
         </div>
 
         <p class="titulo_evento mb-1"><b>Descrição</b></p>
-        <p class="texto_descricao_evento">Primavera Sound é um festival de música realizado em Barcelona, Espanha, desde
-            2001. É celebrado durante três
-            dias no final de maio ou início de junho, e tem como objetivo divulgar as últimas tendências na música.</p>
+        <p class="texto_descricao_evento"><?= $descricao?></p>
 
         <p class="titulo_evento mb-2 mt-3"><b>Últimas 24 horas</b></p>
 
@@ -88,10 +119,20 @@
         </div>
 
 
+        <?php
+
+    }
+    }
+
+?>
+
         <div class="justify-content-center d-flex mt-2">
 
-            <button class="btn botao_grande">
+
+            <button class="btn botao_grande" >
+                <a href="scripts/suscrever_evento.php?id=<?=$id_evento?>" class="linkar_branco">
                 Subscrever
+                </a>
             </button>
 
         </div>
@@ -103,14 +144,6 @@
     </div>
 
 </main>
-
-
-
-
-
-
-
-
 
 </body>
 </html>

@@ -350,3 +350,8 @@ i.fa-calendar-alt {
     overflow: hidden; !important;
     white-space: nowrap; !important;
 }
+
+.linkar_branco{
+    color: #ffffff; !important;
+    text-decoration: none;
+}

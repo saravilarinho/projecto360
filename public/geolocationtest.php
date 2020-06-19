@@ -80,7 +80,6 @@
 if (isset($_SESSION['id_utilizador'])) {
     $id_utilizador = $_SESSION['id_utilizador'] ;
 
-
 }
 ?>
 
@@ -102,6 +101,7 @@ if (isset($_SESSION['id_utilizador'])) {
 <div id="map"></div>
 
 
+
 <?php
 
 require_once "../admin/connections/connection2db.php";
@@ -110,7 +110,7 @@ $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 
 $query = "SELECT id_evento, nome_evento, data_inicio_evento, localizacao_evento, coor_lat, coor_long 
-FROM `eventos` ";
+          FROM `eventos` ";
 
 
 if (mysqli_stmt_prepare($stmt, $query)) {
@@ -122,56 +122,57 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
 
 <script>
+
+
     // Initialize and add the map
     var map, infoWindow;
     function initMap() {
         // The location
-       // var localizacao = {lat: <?= $latitude ?>, lng: <?= $longitude ?>};
+        // var localizacao = {lat: <?= $latitude ?>, lng: <?= $longitude ?>};
         // The map, centered at Uluru
         var map = new google.maps.Map(document.getElementById('map'), {zoom: 16, center: localizacao});
         infoWindow = new google.maps.InfoWindow;
 
-
         <?php
         while (mysqli_stmt_fetch($stmt)) {
 ?>
-        // The location
+        // localizacao dos markers
         var localizacao = {lat: <?= $latitude ?>, lng: <?= $longitude ?>};
-        // The markers, positioned at localizacao
 
-
+        // conteudos dos cards
         var contentString = '<div  class=" h-100">'+
             '<a class="linkar" href="scripts/verifica_evento.php?id=<?=$id?>">' +
             '<img src="imagens/evento1.jpeg" class="card-img-top" alt="...">'+
             '<div style="padding: 8%">'+
             '<div class="row">'+
             '<p class=" mb-1 titulo_card_eventos col-10"><b> <?=$nome?> </b></p> ' +
-            '<img class="icone_categoria" src="imagens/icones/icone_festa.png">' +
-            '</div> '+
+            '<img class="icone_categoria" src="imagens/icones/icone_festa.png"></div> '+
             '<p class=" texto_card_eventos m-0">' +
-            '<small> <?=$data_inicio?> </small>' +
-            '</p>'+
+            '<small> <?=$data_inicio?> </small> </p>'+
             '<p class=" texto_card_eventos m-0"> <small> <?=$localizacao?> </small>' +
             '</p> </div>  </a> </div>';
 
+        // cria os cards
         var infowindow = new google.maps.InfoWindow({
             content: '<div class="ok">' + contentString + '</div>',
             maxWidth: 250});
 
+        // cria os markers, positioned at localizacao
+        var marker = new google.maps.Marker({position: localizacao, map: map,});
 
-        // The markers, positioned at localizacao
-        var marker = new google.maps.Marker({position: localizacao, map: map, title: 'Uluru (Ayers Rock)'});
-
+        //funcao que fica a ouvir por cliques nos cards
         marker.addListener('click', function() {
             infowindow.open(map, marker);
         });
+
+
         <?php
 
-        }
+               }
 
-        }
+               }
 
-        ?>
+               ?>
 
 
 
