@@ -31,13 +31,14 @@ if(isset($_GET["id"]) && isset($_SESSION['id_utilizador'])){
 
             mysqli_stmt_bind_result($stmt, $id_utilizador,  $id, $role);
 
+            // o user já tem relacao com o evento
 
             if (mysqli_stmt_fetch($stmt)) {
 
                 switch ($role){
                     case 1:
                         //criou evento
-                            header("Location: ../eventocomsubscricao.html?id=$id&&role=$role");
+                            header("Location: ../eventocomsubscricao.php?id=$id&&role=$role");
                             mysqli_stmt_close($stmt);
                             mysqli_close($link);
 
@@ -45,7 +46,7 @@ if(isset($_GET["id"]) && isset($_SESSION['id_utilizador'])){
 
                     case 2:
                         // está subscrito
-                        header("Location: ../eventocomsubscricao.html?id=$id");
+                        header("Location: ../eventocomsubscricao.php?id=$id");
                         mysqli_stmt_close($stmt);
                         mysqli_close($link);
 
@@ -54,7 +55,7 @@ if(isset($_GET["id"]) && isset($_SESSION['id_utilizador'])){
 
                     case 3:
                         // foi convidado
-                        header("Location: ../eventocomsubscricao.html?id=$id");
+                        header("Location: ../eventocomsubscricao.php?id=$id");
                         mysqli_stmt_close($stmt);
                         mysqli_close($link);
 
@@ -62,7 +63,7 @@ if(isset($_GET["id"]) && isset($_SESSION['id_utilizador'])){
 
                     case 4:
                         // favorito
-                        header("Location: ../eventocomsubscricao.html?id=$id&&role=$role");
+                        header("Location: ../eventocomsubscricao.php?id=$id&&role=$role");
                         mysqli_stmt_close($stmt);
                         mysqli_close($link);
 

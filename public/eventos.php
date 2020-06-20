@@ -98,7 +98,7 @@ if (isset($_SESSION['id_utilizador'])){
 
                         <div class="col align-content-center">
                             <div class="card card_eventos h-100">
-                                <a class="linkar" href="eventocomsubscricao.html">
+                                <a class="linkar" href="eventocomsubscricao.php?id=<?=$id?>">
                                 <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body pb-0">
                                     <div class="row">
@@ -152,7 +152,7 @@ if (isset($_SESSION['id_utilizador'])){
 
                         <div class="col align-content-center">
                             <div class="card card_eventos h-100">
-                                <a class="linkar" href="eventocomsubscricao.html">
+                                <a class="linkar" href="eventocomsubscricao.php?id=<?=$id?>">
                                 <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body pb-0">
                                     <div class="row">
@@ -199,7 +199,7 @@ if (isset($_SESSION['id_utilizador'])){
 
                         <div class="col align-content-center">
                             <div class="card card_eventos h-100">
-                                <a class="linkar" href="eventocomsubscricao.html">
+                                <a class="linkar" href="eventocomsubscricao.php?id=<?=$id?>">
                                 <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body pb-0">
                                     <div class="row">

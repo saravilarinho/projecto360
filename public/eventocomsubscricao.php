@@ -1,3 +1,37 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION['id_utilizador']) && isset($_GET['id'])){
+
+    $id_utilizador = $_SESSION['id_utilizador'];
+    $id_evento = $_GET['id'];
+
+}
+
+
+require_once "../admin/connections/connection2db.php";
+
+$link = new_db_connection();
+$stmt = mysqli_stmt_init($link);
+
+$query = "SELECT nome_evento, data_inicio_evento, data_fim_evento, localizacao_evento, descricao_evento, 
+categorias_id_categoria, coor_lat, coor_long
+          FROM eventos
+          WHERE id_evento = ?";
+
+
+if (mysqli_stmt_prepare($stmt, $query)) {
+    mysqli_stmt_bind_param($stmt, 'i', $id);
+
+    $id = $id_evento;
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $nome_evento,  $data_inicio, $data_fim, $localizacao, $descricao, $categoria, $lat, $lng);
+
+    if (mysqli_stmt_fetch($stmt)) {
+
+        ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,9 +56,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="js/scripts.js"></script>
     <link rel="stylesheet" type="text/css" href="estilos.css">
-    <title>Evento com Subscrição</title>
+    <title><?=$nome_evento ?></title>
 
 </head>
 <body>
@@ -34,7 +67,16 @@
 
     <div class="pl-4 container superior_redondo">
 
-        <p class="titulo_evento mb-3 mt-3"> NOS Primavera Sound 2020</p>
+        <p class="titulo_evento mb-3 mt-3 col-12">
+            <?=$nome_evento ?>
+            <div class="alinhar_fav">
+            <button class="btn botao_favorito"><a href="scripts/favoritar_evento.php?id=<?=$id?>"><i class="far fa-star" style="font-size: 15px;"></i></a>
+            </button>
+            </div>
+
+        </p>
+
+
 
         <ul class="nav nav-tabs justify-content-center">
             <li class="active mr-5"><a data-toggle="tab" href="#timeline">Timeline</a></li>
@@ -59,7 +101,8 @@
                                 <div class="mt-2">
                                     <img class="img_timeline" src="imagens/evento2.jpeg">
                                     <img class="img_timeline" src="imagens/evento1.jpeg">
-                                    <img class="img_timeline" src="imagens/evento2.jpeg">      </div>
+                                    <img class="img_timeline" src="imagens/evento2.jpeg">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -138,3 +181,9 @@
 
 </body>
 </html>
+
+
+        <?php
+    }
+}
+?>

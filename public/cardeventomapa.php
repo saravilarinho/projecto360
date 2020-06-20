@@ -55,7 +55,7 @@
         });
 
         var contentString = '<div  class=" h-100">'+
-            '<a class="linkar" href="eventocomsubscricao.html">'+
+            '<a class="linkar" href="eventocomsubscricao.php">'+
             '<img src="imagens/evento1.jpeg" class="card-img-top" alt="...">'+
             '<div style="padding: 8%">'+
             '<div class="row">'+

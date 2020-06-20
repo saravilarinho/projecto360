@@ -4,7 +4,13 @@ session_start();
 if (isset($_SESSION['id_utilizador']) && isset($_GET['id'])) {
     $id_utilizador = $_SESSION['id_utilizador'] ;
     $id_evento = $_GET['id'];
+
+
+
 }
+
+
+
 ?>
 
 
@@ -77,7 +83,9 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
     if (mysqli_stmt_fetch($stmt)) {
 
-        ?>
+?>
+
+
 
         <img class="w-100" src="imagens/evento2.jpeg">
     <div class="pl-4 container superior_redondo">
@@ -123,6 +131,15 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
     }
     }
+
+
+        if (isset($_GET['message'])){
+            ?>
+
+            <p class="texto_descricao_evento">O administrador terá de rever o teu pedido de subscrição!</p>
+
+            <?php
+        }
 
 ?>
 
