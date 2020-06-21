@@ -1,63 +1,37 @@
-/*jslint browser: true*/
-/*global $, jQuery, alert*/
-(function($) {
-    'use strict';
+const slidePage = document.querySelector(".slidepage");
+const firstNextBtn = document.querySelector(".nextBtn");
+const prevBtnSec = document.querySelector(".prev-1");
+const nextBtnSec = document.querySelector(".next-1");
+const prevBtnThird = document.querySelector(".prev-2");
+const submitBtn = document.querySelector(".submit");
+const progressText = document.querySelectorAll(".step p");
+const progressCheck = document.querySelectorAll(".step .check");
+const bullet = document.querySelectorAll(".step .bullet");
+let max = 3;
+let current = 1;
 
-    $(function() {
 
-        $(document).ready(function() {
-            function triggerClick(elem) {
-                $(elem).click();
-            }
-            var $progressWizard = $('.stepper'),
-                $tab_active,
-                $tab_prev,
-                $tab_next,
-                $btn_prev = $progressWizard.find('.prev-step'),
-                $btn_next = $progressWizard.find('.next-step'),
-                $tab_toggle = $progressWizard.find('[data-toggle="tab"]'),
-                $tooltips = $progressWizard.find('[data-toggle="tab"][title]');
+firstNextBtn.addEventListener("click", function () {
+    slidePage.style.marginLeft = "-25%";
+    bullet[current - 1] .classList.add("active");
+    progressText[current - 1] .classList.add("active");
+    progressCheck[current - 1] .classList.add("active");
+    current += 1;
+});
 
-            // To do:
-            // Disable User select drop-down after first step.
-            // Add support for payment type switching.
+nextBtnSec.addEventListener("click", function () {
+    slidePage.style.marginLeft = "-50%";
+    bullet[current - 1] .classList.add("active");
+    progressText[current - 1] .classList.add("active");
+    progressCheck[current - 1] .classList.add("active");
+    current += 1;
+});
 
-            //Initialize tooltips
-            $tooltips.tooltip();
 
-            //Wizard
-            $tab_toggle.on('show.bs.tab', function(e) {
-                var $target = $(e.target);
+prevBtnSec.addEventListener("click", function () {
+    slidePage.style.marginLeft = "0%";
+});
 
-                if (!$target.parent().hasClass('active, disabled')) {
-                    $target.parent().prev().addClass('completed');
-                }
-                if ($target.parent().hasClass('disabled')) {
-                    return false;
-                }
-            });
-
-            // $tab_toggle.on('click', function(event) {
-            //     event.preventDefault();
-            //     event.stopPropagation();
-            //     return false;
-            // });
-
-            $btn_next.on('click', function() {
-                $tab_active = $progressWizard.find('.active');
-
-                $tab_active.next().removeClass('disabled');
-
-                $tab_next = $tab_active.next().find('a[data-toggle="tab"]');
-                triggerClick($tab_next);
-
-            });
-            $btn_prev.click(function() {
-                $tab_active = $progressWizard.find('.active');
-                $tab_prev = $tab_active.prev().find('a[data-toggle="tab"]');
-                triggerClick($tab_prev);
-            });
-        });
-    });
-
-}(jQuery, this));
+prevBtnThird.addEventListener("click", function () {
+    slidePage.style.marginLeft = "-25%";
+});
