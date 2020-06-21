@@ -61,7 +61,7 @@ if (isset($_SESSION['id_utilizador'])){
 
 
                         $query = "SELECT utilizadores.id_utilizador, utilizadores.nome_utilizador,
-                        utilizadores_has_eventos.eventos_id_evento, utilizadores_has_eventos.roles_id_role, 
+                        utilizadores_has_eventos.eventos_id_evento, utilizadores_has_eventos.roles_id_role, utilizadores_has_eventos.favorito,
                         eventos.nome_evento, eventos.data_inicio_evento, eventos.localizacao_evento, eventos.categorias_id_categoria
                         FROM utilizadores
                         INNER JOIN utilizadores_has_eventos
@@ -88,17 +88,16 @@ if (isset($_SESSION['id_utilizador'])){
                         $id_role = 1;
 
                         mysqli_stmt_execute($stmt);
-                        mysqli_stmt_bind_result($stmt, $id, $nome_utilizador, $id_evento, $role_evento, $nome_evento, $data_evento, $localizacao, $categoria);
+                        mysqli_stmt_bind_result($stmt, $id, $nome_utilizador, $id_evento, $role_evento, $favorito, $nome_evento, $data_evento, $localizacao, $categoria);
 
 
                         while (mysqli_stmt_fetch($stmt)) {
-
-                        ?>
+                            ?>
 
 
                         <div class="col align-content-center">
                             <div class="card card_eventos h-100">
-                                <a class="linkar" href="eventocomsubscricao.php?id=<?=$id?>">
+                                <a class="linkar" href="eventocomsubscricao.php?id=<?=$id_evento?>">
                                 <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body pb-0">
                                     <div class="row">
@@ -139,35 +138,41 @@ if (isset($_SESSION['id_utilizador'])){
                         mysqli_stmt_bind_param($stmt, 'ii', $id, $id_role);
 
                         $id = $_SESSION['id_utilizador'];
-                        $id_role = 4;
+                        $id_role = 1 || $id_role = 2 || $id_role =  3;
 
                         mysqli_stmt_execute($stmt);
-                        mysqli_stmt_bind_result($stmt, $id, $nome_utilizador, $id_evento, $role_evento, $nome_evento, $data_evento, $localizacao, $categoria);
+                        mysqli_stmt_bind_result($stmt, $id, $nome_utilizador, $id_evento, $role_evento,$favorito, $nome_evento, $data_evento, $localizacao, $categoria);
 
 
-                        while (mysqli_stmt_fetch($stmt)) {
+                        if($favorito != 0){
 
-                        ?>
+                            while (mysqli_stmt_fetch($stmt)) {
+
+                                var_dump($favorito)
+
+                                ?>
 
 
-                        <div class="col align-content-center">
-                            <div class="card card_eventos h-100">
-                                <a class="linkar" href="eventocomsubscricao.php?id=<?=$id?>">
-                                <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
-                                <div class="card-body pb-0">
-                                    <div class="row">
-                                        <p class="card-title mb-1 titulo_card_eventos col-10"><b><?=$nome_evento ?></b></p>
-                                        <img class="icone_categoria" src="imagens/icones/icone_festa.png">
+                                <div class="col align-content-center">
+                                    <div class="card card_eventos h-100">
+                                        <a class="linkar" href="eventocomsubscricao.php?id=<?=$id_evento?>">
+                                            <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
+                                            <div class="card-body pb-0">
+                                                <div class="row">
+                                                    <p class="card-title mb-1 titulo_card_eventos col-10"><b><?=$nome_evento ?></b></p>
+                                                    <img class="icone_categoria" src="imagens/icones/icone_festa.png">
+                                                </div>
+                                                <p class="card-text texto_card_eventos m-0"><small><?=$data_evento ?></small></p>
+                                                <p class="card-text texto_card_eventos m-0"><small><?=$localizacao ?></small>
+                                                </p>
+                                            </div>
+                                        </a>
                                     </div>
-                                    <p class="card-text texto_card_eventos m-0"><small><?=$data_evento ?></small></p>
-                                    <p class="card-text texto_card_eventos m-0"><small><?=$localizacao ?></small>
-                                    </p>
                                 </div>
-                                    </a>
-                            </div>
-                        </div>
 
-                        <?php }
+                            <?php }
+                        }
+
                         ?>
                     </div>
                 </div>
@@ -189,7 +194,7 @@ if (isset($_SESSION['id_utilizador'])){
                         $id_role = 2;
 
                         mysqli_stmt_execute($stmt);
-                        mysqli_stmt_bind_result($stmt, $id, $nome_utilizador, $id_evento, $role_evento, $nome_evento, $data_evento, $localizacao, $categoria);
+                        mysqli_stmt_bind_result($stmt, $id, $nome_utilizador, $id_evento, $role_evento, $favorito, $nome_evento, $data_evento, $localizacao, $categoria);
 
 
                         while (mysqli_stmt_fetch($stmt)) {
@@ -199,7 +204,7 @@ if (isset($_SESSION['id_utilizador'])){
 
                         <div class="col align-content-center">
                             <div class="card card_eventos h-100">
-                                <a class="linkar" href="eventocomsubscricao.php?id=<?=$id?>">
+                                <a class="linkar" href="eventocomsubscricao.php?id=<?=$id_evento?>">
                                 <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body pb-0">
                                     <div class="row">

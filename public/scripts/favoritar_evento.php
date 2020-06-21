@@ -1,13 +1,14 @@
 <?php
 session_start();
 
-require_once "../../admin/connections/connection2db.php";
 
 if(isset($_GET["id"]) && isset($_SESSION['id_utilizador'])) {
 
     //recebe id
     $id = $_GET["id"];
     $id_utilizador = $_SESSION['id_utilizador'];
+
+    require_once "../../admin/connections/connection2db.php";
 
     //verifica se o evento está favoritado
     $link = new_db_connection();
@@ -19,8 +20,6 @@ if(isset($_GET["id"]) && isset($_SESSION['id_utilizador'])) {
 
     if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 'ii', $id_user,$id_evento);
-
-        var_dump($id_utilizador);
 
         $id_user = $id_utilizador;
         $id_evento = $id;
@@ -62,7 +61,7 @@ if(isset($_GET["id"]) && isset($_SESSION['id_utilizador'])) {
                         } else {
 
                             echo "Error:" . mysqli_stmt_error($stmt);
-                            header("Location: ../index.php?msg=0#login");
+                          //  header("Location: ../index.php?msg=0#login");
                         }
                     }
             }
