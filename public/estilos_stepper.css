@@ -1,126 +1,194 @@
-html {
-    -webkit-font-smoothing: antialiased!important;
-    -moz-osx-font-smoothing: grayscale!important;
-    -ms-font-smoothing: antialiased!important;
-}
 body {
-    font-family: 'Open Sans', sans-serif;
-    font-size:16px;
-    color:#555555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
-.md-stepper-horizontal {
-    display:table;
-    width:100%;
-    margin:0 auto;
-    background-color:#FFFFFF;
-    box-shadow: 0 3px 8px -6px rgba(0,0,0,.50);
+
+.container {
+    width: 330px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 50px 35px 10px 35px;
 }
-.md-stepper-horizontal .md-step {
-    display:table-cell;
-    position:relative;
-    padding:24px;
+
+.container header {
+    font-size: 35px;
+    font-weight: 600;
+    margin: 0 0 30px 0;
 }
-.md-stepper-horizontal .md-step:hover,
-.md-stepper-horizontal .md-step:active {
-    background-color:rgba(0,0,0,0.04);
+
+.container .form-outer {
+    width: 100%;
+    overflow: hidden;
 }
-.md-stepper-horizontal .md-step:active {
-    border-radius: 15% / 75%;
+
+.form-outer form {
+    display: flex;
+    width: 400%;
+
 }
-.md-stepper-horizontal .md-step:first-child:active {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+
+.form-outer form .page {
+    width: 25%;
+    transition: margin-left 0.3s ease-in-out;
 }
-.md-stepper-horizontal .md-step:last-child:active {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+
+.form-outer form .page .title {
+    text-align: left;
+    font-size: 25px;
+    font-weight: 500;
+
 }
-.md-stepper-horizontal .md-step:hover .md-step-circle {
-    background-color:#757575;
+
+.form-outer form .page .field {
+    height: 45px;
+    width: 330px;
+    margin: 45px 0;
+    display: flex;
+    position: relative;
 }
-.md-stepper-horizontal .md-step:first-child .md-step-bar-left,
-.md-stepper-horizontal .md-step:last-child .md-step-bar-right {
-    display:none;
+
+.form-outer form .page .field .label{
+    position: absolute;
+    top: -30px;
+    font-weight: 500;
 }
-.md-stepper-horizontal .md-step .md-step-circle {
-    width:30px;
-    height:30px;
-    margin:0 auto;
-    background-color:#999999;
+
+.form-outer form .page .field input{
+    height: 100%;
+    width: 100%;
+    border: 1px solid lightblue;
+    font-size: 18px;
+    padding-left: 15px;
+}
+
+.form-outer form .page .field button {
+    width: 100%;
+    height: calc(100% + 5px);
+    margin-top: -20px;
+    border: none;
+    background: #1DBF73;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.form-outer form .page .field button:hover {
+    background: black;
+}
+
+.form-outer form .page .btns button {
+margin-top: -20px!important;
+}
+
+form .page .btns button.prev {
+    margin-right: 3px;
+    font-size: 17px;
+}
+
+form .page .btns button.next {
+    margin-left: 3px;
+
+}
+
+.container .progress-bar {
+    display: flex;
+    margin: 40px 0;
+}
+
+.container .progress-bar .step {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.progress-bar .step p {
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    margin-bottom: 8px;
+    transition: 0.2s;
+}
+
+.progress-bar .step p.active {
+    color: #1ec5bc;
+}
+
+
+.progress-bar .step .bullet{
+    position: relative;
+    height: 25px;
+    width: 25px;
+    border: 1px solid #1ec5bc;
+    display: inline-block;
     border-radius: 50%;
-    text-align: center;
-    line-height:30px;
-    font-size: 16px;
-    font-weight: 600;
-    color:#FFFFFF;
+    transition: 0.2s;
 }
-.md-stepper-horizontal.green .md-step.active .md-step-circle {
-    background-color:#00AE4D;
+
+.progress-bar .step .bullet.active {
+    border-color: #1ec5bc;
+    background: #1ec5bc;
 }
-.md-stepper-horizontal.orange .md-step.active .md-step-circle {
-    background-color:#F96302;
+
+.progress-bar .step:last-child .bullet:before,
+.progress-bar .step:last-child .bullet:after{
+    display: none;
 }
-.md-stepper-horizontal .md-step.active .md-step-circle {
-    background-color: rgb(33,150,243);
+
+
+.progress-bar .step .bullet:before,
+.progress-bar .step .bullet:after{
+    position: absolute;
+    content: "";
+    bottom: 11px;
+    right: -51px;
+    height: 3px;
+    width: 44px;
+    background: #3e3f80;
 }
-.md-stepper-horizontal .md-step.done .md-step-circle:before {
-    font-family:'FontAwesome';
-    font-weight:100;
-    content: "\f00c";
+
+.progress-bar .step .bullet.active:after {
+    background: #1ec5bc;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: animate 0.3s linear forwards;
 }
-.md-stepper-horizontal .md-step.done .md-step-circle *,
-.md-stepper-horizontal .md-step.editable .md-step-circle * {
-    display:none;
+
+@keyframes animate {
+    100%{
+        transform: scaleX(1);
+    }
 }
-.md-stepper-horizontal .md-step.editable .md-step-circle {
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
+
+.progress-bar .step .bullet span {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 25px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
-.md-stepper-horizontal .md-step.editable .md-step-circle:before {
-    font-family:'FontAwesome';
-    font-weight:100;
-    content: "\f040";
+
+.progress-bar .step .bullet.active span{
+    display: none;
 }
-.md-stepper-horizontal .md-step .md-step-title {
-    margin-top:16px;
-    font-size:16px;
-    font-weight:600;
+
+.progress-bar .step .check {
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    font-size: 15px;
+    transform: translate(-50%, -50%);
+    display: none;
 }
-.md-stepper-horizontal .md-step .md-step-title,
-.md-stepper-horizontal .md-step .md-step-optional {
-    text-align: center;
-    color:rgba(0,0,0,.26);
-}
-.md-stepper-horizontal .md-step.active .md-step-title {
-    font-weight: 600;
-    color:rgba(0,0,0,.87);
-}
-.md-stepper-horizontal .md-step.active.done .md-step-title,
-.md-stepper-horizontal .md-step.active.editable .md-step-title {
-    font-weight:600;
-}
-.md-stepper-horizontal .md-step .md-step-optional {
-    font-size:12px;
-}
-.md-stepper-horizontal .md-step.active .md-step-optional {
-    color:rgba(0,0,0,.54);
-}
-.md-stepper-horizontal .md-step .md-step-bar-left,
-.md-stepper-horizontal .md-step .md-step-bar-right {
-    position:absolute;
-    top:36px;
-    height:1px;
-    border-top:1px solid #DDDDDD;
-}
-.md-stepper-horizontal .md-step .md-step-bar-right {
-    right:0;
-    left:50%;
-    margin-left:20px;
-}
-.md-stepper-horizontal .md-step .md-step-bar-left {
-    left:0;
-    right:50%;
-    margin-right:20px;
+
+.progress-bar .step .check.active {
+    display: block;
+    color: white;
 }
