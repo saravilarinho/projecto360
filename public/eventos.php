@@ -46,8 +46,8 @@ if (isset($_SESSION['id_utilizador'])){
     <div class="container mt-4">
         <ul class="nav nav-tabs justify-content-center">
             <li class="active mr-4"><a data-toggle="tab" href="#home">Meus Eventos</a></li>
-            <li class="mr-4"><a data-toggle="tab" href="#menu2">Favoritos</a></li>
-            <li><a data-toggle="tab" href="#menu3">Subscritos</a></li>
+            <li class="mr-4"><a data-toggle="tab" href="#menu2">Subscritos</a></li>
+            <li><a data-toggle="tab" href="#menu3">Favoritos</a></li>
         </ul>
 
         <div class="tab-content">
@@ -127,7 +127,7 @@ if (isset($_SESSION['id_utilizador'])){
             </div>
 
 
-            <!--Favoritos-->
+            <!--Subscritos-->
 
             <div id="menu2" class="tab-pane fade">
                 <div class="container">
@@ -135,51 +135,49 @@ if (isset($_SESSION['id_utilizador'])){
 
                         <?php
 
+
                         mysqli_stmt_bind_param($stmt, 'ii', $id, $id_role);
 
                         $id = $_SESSION['id_utilizador'];
-                        $id_role = 1 || $id_role = 2 || $id_role =  3;
+                        $id_role = 2;
 
                         mysqli_stmt_execute($stmt);
                         mysqli_stmt_bind_result($stmt, $id, $nome_utilizador, $id_evento, $role_evento,$favorito, $nome_evento, $data_evento, $localizacao, $categoria);
 
 
-                        if($favorito != 0){
-
-                            while (mysqli_stmt_fetch($stmt)) {
-
-                                var_dump($favorito)
-
-                                ?>
-
-
-                                <div class="col align-content-center">
-                                    <div class="card card_eventos h-100">
-                                        <a class="linkar" href="eventocomsubscricao.php?id=<?=$id_evento?>">
-                                            <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
-                                            <div class="card-body pb-0">
-                                                <div class="row">
-                                                    <p class="card-title mb-1 titulo_card_eventos col-10"><b><?=$nome_evento ?></b></p>
-                                                    <img class="icone_categoria" src="imagens/icones/icone_festa.png">
-                                                </div>
-                                                <p class="card-text texto_card_eventos m-0"><small><?=$data_evento ?></small></p>
-                                                <p class="card-text texto_card_eventos m-0"><small><?=$localizacao ?></small>
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-
-                            <?php }
-                        }
+                        while (mysqli_stmt_fetch($stmt)) {
 
                         ?>
+
+
+                        <div class="col align-content-center">
+                            <div class="card card_eventos h-100">
+                                <a class="linkar" href="eventocomsubscricao.php?id=<?=$id_evento?>">
+                                <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
+                                <div class="card-body pb-0">
+                                    <div class="row">
+                                        <p class="card-title mb-1 titulo_card_eventos col-10"><b><?=$nome_evento ?></b></p>
+                                        <img class="icone_categoria" src="imagens/icones/icone_festa.png">
+                                    </div>
+                                    <p class="card-text texto_card_eventos m-0"><small><?=$data_evento ?></small></p>
+                                    <p class="card-text texto_card_eventos m-0"><small><?=$localizacao ?></small>
+                                    </p>
+                                </div>
+                                    </a>
+                            </div>
+                        </div>
+
+                        <?php }
+                        ?>
                     </div>
+
+                    <?php } ?>
+
                 </div>
 
             </div>
 
-            <!--Subscritos-->
+            <!--Favoritos-->
 
             <div id="menu3" class="tab-pane fade">
                 <div class="container">
@@ -188,10 +186,26 @@ if (isset($_SESSION['id_utilizador'])){
 
                         <?php
 
-                        mysqli_stmt_bind_param($stmt, 'ii', $id, $id_role);
+                        $link = new_db_connection();
+                        $stmt = mysqli_stmt_init($link);
+
+
+                        $query = "SELECT utilizadores.id_utilizador, utilizadores.nome_utilizador,
+                        utilizadores_has_eventos.eventos_id_evento, utilizadores_has_eventos.roles_id_role, utilizadores_has_eventos.favorito,
+                        eventos.nome_evento, eventos.data_inicio_evento, eventos.localizacao_evento, eventos.categorias_id_categoria
+                        FROM utilizadores
+                        INNER JOIN utilizadores_has_eventos
+                        ON utilizadores.id_utilizador = utilizadores_has_eventos.utilizadores_id_utilizador
+                        INNER JOIN eventos
+                        ON eventos.id_evento = utilizadores_has_eventos.eventos_id_evento
+                        WHERE utilizadores.id_utilizador = ? AND utilizadores_has_eventos.favorito = ?";
+
+                        if (mysqli_stmt_prepare($stmt, $query)) {
+
+                        mysqli_stmt_bind_param($stmt, 'ii', $id, $favoritos);
 
                         $id = $_SESSION['id_utilizador'];
-                        $id_role = 2;
+                        $favoritos = 1;
 
                         mysqli_stmt_execute($stmt);
                         mysqli_stmt_bind_result($stmt, $id, $nome_utilizador, $id_evento, $role_evento, $favorito, $nome_evento, $data_evento, $localizacao, $categoria);
@@ -223,10 +237,8 @@ if (isset($_SESSION['id_utilizador'])){
                         ?>
 
                     </div>
-
-
-                    <?php } ?>
-
+                    <?php }
+                    ?>
                 </div>
 
 

@@ -16,8 +16,10 @@ $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 
 $query = "SELECT nome_evento, data_inicio_evento, data_fim_evento, localizacao_evento, descricao_evento, 
-categorias_id_categoria, coor_lat, coor_long
+categorias_id_categoria, coor_lat, coor_long, utilizadores_has_eventos.favorito
           FROM eventos
+          INNER JOIN utilizadores_has_eventos
+          ON eventos.id_evento = utilizadores_has_eventos.eventos_id_evento
           WHERE id_evento = ?";
 
 
@@ -26,7 +28,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
     $id = $id_evento;
     mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $nome_evento,  $data_inicio, $data_fim, $localizacao, $descricao, $categoria, $lat, $lng);
+    mysqli_stmt_bind_result($stmt, $nome_evento,  $data_inicio, $data_fim, $localizacao, $descricao, $categoria, $lat, $lng, $favorito);
 
     if (mysqli_stmt_fetch($stmt)) {
 
@@ -70,7 +72,19 @@ if (mysqli_stmt_prepare($stmt, $query)) {
         <p class="titulo_evento mb-3 mt-3 col-12">
             <?=$nome_evento ?>
             <div class="alinhar_fav">
-            <button class="btn botao_favorito"><a href="scripts/favoritar_evento.php?id=<?=$id?>"><i class="far fa-star" style="font-size: 15px;"></i></a>
+            <button class="btn botao_favorito"><a href="scripts/favoritar_evento.php?id=<?=$id?>">
+                    <?php
+                    if ($favorito === 0){
+                        ?>
+                            <i class="far fa-star" style="font-size: 15px;"></i>
+                            <?php
+                    }
+                    else {
+                        ?><i class="fas fa-star" style="font-size: 15px;"></i>
+                            <?php
+                    }
+
+                    ?></a>
             </button>
             </div>
 
@@ -144,7 +158,6 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                         </div>
                     </div>
                 </div>
-
 
 
 
