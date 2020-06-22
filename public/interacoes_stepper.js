@@ -30,8 +30,27 @@ nextBtnSec.addEventListener("click", function () {
 
 prevBtnSec.addEventListener("click", function () {
     slidePage.style.marginLeft = "0%";
+    bullet[current - 2] .classList.remove("active");
+    progressText[current - 2] .classList.remove("active");
+    progressCheck[current - 2] .classList.remove("active");
+    current -= 1;
 });
 
 prevBtnThird.addEventListener("click", function () {
     slidePage.style.marginLeft = "-25%";
+    bullet[current - 2] .classList.remove("active");
+    progressText[current - 2] .classList.remove("active");
+    progressCheck[current - 2] .classList.remove("active");
+    current -= 1;
+});
+
+submitBtn.addEventListener("click", function () {
+    bullet[current - 1] .classList.add("active");
+    progressText[current - 1] .classList.add("active");
+    progressCheck[current - 1] .classList.add("active");
+    current += 1;
+    setTimeout(function () {
+    alert("thanks");
+    location.reload();
+    }, 800);
 });
