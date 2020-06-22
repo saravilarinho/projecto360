@@ -158,14 +158,13 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
             </div>
+
+
             <div id="mapa" class="tab-pane fade in">
+                <?php
+                include_once "mapacomeventos.php";
+                ?>
             </div>
 
             <div id="atividade" class="tab-pane fade in">

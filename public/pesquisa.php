@@ -61,7 +61,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <div class="ml-4">
         <?php
-        include_once "geolocationtest.php";
+        include_once "mapacomeventos.php";
         ?>
     </div>
 
