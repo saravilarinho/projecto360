@@ -1,73 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
 
     <!-- CSS only -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <!-- JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/2a97b08cd6.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="interacoes.js" ></script>
     <link rel="stylesheet" type="text/css" href="estilos.css">
-    <!-- Stepper CSS -->
-    <link href="css/addons-pro/steppers.css" rel="stylesheet">
-    <!-- Stepper CSS - minified-->
-    <link href="css/addons-pro/steppers.min.css" rel="stylesheet">
-
-    <!-- Stepper JavaScript -->
-    <script type="text/javascript" src="js/addons-pro/steppers.js"></script>
-    <!-- Stepper JavaScript - minified -->
-    <script type="text/javascript" src="js/addons-pro/steppers.min.js"></script>
     <title>Criar Evento</title>
 
 </head>
 <body>
+<header>
+    <h3>
+        Criar Evento
+    </h3>
+
+</header>
+
 <main>
-    <div class="md-stepper-horizontal orange">
-        <div class="md-step active done">
-            <div class="md-step-circle"><span>1</span></div>
-            <div class="md-step-title">Informação</div>
-            <div class="md-step-bar-left"></div>
-            <div class="md-step-bar-right"></div>
+    <div class="container_stepper">
+        <div id="stepProgressBar">
+            <div class="step">
+                <p class="step-text"></p>
+                <div class="bullet">1</div>
+            </div>
+
+            <div class="step">
+                <p class="step-text"></p>
+                <div class="bullet">2</div>
+            </div>
+
+            <div class="step">
+                <p class="step-text"></p>
+                <div class="bullet">3</div>
+            </div>
         </div>
-        <div class="md-step active editable">
-            <div class="md-step-circle"><span>2</span></div>
-            <div class="md-step-title">Categoria</div>
-            <div class="md-step-bar-left"></div>
-            <div class="md-step-bar-right"></div>
+        <div id="main">
+            <p id="content">Step Number 1</p>
+            <button class="button_stepper" id="previousBtn" disabled>Previous</button>
+            <button class="button_stepper" id="nextBtn">Next</button>
+            <button class="button_stepper" id="finishBtn" disabled>Finish</button>
         </div>
-        <div class="md-step active">
-            <div class="md-step-circle"><span>3</span></div>
-            <div class="md-step-title">Convidar</div>
-            <div class="md-step-optional">Opcional</div>
-            <div class="md-step-bar-left"></div>
-            <div class="md-step-bar-right"></div>
-        </div>
+
+
+    </div></main>
+
+<!--
+<div id="pag1">
+    <div class="title">Insere a informação base do teu evento.</div>
+    <div class="field">
+        <div class="label">Nome do evento</div>
+        <input type="text">
     </div>
-
-
-
-
-
-
+    <div class="field">
+        <div class="label">Descrição do evento</div>
+        <input type="text">
+    </div>
+    <div class="field">
+        <div class="label">Localização</div>
+        <input type="text">
+    </div>
+    <div class="field">
+        <div class="label">Duração</div>
+       <input type="datetime-local">
+        <input type="datetime-local">
+    </div>
 </div>
+-->
 
+<!--
+<div id="pag2">
+    <div class="title">Seleciona as categorias do teu evento</div>
+    <div class="field">
+        <div class="label">Qual é o género de evento?</div>
+        <input type="radio" id="musica" name="generoevento" value="musica">
+        <label for="musica">Música</label><br>
+        <input type="radio" id="manifestacao" name="generoevento" value="manifestacao">
+        <label for="manifestacao">Manifestação</label><br>
+        <input type="radio" id="teatro" name="generoevento" value="teatro">
+        <label for="teatro">Teatro</label><br>
+        <input type="radio" id="festa" name="generoevento" value="festa">
+        <label for="festa">Festa</label><br>
+        <input type="radio" id="meetup" name="generoevento" value="meetup">
+        <label for="meetup">Meetup</label><br>
+    </div>
+    <div class="field">
+        <div class="label">Qual é a privacidade que queres dar ao teu evento?</div>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Público</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Privado</label><br>
+    </div>
+</div>
+-->
 
-</main>
+<!-- <div id="pag3">
+    <div class="title">Convida participantes!</div>
+    <div class="field">
+        <div class="label">Adiciona utilizadores <b>360</b> ao evento.</div>
+        <input type="text">
+    </div>
+    <div class="field">
+        <div class="label">Envia convite por email a utilizadores que ainda não estejam na <b>360</b>.</div>
+        <input type="text">
+    </div>
+</div> -->
+
+<script src="interacoes_stepper2.js"></script>
 </body>
 </html>
