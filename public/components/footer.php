@@ -27,8 +27,9 @@
     <div id="text" class="row">
 
         <div class="rounded-circle overlay_icone col-5 p-3">
+           <a href="../criarevento.html">
             <i class="far fa-3x fa-calendar-plus icone"></i>
-            <p class="mb-0">Evento</p>
+            <p class="mb-0">Evento</p></a>
         </div>
 
         <div class="rounded-circle overlay_icone col-5 p-3" style="margin-left: 23px">
