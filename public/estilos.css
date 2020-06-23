@@ -371,3 +371,74 @@ i.fa-calendar-alt {
 .alinhar_fav{
     text-align: end;
 }
+
+/*STEPPER*/
+
+.button_stepper {
+    padding: 5px 10px;
+    border: 1px solid #3e3f80;
+    transition: 250ms background-color;
+}
+
+.button_stepper:hover {
+    cursor: pointer;
+    background-color: #1ec5bc;
+    color: white;
+}
+
+.button_stepper:disabled:hover {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.container_stepper {
+    /*max-width: 400px;*/
+    margin: 20px auto 0 auto;
+    padding: 20px;
+}
+
+#stepProgressBar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.step {
+    text-align: center;
+}
+
+.step-text {
+    margin-bottom: 10px;
+    color: #3e3f80;
+}
+
+.bullet {
+    height: 35px;
+    width: 35px;
+    border-radius: 100%;
+    border: 1px solid #3e3f80;
+    color: #3e3f80;
+    display: inline-block;
+    position: relative;
+    transition: background-color 500ms;
+    font-size: 22px;
+}
+
+.bullet.completed {
+    color: white;
+    background-color: #1ec5bc;
+    border: 1px solid #1ec5bc;
+}
+
+.bullet.completed::after {
+    content: "";
+    position: absolute;
+    width: 104px;
+    height: 1px;
+    background-color: #1ec5bc;
+    right: -111px;
+    bottom: 16px;
+}
