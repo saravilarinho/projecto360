@@ -69,10 +69,10 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
     <div class="pl-4 container superior_redondo">
 
-        <p class="titulo_evento mb-3 mt-3 col-12">
+        <p class="titulo_evento mb-3 mt-3 col-10">
             <?=$nome_evento ?>
-            <div class="alinhar_fav">
-            <button class="btn botao_favorito"><a href="scripts/favoritar_evento.php?id=<?=$id?>">
+            <span class="alinhar_fav col-2">
+            <a class="btn botao_favorito" href="scripts/favoritar_evento.php?id=<?=$id?>">
                     <?php
                     if ($favorito === 0){
                         ?>
@@ -84,9 +84,23 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                             <?php
                     }
 
-                    ?></a>
-            </button>
-            </div>
+                    ?>
+            </a>
+                 <a class="btn botao_favorito" href="editar_evento.php?id=<?=$id?>">
+                    <?php
+                    if ($favorito === 0){
+                        ?>
+                        <i class="far fa-edit" style="font-size: 15px;"></i>
+                        <?php
+                    }
+                    else {
+                        ?><i class="far fa-edit" style="font-size: 15px;"></i>
+                        <?php
+                    }
+
+                    ?>
+            </a>
+            </span>
 
         </p>
 

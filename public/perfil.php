@@ -35,28 +35,6 @@ if (isset($_SESSION['id_utilizador'])){
 
 <body>
 
-<?php
-/*require_once "../admin/connections/connection2db.php";
-$link = new_db_connection();
-$stmt = mysqli_stmt_init($link);
-
-$query = "SELECT nome_utilizador, foto, 
-          FROM utilizadores
-          INNER JOIN cidade
-          ON cidade.id_cidade = utilizador.cidade_utilizador
-          WHERE id_utilizador = ?";
-
-if (mysqli_stmt_prepare($stmt, $query)) {
-mysqli_stmt_bind_param($stmt, "i", $id_utilizador);
-$id_utilizador = $id;
-
-mysqli_stmt_execute($stmt);
-mysqli_stmt_bind_result($stmt, $nome, $foto);
-
-if (mysqli_stmt_fetch($stmt)) { */?>
-
-
-
 <header>
     <h3>
         Perfil
@@ -87,12 +65,19 @@ if (mysqli_stmt_fetch($stmt)) { */?>
 
             ?>
 
-    <div class="text-center mt-4">
+    <div class="text-center mt-4 col-12">
 
         <img style="width: 125px;" class="rounded-circle" src="imagens/img_perfil.jpg">
 
-        <h4 class="mt-2"> <?php echo $nome ?> </h4>
+        <h4 class="mt-2">
 
+            <?php echo $nome ?> </h4>
+
+        <span class=" col-2">
+            <a  id="edit" style="background-color: #1DBF73" href="scripts/update_evento.php?id=<?=$id?>">
+                    <i class="fas fa-user-edit"></i>
+            </a>
+        </span>
     </div>
 
     <div class="container">
