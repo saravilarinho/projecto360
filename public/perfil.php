@@ -82,9 +82,9 @@ if (isset($_SESSION['id_utilizador'])){
 
     <div class="container">
 
-        <ul class="nav nav-tabs justify-content-center">
-            <li class="active mr-4"><a data-toggle="tab" href="#home">Stats</a></li>
-            <li class="mr-4"><a data-toggle="tab" href="#menu2">Histórico</a></li>
+        <ul class="nav nav-tabs justify-content-around">
+            <li class="active"><a data-toggle="tab" href="#home">Stats</a></li>
+            <li class=""><a data-toggle="tab" href="#menu2">Histórico</a></li>
         </ul>
 
 

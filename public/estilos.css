@@ -1,6 +1,6 @@
 body {
 font-family: Sk-Modernist;
-    background-color: #EEF7F7;
+    background-color: #EEF7F7 !important;
 }
 
 .texto-nav {
@@ -53,8 +53,9 @@ border-bottom: 2px solid #4E6969}
 }
 
 .img_card_stats {
-    max-width: 50%;
-    border: #EEF7F7 2px solid;
+    max-width: 40%;
+    border: white 3px solid;
+    margin-left: -20px;
 }
 
 .tab-content{
