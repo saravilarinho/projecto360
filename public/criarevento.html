@@ -27,94 +27,106 @@
 </header>
 
 <main>
-    <div class="container_stepper">
-        <div id="stepProgressBar">
-            <div class="step">
-                <p class="step-text"></p>
-                <div class="bullet">1</div>
-            </div>
 
-            <div class="step">
-                <p class="step-text"></p>
-                <div class="bullet">2</div>
-            </div>
-
-            <div class="step">
-                <p class="step-text"></p>
-                <div class="bullet">3</div>
-            </div>
+    <div id="stepProgressBar">
+        <div class="step" id="step1" onclick="changeService('toggle1')">
+            <p class="step-text"></p>
+            <div class="bullet">1</div>
         </div>
+
+        <div class="step" id="step2">
+            <p class="step-text"></p>
+            <div class="bullet">2</div>
+        </div>
+
+        <div class="step"  id="step3">
+            <p class="step-text"></p>
+            <div class="bullet">3</div>
+        </div>
+    </div>
+
+
+    <div id="toggle1">
+        <div class="title">Insere a informação base do teu evento.</div>
+        <div class="field">
+            <div class="label">Nome do evento</div>
+            <input type="text">
+        </div>
+        <div class="field">
+            <div class="label">Descrição do evento</div>
+            <input type="text">
+        </div>
+        <div class="field">
+            <div class="label">Localização</div>
+            <input type="text">
+        </div>
+        <div class="field">
+            <div class="label">Duração</div>
+            <input type="datetime-local">
+            <input type="datetime-local">
+        </div>
+    </div>
+
+
+
+    <div id="toggle2">
+        <div class="title">Seleciona as categorias do teu evento</div>
+        <div class="field">
+            <div class="label">Qual é o género de evento?</div>
+            <input type="radio" id="musica" name="generoevento" value="musica">
+            <label for="musica">Música</label><br>
+            <input type="radio" id="manifestacao" name="generoevento" value="manifestacao">
+            <label for="manifestacao">Manifestação</label><br>
+            <input type="radio" id="teatro" name="generoevento" value="teatro">
+            <label for="teatro">Teatro</label><br>
+            <input type="radio" id="festa" name="generoevento" value="festa">
+            <label for="festa">Festa</label><br>
+            <input type="radio" id="meetup" name="generoevento" value="meetup">
+            <label for="meetup">Meetup</label><br>
+        </div>
+        <div class="field">
+            <div class="label">Qual é a privacidade que queres dar ao teu evento?</div>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Público</label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Privado</label><br>
+        </div>
+    </div>
+
+    <!-- <div id="toggle3">
+        <div class="title">Convida participantes!</div>
+        <div class="field">
+            <div class="label">Adiciona utilizadores <b>360</b> ao evento.</div>
+            <input type="text">
+        </div>
+        <div class="field">
+            <div class="label">Envia convite por email a utilizadores que ainda não estejam na <b>360</b>.</div>
+            <input type="text">
+        </div>
+    </div> -->
+
+    <div class="container_stepper">
+
         <div id="main">
             <p id="content">Step Number 1</p>
             <button class="button_stepper" id="previousBtn" disabled>Previous</button>
-            <button class="button_stepper" id="nextBtn">Next</button>
+            <button class="button_stepper" id="nextBtn"  onclick="changeService('toggle2')">Next</button>
             <button class="button_stepper" id="finishBtn" disabled>Finish</button>
         </div>
 
 
-    </div></main>
+    </div>
+</main>
 
-<!--
-<div id="pag1">
-    <div class="title">Insere a informação base do teu evento.</div>
-    <div class="field">
-        <div class="label">Nome do evento</div>
-        <input type="text">
-    </div>
-    <div class="field">
-        <div class="label">Descrição do evento</div>
-        <input type="text">
-    </div>
-    <div class="field">
-        <div class="label">Localização</div>
-        <input type="text">
-    </div>
-    <div class="field">
-        <div class="label">Duração</div>
-       <input type="datetime-local">
-        <input type="datetime-local">
-    </div>
-</div>
--->
 
-<!--
-<div id="pag2">
-    <div class="title">Seleciona as categorias do teu evento</div>
-    <div class="field">
-        <div class="label">Qual é o género de evento?</div>
-        <input type="radio" id="musica" name="generoevento" value="musica">
-        <label for="musica">Música</label><br>
-        <input type="radio" id="manifestacao" name="generoevento" value="manifestacao">
-        <label for="manifestacao">Manifestação</label><br>
-        <input type="radio" id="teatro" name="generoevento" value="teatro">
-        <label for="teatro">Teatro</label><br>
-        <input type="radio" id="festa" name="generoevento" value="festa">
-        <label for="festa">Festa</label><br>
-        <input type="radio" id="meetup" name="generoevento" value="meetup">
-        <label for="meetup">Meetup</label><br>
-    </div>
-    <div class="field">
-        <div class="label">Qual é a privacidade que queres dar ao teu evento?</div>
-        <input type="radio" id="male" name="gender" value="male">
-        <label for="male">Público</label><br>
-        <input type="radio" id="female" name="gender" value="female">
-        <label for="female">Privado</label><br>
-    </div>
-</div>
--->
-
-<!-- <div id="pag3">
-    <div class="title">Convida participantes!</div>
-    <div class="field">
-        <div class="label">Adiciona utilizadores <b>360</b> ao evento.</div>
-        <input type="text">
-    </div>
-    <div class="field">
-        <div class="label">Envia convite por email a utilizadores que ainda não estejam na <b>360</b>.</div>
-        <input type="text">
-    </div>
-</div> -->
 
 <script src="interacoes_stepper2.js"></script>
+
+<script>
+
+    function changeService(id) {
+        document.getElementById(id).setAttribute("class", "active");
+    }
+</script>
 </body>
 </html>

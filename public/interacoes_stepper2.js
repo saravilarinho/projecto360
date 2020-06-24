@@ -35,12 +35,16 @@ finishBtn.addEventListener('click', () => {
     location.reload();
 });
 
-/*
+
 if(currentStep === 1) {
+    document.getElementById("pag1").style.display = "block";
+    document.getElementById("pag1").style.visibility = "visible";
     document.getElementById("pag2").style.visibility = "hidden";
+    document.getElementById("pag2").style.display = "none";
+
     document.getElementById("pag3").style.visibility = "hidden";
 }
-
+/*
 if(currentStep === 2) {
     document.getElementById("pag1").style.visibility = "hidden";
     document.getElementById("pag3").style.visibility = "hidden";

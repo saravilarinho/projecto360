@@ -12,10 +12,11 @@ function new_db_connection()
 
 
     /*
-       $hostname = 'localhost';
-    $username = "id13881220_projeto360";
-    $password = "?=|W0+V9NOe~CVO|";
-    $dbname = "id13881220_projeto";
+     $hostname = 'mysql-hosting.ua.pt';
+    $username = 'deca-360-dbo';
+    $password = 'FfA4UZbQS589s6m5';
+    $dbname = 'deca-360';
+
       */
 
 

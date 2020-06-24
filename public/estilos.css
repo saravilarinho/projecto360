@@ -456,3 +456,7 @@ i.fa-calendar-alt {
     right: -111px;
     bottom: 16px;
 }
+
+#toggle1, #toggle2, #toggle3 {display:none !important;}
+#toggle1.active, #toggle2.active, #toggle3.active{display: block}
+
