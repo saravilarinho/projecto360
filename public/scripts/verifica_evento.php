@@ -61,13 +61,6 @@ if(isset($_GET["id"]) && isset($_SESSION['id_utilizador'])){
 
                         break;
 
-                    case 4:
-                        // favorito
-                        header("Location: ../eventocomsubscricao.php?id=$id&&role=$role");
-                        mysqli_stmt_close($stmt);
-                        mysqli_close($link);
-
-                        break;
 
                     default:
                         //o evento não está subscrito
