@@ -28,14 +28,14 @@ require_once "../admin/connections/connection2db.php";
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 
-$query = "SELECT id_evento, nome_evento, data_inicio_evento, localizacao_evento, coor_lat, coor_long 
+$query = "SELECT id_evento, nome_evento, data_inicio_evento, localizacao_evento, imagem_evento, coor_lat, coor_long 
           FROM `eventos` ";
 
 
 if (mysqli_stmt_prepare($stmt, $query)) {
 
 mysqli_stmt_execute($stmt);
-mysqli_stmt_bind_result($stmt, $id, $nome, $data_inicio, $localizacao, $latitude, $longitude);
+mysqli_stmt_bind_result($stmt, $id, $nome, $data_inicio, $localizacao, $imagem, $latitude, $longitude);
 
 ?>
 
@@ -62,7 +62,7 @@ mysqli_stmt_bind_result($stmt, $id, $nome, $data_inicio, $localizacao, $latitude
         var infowindow<?=$i?> = new google.maps.InfoWindow({
             content: '<div class="ok">' + '<div  class=" h-100">' +
                 '<a class="linkar" href="scripts/verifica_evento.php?id=<?=$id?>">' +
-                '<img src="imagens/evento1.jpeg" class="card-img-top" alt="...">' +
+                '<img src="scripts/upload/<?=$imagem?>" class="card-img-top" alt="...">' +
                 '<div style="padding: 8%">' +
                 '<div class="row">' +
                 '<p class=" mb-1 titulo_card_eventos col-10"><b><?=$nome ?> </b></p> ' +
