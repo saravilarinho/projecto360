@@ -68,15 +68,15 @@ if(isset($_GET["id"]) && isset($_SESSION['id_utilizador'])){
                         mysqli_close($link);
 
                         break;
+
+                    default:
+                        //o evento não está subscrito
+
+                        $id = $_GET["id"];
+
+                     header("Location: ../evento_semsubscricao.php?id=$id");
                 }
                 }
-
-
-            //o evento não está subscrito
-
-            $id = $_GET["id"];
-
-            header("Location: ../evento_semsubscricao.php?id=$id");
             mysqli_stmt_close($stmt);
             mysqli_close($link);
 
