@@ -16,7 +16,7 @@ $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 
 $query = "SELECT nome_evento, data_inicio_evento, data_fim_evento, localizacao_evento, descricao_evento, 
-categorias_id_categoria, coor_lat, coor_long, utilizadores_has_eventos.favorito, utilizadores_has_eventos.roles_id_role
+categorias_id_categoria, imagem_evento, coor_lat, coor_long, utilizadores_has_eventos.favorito, utilizadores_has_eventos.roles_id_role
           FROM eventos
           INNER JOIN utilizadores_has_eventos
           ON eventos.id_evento = utilizadores_has_eventos.eventos_id_evento
@@ -28,7 +28,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
     $id = $id_evento;
     mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $nome_evento,  $data_inicio, $data_fim, $localizacao, $descricao, $categoria, $lat, $lng, $favorito, $id_role);
+    mysqli_stmt_bind_result($stmt, $nome_evento,  $data_inicio, $data_fim, $localizacao, $descricao, $categoria, $imagem, $lat, $lng, $favorito, $id_role);
 
     if (mysqli_stmt_fetch($stmt)) {
 
@@ -59,7 +59,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
     <a href="eventos.php">
     <i class="fas fa-2x fa-chevron-circle-left voltar"></i></a>
-    <img class="w-100" src="imagens/evento2.jpeg">
+    <img class="w-100" src="scripts/upload/<?=$imagem?>">
 
     <div class="pl-4 container superior_redondo">
 
