@@ -20,7 +20,7 @@ nextBtn.addEventListener('click', () => {
 });
 
 previousBtn.addEventListener('click', () => {
-    const previousBullet = bullets[currentStep - 2];
+    const previousBullet = bullets[currentStep - 1];
     previousBullet.classList.remove('completed');
     currentStep--;
     nextBtn.disabled = false;
@@ -35,24 +35,13 @@ finishBtn.addEventListener('click', () => {
     location.reload();
 });
 
-
-if(currentStep === 1) {
+ if(currentStep === 1) {
     document.getElementById("toggle1").style.display = "block";
     document.getElementById("toggle1").style.visibility = "visible";
     document.getElementById("toggle2").style.visibility = "hidden";
     document.getElementById("toggle2").style.display = "none";
 
-    document.getElementById("toggle3").style.visibility = "hidden";
-}
-/*
-if(currentStep === 2) {
-    document.getElementById("pag1").style.visibility = "hidden";
-    document.getElementById("pag3").style.visibility = "hidden";
+
 }
 
-if(currentStep === 3) {
-    document.getElementById("pag1").style.visibility = "hidden";
-    document.getElementById("pag2").style.visibility = "hidden";
-}
-*/
 
