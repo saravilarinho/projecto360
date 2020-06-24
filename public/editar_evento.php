@@ -84,7 +84,6 @@ descricao_evento, categorias_id_categoria, niveis_privacidade_id_nivel_privacida
 
 
     <p class="mt-3 ml-4"><?=$nome_evento ?></p>
-    <p class="mt-0 ml-4">Começa por preencher os seguintes campos com as tuas informações.</p>
 
     <div class="row justify-content-around mr-0">
 
@@ -94,41 +93,66 @@ descricao_evento, categorias_id_categoria, niveis_privacidade_id_nivel_privacida
             <form enctype="multipart/form-data" action="scripts/update_evento.php?id=<?=$id_ev?>" role="form" method="post">
 
                 <p class="mt-2 mb-0 text-left">Nome do Evento</p>
-                <input class="pl-2 mt-1 w-100" type="text" name="nomeevento" placeholder="<?=$nome_evento ?>"
-                       required="required">
+                <input class="pl-2 mt-1 w-100" type="text" name="nomeevento" value="<?=$nome_evento ?>" required="required">
 
                 <p class="mt-2 mb-0 text-left">Descrição</p>
-                <input class="pl-2 mt-1 w-100" type="text" name="descricao" placeholder="<?=$descricao ?>"
+                <input class="pl-2 mt-1 w-100" type="text" name="descricao" value="<?=$descricao ?>"
                        required="required">
 
                 <p class="mt-2 mb-0 text-left">Data do evento</p>
-                <input class="pl-2 mt-1 w-100" type="date" name="datainicio" required="required" placeholder="<?=$data_inicio ?>">
+                <input class="pl-2 mt-1 w-100" type="datetime-local" name="datainicio" required="required" value="<?=$data_inicio ?>">
 
-                <input class="pl-2 mt-1 w-100" type="date" name="datafim" required="required" placeholder="<?=$data_fim ?>">
+                <input class="pl-2 mt-1 w-100" type="datetime-local" name="datafim" required="required" value="<?=$data_fim ?>">
+<script>
 
+    console.log(<?=$data_inicio?>)
+
+</script>
                 <p class="mt-2 mb-0 text-left">Localização</p>
-                <input class="pl-2 mt-1 w-100" type="text" name="localizacao" required="required" placeholder="<?=$localizacao ?>">
+                <input class="pl-2 mt-1 w-100" type="text" name="localizacao" required="required" value="<?=$localizacao ?>">
 
                 <p class="mt-2 mb-0 text-left">Privacidade</p>
 
                 <p class="mt-2 mb-0 text-left">Imagem de capa</p>
 
-                <div class="mt-4 mb-0 text-center">
-                    <a data-toggle="modal" data-target="#fotografiaModal">
-                        <button class="btn btn-dark col-4" style="width: 150px;
-    height: 90px;border-radius: 50%; background-color: #2C3335;border: none; color: white; padding: 20px; text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;"><i class="fa fa-2x fa-camera"></i> Upload </button>
-                        <?php
-                        if(isset($imagem)) {
-                            echo "<p class='form-control-file col-md-4' style='display: block; !important;'> $imagem </p>";
-                        }
-                        else {
-                            echo "<p class='form-control-file col-md-4' style='display: block; !important;'> Nenhum novo ficheiro selecionado. </p>";
 
-                        }
+                    <?php
+                    if (isset($imagem)){
+                        ?>
+                    <div class="uploads mt-2" style="background-image: url('scripts/upload/<?=$imagem?>'); width: auto; height: 10vh; border-radius: 10px;
+                            ; text-align: center; color: white;opacity: 75%;">
+
+                        <a data-toggle="modal" data-target="#fotografiaModal">
+
+                            <p style="padding-top: 7%;"><i class="fas fa-camera" style="    font-size: x-large; !important;"></i></p>
+                        </a>
+
+                    </div>
+
+
+                        <?php
+                    }
+                    else {
 
                         ?>
+
+
+                        <div class="uploads mt-2" style="background-color: #4E6969; width: auto; height: 10vh; border-radius: 10px;
+             ; text-align: center; color: white;opacity: 65%;">
+                    <a data-toggle="modal" data-target="#fotografiaModal">
+
+                        <p style="padding-top: 7%;"><i class="fas fa-camera" style="font-size: font-size: 30px;"></i></p>
                     </a>
+
                 </div>
+                        <?php
+                    }
+
+                    ?>
+
+
+
+
 
 
 
@@ -145,12 +169,11 @@ descricao_evento, categorias_id_categoria, niveis_privacidade_id_nivel_privacida
         <div class="modal fade" id="fotografiaModal" tabindex="-1" role="dialog" aria-labelledby="modalFotos" aria-hidden="true" style="margin-top: 50%">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <form class="row justify-content-center pb-5" action="scripts/upload_fotos.php?id=<?=$id_evento?>" enctype="multipart/form-data" method="post"  style="margin: auto">
-                            <input style="cursor: pointer!important;" class="col-8 p-3 pb-5 form-control inputRegistar mt-4 btn btn-outline-dark" type="file" placeholder="File" name="fileToUpload" id="fileToUpload">
-
-                            <input class="col-8 form-control inputRegistar mt-4 btn" type="submit" style="background-color: darkgreen;
-    color: white;" value="Upload" name="submit">
+                    <div class="modal-header modalupload">
+                        <form action="scripts/upload_fotos.php?id=<?=$id_evento?>" method="post" enctype="multipart/form-data" class="formularioupload">
+                            <p>Seleciona um ficheiro e clica em upload</p>
+                            <input type="file" name="file" style="font-size: 12px;padding-bottom: 20px;">
+                            <input type="submit" name="submit" value="Upload" class="socorro">
                         </form>
                     </div>
                 </div>
@@ -158,6 +181,7 @@ descricao_evento, categorias_id_categoria, niveis_privacidade_id_nivel_privacida
             </div>
 
         </div>
+
 
     <?php
 
@@ -174,6 +198,8 @@ descricao_evento, categorias_id_categoria, niveis_privacidade_id_nivel_privacida
 
 
 </body>
+
+
 
 
 </html>

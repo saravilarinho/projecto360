@@ -461,3 +461,29 @@ i.fa-calendar-alt {
 #toggle2, #toggle3 {display:none;}
 #toggle1.active, #toggle2.active, #toggle3.active{display: block}
 
+
+.uploads {
+    background-color: #4E6969;
+    width: auto;
+    height: 10vh;
+    border-radius: 10px;
+    opacity: 40%;
+}
+
+.socorro{
+    background-color: #1ec5bc;
+    border-radius: 10px;
+    color: white;
+    width: 30vw;
+    height: 6vh;
+    border-color: transparent;
+}
+
+.formularioupload{
+        text-align: center;
+
+}
+
+.modalupload{
+        padding: 2rem 1rem !important;
+}
