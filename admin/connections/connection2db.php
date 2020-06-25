@@ -6,7 +6,7 @@ function new_db_connection()
 {
     // Variables for the database connection
     $hostname = 'mysql-hosting.ua.pt';
-    $username = 'deca-360-web';
+    $username = "deca-360-web";
     $password = "GwKt897oZ2BB0xZp";
     $dbname = "deca-360";
 
