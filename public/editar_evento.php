@@ -185,9 +185,6 @@ descricao_evento, categorias_id_categoria, niveis_privacidade_id_nivel_privacida
 
     <?php
 
-
-
-
     }
 
     }

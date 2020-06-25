@@ -352,8 +352,7 @@ i.fa-calendar-alt {
 }
 
 .ok{
-    width: 45vw;
-    height: 24vh;
+    height: 25vh;
     line-height: 1.35; !important;
     overflow: hidden; !important;
     white-space: nowrap; !important;
