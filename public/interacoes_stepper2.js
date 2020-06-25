@@ -16,7 +16,6 @@ nextBtn.addEventListener('click', () => {
         nextBtn.disabled = true;
         finishBtn.disabled = false;
     }
-    content.innerText = `Step number ${currentStep}`;
 });
 
 previousBtn.addEventListener('click', () => {
@@ -28,20 +27,11 @@ previousBtn.addEventListener('click', () => {
     if (currentStep === 1) {
         previousBtn.disabled = true;
     }
-    content.innerText = `Step number ${currentStep}`;
 });
 
 finishBtn.addEventListener('click', () => {
     location.reload();
 });
 
- if(currentStep === 1) {
-    document.getElementById("toggle1").style.display = "block";
-    document.getElementById("toggle1").style.visibility = "visible";
-    document.getElementById("toggle2").style.visibility = "hidden";
-    document.getElementById("toggle2").style.display = "none";
-
-
-}
 
 
