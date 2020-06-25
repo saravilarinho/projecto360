@@ -27,7 +27,7 @@
 </header>
 
 <main>
-
+<div class="stepper">
     <div id="stepProgressBar">
         <div class="step" id="step1">
             <p class="step-text"></p>
@@ -47,23 +47,23 @@
 
 
     <div id="toggle1">
-        <div class="title">Insere a informação base do teu evento.</div>
+        <div class="title mt-4">Insere a informação base do teu evento.</div>
         <div class="field">
-            <div class="label">Nome do evento</div>
-            <input type="text">
+            <div class="label mt-2">Nome do evento</div>
+            <input type="text" class="campos_form_criarevento">
         </div>
         <div class="field">
             <div class="label">Descrição do evento</div>
-            <input type="text">
+            <input type="text" class="campos_form_criarevento campo_descricao">
         </div>
         <div class="field">
             <div class="label">Localização</div>
-            <input type="text">
+            <input type="text" class="campos_form_criarevento">
         </div>
         <div class="field">
             <div class="label">Duração</div>
-            <input type="datetime-local">
-            <input type="datetime-local">
+            <input type="datetime-local" class="campos_form_criarevento campo_data_hora">
+            <input type="datetime-local" class="campos_form_criarevento campo_data_hora">
         </div>
     </div>
 
@@ -105,10 +105,9 @@
         </div>
     </div>
 
-    <div class="container_stepper">
+    <div class="container_stepper mt-5">
 
         <div id="main">
-            <p id="content">Step Number 1</p>
             <button class="button_stepper" id="previousBtn"  onclick="clicou_atras(currentStep);" disabled >Previous</button>
             <button class="button_stepper" id="nextBtn" onclick="clicou(currentStep)">Next</button>
             <button class="button_stepper" id="finishBtn" disabled>Finish</button>
@@ -116,6 +115,7 @@
 
 
     </div>
+</div>
 </main>
 
 
@@ -169,7 +169,6 @@
     }
 
     function clicou_atras(currentStep){
-        currentStep--;
         if (currentStep === 1 ){
             document.getElementById("toggle1").style.display = "block";
             document.getElementById("toggle2").style.display = "none";

@@ -351,7 +351,6 @@ i.fa-calendar-alt {
 
 }
 
-
 .ok{
     width: 45vw;
     height: 24vh;
@@ -396,19 +395,38 @@ i.fa-calendar-alt {
 
 .button_stepper {
     padding: 5px 10px;
-    border: 1px solid #3e3f80;
+    background-color: #3e3f80;
+    border: none;
+    color: white;
     transition: 250ms background-color;
+    border-radius: 5px;
+    text-align: center;
+
+}
+
+.button_stepper:disabled {
+    background-color: lightgrey;
 }
 
 .button_stepper:hover {
     cursor: pointer;
-    background-color: #1ec5bc;
-    color: white;
 }
 
 .button_stepper:disabled:hover {
     opacity: 0.6;
     cursor: not-allowed;
+    background-color: grey;
+
+}
+.stepper .title {
+    color: #4E6969;
+    font-size: 17px;
+}
+
+.stepper .label {
+    font-size: 14px;
+    color: #4E6969;
+    margin-bottom: 0.3rem;
 }
 
 .text-center {
@@ -416,24 +434,19 @@ i.fa-calendar-alt {
 }
 
 .container_stepper {
-    /*max-width: 400px;*/
-    margin: 20px auto 0 auto;
-    padding: 20px;
+    text-align: center
 }
 
 #stepProgressBar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin: 1rem 0 1rem;
 }
 
 .step {
     text-align: center;
 }
 
-.step-text {
-    margin-bottom: 10px;
-    color: #3e3f80;
-}
 
 .bullet {
     height: 35px;
@@ -456,16 +469,41 @@ i.fa-calendar-alt {
 .bullet.completed::after {
     content: "";
     position: absolute;
-    width: 104px;
+    width: 85px;
     height: 1px;
     background-color: #1ec5bc;
-    right: -111px;
+    right: -89px;
     bottom: 16px;
 }
 
 #toggle2, #toggle3 {display:none;}
 #toggle1.active, #toggle2.active, #toggle3.active{display: block}
 
+.campos_form_criarevento {
+    -webkit-box-shadow: 7px 5px 21px -8px rgba(0,0,0,0.34);
+    -moz-box-shadow: 7px 5px 21px -8px rgba(0,0,0,0.34);
+    box-shadow: 7px 5px 21px -8px rgba(0,0,0,0.34);
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 0.7rem;
+    width: 90%;
+}
+
+.campo_data_hora {
+    width: 158px;
+    font-size: 12px;
+}
+
+.campo_descricao {
+    padding-bottom: 15px;
+}
+
+#toggle1 {
+    margin: 1rem;
+}
+
+
+/*FIM STEPPER*/
 
 .uploads {
     background-color: #4E6969;
