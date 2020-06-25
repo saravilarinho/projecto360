@@ -61,7 +61,7 @@ if(isset($_GET["nome"])){
     $link = new_db_connection();
     $stmt = mysqli_stmt_init($link);
 
-    $query = "SELECT id_evento, nome_evento, data_inicio_evento, data_fim_evento, localizacao_evento, 
+    $query = "SELECT id_evento, nome_evento, data_inicio_evento, hora_inicio, data_fim_evento, hora_fim, localizacao_evento, 
 descricao_evento, categorias_id_categoria, niveis_privacidade_id_nivel_privacidade, imagem_evento
     FROM eventos
     INNER JOIN utilizadores_has_eventos
@@ -75,16 +75,12 @@ descricao_evento, categorias_id_categoria, niveis_privacidade_id_nivel_privacida
     $evento = $id_evento;
 
     mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $id_ev,$nome_evento, $data_inicio, $data_fim, $localizacao, $descricao,
+    mysqli_stmt_bind_result($stmt, $id_ev,$nome_evento, $data_inicio, $horainicio, $data_fim, $horafim, $localizacao, $descricao,
         $categoria, $privacidade, $imagem);
 
     if (mysqli_stmt_fetch($stmt)) {
 
 ?>
-
-
-    <p class="mt-3 ml-4"><?=$nome_evento ?></p>
-
     <div class="row justify-content-around mr-0">
 
 
@@ -100,14 +96,18 @@ descricao_evento, categorias_id_categoria, niveis_privacidade_id_nivel_privacida
                        required="required">
 
                 <p class="mt-2 mb-0 text-left">Data do evento</p>
-                <input class="pl-2 mt-1 w-100" type="datetime-local" name="datainicio" required="required" value="<?=$data_inicio ?>">
 
-                <input class="pl-2 mt-1 w-100" type="datetime-local" name="datafim" required="required" value="<?=$data_fim ?>">
-<script>
+                <input class="pl-2 mt-1 w-100" type="date" name="datainicio" required="required" value="<?=$data_inicio?>">
 
-    console.log(<?=$data_inicio?>)
+                <input class="pl-2 mt-1 w-100" type="date" name="horainicio" required="required" value="<?=$horainicio ?>">
 
-</script>
+                <p class="mt-2 mb-0 text-left">Horário</p>
+
+                <input class="pl-2 mt-1 w-100" type="time" name="datafim" required="required" value="<?=$data_fim?>">
+
+                <input class="pl-2 mt-1 w-100" type="time" name="horafim" required="required" value="<?=$horafim ?>">
+
+
                 <p class="mt-2 mb-0 text-left">Localização</p>
                 <input class="pl-2 mt-1 w-100" type="text" name="localizacao" required="required" value="<?=$localizacao ?>">
 

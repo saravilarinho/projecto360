@@ -262,7 +262,15 @@ if (isset($_SESSION['id_utilizador'])){
                                         <p class="card-title mb-1 titulo_card_eventos col-10"><b> <?= $nome_evento ?> </b></p>
                                         <img class="icone_categoria" src="imagens/icones/icone_festa.png">
                                     </div>
-                                    <p class="card-text texto_card_eventos m-0"><small><?= $data_evento ?></small></p>
+
+                                    <?php
+                                    $date = date('d-m-Y', strtotime($data_evento)); //date format
+
+                                    ?>
+                                    <p class="card-text texto_card_eventos m-0"><small><?= $date ?></small></p>
+
+
+
                                     <p class="card-text texto_card_eventos m-0"><small><?= $localizacao ?></small>
                                     </p>
                                 </div>
