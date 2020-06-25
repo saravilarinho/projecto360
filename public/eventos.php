@@ -115,7 +115,34 @@ if (isset($_SESSION['id_utilizador'])){
                                     <div class="row">
                                         <p class="card-title mb-1 titulo_card_eventos col-10"><b> <?php echo $nome_evento ?></b>
                                         </p>
-                                        <img class="icone_categoria" src="imagens/icones/icone_festa.png">
+
+                                        <?php
+                                        if (isset($categoria)) {
+                                            switch ($categoria) {
+                                                // música
+                                                case 1:
+                                                    echo '<img class="icone_categoria" src="imagens/icones/icone_musica.png">';
+                                                    break;
+
+                                                // manifestações
+                                                case 2:
+                                                    echo '<img class="icone_categoria" src="imagens/icones/icone_manif.png">';
+                                                    break;
+
+                                                // teatro
+                                                case 3:
+                                                    echo '<img class="icone_categoria" src="imagens/icones/icone_teatro.png">';
+                                                    break;
+
+                                                // festas
+                                                case 4:
+                                                    echo '<img class="icone_categoria" src="imagens/icones/icone_festa.png">';
+                                                    break;
+                                            }
+                                        }
+                                        ?>
+
+
                                     </div>
                                     <p class="card-text texto_card_eventos m-0">
                                         <small><?php echo $data_evento?></small>
@@ -181,7 +208,35 @@ if (isset($_SESSION['id_utilizador'])){
                                     <div class="card-body pb-0">
                                     <div class="row">
                                         <p class="card-title mb-1 titulo_card_eventos col-10"><b><?=$nome_evento ?></b></p>
-                                        <img class="icone_categoria" src="imagens/icones/icone_festa.png">
+
+                                        <?php
+                                        if (isset($categoria)) {
+                                            switch ($categoria) {
+                                                // música
+                                                case 1:
+                                                    echo '<img class="icone_categoria" src="imagens/icones/icone_musica.png">';
+                                                    break;
+
+                                                // manifestações
+                                                case 2:
+                                                    echo '<img class="icone_categoria" src="imagens/icones/icone_manif.png">';
+                                                    break;
+
+                                                // teatro
+                                                case 3:
+                                                    echo '<img class="icone_categoria" src="imagens/icones/icone_teatro.png">';
+                                                    break;
+
+                                                // festas
+                                                case 4:
+                                                    echo '<img class="icone_categoria" src="imagens/icones/icone_festa.png">';
+                                                    break;
+                                            }
+                                        }
+                                        ?>
+
+
+
                                     </div>
                                     <p class="card-text texto_card_eventos m-0"><small><?=$data_evento ?></small></p>
                                     <p class="card-text texto_card_eventos m-0"><small><?=$localizacao ?></small>
@@ -260,7 +315,32 @@ if (isset($_SESSION['id_utilizador'])){
                                 <div class="card-body pb-0">
                                     <div class="row">
                                         <p class="card-title mb-1 titulo_card_eventos col-10"><b> <?= $nome_evento ?> </b></p>
-                                        <img class="icone_categoria" src="imagens/icones/icone_festa.png">
+
+                                        <?php
+                                        if (isset($categoria)) {
+                                            switch ($categoria) {
+                                                // música
+                                                case 1:
+                                                    echo '<img class="icone_categoria" src="imagens/icones/icone_musica.png">';
+                                                    break;
+
+                                                // manifestações
+                                                case 2:
+                                                    echo '<img class="icone_categoria" src="imagens/icones/icone_manif.png">';
+                                                    break;
+
+                                                // teatro
+                                                case 3:
+                                                    echo '<img class="icone_categoria" src="imagens/icones/icone_teatro.png">';
+                                                    break;
+
+                                                // festas
+                                                case 4:
+                                                    echo '<img class="icone_categoria" src="imagens/icones/icone_festa.png">';
+                                                    break;
+                                            }
+                                        }
+                                        ?>
                                     </div>
 
                                     <?php
