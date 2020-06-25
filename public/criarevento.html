@@ -70,38 +70,61 @@
 
 
     <div id="toggle2">
-        <div class="title">Seleciona as categorias do teu evento</div>
+        <div class="title mt-4">Seleciona as categorias do teu evento</div>
         <div class="field">
-            <div class="label">Qual é o género de evento?</div>
-            <input type="radio" id="musica" name="generoevento" value="musica">
-            <label for="musica">Música</label><br>
-            <input type="radio" id="manifestacao" name="generoevento" value="manifestacao">
-            <label for="manifestacao">Manifestação</label><br>
-            <input type="radio" id="teatro" name="generoevento" value="teatro">
-            <label for="teatro">Teatro</label><br>
-            <input type="radio" id="festa" name="generoevento" value="festa">
-            <label for="festa">Festa</label><br>
-            <input type="radio" id="meetup" name="generoevento" value="meetup">
-            <label for="meetup">Meetup</label><br>
-        </div>
-        <div class="field">
-            <div class="label">Qual é a privacidade que queres dar ao teu evento?</div>
-            <input type="radio" id="male" name="gender" value="male">
-            <label for="male">Público</label><br>
-            <input type="radio" id="female" name="gender" value="female">
-            <label for="female">Privado</label><br>
+            <div class="label mt-2">Qual é o género de evento?</div>
+            <div class="container">
+                <div class="row radio">
+                    <div class="col-3"><input type="radio" id="festa" name="generoevento" value="festa">
+                        <label for="festa">Festa</label></div>
+
+                    <div class="col-5">
+                        <input type="radio" id="manifestacao" name="generoevento" value="manifestacao">
+                        <label for="manifestacao">Manifestação</label></div>
+
+                    <div class="col-3">
+                        <input type="radio" id="meetup" name="generoevento" value="meetup">
+                        <label for="meetup">Meetup</label></div>
+                </div>
+                <br>
+                <div class="row radio">
+                    <div class="col-3">
+                        <input type="radio" id="musica" name="generoevento" value="musica">
+                        <label for="musica">Música</label></div>
+                    <div class="col-5">
+                        <input type="radio" id="teatro" name="generoevento" value="teatro">
+                        <br>
+                        <label for="teatro">Teatro</label></div>
+                    <div class="col-3"></div>
+                </div>
+
+
+            </div>
+
+            <div class="field mt-3">
+                <div class="label">Qual é a privacidade que queres dar ao teu evento?</div>
+                <div class="row radio">
+                    <div class="col-6">
+                        <input type="radio" id="male" name="gender" value="male"><br>
+                        <label for="male">Público</label></div>
+                    <div class="col-6">
+                        <input type="radio" id="female" name="gender" value="female"><br>
+                        <label for="female">Privado</label></div>
+                </div>
+            </div>
         </div>
     </div>
 
     <div id="toggle3">
-        <div class="title">Convida participantes!</div>
-        <div class="field">
+        <div class="title mt-4">Convida participantes!</div>
+        <div class="field mt-2">
             <div class="label">Adiciona utilizadores <b>360</b> ao evento.</div>
-            <input type="text">
+            <input type="text" class="campos_form_criarevento">
         </div>
+        <p class="label mb-2"><b>ou</b></p>
         <div class="field">
             <div class="label">Envia convite por email a utilizadores que ainda não estejam na <b>360</b>.</div>
-            <input type="text">
+            <input type="text" class="campos_form_criarevento">
         </div>
     </div>
 
