@@ -62,7 +62,7 @@ mysqli_stmt_bind_result($stmt, $id, $nome, $data_inicio, $localizacao, $imagem, 
         var infowindow<?=$i?> = new google.maps.InfoWindow({
             content: '<div class="ok">' + '<div  class=" h-100">' +
                 '<a class="linkar" href="scripts/verifica_evento.php?id=<?=$id?>">' +
-                '<img src="scripts/upload/<?=$imagem?>" class="card-img-top" alt="...">' +
+                '<img src="imagens/evento1.jpeg" class="card-img-top" alt="...">' +
                 '<div style="padding: 8%">' +
                 '<div class="row">' +
                 '<p class=" mb-1 titulo_card_eventos col-10"><b><?=$nome ?> </b></p> ' +
