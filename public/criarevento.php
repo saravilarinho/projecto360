@@ -21,12 +21,16 @@
 <body>
 <header>
     <h3>
+        <a href="feed.php" style="text-decoration: none; color: #03bd03;">
+            <i class="fas fa-chevron-left mr-2 ml-1"></i>
+        </a>
         Criar Evento
     </h3>
 
 </header>
 
 <main>
+    <form  enctype="multipart/form-data" action="scripts/novo_evento.php?" role="form" method="post">
 <div class="stepper">
     <div id="stepProgressBar">
         <div class="step" id="step1">
@@ -47,23 +51,24 @@
 
 
     <div id="toggle1">
-        <div class="title mt-4">Insere a informação base do teu evento.</div>
         <div class="field">
             <div class="label mt-2">Nome do evento</div>
-            <input type="text" class="campos_form_criarevento">
+            <input type="text" name="nome_evento" class="campos_form_criarevento" placeholder="Nome do evento">
         </div>
         <div class="field">
             <div class="label">Descrição do evento</div>
-            <input type="text" class="campos_form_criarevento campo_descricao">
+            <input type="text" name="descricao" class="campos_form_criarevento campo_descricao" placeholder="Escreve uma pequena descrição do evento">
         </div>
         <div class="field">
             <div class="label">Localização</div>
-            <input type="text" class="campos_form_criarevento">
+            <input type="text" name="localizacao" class="campos_form_criarevento" value="">
         </div>
         <div class="field">
             <div class="label">Duração</div>
-            <input type="datetime-local" class="campos_form_criarevento campo_data_hora">
-            <input type="datetime-local" class="campos_form_criarevento campo_data_hora">
+            <input type="date"  name="data_inicio"  class="campos_form_criarevento campo_data_hora">
+            <input type="date"  name="data_fim"  class="campos_form_criarevento campo_data_hora">
+            <input type="time"  name="hora_inicio"  class="campos_form_criarevento campo_data_hora">
+            <input type="time"  name="hora_fim"  class="campos_form_criarevento campo_data_hora">
         </div>
     </div>
 
@@ -127,36 +132,20 @@
             <input type="text" class="campos_form_criarevento">
         </div>
     </div>
-
+    </form>
     <div class="container_stepper mt-5">
 
         <div id="main">
-            <button class="button_stepper" id="previousBtn"  onclick="clicou_atras(currentStep);" disabled >Previous</button>
-            <button class="button_stepper" id="nextBtn" onclick="clicou(currentStep)">Next</button>
-            <button class="button_stepper" id="finishBtn" disabled>Finish</button>
+            <button class="button_stepper" id="previousBtn" type="button"  onclick="clicou_atras(currentStep);" disabled >Previous</button>
+            <button class="button_stepper" id="nextBtn" type="button" onclick="clicou(currentStep)">Next</button>
+            <button class="button_stepper" id="finishBtn"  disabled>Finish</button>
         </div>
-
-
     </div>
+
+
 </div>
 </main>
 
-
-
-<!--<div class="ok">
-    <div  class="h-100">
-    <a class="linkar" href="scripts/verifica_evento.php?">
-        <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
-        <div style="padding: 8%">
-            <div class="row">
-                <p class=" mb-1 titulo_card_eventos col-10"><b> Garagem do Reitor </b></p>
-                <img class="icone_categoria" src="imagens/icones/icone_festa.png"></div>
-            <p class=" texto_card_eventos m-0">
-                <small> 10-08-1998 </small> </p>
-            <p class=" texto_card_eventos m-0"> <small>Universidade de Aveiro </small>
-                </p> </div></a>
-    </div>
-</div>-->
 
 <script src="interacoes_stepper2.js"></script>
 
@@ -192,6 +181,7 @@
     }
 
     function clicou_atras(currentStep){
+        currentStep = currentStep - 1;
         if (currentStep === 1 ){
             document.getElementById("toggle1").style.display = "block";
             document.getElementById("toggle2").style.display = "none";
