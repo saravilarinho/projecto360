@@ -21,126 +21,89 @@
 <body>
 <header>
     <h3>
-        Criar Evento
+        Carregar Conteúdo
     </h3>
 
 </header>
 
 <main>
-<div class="stepper">
-    <div id="stepProgressBar">
-        <div class="step" id="step1">
-            <p class="step-text"></p>
-            <div class="bullet">1</div>
+    <div class="stepper">
+        <div id="stepProgressBar">
+            <div class="step" id="step1">
+                <p class="step-text"></p>
+                <div class="bullet">1</div>
+            </div>
+
+            <div class="step" id="step2">
+                <p class="step-text"></p>
+                <div class="bullet">2</div>
+            </div>
+
+            <div class="step" id="step3">
+                <p class="step-text"></p>
+                <div class="bullet">3</div>
+            </div>
         </div>
 
-        <div class="step" id="step2">
-            <p class="step-text"></p>
-            <div class="bullet">2</div>
+
+        <div id="toggle1">
+
+            <div class="field mt-4">
+                <div class="label">Descrição da publicação.</div>
+                <input type="text" class="campos_form_criarevento campo_descricao">
+            </div>
+            <div class="field">
+                <label for="myfile">Seleciona um ficheiro:</label>
+                <input type="file" id="myfile" name="myfile">
+            </div>
         </div>
 
-        <div class="step"  id="step3">
-            <p class="step-text"></p>
-            <div class="bullet">3</div>
-        </div>
-    </div>
 
+        <div id="toggle2">
+            <div class="label mt-4">Escolhe o Evento.</div>
+            <div class="field">
+                <div class="container">
+                    <input type="radio" id="concerto1" name="evento" value="primavera">
+                    <label for="concerto1" class="label">NOS Primavera Sound</label> <br>
 
-    <div id="toggle1">
-        <div class="title mt-4">Insere a informação base do teu evento.</div>
-        <div class="field">
-            <div class="label mt-2">Nome do evento</div>
-            <input type="text" class="campos_form_criarevento">
-        </div>
-        <div class="field">
-            <div class="label">Descrição do evento</div>
-            <input type="text" class="campos_form_criarevento campo_descricao">
-        </div>
-        <div class="field">
-            <div class="label">Localização</div>
-            <input type="text" class="campos_form_criarevento">
-        </div>
-        <div class="field">
-            <div class="label">Duração</div>
-            <input type="datetime-local" class="campos_form_criarevento campo_data_hora">
-            <input type="datetime-local" class="campos_form_criarevento campo_data_hora">
-        </div>
-    </div>
+                    <input type="radio" id="concerto2" name="evento" value="dilligence">
+                    <label for="concerto2" class="label">My Dilligence at Avenida</label><br>
 
-
-
-    <div id="toggle2">
-        <div class="title mt-4">Seleciona as categorias do teu evento</div>
-        <div class="field">
-            <div class="label mt-2">Qual é o género de evento?</div>
-            <div class="container">
-                <div class="row radio">
-                    <div class="col-3"><input type="radio" id="festa" name="generoevento" value="festa"><br>
-                        <label for="festa" class="label">Festa</label></div>
-
-                    <div class="col-5">
-                        <input type="radio" id="manifestacao" name="generoevento" value="manifestacao"><br>
-                        <label for="manifestacao" class="label">Manifestação</label></div>
-
-                    <div class="col-3">
-                        <input type="radio" id="meetup" name="generoevento" value="meetup">
-                        <label for="meetup" class="label">Meetup</label></div>
-                </div>
-                <br>
-                <div class="row radio">
-                    <div class="col-3">
-                        <input type="radio" id="musica" name="generoevento" value="musica">
-                        <label for="musica" class="label">Música</label></div>
-                    <div class="col-5">
-                        <input type="radio" id="teatro" name="generoevento" value="teatro">
-                        <br>
-                        <label for="teatro" class="label">Teatro</label></div>
-                    <div class="col-3"></div>
+                    <input type="radio" id="outro" name="evento" value="outro">
+                    <label for="outro" class="label">Outro...</label>
                 </div>
 
 
             </div>
-
-            <div class="field mt-3">
-                <div class="label">Qual é a privacidade que queres dar ao teu evento?</div>
-                <div class="row radio">
-                    <div class="col-6">
-                        <input type="radio" id="male" name="gender" value="male"><br>
-                        <label for="male" class="label">Público</label></div>
-                    <div class="col-6">
-                        <input type="radio" id="female" name="gender" value="female"><br>
-                        <label for="female" class="label">Privado</label></div>
-                </div>
-            </div>
         </div>
-    </div>
+
 
     <div id="toggle3">
-        <div class="title mt-4">Convida participantes!</div>
+        <div class="title mt-4">Identifica participantes!</div>
         <div class="field mt-2">
-            <div class="label">Adiciona utilizadores <b>360</b> ao evento.</div>
+            <div class="label">Identifica utilizadores <b>360</b> ao evento.</div>
             <input type="text" class="campos_form_criarevento">
         </div>
         <p class="label mb-2"><b>ou</b></p>
         <div class="field">
-            <div class="label">Envia convite por email a utilizadores que ainda não estejam na <b>360</b>.</div>
+            <div class="label">Notifica por email a utilizadores que ainda não estejam na <b>360</b>.</div>
             <input type="text" class="campos_form_criarevento">
         </div>
-    </div>
+    </div></div>
 
     <div class="container_stepper mt-5">
 
         <div id="main">
-            <button class="button_stepper" id="previousBtn"  onclick="clicou_atras(currentStep);" disabled >Previous</button>
+            <button class="button_stepper" id="previousBtn" onclick="clicou_atras(currentStep);" disabled>Previous
+            </button>
             <button class="button_stepper" id="nextBtn" onclick="clicou(currentStep)">Next</button>
             <button class="button_stepper" id="finishBtn" disabled>Finish</button>
         </div>
 
 
     </div>
-</div>
+    </div>
 </main>
-
 
 
 <!--<div class="ok">
