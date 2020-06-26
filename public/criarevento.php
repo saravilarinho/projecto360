@@ -30,7 +30,7 @@
 </header>
 
 <main>
-    <form  enctype="multipart/form-data" action="scripts/novo_evento.php?" role="form" method="post">
+    <form  enctype="multipart/form-data" action="scripts/novo_evento.php" role="form" method="post">
 <div class="stepper">
     <div id="stepProgressBar">
         <div class="step" id="step1">
@@ -80,24 +80,25 @@
             <div class="label mt-2">Qual é o género de evento?</div>
             <div class="container">
                 <div class="row radio">
-                    <div class="col-3"><input type="radio" id="festa" name="generoevento" value="festa"><br>
+                    <div class="col-3"><input type="radio" id="festa" name="generoevento" value="4"><br>
                         <label for="festa" class="label">Festa</label></div>
 
                     <div class="col-5">
-                        <input type="radio" id="manifestacao" name="generoevento" value="manifestacao"><br>
+                        <input type="radio" id="manifestacao" name="generoevento" value="2"><br>
                         <label for="manifestacao" class="label">Manifestação</label></div>
 
                     <div class="col-3">
-                        <input type="radio" id="meetup" name="generoevento" value="meetup">
-                        <label for="meetup" class="label">Meetup</label></div>
+                        <input type="radio" id="musica" name="generoevento" value="1">
+                        <label for="musica" class="label">Música</label>
+                    </div>
                 </div>
                 <br>
+
+
                 <div class="row radio">
-                    <div class="col-3">
-                        <input type="radio" id="musica" name="generoevento" value="musica">
-                        <label for="musica" class="label">Música</label></div>
+
                     <div class="col-5">
-                        <input type="radio" id="teatro" name="generoevento" value="teatro">
+                        <input type="radio" id="teatro" name="generoevento" value="3">
                         <br>
                         <label for="teatro" class="label">Teatro</label></div>
                     <div class="col-3"></div>
@@ -110,10 +111,10 @@
                 <div class="label">Qual é a privacidade que queres dar ao teu evento?</div>
                 <div class="row radio">
                     <div class="col-6">
-                        <input type="radio" id="male" name="gender" value="male"><br>
+                        <input type="radio" id="publico" name="gender" value="1"><br>
                         <label for="male" class="label">Público</label></div>
                     <div class="col-6">
-                        <input type="radio" id="female" name="gender" value="female"><br>
+                        <input type="radio" id="privado" name="gender" value="2"><br>
                         <label for="female" class="label">Privado</label></div>
                 </div>
             </div>

@@ -2,14 +2,100 @@
 session_start();
 
 if (isset($_SESSION['id_utilizador']) && isset($_POST['nome_evento']) && isset($_POST['descricao']) && isset($_POST['localizacao']) &&
-isset($_POST['data_inicio']) && isset($_POST['hora_inicio']) && isset($_POST['data_fim']) && isset($_POST['hora_fim'])){
+isset($_POST['data_inicio']) && isset($_POST['hora_inicio']) && isset($_POST['data_fim']) && isset($_POST['hora_fim'])
+    && isset($_POST['generoevento']) && isset($_POST['gender'])) {
+
+    require_once "../../admin/connections/connection2db.php";
+
+    //inserir evento na tabela de eventos
+    $link = new_db_connection();
+    $stmt = mysqli_stmt_init($link);
+
+    $query = "INSERT INTO eventos (nome_evento, data_inicio_evento, hora_inicio, data_fim_evento, hora_fim, localizacao_evento, 
+descricao_evento, categorias_id_categoria, niveis_privacidade_id_nivel_privacidade) 
+VALUES (?,?,?,?,?,?,?,?,?)";
+
+    if (mysqli_stmt_prepare($stmt, $query)) {
+        mysqli_stmt_bind_param($stmt, 'sssssssii', $nome_evento, $data_inicio, $hora_inicio, $data_fim,
+            $hora_fim, $localizacao, $descricao, $categoria, $privacidade);
+
+        $id_utilizador = $_SESSION['id_utilizador'];
+        $nome_evento = $_POST['nome_evento'];
+        $descricao = $_POST['descricao'];
+        $localizacao = $_POST['localizacao'];
+        $data_inicio = $_POST['data_inicio'];
+        $hora_inicio = $_POST['hora_inicio'];
+        $data_fim = $_POST['data_fim'];
+        $hora_fim = $_POST['hora_fim'];
+        $categoria = $_POST['generoevento'];
+        $privacidade = $_POST['gender'];
+
+        if (mysqli_stmt_execute($stmt)) {
 
 
 
+            mysqli_stmt_close($stmt);
+            mysqli_close($link);
 
+        } else {
+            echo "Error:" . mysqli_stmt_error($stmt);
+        // header("Location: ../index.php?msg=0#login");
+            }
+    }
 
-
-
-
-
+    else {
+        echo "Error:" . mysqli_error($link);
+        mysqli_close($link);
+    }
 }
+
+/*
+ // ir buscar o id do evento
+            $link = new_db_connection();
+            $stmt = mysqli_stmt_init($link);
+
+            $query = "SELECT id_evento
+                      FROM   eventos
+                      ORDER  BY id_evento DESC
+                      LIMIT  1;";
+
+            if (mysqli_stmt_prepare($stmt, $query)) {
+
+                mysqli_stmt_execute($stmt);
+                mysqli_stmt_bind_result($stmt, $id);
+
+                if (mysqli_stmt_fetch($stmt)) {
+
+                    $evento = $id;
+
+                    mysqli_stmt_close($stmt);
+                    mysqli_close($link);
+
+                    //inserir relaçao de criador na tabela utilizadores_has_eventos
+                    $link = new_db_connection();
+                    $stmt = mysqli_stmt_init($link);
+
+                    $query = "INSERT INTO utilizadores_has_eventos (utilizadores_id_utilizador, eventos_id_evento, data, roles_id_role)
+                                  VALUES (?,?,?,?)";
+
+                    if (mysqli_stmt_prepare($stmt, $query)) {
+                        mysqli_stmt_bind_param($stmt, 'iisi', $id_utilizador, $id_evento, $data, $role);
+
+                        $id_utilizador = $_SESSION['id_utilizador'];
+                        $id_evento = $evento;
+                        $role = 1;
+
+                        mysqli_stmt_close($stmt);
+                        mysqli_close($link);
+                        // header("Location: ../escolha_boleia.php");
+                    } else {
+
+                        echo "Error:" . mysqli_stmt_error($stmt);
+                        // header("Location: ../index.php?msg=0#login");
+                    }
+                } else {
+                    echo "Error:" . mysqli_stmt_error($stmt);
+                    // header("Location: ../index.php?msg=0#login");
+                }
+            }
+ */
