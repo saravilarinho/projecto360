@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/2a97b08cd6.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <title>Criar Evento</title>
+
+</head>
+<body>
+<header>
+    <h3>
+        Carregar Conteúdo
+    </h3>
+
+</header>
+
+<main>
+    <div class="stepper">
+        <div id="stepProgressBar">
+            <div class="step" id="step1">
+                <p class="step-text"></p>
+                <div class="bullet">1</div>
+            </div>
+
+            <div class="step" id="step2">
+                <p class="step-text"></p>
+                <div class="bullet">2</div>
+            </div>
+
+            <div class="step" id="step3">
+                <p class="step-text"></p>
+                <div class="bullet">3</div>
+            </div>
+        </div>
+
+
+        <div id="toggle1">
+
+            <div class="field mt-4">
+                <div class="label">Descrição da publicação.</div>
+                <input type="text" class="campos_form_criarevento campo_descricao">
+            </div>
+            <div class="field">
+                <label for="myfile">Seleciona um ficheiro:</label>
+                <input type="file" id="myfile" name="myfile">
+            </div>
+        </div>
+
+
+        <div id="toggle2">
+            <div class="label mt-4">Escolhe o Evento.</div>
+            <div class="field">
+                <div class="container">
+                    <input type="radio" id="concerto1" name="evento" value="primavera">
+                    <label for="concerto1" class="label">NOS Primavera Sound</label> <br>
+
+                    <input type="radio" id="concerto2" name="evento" value="dilligence">
+                    <label for="concerto2" class="label">My Dilligence at Avenida</label><br>
+
+                    <input type="radio" id="outro" name="evento" value="outro">
+                    <label for="outro" class="label">Outro...</label>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    <div id="toggle3">
+        <div class="title mt-4">Identifica participantes!</div>
+        <div class="field mt-2">
+            <div class="label">Identifica utilizadores <b>360</b> ao evento.</div>
+            <input type="text" class="campos_form_criarevento">
+        </div>
+        <p class="label mb-2"><b>ou</b></p>
+        <div class="field">
+            <div class="label">Notifica por email a utilizadores que ainda não estejam na <b>360</b>.</div>
+            <input type="text" class="campos_form_criarevento">
+        </div>
+    </div></div>
+
+    <div class="container_stepper mt-5">
+
+        <div id="main">
+            <button class="button_stepper" id="previousBtn" onclick="clicou_atras(currentStep);" disabled>Previous
+            </button>
+            <button class="button_stepper" id="nextBtn" onclick="clicou(currentStep)">Next</button>
+            <button class="button_stepper" id="finishBtn" disabled>Finish</button>
+        </div>
+
+
+    </div>
+    </div>
+</main>
+
+
+<!--<div class="ok">
+    <div  class="h-100">
+    <a class="linkar" href="scripts/verifica_evento.php?">
+        <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
+        <div style="padding: 8%">
+            <div class="row">
+                <p class=" mb-1 titulo_card_eventos col-10"><b> Garagem do Reitor </b></p>
+                <img class="icone_categoria" src="imagens/icones/icone_festa.png"></div>
+            <p class=" texto_card_eventos m-0">
+                <small> 10-08-1998 </small> </p>
+            <p class=" texto_card_eventos m-0"> <small>Universidade de Aveiro </small>
+                </p> </div></a>
+    </div>
+</div>-->
+
+<script src="interacoes_stepper2.js"></script>
+
+<script>
+
+    function clicou(currentStep) {
+        if (currentStep === 1 ){
+            console.log(" este é o passo 1");
+            console.log(currentStep);
+            document.getElementById("toggle1").style.display = "none";
+            document.getElementById("toggle2").style.display = "block";
+            document.getElementById("toggle2").style.visibility = "visible";
+            document.getElementById("toggle3").style.display = "none";
+        }
+        if (currentStep === 2 ) {
+            console.log(" este é o passo 2");
+            console.log(currentStep);
+            document.getElementById("toggle1").style.display = "none";
+            document.getElementById("toggle2").style.display = "none";
+            document.getElementById("toggle2").style.visibility = "hidden";
+            document.getElementById("toggle3").style.display = "block";
+            document.getElementById("toggle3").style.visibility = "visible";
+        }
+        if (currentStep === 3) {
+            console.log(" este é o passo 3");
+            console.log(currentStep);
+            document.getElementById("toggle1").style.display = "none";
+            document.getElementById("toggle2").style.display = "block";
+            document.getElementById("toggle2").style.visibility = "visible";
+            document.getElementById("toggle3").style.display = "none";
+            document.getElementById("toggle3").style.visibility = "hidden";
+        }
+    }
+
+    function clicou_atras(currentStep){
+        if (currentStep === 1 ){
+            document.getElementById("toggle1").style.display = "block";
+            document.getElementById("toggle2").style.display = "none";
+            document.getElementById("toggle2").style.visibility = "hidden";
+            document.getElementById("toggle3").style.display = "none";
+        }
+
+        if (currentStep === 2 ){
+            document.getElementById("toggle1").style.display = "none";
+            document.getElementById("toggle2").style.display = "block";
+            document.getElementById("toggle2").style.visibility = "visible";
+            document.getElementById("toggle3").style.display = "none";
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

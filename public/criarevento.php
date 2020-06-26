@@ -80,26 +80,26 @@
             <div class="label mt-2">Qual é o género de evento?</div>
             <div class="container">
                 <div class="row radio">
-                    <div class="col-3"><input type="radio" id="festa" name="generoevento" value="festa">
-                        <label for="festa">Festa</label></div>
+                    <div class="col-3"><input type="radio" id="festa" name="generoevento" value="festa"><br>
+                        <label for="festa" class="label">Festa</label></div>
 
                     <div class="col-5">
-                        <input type="radio" id="manifestacao" name="generoevento" value="manifestacao">
-                        <label for="manifestacao">Manifestação</label></div>
+                        <input type="radio" id="manifestacao" name="generoevento" value="manifestacao"><br>
+                        <label for="manifestacao" class="label">Manifestação</label></div>
 
                     <div class="col-3">
                         <input type="radio" id="meetup" name="generoevento" value="meetup">
-                        <label for="meetup">Meetup</label></div>
+                        <label for="meetup" class="label">Meetup</label></div>
                 </div>
                 <br>
                 <div class="row radio">
                     <div class="col-3">
                         <input type="radio" id="musica" name="generoevento" value="musica">
-                        <label for="musica">Música</label></div>
+                        <label for="musica" class="label">Música</label></div>
                     <div class="col-5">
                         <input type="radio" id="teatro" name="generoevento" value="teatro">
                         <br>
-                        <label for="teatro">Teatro</label></div>
+                        <label for="teatro" class="label">Teatro</label></div>
                     <div class="col-3"></div>
                 </div>
 
@@ -111,10 +111,10 @@
                 <div class="row radio">
                     <div class="col-6">
                         <input type="radio" id="male" name="gender" value="male"><br>
-                        <label for="male">Público</label></div>
+                        <label for="male" class="label">Público</label></div>
                     <div class="col-6">
                         <input type="radio" id="female" name="gender" value="female"><br>
-                        <label for="female">Privado</label></div>
+                        <label for="female" class="label">Privado</label></div>
                 </div>
             </div>
         </div>
