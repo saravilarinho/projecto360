@@ -95,15 +95,15 @@ descricao_evento, categorias_id_categoria, niveis_privacidade_id_nivel_privacida
                 <input class="pl-2 mt-1 w-100" type="text" name="descricao" value="<?=$descricao ?>"
                        required="required">
 
-                <p class="mt-2 mb-0 text-left">Data do evento</p>
+                <p class="mt-2 mb-0 text-left">Início</p>
 
                 <input class="pl-2 mt-1 w-100" type="date" name="datainicio" required="required" value="<?=$data_inicio?>">
 
-                <input class="pl-2 mt-1 w-100" type="date" name="horainicio" required="required" value="<?=$horainicio ?>">
+                <input class="pl-2 mt-1 w-100" type="time" name="horainicio" required="required" value="<?=$horainicio ?>">
 
-                <p class="mt-2 mb-0 text-left">Horário</p>
+                <p class="mt-2 mb-0 text-left">Fim</p>
 
-                <input class="pl-2 mt-1 w-100" type="time" name="datafim" required="required" value="<?=$data_fim?>">
+                <input class="pl-2 mt-1 w-100" type="date" name="datafim" required="required" value="<?=$data_fim?>">
 
                 <input class="pl-2 mt-1 w-100" type="time" name="horafim" required="required" value="<?=$horafim ?>">
 

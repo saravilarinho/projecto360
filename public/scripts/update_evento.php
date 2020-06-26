@@ -36,7 +36,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['id']) && isset($_POST['nom
 
         if (mysqli_stmt_execute($stmt)) {
 
-            header("Location: ../eventocomsubscricao.php?id=<?=$id_ev?>");
+            header("Location: ../eventocomsubscricao.php?id=$id_ev");
 
             mysqli_stmt_close($stmt);
         }
@@ -53,4 +53,48 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['id']) && isset($_POST['nom
     mysqli_close($link);
 
     }
+
+
+if (isset($_SESSION['id_utilizador']) && (isset($_GET['x']))){
+
+
+    require_once "../../admin/connections/connection2db.php";
+
+    $link = new_db_connection();
+    $stmt = mysqli_stmt_init($link);
+
+    $id_utilizador = $_SESSION['id_utilizador'];
+    $nome_evento = $_POST['password'];
+
+    $query = "UPDATE utilizadores 
+              SET password
+              WHERE id_utilizador = $id_utilizador";
+
+
+    if (mysqli_stmt_prepare($stmt, $query)) {
+
+        mysqli_stmt_bind_param($stmt, 'sssssss', $nome_evento, $data_i, $hora_i, $data_f, $hora_f, $local, $descricao);
+
+        if (mysqli_stmt_execute($stmt)) {
+
+            header("Location: ../eventocomsubscricao.php?id=$id_ev");
+
+            mysqli_stmt_close($stmt);
+        }
+
+        if (!mysqli_stmt_execute($stmt)) {
+            echo "Error: " . mysqli_stmt_error($stmt);
+        }
+        mysqli_stmt_close($stmt);
+
+    }
+    else {
+        echo "Error: " . mysqli_error($link);}
+
+    mysqli_close($link);
+
+}
+
+
+
 

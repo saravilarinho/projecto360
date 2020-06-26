@@ -51,14 +51,14 @@ if (isset($_SESSION['id_utilizador'])){
     $link = new_db_connection();
     $stmt = mysqli_stmt_init($link);
 
-    $query = "SELECT id_utilizador, nome_utilizador, eventos_criados, eventos_subscritos, conteudos_partilhados
+    $query = "SELECT id_utilizador, nome_utilizador, foto, eventos_criados, eventos_subscritos, conteudos_partilhados
                   FROM utilizadores
                   WHERE id_utilizador = $id_utilizador";
 
     if (mysqli_stmt_prepare($stmt, $query)) {
 
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $id, $nome, $eventos_criados, $eventos_subscritos, $conteudos_partilhados);
+        mysqli_stmt_bind_result($stmt, $id, $nome, $foto, $eventos_criados, $eventos_subscritos, $conteudos_partilhados);
 
 
         if (mysqli_stmt_fetch($stmt)) {
@@ -67,14 +67,14 @@ if (isset($_SESSION['id_utilizador'])){
 
     <div class="text-center mt-4 col-12">
 
-        <img style="width: 125px;" class="rounded-circle" src="imagens/img_perfil.jpg">
+        <img style="width: 125px;" class="rounded-circle" src="scripts/upload/<?=$foto?>">
 
         <h4 class="mt-2">
 
             <?php echo $nome ?> </h4>
 
         <span class=" col-2">
-            <a  id="edit" style="background-color: #1DBF73" href="scripts/update_evento.php?id=<?=$id?>">
+            <a  id="edit" style="background-color: #3e3f80" href="editar_perfil.php?id=<?=$id?>">
                     <i class="fas fa-user-edit"></i>
             </a>
         </span>

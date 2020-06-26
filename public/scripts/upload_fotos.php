@@ -1,10 +1,9 @@
 <?php
-
+session_start();
 if (isset($_GET['id'])){
     $id_evento = $_GET['id'];
 
 }
-
 
 // Include the database configuration file
 require_once "../../admin/connections/connection2db.php";
@@ -24,21 +23,46 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
 
             $link = new_db_connection();
             $stmt = mysqli_stmt_init($link);
-            // Insert image file name into database
-            $query = "UPDATE eventos 
-              SET imagem_evento = '".$fileName."'
+
+
+
+            if (isset($id_evento)) {
+                // Insert image file name into database
+                $query = "UPDATE eventos 
+              SET imagem_evento = '" . $fileName . "'
               WHERE id_evento = ?";
 
-            if (mysqli_stmt_prepare($stmt, $query)) {
-                mysqli_stmt_bind_param($stmt, 'i', $id);
+                if (mysqli_stmt_prepare($stmt, $query)) {
+                    mysqli_stmt_bind_param($stmt, 'i', $id);
 
-                $id = $id_evento;
-                if (mysqli_stmt_execute($stmt)) {
-                    $statusMsg = "The file ".$fileName. " has been uploaded successfully.";
-                    header("Location: ../editar_evento.php?id=$id_evento");
+                    $id = $id_evento;
+                    if (mysqli_stmt_execute($stmt)) {
+                        $statusMsg = "The file " . $fileName . " has been uploaded successfully.";
+                        header("Location: ../editar_evento.php?id=$id_evento");
 
+                    }
+                    $statusMsg = "File upload failed, please try again.";
                 }
-                $statusMsg = "File upload failed, please try again.";
+            }
+            else {
+                if (isset($_GET['x']) && isset($_SESSION['id_utilizador'])) {
+                    $id_utilizador = $_SESSION['id_utilizador'];
+
+                    $query = "UPDATE utilizadores
+                              SET foto = '" . $fileName . "'
+                              WHERE id_utilizador = ?";
+
+                    if (mysqli_stmt_prepare($stmt, $query)) {
+                        mysqli_stmt_bind_param($stmt, 'i', $id_user);
+
+                        $id_user = $id_utilizador;
+                        if (mysqli_stmt_execute($stmt)) {
+                            $statusMsg = "The file " . $fileName . " has been uploaded successfully.";
+                            header("Location: ../editar_perfil.php?message=$statusMsg");
+
+                        }
+                    }
+                }
             }
 
             $statusMsg = '';
@@ -53,6 +77,3 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
     $statusMsg = 'Please select a file to upload.';
 }
 
-// Display status message
-echo $statusMsg;
-?>
