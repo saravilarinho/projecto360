@@ -31,26 +31,6 @@ VALUES (?,?,?,?,?,?,?,?,?)";
         $privacidade = $_POST['gender'];
 
         if (mysqli_stmt_execute($stmt)) {
-
-
-
-            mysqli_stmt_close($stmt);
-            mysqli_close($link);
-
-        } else {
-            echo "Error:" . mysqli_stmt_error($stmt);
-        // header("Location: ../index.php?msg=0#login");
-            }
-    }
-
-    else {
-        echo "Error:" . mysqli_error($link);
-        mysqli_close($link);
-    }
-}
-
-/*
- // ir buscar o id do evento
             $link = new_db_connection();
             $stmt = mysqli_stmt_init($link);
 
@@ -67,35 +47,48 @@ VALUES (?,?,?,?,?,?,?,?,?)";
                 if (mysqli_stmt_fetch($stmt)) {
 
                     $evento = $id;
-
-                    mysqli_stmt_close($stmt);
-                    mysqli_close($link);
+                    var_dump($evento);
 
                     //inserir relaçao de criador na tabela utilizadores_has_eventos
                     $link = new_db_connection();
                     $stmt = mysqli_stmt_init($link);
 
                     $query = "INSERT INTO utilizadores_has_eventos (utilizadores_id_utilizador, eventos_id_evento, data, roles_id_role)
-                                  VALUES (?,?,?,?)";
+                              VALUES (?,?, NOW() ,?)";
 
                     if (mysqli_stmt_prepare($stmt, $query)) {
-                        mysqli_stmt_bind_param($stmt, 'iisi', $id_utilizador, $id_evento, $data, $role);
+                        mysqli_stmt_bind_param($stmt, 'iii', $id_utilizador, $id_evento, $role);
 
                         $id_utilizador = $_SESSION['id_utilizador'];
                         $id_evento = $evento;
                         $role = 1;
 
-                        mysqli_stmt_close($stmt);
-                        mysqli_close($link);
-                        // header("Location: ../escolha_boleia.php");
+                        if (mysqli_stmt_execute($stmt)) {
+
+                            header("Location: ../eventocomsubscricao.php?id=$id_evento");
+                            mysqli_stmt_close($stmt);
+                            mysqli_close($link);
+                        }
                     } else {
 
                         echo "Error:" . mysqli_stmt_error($stmt);
-                        // header("Location: ../index.php?msg=0#login");
+                         header("Location: ../login.php?msg=0#login");
                     }
-                } else {
-                    echo "Error:" . mysqli_stmt_error($stmt);
-                    // header("Location: ../index.php?msg=0#login");
+
                 }
+                mysqli_stmt_close($stmt);
+                mysqli_close($link);
             }
- */
+
+
+        } else {
+            echo "Error:" . mysqli_stmt_error($stmt);
+            header("Location: ../login.php?msg=0#login");
+            }
+    }
+
+    else {
+        echo "Error:" . mysqli_error($link);
+        mysqli_close($link);
+    }
+}
