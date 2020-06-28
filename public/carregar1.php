@@ -7,6 +7,15 @@ if (isset($_SESSION['id_utilizador'])){
 
 }
 
+if (isset($_GET['statusMsg']) && isset($_GET['id'])){
+
+    $statusMsg = $_GET['statusMsg'];
+    $id_evento = $_GET['id'];
+}
+
+
+
+
 ?>
 <!DOCTYPE html>
 <head>
@@ -27,6 +36,7 @@ if (isset($_SESSION['id_utilizador'])){
     <link rel="stylesheet" type="text/css" href="estilos.css">
     <title>Carregar Conteúdo</title>
 
+
 </head>
 <body>
 <header>
@@ -39,73 +49,83 @@ if (isset($_SESSION['id_utilizador'])){
 
 </header>
 
+<script>
+    window.addEventListener('load',
+        function() {
+        currentStep++;
+            console.log(currentStep);
+            if (currentStep === 2 ) {
+                console.log(currentStep);
+
+                document.getElementById("toggle2").style.display = "block";
+                document.getElementById("toggle2").style.visibility = "visible";
+                document.getElementById("toggle3").style.display = "none";
+                document.getElementById("toggle3").style.visibility = "hidden";
+            }
+
+        }, false);
+
+</script>
+
 <main>
 
-    <form  enctype="multipart/form-data" action="scripts/nova_publicacao.php" id="formulario" role="form" method="post">
+    <form  enctype="multipart/form-data" action="scripts/nova_publicacao.php?id=<?=$id_evento?>" id="formulario" role="form" method="post">
 
-    <div class="stepper">
-        <div id="stepProgressBar">
-            <div class="step" id="step1">
-                <p class="step-text"></p>
-                <div class="bullet">1</div>
-            </div>
-
-            <div class="step" id="step2">
-                <p class="step-text"></p>
-                <div class="bullet">2</div>
-            </div>
-
-            <div class="step" id="step3">
-                <p class="step-text"></p>
-                <div class="bullet">3</div>
-            </div>
-        </div>
-
-
-        <div id="toggle1">
-            <div class="label mt-4">Escolhe o evento:</div>
-            <div class="field">
-                <div class="container">
-                    <?php
-                    require_once "../admin/connections/connection2db.php";
-
-                    $link = new_db_connection();
-                    $stmt = mysqli_stmt_init($link);
-
-                    $query = "SELECT id_evento, nome_evento
-              FROM eventos
-              INNER JOIN utilizadores_has_eventos
-              ON eventos.id_evento = utilizadores_has_eventos.eventos_id_evento           
-              WHERE utilizadores_has_eventos.utilizadores_id_utilizador = $id_utilizador ";
-
-                    if (mysqli_stmt_prepare($stmt, $query)) {
-
-                    mysqli_stmt_execute($stmt);
-                    mysqli_stmt_bind_result($stmt, $id, $nome);
-
-
-                    while (mysqli_stmt_fetch($stmt)) {
-                    ?>
-
-                    <input type="radio" id="concerto1" name="evento" value="<?=$id?>">
-                    <label for="concerto1" class="label"><?=$nome?></label> <br>
-
-                        <?php
-                    }
-                    }
-                    ?>
-                    <input type="radio" id="outro" name="evento0" value="outro">
-                    <label for="outro" class="label">Outro...</label>
+        <div class="stepper">
+            <div id="stepProgressBar">
+                <div class="step" id="step1" >
+                    <p class="step-text"></p>
+                    <div class="bullet">1</div>
                 </div>
 
+                <div class="step" id="step2">
+                    <p class="step-text"></p>
+                    <div class="bullet">2</div>
+                </div>
 
+                <div class="step" id="step3">
+                    <p class="step-text"></p>
+                    <div class="bullet">3</div>
+                </div>
             </div>
+
+
+            <div id="toggle2" >
+
+                <div class="field">
+                    <div class="label">Carrega o teu conteúdo.</div>
+                    <div class="uploads mt-2" style="background-color: #4E6969; width: auto; height: 10vh; border-radius: 10px;
+             ; text-align: center; color: white;opacity: 65%;">
+                        <a data-toggle="modal" data-target="#fotografiaModal" >
+
+                            <p style="padding-top: 7%;"><i class="fas fa-camera" style="font-size: font-size: 30px;"></i></p>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="field mt-4">
+                    <div class="label">Descrição da publicação.</div>
+                    <input type="text" name="descricao" value="" class="campos_form_criarevento campo_descricao">
+
+                </div>
+            </div>
+
+
+            <div id="toggle3">
+                <div class="title mt-4">Identifica participantes!</div>
+                <div class="field mt-2">
+                    <div class="label">Identifica utilizadores <b>360</b> ao evento.</div>
+                    <input type="text" name="emailsusers" value="" class="campos_form_criarevento">
+                </div>
+                <p class="label mb-2"><b>ou</b></p>
+                <div class="field">
+                    <div class="label">Notifica por email a utilizadores que ainda não estejam na <b>360</b>.</div>
+                    <input type="text" class="campos_form_criarevento">
+                </div>
+            </div>
+
+
         </div>
-
-
-
-
-    </div>
 
     </form>
 
@@ -124,7 +144,7 @@ if (isset($_SESSION['id_utilizador'])){
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header modalupload">
-                    <form action="scripts/upload_conteudos.php?id=<?php echo $idd?>" method="post" enctype="multipart/form-data" class="formularioupload">
+                    <form action="scripts/upload_conteudos.php?id=<?=$_GET['id']?>" method="post" enctype="multipart/form-data" class="formularioupload">
                         <p>Seleciona um ficheiro e clica em upload</p>
                         <input type="file" name="file" style="font-size: 12px;padding-bottom: 20px;">
                         <input type="submit" name="submit" value="Upload" class="socorro">
@@ -144,36 +164,24 @@ if (isset($_SESSION['id_utilizador'])){
 <script>
 
     function clicou(currentStep) {
-
-        <?php
-            if (isset($_GET['a'])){
-                ?>
-        document.getElementById("toggle1").style.display = "none";
-        document.getElementById("toggle2").style.display = "none";
-        document.getElementById("toggle2").style.visibility = "hidden";
-        document.getElementById("toggle3").style.display = "block";
-        document.getElementById("toggle3").style.visibility = "visible";
-        <?php
-
-            }
-        ?>
+        currentStep = currentStep +1;
         if (currentStep === 1 ){
-            getRadioVal(document.getElementById('formulario'),'evento');
-            document.getElementById("toggle1").style.display = "none";
+            console.log(currentStep);
             document.getElementById("toggle2").style.display = "block";
             document.getElementById("toggle2").style.visibility = "visible";
             document.getElementById("toggle3").style.display = "none";
         }
         if (currentStep === 2 ) {
-            document.getElementById("toggle1").style.display = "none";
+            console.log(currentStep);
+
             document.getElementById("toggle2").style.display = "none";
             document.getElementById("toggle2").style.visibility = "hidden";
             document.getElementById("toggle3").style.display = "block";
             document.getElementById("toggle3").style.visibility = "visible";
         }
         if (currentStep === 3) {
+            console.log(currentStep);
 
-            document.getElementById("toggle1").style.display = "none";
             document.getElementById("toggle2").style.display = "block";
             document.getElementById("toggle2").style.visibility = "visible";
             document.getElementById("toggle3").style.display = "none";
@@ -184,14 +192,12 @@ if (isset($_SESSION['id_utilizador'])){
     function clicou_atras(currentStep){
         currentStep = currentStep - 1;
         if (currentStep === 1 ){
-            document.getElementById("toggle1").style.display = "block";
             document.getElementById("toggle2").style.display = "none";
             document.getElementById("toggle2").style.visibility = "hidden";
             document.getElementById("toggle3").style.display = "none";
         }
 
         if (currentStep === 2 ){
-            document.getElementById("toggle1").style.display = "none";
             document.getElementById("toggle2").style.display = "block";
             document.getElementById("toggle2").style.visibility = "visible";
             document.getElementById("toggle3").style.display = "none";
@@ -199,26 +205,6 @@ if (isset($_SESSION['id_utilizador'])){
     }
 
 
-    function getRadioVal(form, name) {
-        var val;
-
-        // get list of radio buttons with specified name
-        var radios = form.elements[name];
-
-        // loop through list of radio buttons
-        for (var i=0, len=radios.length; i<len; i++) {
-            if ( radios[i].checked ) { // radio checked?
-                val = radios[i].value; // if so, hold its value in val
-                break; // and break out of for loop
-            }
-        }
-        console.log(val);
-
-        <?php
-            $idd = 'val'
-        ?>
-
-       window.location.href = "carregar1.php?id=" + val
     }
 
 
