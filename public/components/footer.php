@@ -33,8 +33,9 @@
         </div>
 
         <div class="rounded-circle overlay_icone col-5 p-3" style="margin-left: 23px">
+            <a href="carregarconteudo.php">
             <i class="far fa-3x fa-clone icone"></i>
-            <p class="mb-0">Conteúdo</p>
+                <p class="mb-0">Conteúdo</p></a>
         </div>
 
     </div>
