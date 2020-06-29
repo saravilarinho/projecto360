@@ -1,5 +1,6 @@
 body {
-font-family: Sk-Modernist;
+
+    font-family: 'Muli', sans-serif;
     background-color: #EEF7F7 !important;
 }
 
@@ -19,6 +20,7 @@ i.fa-chevron-right {
 i.fa-chevron-circle-left {
     position: absolute;
     margin: 10px;
+    z-index: 1000;
 }
 
 header {
@@ -542,4 +544,21 @@ i.fa-calendar-alt {
 
 .modalupload{
         padding: 2rem 1rem !important;
+}
+
+.caixa {
+    height: 200px;
+    position: absolute;
+    border-radius: 20px 20px 0 0;
+    background-color:#EEF7F7;
+    width: 100%;
+}
+
+.comentario {
+    background-color: white;
+    visibility: hidden;
+}
+
+.visualizacao {
+    background-color: black; !important;
 }
