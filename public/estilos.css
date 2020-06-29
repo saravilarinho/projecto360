@@ -379,7 +379,7 @@ i.fa-calendar-alt {
 }
 
 #edit {
-    background-color: #3e3f80 !important;
+    background-color: #1ec5bc !important;
     height: 25px;
     width: 25px;
     border-radius: 50%;
@@ -399,7 +399,7 @@ i.fa-calendar-alt {
     border: none;
     color: white;
     transition: 250ms background-color;
-    border-radius: 5px;
+    border-radius: 15px;
     text-align: center;
 
 }
@@ -434,7 +434,9 @@ i.fa-calendar-alt {
 }
 
 .container_stepper {
-    text-align: center
+    text-align: center;
+    margin-top: 55% !important;
+
 }
 
 #stepProgressBar {

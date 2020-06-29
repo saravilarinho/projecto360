@@ -37,7 +37,12 @@ if (isset($_SESSION['id_utilizador'])){
 
 <header>
     <h3>
+
         Perfil
+        <a href="scripts/log_out.php" style="text-decoration: none; color: #03bd03;margin-left: 67% !important;">
+            <i class="fas fa-sign-out-alt"></i>
+        </a>
+
     </h3>
 </header>
 
@@ -74,7 +79,7 @@ if (isset($_SESSION['id_utilizador'])){
             <?php echo $nome ?> </h4>
 
         <span class=" col-2">
-            <a  id="edit" style="background-color: #3e3f80" href="editar_perfil.php?id=<?=$id?>">
+            <a  id="edit" style="padding: 5px;" href="editar_perfil.php?id=<?=$id?>">
                     <i class="fas fa-user-edit"></i>
             </a>
         </span>
