@@ -40,7 +40,7 @@ mysqli_stmt_bind_result($stmt, $id, $nome, $data_inicio, $localizacao, $imagem, 
 ?>
 
 
-<script>
+<script type="text/javascript">
 
     // Initialize and add the map
     var map, infoWindow;
@@ -122,11 +122,15 @@ mysqli_stmt_bind_result($stmt, $id, $nome, $data_inicio, $localizacao, $imagem, 
         infoWindow.open(map);
     }
 
+
+
+
 </script>
 
 
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqx4hBCg47FnZfxDoCHJMK6a1hPuPfGo&callback=initMap">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANHSkUQUDM1qLwsjBfR55m3Ua0Pvbj2ic&callback=initMap">
 </script>
 </body>
 </html>
+
