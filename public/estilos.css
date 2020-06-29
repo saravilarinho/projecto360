@@ -550,11 +550,15 @@ i.fa-calendar-alt {
     height: 200px;
     position: absolute;
     border-radius: 20px 20px 0 0;
-    background-color: green;
+    background-color:#EEF7F7;
     width: 100%;
 }
 
 .comentario {
     background-color: white;
     visibility: hidden;
+}
+
+.visualizacao {
+    background-color: black; !important;
 }
