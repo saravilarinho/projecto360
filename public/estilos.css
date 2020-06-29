@@ -434,9 +434,8 @@ i.fa-calendar-alt {
     text-align: center;
 }
 
-.container_stepper {
+.botoes_stepper {
     text-align: center;
-    margin-top: 55% !important;
 
 }
 
@@ -463,11 +462,13 @@ i.fa-calendar-alt {
     font-size: 22px;
 }
 
-.bullet.completed {
+.passo_atual {
     color: white;
     background-color: #1ec5bc;
     border: 1px solid #1ec5bc;
+
 }
+
 
 .bullet.completed::after {
     content: "";
@@ -479,8 +480,6 @@ i.fa-calendar-alt {
     bottom: 16px;
 }
 
-#toggle2, #toggle3 {display:none;}
-#toggle1.active, #toggle2.active, #toggle3.active{display: block}
 
 .campos_form_criarevento {
     -webkit-box-shadow: 7px 5px 21px -8px rgba(0,0,0,0.34);
@@ -517,7 +516,6 @@ i.fa-calendar-alt {
     text-align: center;
 }
 
-
 /*FIM STEPPER*/
 
 .uploads {
@@ -525,7 +523,9 @@ i.fa-calendar-alt {
     width: auto;
     height: 10vh;
     border-radius: 10px;
-    opacity: 40%;
+    opacity: 65%;
+    color: white;
+    text-align: center;
 }
 
 .socorro{
