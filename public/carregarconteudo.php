@@ -73,10 +73,10 @@ if (isset($_SESSION['id_utilizador'])){
                     $stmt = mysqli_stmt_init($link);
 
                     $query = "SELECT id_evento, nome_evento
-              FROM eventos
-              INNER JOIN utilizadores_has_eventos
-              ON eventos.id_evento = utilizadores_has_eventos.eventos_id_evento           
-              WHERE utilizadores_has_eventos.utilizadores_id_utilizador = $id_utilizador ";
+                              FROM eventos
+                              INNER JOIN utilizadores_has_eventos
+                              ON eventos.id_evento = utilizadores_has_eventos.eventos_id_evento           
+                              WHERE utilizadores_has_eventos.utilizadores_id_utilizador = $id_utilizador AND data_fim_evento >= NOW()";
 
                     if (mysqli_stmt_prepare($stmt, $query)) {
 

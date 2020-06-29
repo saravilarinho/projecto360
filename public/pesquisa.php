@@ -66,62 +66,11 @@ if (isset($_SESSION['id_utilizador'])) {
     </div>
 
 
-    <div id="overlay" onclick="off()">
-        <div id="text" class="row">
-
-            <div class="rounded-circle overlay_icone col-5 p-3">
-                <i class="far fa-3x fa-calendar-plus icone"></i>
-                <p class="mb-0">Evento</p>
-            </div>
-
-            <div class="rounded-circle overlay_icone col-5 p-3" style="margin-left: 23px">
-                <i class="far fa-3x fa-clone icone"></i>
-                <p class="mb-0">Conteúdo</p>
-            </div>
-
-        </div>
-    </div>
-
-
 </main>
-<footer>
 
-    <nav class="navbar navbar-expand fixed-bottom container p-0 pt-2" style="background-color: #1ec5bc">
-        <div class="row no-gutters justify-content-around w-100">
-            <a class=" col-2 justify-content-center text-center" id="feed"
-               href="feed.php">
-                <i class="far fa-2x fa-newspaper"></i>
-                <br/>
-                <span class="texto-nav">FEED</span>
-            </a>
-            <a class="col-2  justify-content-center text-center" id="pesquisa"
-               href="pesquisa.php">
-                <i class="fas fa-2x fa-search"></i>
-                <br/>
-                <span class="texto-nav">PESQUISA</span>
-            </a>
-            <div onclick="on()" class="add">
-                <a class="col-3 text-center" id="adicionar">
-                    <i class="fas fa-2x fa-plus-circle"></i>
-                    <br/>
-                    <span class="texto-nav">ADICIONAR</span></a>
-            </div>
-            <a class="col-2  justify-content-center text-center" id="eventos"
-               href="eventos.php">
-                <i class="far fa-2x fa-calendar-plus"></i>
-                <br/>
-                <span class="texto-nav">EVENTOS</span>
-            </a>
-            <a class="col-2  justify-content-center text-center" id="perfil"
-               href="perfil.php">
-                <i class="far fa-2x fa-user"></i>
-                <br/>
-                <span class="texto-nav">PERFIL</span>
-            </a>
-        </div>
-    </nav>
-    <div>
-    </div>
-</footer>
+
+<?php
+include_once "components/footer.php"; ?>
+
 </body>
 </html>

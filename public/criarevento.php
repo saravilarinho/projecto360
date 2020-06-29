@@ -136,7 +136,7 @@ if (isset($_SESSION['id_utilizador'])){
     <div id="toggle3">
         <div class="title mt-4">Convida participantes!</div>
         <div class="field mt-2">
-            <div class="label">Adiciona utilizadores <b>360</b> ao evento.</div>
+            <div class="label">Adiciona utilizadores <b>360</b> ao evento, através</div>
             <input type="text" class="campos_form_criarevento">
         </div>
         <p class="label mb-2"><b>ou</b></p>
