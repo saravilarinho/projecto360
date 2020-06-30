@@ -7,6 +7,12 @@ if (isset($_SESSION['id_utilizador'])){
 
 }
 
+if (isset($_POST['descricao']) && isset($_GET['idp'])){
+    $des = $_POST['descricao'];
+    $id_pub = $_GET['idp'];
+
+}
+
 ?>
 <!DOCTYPE html>
 <head>
@@ -41,7 +47,7 @@ if (isset($_SESSION['id_utilizador'])){
 
 <main>
 
-    <form enctype="multipart/form-data" action="scripts/nova_publicacao.php" id="formulario" role="form" method="post">
+    <form enctype="multipart/form-data" action="scripts/nova_publicacao.php?idp=<?=$id_pub?>&des=<?=$des?>" id="formulario" role="form" method="post">
 
         <div class="stepper_passo2">
             <div id="stepProgressBar">
@@ -66,21 +72,21 @@ if (isset($_SESSION['id_utilizador'])){
             <div class="field w-75 mx-auto stepper">
                 <div class="title mt-4">Identifica participantes!</div>
                 <div class="field mt-2">
-                    <div class="label">Identifica utilizadores no conteúdo que publicaste! Estes utilizadores vão ser notificados por e-mail.</div>
+                    <div class="label">Identifica utilizadores no conteúdo que publicaste, conforme o exemplo. (utilizador1@email.com, utilizador2@email.com, ...).</div>
                     <input type="text" name="emailsusers" value="" class="campos_form_criarevento">
                 </div>
             </div>
         </div>
 
 
-    </form>
+
 
     <div class="fixed-bottom mb-5 botoes_stepper">
-        <a href="carregarconteudo2.php"><button class="button_stepper" id="previousBtn">Anterior</button></a>
+        <a href="carregarconteudo2.php?idp=<?=$id_pub?>&des=<?=$des?>"><button class="button_stepper" id="previousBtn">Anterior</button></a>
         <button class="button_stepper" id="nextBtn" disabled>Seguinte</button>
-        <button class="button_stepper" id="finishBtn">Confirmar</button>
+        <button class="button_stepper" type="submit" id="finishBtn">Confirmar</button>
     </div>
-
+    </form>
 
 </main>
 

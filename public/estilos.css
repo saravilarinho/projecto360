@@ -529,6 +529,14 @@ i.fa-calendar-alt {
     text-align: center;
 }
 
+.afteruploads {
+    width: auto;
+    height: 10vh;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}
+
 .socorro{
     background-color: #1ec5bc;
     border-radius: 10px;
@@ -619,4 +627,10 @@ i.fa-calendar-alt {
 .comentario p {
     color: #4E6969;
     font-size: 13px;
+}
+
+.imagem_carregamento{
+    width: 40%;
+    border-radius: 10px;
+    margin-top: -22px;
 }

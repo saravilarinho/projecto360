@@ -37,7 +37,6 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
                     $id = $id_evento;
                     if (mysqli_stmt_execute($stmt)) {
 
-
                         $link = new_db_connection();
                         $stmt = mysqli_stmt_init($link);
 
@@ -54,7 +53,7 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
                             if (mysqli_stmt_fetch($stmt)) {
 
                                 $statusMsg = "The file " . $fileName . " has been uploaded successfully.";
-                              //  header("Location: ../carregarconteudo2.php?id=$id_evento&statusMsg=$statusMsg&&idp=$id_publicacao");
+                                header("Location: ../carregarconteudo2.php?id=$id_evento&idp=$id_publicacao");
 
 
 
