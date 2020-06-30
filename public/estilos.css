@@ -570,7 +570,7 @@ i.fa-calendar-alt {
 
 .visualizacao {
     background-color: black; !important;
-    height: 500px;
+    height: 300px;
 }
 
 .header_comentarios .col-2 {
@@ -591,7 +591,7 @@ i.fa-calendar-alt {
     line-height: 26px;
 }
 
-.fa-map-marker-alt {
+.header_comentarios .fa-map-marker-alt {
     color: #1ec5bc;
     font-size: 14px;
 }
