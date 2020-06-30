@@ -136,13 +136,9 @@ if (isset($_SESSION['id_utilizador'])){
     <div id="toggle3">
         <div class="title mt-4">Convida participantes!</div>
         <div class="field mt-2">
-            <div class="label">Adiciona utilizadores <b>360</b> ao evento, através</div>
-            <input type="text" class="campos_form_criarevento">
-        </div>
-        <p class="label mb-2"><b>ou</b></p>
-        <div class="field">
-            <div class="label">Envia convite por email a utilizadores que ainda não estejam na <b>360</b>.</div>
-            <input type="text" class="campos_form_criarevento">
+            <div class="label">Convida pessoas para o teu evento, conforme o exemplo. (utilizador1@email.com, utilizador2@email.com, ...)</div>
+            <input type="text" name="convidado1" id="convidado1" class="campos_form_criarevento" placeholder="E-mail..." value="">
+
         </div>
     </div>
     </form>
@@ -209,6 +205,8 @@ if (isset($_SESSION['id_utilizador'])){
             document.getElementById("toggle3").style.display = "none";
         }
     }
+
+
 
 
 

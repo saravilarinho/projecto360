@@ -5,6 +5,8 @@ if (isset($_SESSION['id_utilizador']) && isset($_POST['nome_evento']) && isset($
 isset($_POST['data_inicio']) && isset($_POST['hora_inicio']) && isset($_POST['data_fim']) && isset($_POST['hora_fim'])
     && isset($_POST['generoevento']) && isset($_POST['gender'])) {
 
+    $nova = $_POST['convidado1'];
+
     require_once "../../admin/connections/connection2db.php";
 
     //inserir evento na tabela de eventos
@@ -47,25 +49,26 @@ VALUES (?,?,?,?,?,?,?,?,?)";
                 if (mysqli_stmt_fetch($stmt)) {
 
                     $evento = $id;
-                    var_dump($evento);
 
                     //inserir relaçao de criador na tabela utilizadores_has_eventos
                     $link = new_db_connection();
                     $stmt = mysqli_stmt_init($link);
 
-                    $query = "INSERT INTO utilizadores_has_eventos (utilizadores_id_utilizador, eventos_id_evento, data, roles_id_role)
-                              VALUES (?,?, NOW() ,?)";
+                    $query = "INSERT INTO utilizadores_has_eventos (utilizadores_id_utilizador, eventos_id_evento, data, roles_id_role, convidados)
+                              VALUES (?,?, NOW() ,? , ?)";
 
                     if (mysqli_stmt_prepare($stmt, $query)) {
-                        mysqli_stmt_bind_param($stmt, 'iii', $id_utilizador, $id_evento, $role);
+                        mysqli_stmt_bind_param($stmt, 'iiis', $id_utilizador, $id_evento, $role, $lista_convidados);
 
                         $id_utilizador = $_SESSION['id_utilizador'];
                         $id_evento = $evento;
                         $role = 1;
+                        $lista_convidados = $nova;
 
                         if (mysqli_stmt_execute($stmt)) {
 
-                            header("Location: ../eventocomsubscricao.php?id=$id_evento");
+                          header("Location: sendemail.php?id=$id_evento&&nome=$nome_evento&&lista=$nova");
+                           // header("Location: ../eventocomsubscricao.php?id=$id_evento");
                             mysqli_stmt_close($stmt);
                             mysqli_close($link);
                         }
