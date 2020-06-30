@@ -19,19 +19,23 @@
 
 </head>
 <body>
-<main>
-    <div class="visualizacao">
+<main style="background-color: black">
     <div class="container">
         <div class="row">
+
+            <div class="visualizacao">
+
             <i class="fas fa-2x fa-chevron-circle-left voltar"></i>
             <img src="imagens/evento2.jpeg" class="col-12 p-0">
+            </div>
+
         </div>
     </div>
 
     <div class="caixa fixed-bottom" id="caixa" onclick="abrir()">
         <div class="comentarios">
             <p class="titulo_evento mb-3 mt-3 col-10">
-Bla bla bla
+                Bla bla bla
                 <span class="alinhar_fav col-2">
             <a class="btn botao_favorito" href="scripts/favoritar_evento.php?id=<?=$id?>">
 
@@ -46,13 +50,13 @@ Bla bla bla
 
             </span>
 
-            </p>            <div class="comentario" id="comentarios">
+            </p>
+            <div class="comentario" id="comentarios">
                 <p>SOU UM COMENTARIO</p>
             </div>
         </div>
 
 
-    </div>
     </div>
 
 </main>

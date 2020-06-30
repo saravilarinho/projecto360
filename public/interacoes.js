@@ -8,7 +8,7 @@ function off() {
 }
 
 function abrir() {
-    document.getElementById("caixa").style.height = "500px";
+    document.getElementById("caixa").style.height = "600px";
     document.getElementById("comentarios").style.visibility = "visible";
 
 }
