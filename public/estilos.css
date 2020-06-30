@@ -369,6 +369,7 @@ i.fa-calendar-alt {
     background-color: #3e3f80;
     height: 26px;
     width: 26px;
+    line-height: 26px;
     border-radius: 50%;
     padding: 0;
     border-top-width: 0px;
@@ -554,12 +555,68 @@ i.fa-calendar-alt {
     width: 100%;
 }
 
+#comentarios {
+          visibility: hidden;
+}
+
 .comentario {
     background-color: white;
-    visibility: hidden;
+    border-radius: 10px;
+    width: 90%;
+   -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35);
+   -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35);
+   box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35);
 }
 
 .visualizacao {
     background-color: black; !important;
     height: 500px;
+}
+
+.header_comentarios .col-2 {
+    padding: 0;
+    margin: 0;
+    justify-content: space-evenly;
+}
+
+.header_comentarios small {
+    color: #4E6969;
+}
+
+.header_comentarios p {
+    font-size: 13px;
+}
+
+.numero_likes {
+    line-height: 26px;
+}
+
+.fa-map-marker-alt {
+    color: #1ec5bc;
+    font-size: 14px;
+}
+
+.relacionados {
+    background-color: #3e3f80;
+    border-radius: 10px;
+    color: white;
+    margin: 0;
+    padding: 0;
+    justify-content: space-evenly;
+}
+
+.fa-angle-double-up {
+    color: #3e3f80;
+    margin: 0;
+    padding: 0;
+}
+
+.comentario .nome_comentario {
+    color: #4E6969;
+    font-size: 15px;
+}
+
+.comentario p {
+    color: #4E6969;
+    font-size: 13px;
 }
