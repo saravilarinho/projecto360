@@ -45,7 +45,7 @@ if (isset($_POST['evento'])){
 
 <main>
 
-    <form enctype="multipart/form-data" action="carregarconteudo3.php" id="formulario" role="form" method="post">
+    <form enctype="multipart/form-data" action="" id="formulario" role="form" method="post">
 
         <div class="stepper_passo2">
             <div id="stepProgressBar">
@@ -102,7 +102,7 @@ if (isset($_POST['evento'])){
 
     <div class="fixed-bottom mb-5 botoes_stepper">
         <a href="carregarconteudo1.php"><button class="button_stepper" id="previousBtn">Anterior</button></a>
-        <a href="carregarconteudo3.php"><button class="button_stepper" id="nextBtn">Seguinte</button></a>
+        <a href=""><button class="button_stepper" id="nextBtn">Seguinte</button></a>
         <button class="button_stepper" id="finishBtn" disabled>Confirmar</button>
     </div>
     </form>

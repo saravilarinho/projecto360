@@ -54,7 +54,7 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
                             if (mysqli_stmt_fetch($stmt)) {
 
                                 $statusMsg = "The file " . $fileName . " has been uploaded successfully.";
-                                header("Location: ../carregarconteudo2.php?id=$id_evento&statusMsg=$statusMsg&&idp=$id_publicacao");
+                              //  header("Location: ../carregarconteudo2.php?id=$id_evento&statusMsg=$statusMsg&&idp=$id_publicacao");
 
 
 
@@ -82,7 +82,7 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
                         $id_user = $id_utilizador;
                         if (mysqli_stmt_execute($stmt)) {
                             $statusMsg = "The file " . $fileName . " has been uploaded successfully.";
-                            header("Location: ../carregar1.php?message=$statusMsg");
+                          //  header("Location: ../carregar1.php?message=$statusMsg");
 
                         }
                     }
