@@ -559,11 +559,11 @@ i.fa-calendar-alt {
     height: 200px;
     position: absolute;
     border-radius: 20px 20px 0 0;
-    background-color:#EEF7F7;
+    background-color: #EEF7F7;
     width: 100%;
 }
 
-#comentarios {
+.comentarios {
           visibility: hidden;
 }
 
@@ -577,7 +577,6 @@ i.fa-calendar-alt {
 }
 
 .visualizacao {
-    background-color: black; !important;
     height: 300px;
 }
 

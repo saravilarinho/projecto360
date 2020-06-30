@@ -22,62 +22,59 @@
 <main style="background-color: black">
     <div class="container">
         <div class="row">
-
             <div class="visualizacao">
-
                 <i class="fas fa-2x fa-chevron-circle-left voltar"></i>
                 <img src="imagens/evento2.jpeg" class="col-12 p-0">
             </div>
-
         </div>
     </div>
 
     <div class="caixa fixed-bottom header_comentarios" id="caixa" onclick="abrir()">
-        <div class="row mt-3 ml-3 mr-0">
 
-            <div class="col-2 d-flex justify-content-space-evenly">
-                <a class="btn botao_favorito" href="scripts/favoritar_evento.php?id=<?=$id?>">
-                    <i class="far fa-heart"></i>
-                </a>
-                <p class="numero_likes">21</p>
-            </div>
+            <div class="row mt-3 ml-3 mr-0">
+                <div class="col-2 d-flex justify-content-space-evenly">
+                    <a class="btn botao_favorito" href="scripts/favoritar_evento.php?id=<?=$id?>">
+                        <i class="far fa-heart"></i>
+                    </a>
+                    <p class="numero_likes">21</p>
+                </div>
 
-            <div class="col-2 d-flex">
-                <a class="btn botao_favorito" href="scripts/favoritar_evento.php?id=<?=$id?>">
-                    <i class="far fa-comment"></i>
-                </a>
-                <p class="numero_likes">21</p>
-            </div>
+                <div class="col-2 d-flex">
+                    <a class="btn botao_favorito" href="scripts/favoritar_evento.php?id=<?=$id?>">
+                        <i class="far fa-comment"></i>
+                    </a>
+                    <p class="numero_likes">21</p>
+                </div>
 
-            <div class="col-3 d-flex justify-content-center">
-                <i class="fas fa-angle-double-up"></i>
-            </div>
+                <div class="col-3 d-flex justify-content-center">
+                    <i class="fas fa-angle-double-up"></i>
+                </div>
 
-            <div class="col-5">
-                <a class="btn relacionados d-flex p-1" href="scripts/favoritar_evento.php?id=<?=$id?>">
-                    <i class="far fa-images align-self-center"></i>
-                    <p class="p-0 m-0">Relacionados</p></a>
+                <div class="col-5">
+                    <a class="btn relacionados d-flex p-1" href="scripts/favoritar_evento.php?id=<?=$id?>">
+                        <i class="far fa-images align-self-center"></i>
+                        <p class="p-0 m-0">Relacionados</p></a>
+                </div>
             </div>
-        </div>
 
             <div class="row mt-1 ml-4 mr-0">
                 <small>Por <b>António Monteiro</b></small>
             </div>
-        <div class="row mt-1 ml-4 mr-0">
-            <div class="col-8 d-flex p-0">
-                <i class="fas fa-map-marker-alt"></i>
-                <small class="pl-1">Avenida Café Concerto, Aveiro</small>
+
+            <div class="row mt-1 ml-4 mr-0">
+                <div class="col-8 d-flex p-0">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <small class="pl-1">Avenida Café Concerto, Aveiro</small>
+                </div>
+
+                <div class="col-4 d-flex p-0">
+                    <i class="far fa-calendar-alt"></i>
+                    <small class="pl-1">18 de Março</small>
+                </div>
+
             </div>
+    </div>
 
-            <div class="col-4 d-flex p-0">
-                <i class="far fa-calendar-alt"></i>
-                <small class="pl-1">18 de Março</small>
-            </div>
-
-        </div>
-
-
-        </div>
     <div class="comentarios container mt-4" id="comentarios">
         <div class="comentario row pt-1 pb-1 m-0">
             <div class="col-3 align-self-center pr-0">
