@@ -7,6 +7,10 @@ if (isset($_SESSION['id_utilizador'])){
 
 }
 
+if (isset($_POST['evento'])){
+    $id_evento = $_POST['evento'];
+}
+
 ?>
 <!DOCTYPE html>
 <head>
@@ -41,7 +45,7 @@ if (isset($_SESSION['id_utilizador'])){
 
 <main>
 
-    <form enctype="multipart/form-data" action="scripts/nova_publicacao.php" id="formulario" role="form" method="post">
+    <form enctype="multipart/form-data" action="carregarconteudo3.php" id="formulario" role="form" method="post">
 
         <div class="stepper_passo2">
             <div id="stepProgressBar">
@@ -67,9 +71,9 @@ if (isset($_SESSION['id_utilizador'])){
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header modalupload">
-                        <form action="scripts/upload_conteudos.php?id=" method="post" enctype="multipart/form-data"
+                        <form action="scripts/upload_conteudos.php?id=<?=$id_evento?>" method="post" enctype="multipart/form-data"
                               class="formularioupload">
-                            <p>Seleciona um ficheiro e clica em upload</p>
+                            <p class="w-100">Seleciona um ficheiro e clica em upload</p>
                             <input type="file" name="file" style="font-size: 12px;padding-bottom: 20px;">
                             <input type="submit" name="submit" value="Upload" class="socorro">
                         </form>
@@ -95,41 +99,16 @@ if (isset($_SESSION['id_utilizador'])){
         </div>
 </div>
 
-    </form>
 
     <div class="fixed-bottom mb-5 botoes_stepper">
         <a href="carregarconteudo1.php"><button class="button_stepper" id="previousBtn">Anterior</button></a>
         <a href="carregarconteudo3.php"><button class="button_stepper" id="nextBtn">Seguinte</button></a>
         <button class="button_stepper" id="finishBtn" disabled>Confirmar</button>
     </div>
+    </form>
 
 
 </main>
 
-
-
-<!--    function getRadioVal(form, name) {
-        var val;
-
-        // get list of radio buttons with specified name
-        var radios = form.elements[name];
-
-        // loop through list of radio buttons
-        for (var i = 0, len = radios.length; i < len; i++) {
-            if (radios[i].checked) { // radio checked?
-                val = radios[i].value; // if so, hold its value in val
-                break; // and break out of for loop
-            }
-        }
-        console.log(val);
-
-        <?php
-/*        $idd = 'val'
-        */?>
-
-        window.location.href = "carregar1.php?id=" + val
-    }
-
--->
 </body>
 </html>
