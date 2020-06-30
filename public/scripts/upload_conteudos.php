@@ -28,16 +28,41 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
 
             if (isset($id_evento)) {
                 // Insert image file name into database
-                $query = "INSERT INTO publicacoes (eventos_id_evento, conteudo_publicacao)     
-                          VALUES ( ? ,'" . $fileName . "')";
+                $query = "INSERT INTO publicacoes (eventos_id_evento, conteudo_publicacao, data_publicacao)     
+                          VALUES ( ? ,'" . $fileName . "', NOW())";
 
                 if (mysqli_stmt_prepare($stmt, $query)) {
                     mysqli_stmt_bind_param($stmt, 'i', $id);
 
                     $id = $id_evento;
                     if (mysqli_stmt_execute($stmt)) {
-                        $statusMsg = "The file " . $fileName . " has been uploaded successfully.";
-                        header("Location: ../carregar1.php?id=$id_evento&statusMsg=$statusMsg");
+
+
+                        $link = new_db_connection();
+                        $stmt = mysqli_stmt_init($link);
+
+                        $query = "SELECT id_publicacao
+                      FROM   publicacoes
+                      ORDER  BY id_publicacao DESC
+                      LIMIT  1;";
+
+                        if (mysqli_stmt_prepare($stmt, $query)) {
+
+                            mysqli_stmt_execute($stmt);
+                            mysqli_stmt_bind_result($stmt, $id_publicacao);
+
+                            if (mysqli_stmt_fetch($stmt)) {
+
+                                $statusMsg = "The file " . $fileName . " has been uploaded successfully.";
+                                header("Location: ../carregarconteudo2.php?id=$id_evento&statusMsg=$statusMsg&&idp=$id_publicacao");
+
+
+
+                            }
+
+                        }
+
+
 
                     }
                     $statusMsg = "File upload failed, please try again.";

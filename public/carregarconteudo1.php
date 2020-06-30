@@ -41,7 +41,7 @@ if (isset($_SESSION['id_utilizador'])){
 
 <main>
 
-    <form enctype="multipart/form-data" action="scripts/nova_publicacao.php" id="formulario" role="form" method="post">
+    <form enctype="multipart/form-data" action="carregarconteudo2.php" id="formulario" role="form" method="post">
 
         <div class="stepper">
             <div id="stepProgressBar">
@@ -63,13 +63,41 @@ if (isset($_SESSION['id_utilizador'])){
         </div>
 
 
+
         <div class="conteudo_stepper ml-4">
                 <div id="toggle1" class="stepper">
                     <div class="title mt-4">Escolhe o evento:</div>
                     <div class="field">
                         <div class="container">
-                            <input type="radio" id="concerto1" name="evento" value="1">
-                            <label for="concerto1" class="label">Nome do evento</label> <br>
+                            <?php
+                            require_once "../admin/connections/connection2db.php";
+
+                            $link = new_db_connection();
+                            $stmt = mysqli_stmt_init($link);
+
+                            $query = "SELECT id_evento, nome_evento
+                              FROM eventos
+                              INNER JOIN utilizadores_has_eventos
+                              ON eventos.id_evento = utilizadores_has_eventos.eventos_id_evento           
+                              WHERE utilizadores_has_eventos.utilizadores_id_utilizador = $id_utilizador AND data_fim_evento >= NOW()";
+
+                            if (mysqli_stmt_prepare($stmt, $query)) {
+
+                                mysqli_stmt_execute($stmt);
+                                mysqli_stmt_bind_result($stmt, $id, $nome);
+
+
+                                while (mysqli_stmt_fetch($stmt)) {
+                                    ?>
+
+                                    <input type="radio" id="concerto1" name="evento" value="<?=$id?>">
+                                    <label for="concerto1" class="label"><?=$nome?></label> <br>
+
+                                    <?php
+                                }
+                            }
+                            ?>
+
 
                             <input type="radio" id="outro" name="evento0" value="outro">
                             <label for="outro" class="label">Outro...</label>
@@ -79,39 +107,19 @@ if (isset($_SESSION['id_utilizador'])){
                 </div>
             </div>
 
-    </form>
+
 
 
         <div class="fixed-bottom mb-5 botoes_stepper">
             <button class="button_stepper" id="previousBtn" disabled>Anterior</button>
-            <a href="carregarconteudo2.php"><button class="button_stepper" id="nextBtn">Seguinte</button> </a>
+
+                <button class="button_stepper" type="submit" id="nextBtn">Seguinte</button>
+
             <button class="button_stepper" id="finishBtn" disabled>Confirmar</button>
         </div>
-
+    </form>
 
 </main>
-
-
-<?php
-/*require_once "../admin/connections/connection2db.php";
-
-$link = new_db_connection();
-$stmt = mysqli_stmt_init($link);
-
-$query = "SELECT id_evento, nome_evento
-              FROM eventos
-              INNER JOIN utilizadores_has_eventos
-              ON eventos.id_evento = utilizadores_has_eventos.eventos_id_evento
-              WHERE utilizadores_has_eventos.utilizadores_id_utilizador = $id_utilizador ";
-
-if (mysqli_stmt_prepare($stmt, $query)) {
-
-mysqli_stmt_execute($stmt);
-mysqli_stmt_bind_result($stmt, $id, $nome);
-
-
-while (mysqli_stmt_fetch($stmt)) {
-*/?>
 
 </body>
 </html>
