@@ -117,7 +117,7 @@ hr {
     -webkit-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.33);
     -moz-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.33);
     box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.33);
-    font-size: 16px;
+    font-size: 15px;
     margin-top: 5px;
     margin-bottom: 7px;
     border: none;
@@ -493,8 +493,9 @@ i.fa-calendar-alt {
 }
 
 .campo_data_hora {
-    width: 158px;
+    width: 130px;
     font-size: 12px;
+    background-color: white;
 }
 
 .campo_descricao {
@@ -503,6 +504,7 @@ i.fa-calendar-alt {
 
 #toggle1 {
     margin: 1rem;
+    margin-left: 10%;
 }
 
 #toggle2 {

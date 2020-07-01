@@ -76,17 +76,19 @@ if (isset($_SESSION['id_utilizador'])){
             <input type="text" name="localizacao" class="campos_form_criarevento" value="">
         </div>
         <div class="field">
-            <div class="label">Duração</div>
+            <div class="label">Data de Início</div>
             <input type="date"  name="data_inicio"  class="campos_form_criarevento campo_data_hora">
-            <input type="date"  name="data_fim"  class="campos_form_criarevento campo_data_hora">
             <input type="time"  name="hora_inicio"  class="campos_form_criarevento campo_data_hora">
+
+            <div class="label">Data de Fim</div>
+            <input type="date"  name="data_fim"  class="campos_form_criarevento campo_data_hora">
             <input type="time"  name="hora_fim"  class="campos_form_criarevento campo_data_hora">
         </div>
     </div>
 
 
 
-    <div id="toggle2">
+    <div id="toggle2" style="display: none">
         <div class="title mt-4">Seleciona as categorias do teu evento</div>
         <div class="field">
             <div class="label mt-2">Qual é o género de evento?</div>
@@ -133,7 +135,7 @@ if (isset($_SESSION['id_utilizador'])){
         </div>
     </div>
 
-    <div id="toggle3">
+    <div id="toggle3"  style="display: none">
         <div class="title mt-4">Convida participantes!</div>
         <div class="field mt-2">
             <div class="label">Convida pessoas para o teu evento, conforme o exemplo. (utilizador1@email.com, utilizador2@email.com, ...)</div>
@@ -142,12 +144,12 @@ if (isset($_SESSION['id_utilizador'])){
         </div>
     </div>
     </form>
-    <div class="container_stepper mt-5">
+    <div class="container_stepper botoes_stepper fixed-bottom e mb-5">
 
         <div id="main">
-            <button class="button_stepper" id="previousBtn" type="button"  onclick="clicou_atras(currentStep);" disabled >Previous</button>
-            <button class="button_stepper" id="nextBtn" type="button" onclick="clicou(currentStep)">Next</button>
-            <button class="button_stepper" id="finishBtn"  disabled>Finish</button>
+            <button class="button_stepper" id="previousBtn" type="button"  onclick="clicou_atras(currentStep);" disabled >Anterior</button>
+            <button class="button_stepper" id="nextBtn" type="button" onclick="clicou(currentStep)">Seguinte</button>
+            <button class="button_stepper" id="finishBtn"  disabled>Confirmar</button>
         </div>
     </div>
 

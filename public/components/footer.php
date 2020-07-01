@@ -46,7 +46,7 @@
 
 <footer>
 
-    <nav class="navbar navbar-expand fixed-bottom container p-0 pt-2" style="background-color: #1ec5bc">
+    <nav class="navbar navbar-expand fixed-bottom container p-0 pb-2 pt-2" style="background-color: #1ec5bc">
         <div class="row no-gutters justify-content-around w-100">
             <a class=" col-2 justify-content-center text-center" id="feed"
                href="feed.php">
