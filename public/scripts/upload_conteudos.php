@@ -11,7 +11,7 @@ if (isset($_GET['id'])){
 require_once "../../admin/connections/connection2db.php";
 
 // File upload path
-$targetDir = "upload/";
+$targetDir = "http://360.web.ua.pt/projecto360/public/scripts/upload/";
 $fileName = basename($_FILES["file"]["name"]);
 $targetFilePath = $targetDir . $fileName;
 $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
