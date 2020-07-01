@@ -7,17 +7,21 @@ if (isset($_GET['id'])){
 }
 
 
+
 // Include the database configuration file
 require_once "../../admin/connections/connection2db.php";
 
 // File upload path
 $targetDir = "http://360.web.ua.pt/projecto360/public/scripts/upload/";
 $fileName = basename($_FILES["file"]["name"]);
-$targetFilePath = $targetDir . $fileName;
+$targetFilePath = $_SERVER['DOCUMENT_ROOT'] . '/projecto360/public/scripts/upload/';
+
+//$targetFilePath = $targetDir . $fileName;
 $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
 
 if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
     // Allow certain file formats
+
     $allowTypes = array('jpg','png','jpeg');
     if(in_array($fileType, $allowTypes)){
         // Upload file to server

@@ -97,10 +97,6 @@ if (isset($_SESSION['id_utilizador'])){
                                 }
                             }
                             ?>
-
-
-                            <input type="radio" id="outro" name="evento0" value="outro">
-                            <label for="outro" class="label">Outro...</label>
                         </div>
 
                     </div>
