@@ -3,8 +3,8 @@ session_start();
 
 if (isset($_GET['id']) && isset($_GET['lista']) && isset($_GET['nome']) && isset($_SESSION['id_utilizador'])) {
 
-$lista_convidados = $_GET['lista'];
-// pass delimiter and string to explode function
+    $lista_convidados = $_GET['lista'];
+    // pass delimiter and string to explode function
     $lista_array = explode(', ', $lista_convidados);
 
     $id_evento = $_GET['id'];
