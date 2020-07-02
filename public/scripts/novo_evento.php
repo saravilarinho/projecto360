@@ -1,11 +1,16 @@
 <?php
 session_start();
 
+
 if (isset($_SESSION['id_utilizador']) && isset($_POST['nome_evento']) && isset($_POST['descricao']) && isset($_POST['localizacao']) &&
 isset($_POST['data_inicio']) && isset($_POST['hora_inicio']) && isset($_POST['data_fim']) && isset($_POST['hora_fim'])
-    && isset($_POST['generoevento']) && isset($_POST['gender'])) {
+    && isset($_POST['generoevento']) && isset($_POST['gender']) && (isset($_POST['lat'])) && (isset($_POST['lng']))) {
 
     $nova = $_POST['convidado1'];
+    $latitude_int = $_POST['lat'];
+    $longitude_int = $_POST['lng'];
+    settype ( $latitude_int, "int");
+    settype($longitude_int, "int");
 
     require_once "../../admin/connections/connection2db.php";
 
@@ -14,12 +19,12 @@ isset($_POST['data_inicio']) && isset($_POST['hora_inicio']) && isset($_POST['da
     $stmt = mysqli_stmt_init($link);
 
     $query = "INSERT INTO eventos (nome_evento, data_inicio_evento, hora_inicio, data_fim_evento, hora_fim, localizacao_evento, 
-descricao_evento, categorias_id_categoria, niveis_privacidade_id_nivel_privacidade) 
-VALUES (?,?,?,?,?,?,?,?,?)";
+descricao_evento, categorias_id_categoria, niveis_privacidade_id_nivel_privacidade, coor_lat, coor_long) 
+VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
     if (mysqli_stmt_prepare($stmt, $query)) {
-        mysqli_stmt_bind_param($stmt, 'sssssssii', $nome_evento, $data_inicio, $hora_inicio, $data_fim,
-            $hora_fim, $localizacao, $descricao, $categoria, $privacidade);
+        mysqli_stmt_bind_param($stmt, 'sssssssiiii', $nome_evento, $data_inicio, $hora_inicio, $data_fim,
+            $hora_fim, $localizacao, $descricao, $categoria, $privacidade, $latitude, $longitude);
 
         $id_utilizador = $_SESSION['id_utilizador'];
         $nome_evento = $_POST['nome_evento'];
@@ -31,6 +36,10 @@ VALUES (?,?,?,?,?,?,?,?,?)";
         $hora_fim = $_POST['hora_fim'];
         $categoria = $_POST['generoevento'];
         $privacidade = $_POST['gender'];
+
+        $latitude = $latitude_int;
+        $longitude = $longitude_int;
+
 
         if (mysqli_stmt_execute($stmt)) {
             $link = new_db_connection();

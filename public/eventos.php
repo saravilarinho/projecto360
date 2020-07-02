@@ -42,7 +42,8 @@ if (isset($_SESSION['id_utilizador'])){
     </h3>
 </header>
 
-<main>
+<main style="padding-bottom: 10% !important;">
+
     <div class="container mt-4">
         <ul class="nav nav-tabs justify-content-center">
             <li class="active mr-4"><a data-toggle="tab" href="#home">Meus Eventos</a></li>

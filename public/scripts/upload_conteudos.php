@@ -5,30 +5,34 @@ if (isset($_GET['id'])){
     $id_evento = $_GET['id'];
     
 }
-
-
-
 // Include the database configuration file
 require_once "../../admin/connections/connection2db.php";
 
 // File upload path
-$targetDir = "http://360.web.ua.pt/projecto360/public/scripts/upload/";
+$targetDir = "upload/";
 $fileName = basename($_FILES["file"]["name"]);
-$targetFilePath = $_SERVER['DOCUMENT_ROOT'] . '/projecto360/public/scripts/upload/';
+//$targetFilePath = $_SERVER['DOCUMENT_ROOT'] . '/public/scripts/upload/' . $fileName;
 
-//$targetFilePath = $targetDir . $fileName;
+$targetFilePath = $targetDir . $fileName;
 $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
 
 if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
     // Allow certain file formats
+    var_dump("entra dentro da condicao");
+    var_dump($targetFilePath);
 
     $allowTypes = array('jpg','png','jpeg');
     if(in_array($fileType, $allowTypes)){
+
+
         // Upload file to server
+
         if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){
+            var_dump("move uploaded files");
 
             $link = new_db_connection();
             $stmt = mysqli_stmt_init($link);
+
 
             if (isset($id_evento)) {
                 // Insert image file name into database
@@ -96,12 +100,17 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
 
         }else{
             $statusMsg = "Sorry, there was an error uploading your file.";
+            var_dump($statusMsg);
         }
     }else{
         $statusMsg = 'Sorry, only JPG, JPEG, PNG files are allowed to upload.';
+        var_dump($statusMsg);
+
     }
 }else{
     $statusMsg = 'Please select a file to upload.';
+    var_dump($statusMsg);
+
 }
 
 
