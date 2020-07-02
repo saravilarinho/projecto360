@@ -63,49 +63,59 @@ if (mysqli_stmt_fetch($stmt)) { */?>
 
 <main>
 
-    <div class="mt-4 ml-2 mx-auto">
-        <div class="row  mt-2 mb-2 mr-0 card_perfil">
-            <div class="col-3 align-items-center">
-                <img class="w-75 rounded-circle ml-2" src="imagens/img_perfil.jpg">
-            </div>
-            <div class="col-6 align-self-center">
-                <p class="texto_card_historico"><b> Garagem do Reitor</b> alterou o seu horário.</p>
-                <img class="icone_categoria" src="imagens/icones/icone_festa.png"> <small class="small_feed">há 1 dia</small>
-            </div>
-            <div class="col-3 align-self-center">
-                <i class="fas fa-chevron-right"></i>
+    <div class="container">
+
+    <div class="mt-4">
+        <div class="row col-12 card_perfil p-2">
+            <div class="d-flex">
+                <div class="col-3 align-self-center">
+                    <img class="w-100 rounded-circle ml-2" src="imagens/img_perfil.jpg">
+                </div>
+                <div class="col-6 align-self-center">
+                    <p class="texto_card_historico"><b> Garagem do Reitor</b> alterou o seu horário.</p>
+                    <img class="icone_categoria" src="imagens/icones/icone_festa.png"> <small class="small_feed">há 1 dia</small>
+                </div>
+                <div class="col-2 align-self-center">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="mt-3 ml-2 mx-auto">
-        <div class="row  mt-2 mb-2 mr-0 card_perfil">
-            <div class="col-3 align-items-center">
-                <img class="w-75 rounded-circle ml-2" src="imagens/img_perfil.jpg">
-            </div>
-            <div class="col-6 align-self-center">
-                <p class="texto_card_historico"><b>Garagem do Reitor</b> alterou o seu horário.</p>
-                <img class="icone_categoria" src="imagens/icones/icone_festa.png"> <small class="small_feed">há 1 dia</small>
-            </div>
-            <div class="col-3 align-self-center">
-                <i class="fas fa-chevron-right"></i>
+    <div class="mt-3">
+        <div class="row col-12 card_perfil p-2">
+            <div class="d-flex">
+                <div class="col-3 align-self-center">
+                    <img class="w-100 rounded-circle ml-2" src="imagens/img_perfil.jpg">
+                </div>
+                <div class="col-6 align-self-center">
+                    <p class="texto_card_historico"><b> Garagem do Reitor</b> alterou o seu horário.</p>
+                    <img class="icone_categoria" src="imagens/icones/icone_festa.png"> <small class="small_feed">há 1 dia</small>
+                </div>
+                <div class="col-2 align-self-center">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="mt-3 ml-2 mx-auto">
-        <div class="row  mt-2 mb-2 mr-0 card_perfil">
-            <div class="col-3 align-items-center">
-                <img class="w-100 rounded-circle ml-2" src="imagens/img_perfil.jpg">
-            </div>
-            <div class="col-6 align-self-center">
-                <p class="texto_card_historico"><b>Garagem do Reitor</b> alterou o seu horário.</p>
-                <img class="icone_categoria" src="imagens/icones/icone_festa.png"> <small class="small_feed">há 1 dia</small>
-            </div>
-            <div class="col-3 align-self-center">
-                <i class="fas fa-chevron-right"></i>
+    <div class="mt-3">
+        <div class="row col-12 card_perfil p-2">
+            <div class="d-flex">
+                <div class="col-3 align-self-center">
+                    <img class="w-100 rounded-circle ml-2" src="imagens/img_perfil.jpg">
+                </div>
+                <div class="col-6 align-self-center">
+                    <p class="texto_card_historico"><b> Garagem do Reitor</b> alterou o seu horário.</p>
+                    <img class="icone_categoria" src="imagens/icones/icone_festa.png"> <small class="small_feed">há 1 dia</small>
+                </div>
+                <div class="col-2 align-self-center">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
             </div>
         </div>
+    </div>
+
     </div>
 </main>
 
