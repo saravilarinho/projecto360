@@ -96,7 +96,7 @@ if (isset($_SESSION['id_utilizador'])){
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active show">
                 <div class="container">
-                    <div class="card_perfil text-center mt-4 mx-auto w-100">
+                    <div class="card_horizontal text-center mt-4 mx-auto w-100">
                         <div class="row align-items-center">
                             <div class="col-4">
                                 <p class="mt-2 mb-0 pl-2 titulo_card_stats"><?php echo $eventos_criados?></p>
@@ -112,7 +112,7 @@ if (isset($_SESSION['id_utilizador'])){
                         </div>
                     </div>
 
-                    <div class="card_perfil text-center mt-4 mx-auto">
+                    <div class="card_horizontal text-center mt-4 mx-auto">
                         <div class="row align-items-center">
                             <div class="col-4">
                                 <p class="mt-2 mb-0 pl-2 titulo_card_stats"><?php echo $eventos_subscritos?></p>
@@ -128,7 +128,7 @@ if (isset($_SESSION['id_utilizador'])){
                         </div>
                     </div>
 
-                    <div class="card_perfil text-center mt-4 mx-auto">
+                    <div class="card_horizontal text-center mt-4 mx-auto">
                         <div class="row align-items-center">
                             <div class="col-4">
                                 <p class="mt-2 mb-0 pl-2 titulo_card_stats"><?php echo $conteudos_partilhados?></p>

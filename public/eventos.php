@@ -96,8 +96,8 @@ if (isset($_SESSION['id_utilizador'])){
                             ?>
 
 
-                        <div class="col align-content-center">
-                            <div class="card card_eventos h-100">
+                        <div class="col align-content-center mb-2">
+                            <div class="card_vertical h-100">
                                 <a class="linkar" href="eventocomsubscricao.php?id=<?=$id_evento?>">
                                     <?php
                                     if ($imagem != ''){

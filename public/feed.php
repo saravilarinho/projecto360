@@ -66,7 +66,7 @@ if (mysqli_stmt_fetch($stmt)) { */?>
     <div class="container">
 
     <div class="mt-4">
-        <div class="row col-12 card_perfil p-2 ml-0">
+        <div class="row col-12 card_horizontal p-2 ml-0">
             <div class="d-flex">
                 <div class="col-3 align-self-center">
                     <img class="w-100 rounded-circle ml-2" src="imagens/img_perfil.jpg">
@@ -83,7 +83,7 @@ if (mysqli_stmt_fetch($stmt)) { */?>
     </div>
 
     <div class="mt-3">
-        <div class="row col-12 card_perfil p-2 ml-0">
+        <div class="row col-12 card_horizontal p-2 ml-0">
             <div class="d-flex">
                 <div class="col-3 align-self-center">
                     <img class="w-100 rounded-circle ml-2" src="imagens/img_perfil.jpg">
@@ -100,7 +100,7 @@ if (mysqli_stmt_fetch($stmt)) { */?>
     </div>
 
     <div class="mt-3">
-        <div class="row col-12 card_perfil p-2 ml-0">
+        <div class="row col-12 card_horizontal p-2 ml-0">
             <div class="d-flex">
                 <div class="col-3 align-self-center">
                     <img class="w-100 rounded-circle ml-2" src="imagens/img_perfil.jpg">

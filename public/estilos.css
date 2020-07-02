@@ -44,7 +44,7 @@ h4 {
 a.tabs:active {
 border-bottom: 2px solid #4E6969}
 
-.card_perfil {
+.card_horizontal {
     background-color: white;
     border-radius: 10px;
     font-size: 13px;
@@ -109,9 +109,9 @@ hr {
     font-size:10px;
 }
 
-.card_eventos {
+.card_vertical {
     background-color: white;
-    border-radius: 10px;
+    border-radius: 6px;
     -webkit-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.33);
     -moz-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.33);
     box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.33);
