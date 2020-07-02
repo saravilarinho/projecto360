@@ -139,7 +139,7 @@ if (isset($_GET['idp']) && isset($_GET['lista']) && isset($_SESSION['id_utilizad
                     $mail->Send();
 
 
-                    header("Location: ../publicacao.html?idp=$id_p");
+                    header("Location: ../publicacao.php?idp=$id_p");
 
                 }
             }

@@ -49,7 +49,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['des']) && isset($_GET['idp
                         }
                         else {
 
-                            header("Location: ../publicacao.html?idp=$id_pub");
+                            header("Location: ../publicacao.php?idp=$id_pub");
 
                         }
 
