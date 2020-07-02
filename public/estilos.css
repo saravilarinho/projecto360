@@ -5,8 +5,12 @@ body {
 }
 
 .texto-nav {
-    font-size: 12px;
+    font-size: 11px;
     color: white;
+}
+
+.navbar i.fa-newspaper, i.fa-search, i.fa-plus-circle, i.fa-calendar-plus, i.fa-user {
+    font-size: 3.5vh;
 }
 
 i {

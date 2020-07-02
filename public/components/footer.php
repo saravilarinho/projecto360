@@ -50,31 +50,31 @@
         <div class="row no-gutters justify-content-around w-100">
             <a class=" col-2 justify-content-center text-center" id="feed"
                href="feed.php">
-                <i class="far fa-2x fa-newspaper"></i>
+                <i class="far fa-newspaper"></i>
                 <br/>
                 <span class="texto-nav">FEED</span>
             </a>
             <a class="col-2  justify-content-center text-center" id="pesquisa"
                href="pesquisa.php">
-                <i class="fas fa-2x fa-search"></i>
+                <i class="fas fa-search"></i>
                 <br/>
                 <span class="texto-nav">PESQUISA</span>
             </a>
             <div onclick="on()" class="add">
                 <a class="col-3 text-center" id="adicionar">
-                    <i class="fas fa-2x fa-plus-circle"></i>
+                    <i class="fas fa-plus-circle"></i>
                     <br/>
                     <span class="texto-nav">ADICIONAR</span></a>
             </div>
             <a class="col-2  justify-content-center text-center" id="eventos"
                href="eventos.php">
-                <i class="far fa-2x fa-calendar-plus"></i>
+                <i class="far fa-calendar-plus"></i>
                 <br/>
                 <span class="texto-nav">EVENTOS</span>
             </a>
             <a class="col-2  justify-content-center text-center" id="perfil"
                href="perfil.php">
-                <i class="far fa-2x fa-user"></i>
+                <i class="far fa-user"></i>
                 <br/>
                 <span class="texto-nav">PERFIL</span>
             </a>
