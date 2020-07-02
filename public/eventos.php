@@ -42,7 +42,7 @@ if (isset($_SESSION['id_utilizador'])){
     </h3>
 </header>
 
-<main style="padding-bottom: 10% !important;">
+<main style="padding-bottom: 25% !important;">
 
     <div class="container mt-4">
         <ul class="nav nav-tabs justify-content-center">

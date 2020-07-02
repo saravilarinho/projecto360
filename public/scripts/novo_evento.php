@@ -9,8 +9,10 @@ isset($_POST['data_inicio']) && isset($_POST['hora_inicio']) && isset($_POST['da
     $nova = $_POST['convidado1'];
     $latitude_int = $_POST['lat'];
     $longitude_int = $_POST['lng'];
-    settype ( $latitude_int, "int");
-    settype($longitude_int, "int");
+
+
+var_dump($latitude_int + 0);
+var_dump($longitude_int + 0);
 
     require_once "../../admin/connections/connection2db.php";
 
@@ -23,7 +25,7 @@ descricao_evento, categorias_id_categoria, niveis_privacidade_id_nivel_privacida
 VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
     if (mysqli_stmt_prepare($stmt, $query)) {
-        mysqli_stmt_bind_param($stmt, 'sssssssiiii', $nome_evento, $data_inicio, $hora_inicio, $data_fim,
+        mysqli_stmt_bind_param($stmt, 'sssssssiidd', $nome_evento, $data_inicio, $hora_inicio, $data_fim,
             $hora_fim, $localizacao, $descricao, $categoria, $privacidade, $latitude, $longitude);
 
         $id_utilizador = $_SESSION['id_utilizador'];
@@ -37,8 +39,8 @@ VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         $categoria = $_POST['generoevento'];
         $privacidade = $_POST['gender'];
 
-        $latitude = $latitude_int;
-        $longitude = $longitude_int;
+        $latitude = $latitude_int + 0;
+        $longitude = $longitude_int +0;
 
 
         if (mysqli_stmt_execute($stmt)) {
