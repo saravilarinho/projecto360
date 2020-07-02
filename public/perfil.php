@@ -112,7 +112,7 @@ if (isset($_SESSION['id_utilizador'])){
                         </div>
                     </div>
 
-                    <div class="card_perfil mt-4 mx-auto">
+                    <div class="text-align-center mt-4 mx-auto">
                         <div class="row align-items-center">
                             <div class="col-4">
                                 <p class="mt-2 mb-0 pl-2 titulo_card_stats"><?php echo $eventos_subscritos?></p>

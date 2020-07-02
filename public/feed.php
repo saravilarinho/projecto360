@@ -63,10 +63,10 @@ if (mysqli_stmt_fetch($stmt)) { */?>
 
 <main>
 
-    <div class="card mt-4 ml-2 mx-auto">
-        <div class="row  mt-2 mb-2 mr-0">
+    <div class="mt-4 ml-2 mx-auto">
+        <div class="row  mt-2 mb-2 mr-0 card_perfil">
             <div class="col-3 align-items-center">
-                <img class="img_card_feed rounded-circle ml-2" src="imagens/img_perfil.jpg">
+                <img class="w-75 rounded-circle ml-2" src="imagens/img_perfil.jpg">
             </div>
             <div class="col-6 align-self-center">
                 <p class="texto_card_historico"><b> Garagem do Reitor</b> alterou o seu horário.</p>
@@ -78,10 +78,10 @@ if (mysqli_stmt_fetch($stmt)) { */?>
         </div>
     </div>
 
-    <div class="card mt-3 ml-2 mx-auto">
-        <div class="row  mt-2 mb-2 mr-0">
+    <div class="mt-3 ml-2 mx-auto">
+        <div class="row  mt-2 mb-2 mr-0 card_perfil">
             <div class="col-3 align-items-center">
-                <img class="img_card_feed rounded-circle ml-2" src="imagens/img_perfil.jpg">
+                <img class="w-75 rounded-circle ml-2" src="imagens/img_perfil.jpg">
             </div>
             <div class="col-6 align-self-center">
                 <p class="texto_card_historico"><b>Garagem do Reitor</b> alterou o seu horário.</p>
@@ -93,10 +93,10 @@ if (mysqli_stmt_fetch($stmt)) { */?>
         </div>
     </div>
 
-    <div class="card mt-3 ml-2 mx-auto">
-        <div class="row  mt-2 mb-2 mr-0">
+    <div class="mt-3 ml-2 mx-auto">
+        <div class="row  mt-2 mb-2 mr-0 card_perfil">
             <div class="col-3 align-items-center">
-                <img class="img_card_feed rounded-circle ml-2" src="imagens/img_perfil.jpg">
+                <img class="w-100 rounded-circle ml-2" src="imagens/img_perfil.jpg">
             </div>
             <div class="col-6 align-self-center">
                 <p class="texto_card_historico"><b>Garagem do Reitor</b> alterou o seu horário.</p>
