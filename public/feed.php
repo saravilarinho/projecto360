@@ -40,26 +40,6 @@ if (isset($_SESSION['id_utilizador'])) {
     </h3>
 
 </header>
-<!--
---><?php
-/*require_once "../admin/connections/connection2db.php";
-$link = new_db_connection();
-$stmt = mysqli_stmt_init($link);
-
-$query = "SELECT nome_utilizador, foto, 
-          FROM utilizadores
-          INNER JOIN cidade
-          ON cidade.id_cidade = utilizador.cidade_utilizador
-          WHERE id_utilizador = ?";
-
-if (mysqli_stmt_prepare($stmt, $query)) {
-mysqli_stmt_bind_param($stmt, "i", $id_utilizador);
-$id_utilizador = $id;
-
-mysqli_stmt_execute($stmt);
-mysqli_stmt_bind_result($stmt, $nome, $foto);
-
-if (mysqli_stmt_fetch($stmt)) { */?>
 
 <main>
 
@@ -121,10 +101,6 @@ if (mysqli_stmt_fetch($stmt)) { */?>
 
 
     <?php
-/*}
-    mysqli_stmt_close($stmt); // Close statement
-}
-mysqli_close($link); // Close connection*/
 
 include_once "components/footer.php";
 

@@ -11,6 +11,8 @@ if (isset($_GET['id']) && isset($_GET['lista']) && isset($_GET['nome']) && isset
     $nome_evento = $_GET['nome'];
     $id_utilizador = $_SESSION['id_utilizador'];
 
+    var_dump($lista_array);
+
     require_once "../../admin/connections/connection2db.php";
 
 
@@ -31,10 +33,11 @@ if (isset($_GET['id']) && isset($_GET['lista']) && isset($_GET['nome']) && isset
 
         if (mysqli_stmt_fetch($stmt)) {
 
+
             require_once('../../admin/PHPMailer/PHPMailerAutoload.php');
 
             $mail = new PHPMailer();
-            $mail->isSMTP();
+           // $mail->isSMTP();
             $mail->SMTPAuth = true;
             $mail->SMTPSecure = 'ssl';
             $mail->Host = 'smtp.gmail.com';
@@ -111,9 +114,10 @@ if (isset($_GET['idp']) && isset($_GET['lista']) && isset($_SESSION['id_utilizad
 
                 if (mysqli_stmt_fetch($stmt)) {
                     require_once('../../admin/PHPMailer/PHPMailerAutoload.php');
+                    require_once ('../../admin/PHPMailer/class.phpmailer.php');
 
                     $mail = new PHPMailer();
-                    $mail->isSMTP();
+                  //  $mail->isSMTP();
                     $mail->SMTPAuth = true;
                     $mail->SMTPSecure = 'ssl';
                     $mail->Host = 'smtp.gmail.com';
@@ -133,6 +137,7 @@ if (isset($_GET['idp']) && isset($_GET['lista']) && isset($_SESSION['id_utilizad
                     }
 
                     $mail->Send();
+
 
                     header("Location: ../publicacao.html?idp=$id_p");
 

@@ -65,11 +65,11 @@ if (isset($_SESSION['id_utilizador'])){
     <div id="toggle1">
         <div class="field">
             <div class="label mt-2">Nome do evento</div>
-            <input type="text" name="nome_evento" class="campos_form_criarevento" placeholder="Nome do evento">
+            <input type="text" name="nome_evento" class="campos_form_criarevento" placeholder="Nome do evento" required>
         </div>
         <div class="field">
             <div class="label">Descrição do evento</div>
-            <input type="text" name="descricao" class="campos_form_criarevento campo_descricao" placeholder="Escreve uma pequena descrição do evento">
+            <input type="text" name="descricao" class="campos_form_criarevento campo_descricao" placeholder="Escreve uma pequena descrição do evento" required>
         </div>
             <div class=" field" id="pac-card">
                 <div class="label">Localização</div>
@@ -78,7 +78,7 @@ if (isset($_SESSION['id_utilizador'])){
                     <input type="hidden" name="lat" id="lat">
                     <input type="hidden" name="lng" id="lng">
                     <input type="hidden" name="location" id="location">
-                    <input id="pac-input" type="text" name="localizacao" class="form-control campos_form_criarevento" placeholder="Localização..." value=" ">
+                    <input id="pac-input" type="text" name="localizacao" class="form-control campos_form_criarevento" style="height: 28px !important;" placeholder="Localização..." value=" " required>
                 </div>
             </div>
             <div id="map" style="display: none"></div>
@@ -86,8 +86,8 @@ if (isset($_SESSION['id_utilizador'])){
 
         <div class="field">
             <div class="label">Data de Início</div>
-            <input type="date"  name="data_inicio"  class="campos_form_criarevento campo_data_hora">
-            <input type="time"  name="hora_inicio"  class="campos_form_criarevento campo_data_hora">
+            <input type="date"  name="data_inicio"  class="campos_form_criarevento campo_data_hora" required>
+            <input type="time"  name="hora_inicio"  class="campos_form_criarevento campo_data_hora" required>
 
             <div class="label">Data de Fim</div>
             <input type="date"  name="data_fim"  class="campos_form_criarevento campo_data_hora">
