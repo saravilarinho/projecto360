@@ -24,7 +24,7 @@
 </head>
 <body class="container">
 <div class="row justify-content-center inicio">
-    <img class="col-6 align-self-center mt-5" src="imagens/logocslogan.png">
+    <img class="col-6 col-lg-3 align-self-center mt-5" src="imagens/logocslogan.png">
 </div>
 
 

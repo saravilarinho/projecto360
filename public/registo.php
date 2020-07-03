@@ -50,8 +50,8 @@
 </header>
 <main>
 
-    <p class="mt-3 ml-4">Bem-vindo!</p>
-    <p class="mt-0 ml-4">Começa por preencher os seguintes campos com as tuas informações.</p>
+    <p class="mt-3 ml-4 texto_pesquisa">Bem-vindo!</p>
+    <p class="mt-0 ml-4 texto_pesquisa">Começa por preencher os seguintes campos com as tuas informações.</p>
 
     <div class="row justify-content-around mr-0">
 
@@ -61,30 +61,25 @@
             <div class="g-signin2" data-onsuccess="onSignIn" >
             </div>
 
-            <p>OU</p>
+            <p class="texto_pesquisa">OU</p>
 
 
             <form action="scripts/registo_utilizadores.php" role="form" method="post">
 
-                <p class="mt-2 mb-0 text-left">Nome</p>
-                <input class="pl-2 mt-1 w-100" type="text" name="name" placeholder="ex: Tiago"
+                <p class="mt-2 mb-0 text-left texto_pesquisa">Nome</p>
+                <input class="pl-2 mt-1 w-100 form-control texto_form_pesquisa" type="text" name="name" placeholder="ex: Tiago"
                        required="required">
 
-                <p class="mt-2 mb-0 text-left">E-mail</p>
-                <input class="pl-2 mt-1 w-100" type="email" name="email" placeholder="exemplo@gmail.com"
+                <p class="mt-2 mb-0 text-left texto_pesquisa">E-mail</p>
+                <input class="pl-2 mt-1 w-100 form-control texto_form_pesquisa" type="email" name="email" placeholder="exemplo@gmail.com"
                        required="required">
 
-                <p class="mt-2 mb-0 text-left">Palavra-passe</p>
-                <input class="pl-2 mt-1 w-100" type="password" name="password_hash" required="required" placeholder="Palavra-passe">
+                <p class="mt-2 mb-0 text-left texto_pesquisa">Palavra-passe</p>
+                <input class="pl-2 mt-1 w-100 form-control texto_form_pesquisa" type="password" name="password_hash" required="required" placeholder="Palavra-passe">
 
 
-
-
-
-
-
-                <div class="justify-content-center d-flex">
-                    <button type="submit" class="btn mt-3 botao_grande"> Confirmar </button>
+                <div class="justify-content-center d-flex fixed-bottom mb-5">
+                    <button type="submit" class="btn  botao_grande"> Confirmar </button>
                 </div>
             </form>
 

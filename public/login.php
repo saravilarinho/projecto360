@@ -32,20 +32,22 @@ if(isset($_GET["message"])){
 
     <title>login</title>
 </head>
+
+
 <body class="container">
 
 <div class="row justify-content-center inicio">
-    <img class="col-6 align-self-center mt-5" src="imagens/logocslogan.png">
+    <img class="img-fluid col-6  col-lg-3 align-self-center mt-5" src="imagens/logocslogan.png">
 </div>
 
-<div>
+<div class="row  justify-content-center">
 
-    <form class="form-horizontal mt-4" action="scripts/controlo_login.php" role="form" method="post">
+    <form class="form-horizontal mt-4 col-10" action="scripts/controlo_login.php" role="form" method="post">
         <div class="form-group">
-            <div class="col-sm-10 mb-2">
+            <div class="mb-2">
                 <input type="email" class="form-control texto_form_pesquisa" name="email" id="email" placeholder="E-mail">
             </div>
-            <div class="col-sm-10">
+            <div class="">
                 <input type="password" class="form-control texto_form_pesquisa" name="password" id="password" placeholder="Password">
             </div>
 
