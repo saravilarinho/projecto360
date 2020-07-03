@@ -45,7 +45,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
     $link = new_db_connection();
     $stmt = mysqli_stmt_init($link);
 
-    $query = "SELECT publicacoes.conteudo_publicacao, publicacoes.descricao, publicacoes.data_publicacao, 
+    $query = "SELECT publicacoes.conteudo_publicacao, publicacoes.descricao, publicacoes.data_publicacao, utilizadores_has_publicacoes.gosto,
               utilizadores.nome_utilizador, eventos.localizacao_evento
               FROM publicacoes
               INNER JOIN utilizadores_has_publicacoes
@@ -63,7 +63,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
         $id_user = $id_utilizador;
 
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $conteudo, $descricao, $data, $nome_utilizador, $localizacao);
+        mysqli_stmt_bind_result($stmt, $conteudo, $descricao, $data, $gosto, $nome_utilizador, $localizacao);
 
         if (mysqli_stmt_fetch($stmt)) {
 
@@ -75,7 +75,6 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                         <a href="eventocomsubscricao.php?">
                             <i class="fas fa-2x fa-chevron-circle-left voltar"></i></a>
                         <img src="scripts/upload/<?=$conteudo?>" class="col-12 p-0 align-self-center">
-                        <i class="col-6 fas fa-2x fas fa-ellipsis-v"></i>
 
 
                     </div>
@@ -88,10 +87,47 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                 <div class="row mt-3 ml-3 mr-0">
 
                     <div class="col-2 d-flex justify-content-space-evenly">
-                        <a class="btn botao_favorito" href="scripts/favoritar_evento.php?id=<?= $id ?>">
-                            <i class="far fa-heart"></i>
+                        <a class="btn botao_favorito" href="scripts/add_gosto.php?idp=<?=$id_publicacao?>">
+
+                            <?php
+                            switch ($gosto){
+                                case 1:
+                                    echo '<i class="fas fa-heart"></i>';
+                                    break;
+
+                                default:
+                                    echo '<i class="far fa-heart"></i>';
+                            }
+
+                            ?>
                         </a>
-                        <p class="numero_likes">21</p>
+
+                        <?php
+                        $numero_likes = 0;
+
+                        $link = new_db_connection();
+                        $stmt = mysqli_stmt_init($link);
+
+                        $query = "SELECT gosto 
+                                  FROM utilizadores_has_publicacoes 
+                                  WHERE gosto = 1 AND publicacoes_id_publicacao = ?";
+
+                        if (mysqli_stmt_prepare($stmt, $query)) {
+                            mysqli_stmt_bind_param($stmt, 'i', $id_p);
+
+                            $id_p = $id_publicacao;
+
+                            mysqli_stmt_execute($stmt);
+                            mysqli_stmt_bind_result($stmt, $gosto);
+
+                            while (mysqli_stmt_fetch($stmt)) {
+                                $numero_likes++;
+                            }
+                            ?>
+                            <p class="numero_likes"><?=$numero_likes?></p>
+                            <?php
+                        }
+                            ?>
                     </div>
 
                     <div class="col-2 d-flex">
@@ -125,6 +161,8 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
 
                     <div class="col-4 d-flex p-0">
                         <i class="far fa-calendar-alt"></i>
+
+
                         <small class="pl-1"><?=$data?></small>
                     </div>
                 </div>

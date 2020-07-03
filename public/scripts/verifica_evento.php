@@ -70,6 +70,9 @@ if(isset($_GET["id"]) && isset($_SESSION['id_utilizador'])){
                      header("Location: ../evento_semsubscricao.php?id=$id");
                 }
                 }
+            $id = $_GET["id"];
+            header("Location: ../evento_semsubscricao.php?id=$id");
+
             mysqli_stmt_close($stmt);
             mysqli_close($link);
 
