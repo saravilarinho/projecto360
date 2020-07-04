@@ -1,6 +1,6 @@
 body {
 
-    font-family: 'Muli', sans-serif;
+    font-family: 'Muli', sans-serif !important;
     background-color: #EEF7F7 !important;
 }
 
@@ -12,6 +12,7 @@ body {
 .navbar i.fa-newspaper, i.fa-search, i.fa-plus-circle, i.fa-calendar-plus, i.fa-user {
     font-size: 3.5vh;
 }
+
 
 i {
     color: white;
@@ -29,11 +30,10 @@ i.fa-chevron-circle-left {
 
 header {
     background-color: #1ec5bc;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-    height: 3.8rem;
+    border-radius: 0 0 10px 10px;
+    height: 2.8rem;
     padding-bottom: 0.5rem;
-    padding-top: 0.7rem;
+    padding-top: 0.4rem;
     padding-left: 1rem;
     color: white;
     width: 100%;
@@ -232,26 +232,32 @@ i.fa-calendar-alt {
 
 #text{
     position: absolute;
-    top: 83%;
-    left: 56%;
+    top: 85%;
+    left: 52%;
     transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
-
+    text-decoration: none;
 }
 
 .overlay_icone {
     background-color: white;
     border: #1ec5bc 1px solid;
-    font-size: 11px;
+    border-radius: 10px;
+    font-size: 10px;
     text-align: center;
     color: #1ec5bc;
-    height: 79px;
-    width: 85px;
+    height: 8vh;
+    text-decoration: none;
+}
+
+.overlay_icone .fa-clone {
+    font-size: 3.5vh;
+
 }
 
 .icone {
     color: #1ec5bc;
-
+    padding-top: 8px;
 }
 
 .add {
