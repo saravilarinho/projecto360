@@ -130,9 +130,6 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                             $agora_dia = date("Y-m-d");
                             $agora_hora = date("H:i:s");
 
-
-
-
                             if ($agora_dia > $data_inicio ){
                                 //ja começou o evento
 
