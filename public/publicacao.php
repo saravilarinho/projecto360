@@ -45,7 +45,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
     $link = new_db_connection();
     $stmt = mysqli_stmt_init($link);
 
-    $query = "SELECT publicacoes.conteudo_publicacao, publicacoes.descricao, publicacoes.data_publicacao, utilizadores_has_publicacoes.gosto,
+    $query = "SELECT publicacoes.eventos_id_evento, publicacoes.conteudo_publicacao, publicacoes.descricao, publicacoes.data_publicacao, utilizadores_has_publicacoes.gosto,
               utilizadores.nome_utilizador, eventos.localizacao_evento
               FROM publicacoes
               INNER JOIN utilizadores_has_publicacoes
@@ -63,7 +63,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
         $id_user = $id_utilizador;
 
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $conteudo, $descricao, $data, $gosto, $nome_utilizador, $localizacao);
+        mysqli_stmt_bind_result($stmt, $id_evento, $conteudo, $descricao, $data, $gosto, $nome_utilizador, $localizacao);
 
         if (mysqli_stmt_fetch($stmt)) {
 
@@ -72,7 +72,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
             <div class="container">
                 <div class="row">
                     <div class="visualizacao">
-                        <a href="eventocomsubscricao.php?">
+                        <a href="eventocomsubscricao.php?id=<?=$id_evento?>">
                             <i class="fas fa-2x fa-chevron-circle-left voltar"></i></a>
                         <img src="scripts/upload/<?=$conteudo?>" class="col-12 p-0 align-self-center">
 

@@ -9,13 +9,18 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['id'])){
 
 }
 
+    date_default_timezone_set('Europe/Lisbon');
+    $rn = date('h:i', time());
+
+
+
 
 require_once "../admin/connections/connection2db.php";
 
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 
-$query = "SELECT nome_evento, data_inicio_evento, data_fim_evento, localizacao_evento, descricao_evento, 
+$query = "SELECT nome_evento, data_inicio_evento, hora_inicio,  data_fim_evento, hora_fim, localizacao_evento, descricao_evento, 
 categorias_id_categoria, imagem_evento, coor_lat, coor_long, utilizadores_has_eventos.favorito, utilizadores_has_eventos.roles_id_role
           FROM eventos
           INNER JOIN utilizadores_has_eventos
@@ -28,7 +33,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
     $id = $id_evento;
     mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $nome_evento,  $data_inicio, $data_fim, $localizacao, $descricao, $categoria, $imagem, $lat, $lng, $favorito, $id_role);
+    mysqli_stmt_bind_result($stmt, $nome_evento,  $data_inicio, $hora_inicio, $data_fim, $hora_fim, $localizacao, $descricao, $categoria, $imagem, $lat, $lng, $favorito, $id_role);
 
     if (mysqli_stmt_fetch($stmt)) {
 
@@ -111,71 +116,136 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
 
         <ul class="nav nav-tabs justify-content-center">
-            <li class="active mr-5"><a data-toggle="tab" href="#timeline">Timeline</a></li>
-            <li class="mr-5"><a data-toggle="tab" href="#mapa">Mapa</a></li>
-            <li><a data-toggle="tab" href="#atividade">Atividade</a></li>
+            <li class="active mr-5"><a data-toggle="tab" href="#timeline" style="color: #3e3f80">Timeline</a></li>
+            <li class="mr-5"><a data-toggle="tab" href="#mapa" style="color: #3e3f80">Mapa</a></li>
+            <li><a data-toggle="tab" href="#atividade" style="color: #3e3f80;">Atividade</a></li>
         </ul>
 
 
         <div class="tab-content">
             <div id="timeline" class="tab-pane fade in active show">
+                        <div class="order-timeline">
 
-                <div class="order-timeline">
-                    <div class="timeline-object complete">
-                        <div class="timeline-status"></div>
-                        <div class="timeline-p">
-                            <div class="hora">10:30</div>
-                            <div class="fotografias">
-                                <div>
-                                    <img class="img_timeline" src="imagens/evento1.jpeg">
-                                    <img class="img_timeline" src="imagens/evento2.jpeg">
-                                    <img class="img_timeline" src="imagens/evento1.jpeg"></div>
-                                <div class="mt-2">
-                                    <img class="img_timeline" src="imagens/evento2.jpeg">
-                                    <img class="img_timeline" src="imagens/evento1.jpeg">
-                                    <img class="img_timeline" src="imagens/evento2.jpeg">
+                            <?php
+                            $agora_dia = date("Y-m-d");
+                            $agora_hora = date("H:i:s");
+
+
+
+
+                            if ($agora_dia > $data_inicio ){
+                                //ja começou o evento
+
+                                $agora = date(01);
+
+
+                               // var_dump($agora_dia);
+                                //var_dump($hora_inicio);
+
+
+                                for ($i = $hora_inicio; $i < $hora_fim; $i++  ){
+
+                                    if ($i > $agora_hora){
+                                        // o evento ainda nao começou
+                                    }
+                                    else {
+
+                                        echo $i;
+
+
+
+                                    }
+
+                                }
+
+
+
+
+
+
+
+
+                            }
+                            else
+                            {
+                                //ainda nao comecou
+
+                                ?>
+                                <p class="col-10 align-self-center"><small>O evento ainda não tem conteúdos </small></p>
+                                <?php
+
+                            }
+
+
+                            ?>
+
+
+
+                            <div class="timeline-object complete">
+                                <div class="timeline-status"></div>
+                                <div class="timeline-p">
+                                    <div class="hora"><?=$rn?></div>
+                                    <div class="fotografias">
+                                        <div>
+                                    <?php
+                                    require_once "../admin/connections/connection2db.php";
+
+                                    $link = new_db_connection();
+                                    $stmt = mysqli_stmt_init($link);
+
+                                    $query = "SELECT publicacoes.conteudo_publicacao, publicacoes.data_publicacao, eventos.data_inicio_evento, eventos.hora_inicio 
+                                            FROM publicacoes 
+                                            INNER JOIN eventos
+                                            ON publicacoes.eventos_id_evento = eventos.id_evento
+                                            WHERE publicacoes.eventos_id_evento = ? 
+                                            ORDER BY publicacoes.id_publicacao DESC
+                                            LIMIT 6";
+
+
+                                    if (mysqli_stmt_prepare($stmt, $query)) {
+                                    mysqli_stmt_bind_param($stmt, 'i', $id);
+
+                                    $id = $_GET["id"];
+
+                                    mysqli_stmt_execute($stmt);
+
+                                    mysqli_stmt_bind_result($stmt, $conteudo, $data_pub, $data_inicio_evento, $hora_inicio_evento);
+
+
+                                    while (mysqli_stmt_fetch($stmt)) {
+
+                                    ?>
+                                            <img class="img_timeline" src="scripts/upload/<?=$conteudo?>">
+                                        <?php
+    }
+}
+?> </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="timeline-object complete">
+                                <div class="timeline-status"></div>
+                                <div class="timeline-p">
+                                    <div class="hora"><?=$rn?></div>
+                                    <div class="fotografias">
+                                        <img class="img_timeline" src="imagens/evento1.jpeg">
+                                        <img class="img_timeline" src="imagens/evento1.jpeg">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-object complete">
+                                <div class="timeline-status"></div>
+                                <div class="timeline-p">
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="timeline-object complete">
-                        <div class="timeline-status"></div>
-                        <div class="timeline-p">
-                            <div class="hora">11:30</div>
-                            <div class="fotografias">
-                                <img class="img_timeline" src="imagens/evento1.jpeg">
-                                <img class="img_timeline" src="imagens/evento1.jpeg">
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="timeline-object complete">
-                        <div class="timeline-status"> </div>
-                        <div class="timeline-p">
-                            <div class="fotografias">
-                                <img class="img_timeline" src="imagens/evento1.jpeg">
-                                <img class="img_timeline" src="imagens/evento1.jpeg">
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="timeline-object complete">
-                        <div class="timeline-status"> </div>
-                        <div class="timeline-p">
-                            <div class="fotografias">
-                                <img class="img_timeline" src="imagens/evento1.jpeg">
-                                <img class="img_timeline" src="imagens/evento1.jpeg">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-object complete">
-                        <div class="timeline-status"> </div>
-                        <div class="timeline-p">
-                        </div>
-                    </div>
-                </div>
             </div>
 
 
@@ -216,4 +286,5 @@ if (mysqli_stmt_prepare($stmt, $query)) {
         <?php
     }
 }
+
 ?>
