@@ -11,31 +11,6 @@ function new_db_connection()
     $dbname = "deca-360";
 
 
-    /*
-     $hostname = 'mysql-hosting.ua.pt';
-    $username = 'deca-360-dbo';
-    $password = 'FfA4UZbQS589s6m5';
-    $dbname = 'deca-360';
-
-    $hostname = 'localhost';
-    $username = 'root';
-    $password = '';
-    $dbname = 'id13881220_projeto';
-
-    $hostname = 'mysql-hosting.ua.pt';
-    $username = "deca-360-web";
-    $password = "GwKt897oZ2BB0xZp";
-    $dbname = "deca-360";
-
-
-DBowner
-
-Utilizador: deca-360-dbo
-
-Palavra-passe: FfA4UZbQS589s6m5
-      */
-
-
 // Makes the connection
     $local_link = mysqli_connect($hostname, $username, $password, $dbname);
 
