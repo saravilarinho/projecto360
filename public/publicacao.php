@@ -168,6 +168,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                 </div>
 
                 <div class="comentarios container mt-4" id="comentarios">
+
                     <div class="comentario row pt-1 pb-1 m-0">
                         <div class="col-3 align-self-center pr-0">
                             <img class="w-75 rounded-circle" src="imagens/img_perfil.jpg">
@@ -197,6 +198,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                             <p class="m-0">Que foto incrível! </p>
                         </div>
                     </div>
+
 
                 </div>
 
