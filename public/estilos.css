@@ -327,7 +327,7 @@ i.fa-calendar-alt {
     background-color: white;
     padding: 15px;
     border: 1px solid #3e3f80;
-    border-radius: 9%;
+    border-radius: 10px;
 }
 
 .timeline-p .hora {
@@ -336,7 +336,7 @@ i.fa-calendar-alt {
     font-weight: 500;
     padding: 7px;
     border: 1px solid #3e3f80;
-    border-radius: 9%;
+    border-radius: 10px;
     width: 60px;
     margin-bottom: 10px;
 }
@@ -648,7 +648,15 @@ i.fa-calendar-alt {
     color: #03bd03;
 }
 
-.add_comentario {
-    background-color: #3e3f80
-
+.inicio_evento {
+    color: #3e3f80;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 7px;
+    border: 1px solid #3e3f80;
+    border-radius: 10px;
+    width: 150px;
+    margin-bottom: 10px;
+    background-color: white;
+    text-align: center;
 }

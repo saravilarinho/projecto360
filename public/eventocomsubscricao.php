@@ -128,47 +128,118 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
                             <?php
                             $agora_dia = date("Y-m-d");
-                            $agora_hora = date("H:i:s");
+                            $agora_hora = date("H:i");
 
                             if ($agora_dia > $data_inicio ){
-                                //ja começou o evento
 
-                                $agora = date(01);
+                                //ja começou o evento || check dia
+
+                                $hora_inicio_dir = date('H:i', strtotime('+0 hour', strtotime($hora_inicio)));
+                                $hora_fim_dir = date('H:i', strtotime('+0 hour', strtotime($hora_fim)));
+                                $start = date('H:i', strtotime('+0 hour', strtotime($hora_inicio)));
 
 
-                               // var_dump($agora_dia);
-                                //var_dump($hora_inicio);
+                                if ($agora_hora >= $hora_inicio_dir){
+                                    $tempo = 0;
+
+                                    $iniciodoeventomesmo = date('Y-m-d H:i:s', strtotime('+0 hour', strtotime($data_inicio . $hora_inicio)));
+                                    $fimdoeventomesmo = date('Y-m-d H:i:s', strtotime('+0 hour', strtotime($data_fim . $hora_fim)));
 
 
-                                for ($i = $hora_inicio; $i < $hora_fim; $i++  ){
+                                    while($iniciodoeventomesmo <= $fimdoeventomesmo){
+                                        $start=date('H:i', strtotime('+'.$tempo.' hour', strtotime($hora_inicio)));
+                                        ?>
 
-                                    if ($i > $agora_hora){
-                                        // o evento ainda nao começou
+
+
+                                        <div class="timeline-object complete">
+                                            <div class="timeline-status"></div>
+                                            <div class="timeline-p">
+                                                <div class="hora"><?=$start?></div>
+                                                <div class="fotografias">
+                                                    <?php
+                                                    require_once "../admin/connections/connection2db.php";
+
+                                                    $link = new_db_connection();
+                                                    $stmt = mysqli_stmt_init($link);
+
+                                                    $query = "SELECT publicacoes.conteudo_publicacao, publicacoes.data_publicacao, eventos.data_inicio_evento, eventos.hora_inicio 
+                                                              FROM publicacoes 
+                                                              INNER JOIN eventos
+                                                              ON publicacoes.eventos_id_evento = eventos.id_evento
+                                                              WHERE publicacoes.data_publicacao BETWEEN ? AND ? AND publicacoes.eventos_id_evento = ?
+                                                              ORDER BY publicacoes.id_publicacao DESC
+                                                              LIMIT 6";
+
+
+                                                    if (mysqli_stmt_prepare($stmt, $query)) {
+                                                        mysqli_stmt_bind_param($stmt, 'ssi', $inicio, $fim, $id);
+
+                                                        $inicio = date('Y-m-d H:i:s', strtotime('+0 hour', strtotime($data_inicio . $start)));
+                                                        $fim = date('Y-m-d H:i:s', strtotime('+1 hour', strtotime($data_inicio . $start)));
+                                                        $id = $_GET["id"];
+
+                                                        mysqli_stmt_execute($stmt);
+
+                                                        mysqli_stmt_bind_result($stmt, $conteudo, $data_pub, $data_inicio_evento, $hora_inicio_evento);
+
+
+                                                        while (mysqli_stmt_fetch($stmt)) {
+
+                                                            ?>
+                                                            <img class="img_timeline" src="scripts/upload/<?=$conteudo?>">
+                                                            <?php
+                                                        }
+                                                    }
+                                                    ?>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <?php
+
+
+
+
+                                        $iniciodoeventomesmo = date('Y-m-d H:i:s', strtotime('+'.$tempo.' hour', strtotime($data_inicio . $hora_inicio)));
+                                        $tempo++;
+
+
+
+
+
                                     }
-                                    else {
-
-                                        echo $i;
-
-
-
-                                    }
-
                                 }
+                                else{
+                                    ?>
+                                    <div class="timeline-object complete">
+                                        <div class="timeline-status"></div>
+                                        <div class="timeline-p">
+                                            <div class="inicio_evento">O evento irá iniciar dentro de umas horas!</div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                                ?>
 
 
+                                <div class="timeline-object complete">
+                                    <div class="timeline-status"></div>
+                                    <div class="timeline-p">
+                                        <div class="inicio_evento">Inicio do evento!</div>
+
+                                    </div>
+                                </div>
 
 
-
-
-
-
+                                <?php
                             }
                             else
                             {
-                                //ainda nao comecou
+                                //ainda nao comecou || dia check
 
                                 ?>
-                                <p class="col-10 align-self-center"><small>O evento ainda não tem conteúdos </small></p>
+                                <p class="col-10 align-self-center">O evento ainda não tem conteúdos. </p>
                                 <?php
 
                             }
@@ -177,68 +248,6 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                             ?>
 
 
-
-                            <div class="timeline-object complete">
-                                <div class="timeline-status"></div>
-                                <div class="timeline-p">
-                                    <div class="hora"><?=$rn?></div>
-                                    <div class="fotografias">
-                                        <div>
-                                    <?php
-                                    require_once "../admin/connections/connection2db.php";
-
-                                    $link = new_db_connection();
-                                    $stmt = mysqli_stmt_init($link);
-
-                                    $query = "SELECT publicacoes.conteudo_publicacao, publicacoes.data_publicacao, eventos.data_inicio_evento, eventos.hora_inicio 
-                                            FROM publicacoes 
-                                            INNER JOIN eventos
-                                            ON publicacoes.eventos_id_evento = eventos.id_evento
-                                            WHERE publicacoes.eventos_id_evento = ? 
-                                            ORDER BY publicacoes.id_publicacao DESC
-                                            LIMIT 6";
-
-
-                                    if (mysqli_stmt_prepare($stmt, $query)) {
-                                    mysqli_stmt_bind_param($stmt, 'i', $id);
-
-                                    $id = $_GET["id"];
-
-                                    mysqli_stmt_execute($stmt);
-
-                                    mysqli_stmt_bind_result($stmt, $conteudo, $data_pub, $data_inicio_evento, $hora_inicio_evento);
-
-
-                                    while (mysqli_stmt_fetch($stmt)) {
-
-                                    ?>
-                                            <img class="img_timeline" src="scripts/upload/<?=$conteudo?>">
-                                        <?php
-    }
-}
-?> </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <div class="timeline-object complete">
-                                <div class="timeline-status"></div>
-                                <div class="timeline-p">
-                                    <div class="hora"><?=$rn?></div>
-                                    <div class="fotografias">
-                                        <img class="img_timeline" src="imagens/evento1.jpeg">
-                                        <img class="img_timeline" src="imagens/evento1.jpeg">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="timeline-object complete">
-                                <div class="timeline-status"></div>
-                                <div class="timeline-p">
-                                </div>
-                            </div>
                         </div>
 
 
