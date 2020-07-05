@@ -6,6 +6,9 @@ session_start();
 if (isset($_SESSION['id_utilizador'])){
     $id_utilizador = $_SESSION['id_utilizador'];
 
+}else{
+    header("Location: login.php?message=2");
+
 }
 
 
@@ -49,9 +52,9 @@ if (isset($_SESSION['id_utilizador'])){
 
     <div class="container mt-4">
         <ul class="nav nav-tabs justify-content-center">
-            <li class="active mr-4"><a data-toggle="tab" href="#home">Meus Eventos</a></li>
-            <li class="mr-4"><a data-toggle="tab" href="#menu2">Subscritos</a></li>
-            <li><a data-toggle="tab" href="#menu3">Favoritos</a></li>
+            <li class="active mr-4"><a data-toggle="tab" href="#home" style="color: #3e3f80">Meus Eventos</a></li>
+            <li class="mr-4"><a data-toggle="tab" href="#menu2" style="color: #3e3f80">Subscritos</a></li>
+            <li><a data-toggle="tab" href="#menu3" style="color: #3e3f80">Favoritos</a></li>
         </ul>
 
         <div class="tab-content">

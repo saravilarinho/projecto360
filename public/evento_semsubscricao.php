@@ -7,6 +7,9 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['id'])) {
 
 
 
+}else{
+    header("Location: login.php?message=2");
+
 }
 
 

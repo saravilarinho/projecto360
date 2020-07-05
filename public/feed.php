@@ -5,6 +5,9 @@ session_start();
 if (isset($_SESSION['id_utilizador'])) {
     $id_utilizador = $_SESSION['id_utilizador'] ;
 
+}else{
+    header("Location: login.php?message=2");
+
 }
 ?>
 
@@ -48,56 +51,140 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <div class="container">
 
-    <div class="mt-4">
-        <div class="row col-12 card_horizontal p-2 ml-0">
-            <div class="d-flex">
-                <div class="col-3 align-self-center">
-                    <img class="w-100 rounded-circle ml-2" src="imagens/img_perfil.jpg">
-                </div>
-                <div class="col-6 align-self-center">
-                    <p class="texto_card_historico"><b> Garagem do Reitor</b> alterou o seu horário.</p>
-                    <img class="icone_categoria" src="imagens/icones/icone_festa.png"> <small class="small_feed">há 1 dia</small>
-                </div>
-                <div class="col-2 align-self-center">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="mt-3">
-        <div class="row col-12 card_horizontal p-2 ml-0">
-            <div class="d-flex">
-                <div class="col-3 align-self-center">
-                    <img class="w-100 rounded-circle ml-2" src="imagens/img_perfil.jpg">
-                </div>
-                <div class="col-6 align-self-center">
-                    <p class="texto_card_historico"><b> Garagem do Reitor</b> alterou o seu horário.</p>
-                    <img class="icone_categoria" src="imagens/icones/icone_festa.png"> <small class="small_feed">há 1 dia</small>
-                </div>
-                <div class="col-2 align-self-center">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-            </div>
-        </div>
-    </div>
+        <?php
+        require_once "../admin/connections/connection2db.php";
 
-    <div class="mt-3">
-        <div class="row col-12 card_horizontal p-2 ml-0">
-            <div class="d-flex">
-                <div class="col-3 align-self-center">
-                    <img class="w-100 rounded-circle ml-2" src="imagens/img_perfil.jpg">
+        $link = new_db_connection();
+        $stmt = mysqli_stmt_init($link);
+
+        $query = "CALL teste()";
+
+        if (mysqli_stmt_prepare($stmt, $query)) {
+            mysqli_stmt_execute($stmt);
+
+            mysqli_stmt_bind_result($stmt,  $id, $nome, $id_evento, $imagem, $categoria);
+
+            while (mysqli_stmt_fetch($stmt)) {
+
+
+                ?>
+
+                <div class="mt-4">
+                    <div class="row col-12 card_horizontal p-2 ml-0">
+                        <a href="eventocomsubscricao.php?id=<?=$id_evento?>">
+                        <div class="d-flex">
+                            <div class="col-3 align-self-center">
+                                <img class="w-100 rounded-circle ml-2" style="height: 3.5rem;" src="scripts/upload/<?=$imagem?>">
+                            </div>
+                            <div class="col-6 align-self-center">
+                                <p class="texto_card_historico"> <b><?=$nome?></b> tem um novo subscritor.
+                                </p>
+
+                                <?php
+                                if (isset($categoria)) {
+                                    switch ($categoria) {
+                                        // música
+                                        case 1:
+                                            echo '<img class="icone_categoria" src="imagens/icones/icone_musica.png">';
+                                            break;
+
+                                        // manifestações
+                                        case 2:
+                                            echo '<img class="icone_categoria" src="imagens/icones/icone_manif.png">';
+                                            break;
+
+                                        // teatro
+                                        case 3:
+                                            echo '<img class="icone_categoria" src="imagens/icones/icone_teatro.png">';
+                                            break;
+
+                                        // festas
+                                        case 4:
+                                            echo '<img class="icone_categoria" src="imagens/icones/icone_festa.png">';
+                                            break;
+                                    }
+                                }
+                                ?>
+                                <small class="small_feed">há 1 dia</small>
+                            </div>
+                            <div class="col-2 align-self-center">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="col-6 align-self-center">
-                    <p class="texto_card_historico"><b> Garagem do Reitor</b> alterou o seu horário.</p>
-                    <img class="icone_categoria" src="imagens/icones/icone_festa.png"> <small class="small_feed">há 1 dia</small>
-                </div>
-                <div class="col-2 align-self-center">
-                    <i class="fas fa-chevron-right"></i>
+                <?php
+            }
+        }
+
+        require_once "../admin/connections/connection2db.php";
+
+        $link = new_db_connection();
+        $stmt = mysqli_stmt_init($link);
+
+        $query = "CALL teste2()";
+
+        if (mysqli_stmt_prepare($stmt, $query)) {
+        mysqli_stmt_execute($stmt);
+
+        mysqli_stmt_bind_result($stmt,  $id_util, $nome_evento, $id_evento, $imagem, $categoria, $idp);
+
+        while (mysqli_stmt_fetch($stmt)) {
+
+
+            ?>
+            <div class="mt-3">
+                <div class="row col-12 card_horizontal p-2 ml-0">
+                    <a href="publicacao.php?idp=<?=$idp?>">
+                    <div class="d-flex">
+                        <div class="col-3 align-self-center">
+                            <img class="w-100 rounded-circle ml-2" style="height: 3.5rem;"  src="scripts/upload/<?=$imagem?>">
+                        </div>
+                        <div class="col-6 align-self-center">
+                            <p class="texto_card_historico"><b> <?=$nome_evento?></b> tem novos conteúdos.</p>
+                            <?php
+                            if (isset($categoria)) {
+                                switch ($categoria) {
+                                    // música
+                                    case 1:
+                                        echo '<img class="icone_categoria" src="imagens/icones/icone_musica.png">';
+                                        break;
+
+                                    // manifestações
+                                    case 2:
+                                        echo '<img class="icone_categoria" src="imagens/icones/icone_manif.png">';
+                                        break;
+
+                                    // teatro
+                                    case 3:
+                                        echo '<img class="icone_categoria" src="imagens/icones/icone_teatro.png">';
+                                        break;
+
+                                    // festas
+                                    case 4:
+                                        echo '<img class="icone_categoria" src="imagens/icones/icone_festa.png">';
+                                        break;
+                                }
+                            }
+                            ?>
+                            <small class="small_feed">há 1 dia</small>
+                        </div>
+                        <div class="col-2 align-self-center">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    </a>
                 </div>
             </div>
-        </div>
-    </div>
+
+            <?php
+        }
+        }
+        ?>
+
+
 
     </div>
 </main>
@@ -106,6 +193,12 @@ if (isset($_SESSION['id_utilizador'])) {
     <?php
 
 include_once "components/footer.php";
+
+
+
+
+
+
 
 
 ?>
