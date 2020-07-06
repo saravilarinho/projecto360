@@ -75,9 +75,9 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
             <div class="container">
                 <div class="row">
                     <div class="visualizacao">
-                        <a href="eventocomsubscricao.php?id=<?=$id_evento?>">
+                        <a href="eventocomsubscricao.php?id=<?= $id_evento ?>">
                             <i class="fas fa-2x fa-chevron-circle-left voltar"></i></a>
-                        <img src="scripts/upload/<?=$conteudo?>" class="col-12 p-0 align-self-center">
+                        <img src="scripts/upload/<?= $conteudo ?>" class="col-12 p-0 align-self-center">
 
 
                     </div>
@@ -90,10 +90,10 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                 <div class="row mt-3 ml-3 mr-0">
 
                     <div class="col-2 d-flex justify-content-space-evenly">
-                        <a class="btn botao_favorito" href="scripts/add_gosto.php?idp=<?=$id_publicacao?>">
+                        <a class="btn botao_favorito" href="scripts/add_gosto.php?idp=<?= $id_publicacao ?>">
 
                             <?php
-                            switch ($gosto){
+                            switch ($gosto) {
                                 case 1:
                                     echo '<i class="fas fa-heart"></i>';
                                     break;
@@ -127,10 +127,10 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                                 $numero_likes++;
                             }
                             ?>
-                            <p class="numero_likes"><?=$numero_likes?></p>
+                            <p class="numero_likes"><?= $numero_likes ?></p>
                             <?php
                         }
-                            ?>
+                        ?>
                     </div>
 
                     <div class="col-2 d-flex">
@@ -153,20 +153,20 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                 </div>
 
                 <div class="row mt-1 ml-4 mr-0">
-                    <small>Por <b><?=$nome_utilizador?></b></small>
+                    <small>Por <b><?= $nome_utilizador ?></b></small>
                 </div>
 
                 <div class="row mt-1 ml-4 mr-0">
                     <div class="col-8 d-flex p-0">
                         <i class="fas fa-map-marker-alt"></i>
-                        <small class="pl-1"><?=$localizacao?></small>
+                        <small class="pl-1"><?= $localizacao ?></small>
                     </div>
 
                     <div class="col-4 d-flex p-0">
                         <i class="far fa-calendar-alt"></i>
 
 
-                        <small class="pl-1"><?=$data?></small>
+                        <small class="pl-1"><?= $data ?></small>
                     </div>
                 </div>
 
@@ -204,9 +204,14 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
 
 
                     <div class="add_comentario fixed-bottom row m-0">
-                        <div class="align-self-center">
-                            <div class="field">
-                                <input type="text" name="descricao" value="" placeholder="Adiciona o teu comentário..." class="texto_form_pesquisa">
+                        <div class="align-self-center d-flex">
+                            <div class="field col-10">
+                                <input type="text" name="descricao" value="" placeholder="Adiciona o teu comentário..."
+                                       class="texto_form_pesquisa">
+                            </div>
+
+                            <div class="col-2">
+                                <btn type="submit"><i class="fas fa-check"></i> </btn>
                             </div>
                         </div>
                     </div>
@@ -219,7 +224,6 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
         }
     }
     ?>
-
 
 
 </main>

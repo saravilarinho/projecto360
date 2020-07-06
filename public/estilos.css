@@ -666,3 +666,17 @@ i.fa-calendar-alt {
     border-radius: 20px 20px 0 0;
     height: 11vh;
 }
+
+.add_comentario .texto_form_pesquisa {
+    width: 267px;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+}
+
+.fa-check {
+    color: #1ec5bc;
+    background-color: white;
+    padding: 5px;
+}
+
