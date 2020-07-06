@@ -200,6 +200,14 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                     </div>
 
 
+                    <div class="add_comentario fixed-bottom row m-0">
+                        <div class="align-self-center">
+                            <div class="field">
+                                <input type="text" name="descricao" value="" placeholder="Adiciona o teu comentário..." class="texto_form_pesquisa">
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
 
