@@ -8,9 +8,13 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['id'])){
     $id_evento = $_GET['id'];
 
 }
+else{
+    header("Location: login.php?message=2");
 
-    date_default_timezone_set('Europe/Lisbon');
-    $rn = date('h:i', time());
+}
+
+date_default_timezone_set('Europe/Lisbon');
+$rn = date('h:i', time());
 
 
 
@@ -24,14 +28,15 @@ $query = "SELECT nome_evento, data_inicio_evento, hora_inicio,  data_fim_evento,
 categorias_id_categoria, imagem_evento, coor_lat, coor_long, utilizadores_has_eventos.favorito, utilizadores_has_eventos.roles_id_role
           FROM eventos
           INNER JOIN utilizadores_has_eventos
-          ON eventos.id_evento = utilizadores_has_eventos.eventos_id_evento
-          WHERE id_evento = ?";
+          ON eventos.id_evento = utilizadores_has_eventos.eventos_id_evento 
+          WHERE eventos.id_evento = ? AND utilizadores_has_eventos.utilizadores_id_utilizador = ?";
 
 
 if (mysqli_stmt_prepare($stmt, $query)) {
-    mysqli_stmt_bind_param($stmt, 'i', $id);
+    mysqli_stmt_bind_param($stmt, 'ii', $id, $id_user);
 
     $id = $id_evento;
+    $id_user = $id_utilizador;
     mysqli_stmt_execute($stmt);
     mysqli_stmt_bind_result($stmt, $nome_evento,  $data_inicio, $hora_inicio, $data_fim, $hora_fim, $localizacao, $descricao, $categoria, $imagem, $lat, $lng, $favorito, $id_role);
 
@@ -91,8 +96,11 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                             <?php
                     }
                     else {
-                        ?><i class="fas fa-star" style="font-size: 15px;"></i>
+                        if ($favorito === 1){
+                            ?><i class="fas fa-star" style="font-size: 15px;"></i>
                             <?php
+                        }
+
                     }
 
                     ?>

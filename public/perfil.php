@@ -92,8 +92,8 @@ if (isset($_SESSION['id_utilizador'])){
     <div class="container">
 
         <ul class="nav nav-tabs justify-content-around">
-            <li class="active"><a data-toggle="tab" href="#home">Stats</a></li>
-            <li class=""><a data-toggle="tab" href="#menu2">Histórico</a></li>
+            <li class="active"><a data-toggle="tab" href="#home" style="color: #3e3f80">Stats</a></li>
+            <li class=""><a data-toggle="tab" href="#menu2" style="color: #3e3f80">Histórico</a></li>
         </ul>
 
 
