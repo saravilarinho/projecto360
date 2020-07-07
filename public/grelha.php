@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -18,10 +21,11 @@
 
 </head>
 
+
+
 <style>
 
     .imagem_grelha_1_1 {
-        background-image: url("imagens/evento1.jpeg");
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
@@ -63,21 +67,47 @@
     }
 
 
-
 </style>
 
 <body>
 
 
-<div class="container">
 
-    <div class="row justify-content-center mb-2" style="height: 90px">
-        <div class="col-3 imagem_grelha_1_1 mr-2">
-        </div>
-        <div class="col-3 imagem_grelha_1_2 mr-2">
-        </div>
-        <div class="col-3 imagem_grelha_1_3">
-        </div>
+<div class="container">
+    <div class="row justify-content-center mb-2">
+
+
+
+        <?php
+
+        require_once "../admin/connections/connection2db.php";
+
+        $link = new_db_connection();
+        $stmt = mysqli_stmt_init($link);
+
+        $query = "SELECT conteudo_publicacao
+                  FROM publicacoes
+                  WHERE eventos_id_evento = ?";
+
+        if (mysqli_stmt_prepare($stmt, $query)) {
+
+        mysqli_stmt_bind_param($stmt, 'i', $id_evento);
+
+        $id_evento = 3;
+
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt,$imagem);
+
+
+        while (mysqli_stmt_fetch($stmt)) {
+        ?>
+    <div class="col-3 mr-2" style="height: 90px">
+        <section class="col-3 imagem_grelha_1_1 mr-2" style="background-image: url('scripts/upload/<?=$imagem?>'">
+
+        </section>
+    </div> <?php
+            }}
+            ?>
     </div>
 
     <div class="row justify-content-center" style="height: 90px">

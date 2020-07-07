@@ -269,6 +269,13 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                 ?>
             </div>
 
+
+
+
+
+
+
+
             <div id="atividade" class="tab-pane fade in">
                 <div class="container mt-4">
                     <div class="row align-items-center">
@@ -302,3 +309,13 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 }
 
 ?>
+
+<!--
+
+SELECT utilizadores.nome_utilizador, utilizadores_has_eventos.utilizadores_id_utilizador, eventos.id_evento
+FROM utilizadores
+INNER JOIN utilizadores_has_eventos
+ON utilizadores.id_utilizador = utilizadores_has_eventos.utilizadores_id_utilizador
+INNER JOIN eventos
+ON utilizadores_has_eventos.eventos_id_evento = eventos.id_evento
+WHERE id_evento = 3-->
