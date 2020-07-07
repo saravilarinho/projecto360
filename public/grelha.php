@@ -102,9 +102,9 @@
         while (mysqli_stmt_fetch($stmt)) {
         ?>
     <div class="col-3 mr-2" style="height: 90px">
-        <section class="col-3 imagem_grelha_1_1 mr-2" style="background-image: url('scripts/upload/<?=$imagem?>'">
+        <span class="col-3 imagem_grelha_1_1 mr-2" style="background-image: url('scripts/upload/<?=$imagem?>'">
 
-        </section>
+        </span>
     </div> <?php
             }}
             ?>
