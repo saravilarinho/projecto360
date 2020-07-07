@@ -85,7 +85,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
             </div>
 
 
-            <div class="caixa fixed-bottom header_comentarios" id="caixa" onclick="abrir()">
+            <div class="caixa fixed-bottom header_comentarios" id="caixa" onclick="abrir(); fechar();">
 
                 <div class="row mt-3 ml-3 mr-0">
 
@@ -211,7 +211,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                             </div>
 
                             <div class="col-2">
-                                <btn type="submit"><i class="fas fa-check"></i> </btn>
+                                <btn type="submit"><i class="fas fa-check ml-3"></i> </btn>
                             </div>
                         </div>
                     </div>
