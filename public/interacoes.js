@@ -14,5 +14,17 @@ function abrir() {
 
 }
 
+/*function fechar() {
+    document.getElementById("caixa").style.height = "150px";
+    document.getElementById("comentarios").style.visibility = "hidden";
+}
+
+
+
+if (document.getElementById("caixa").style.height = "400px") {
+    fechar()
+}*/
+
+
 
 
