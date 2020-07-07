@@ -270,29 +270,66 @@ if (mysqli_stmt_prepare($stmt, $query)) {
             </div>
 
 
-
-
-
-
-
-
             <div id="atividade" class="tab-pane fade in">
+            <?php
+            require_once "../admin/connections/connection2db.php";
+
+            $link = new_db_connection();
+            $stmt = mysqli_stmt_init($link);
+
+            $query = "CALL atividade_sub($id_evento)";
+
+            if (mysqli_stmt_prepare($stmt, $query)) {
+
+                mysqli_stmt_execute($stmt);
+
+                mysqli_stmt_bind_result($stmt,  $id, $evento, $nome);
+                    ?>
+
                 <div class="container mt-4">
-                    <div class="row align-items-center">
-                        <img class="col-2 align-self-center" src="imagens/icones/icone_festa.png">
-                        <p class="col-10 align-self-center"><small>António Monteiro adicionou 8 novos
-                            conteúdos. </small></p>
-                    </div>
+                    <?php
+                    while (mysqli_stmt_fetch($stmt)) {
+                        ?>
+                        <div class="row align-items-center">
+                            <img class="col-2 align-self-center" src="imagens/icones/icone_festa.png">
+                            <p class="col-10 align-self-center">
+                                <small><?=$nome?> subscreveu o evento.</small>
+                            </p>
+                        </div>
 
-                    <div class="row">
-                        <img class="col-2 align-self-center" src="imagens/icones/icone_festa.png">
-                        <p class="col-10"><small>Laura Santos subscreveu o evento. </small></p>
-                    </div>
+                        <?php
+                    }
+            }
+                    ?>
 
-                    <div class="row">
-                        <img class="col-2 align-self-center" src="imagens/icones/icone_festa.png">
-                        <p class="col-10"><small>António Monteiro adicionou 8 novos conteúdos.</small></p>
-                    </div>
+
+                    <?php
+                    require_once "../admin/connections/connection2db.php";
+
+                    $link = new_db_connection();
+                    $stmt = mysqli_stmt_init($link);
+
+                    $query = "CALL atividade_cont($id_evento)";
+
+                    if (mysqli_stmt_prepare($stmt, $query)) {
+
+                        mysqli_stmt_execute($stmt);
+
+                        mysqli_stmt_bind_result($stmt, $nome, $id_p);
+
+                        while (mysqli_stmt_fetch($stmt)) {
+                            ?>
+                            <div class="row">
+                                <img class="col-2 align-self-center" src="imagens/icones/icone_festa.png">
+                                <p class="col-10">
+                                    <small><?=$nome?> adicionou conteúdos ao evento.</small>
+                                </p>
+                            </div>
+
+                            <?php
+                        }
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -309,28 +346,3 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 }
 
 ?>
-
-<!--
-
-
-//subscritores
-SELECT utilizadores_has_eventos.utilizadores_id_utilizador, eventos.id_evento, utilizadores.nome_utilizador
-FROM utilizadores_has_eventos
-INNER JOIN eventos
-ON utilizadores_has_eventos.eventos_id_evento = eventos.id_evento
-INNER JOIN utilizadores
-ON utilizadores.id_utilizador = utilizadores_has_eventos.utilizadores_id_utilizador
-WHERE utilizadores_has_eventos.roles_id_role = 2 AND eventos.id_evento = ?
-
-
-//conteudos
-SELECT utilizadores.nome_utilizador, publicacoes.id_publicacao
-FROM publicacoes
-INNER JOIN utilizadores_has_publicacoes
-ON publicacoes.id_publicacao = utilizadores_has_publicacoes.publicacoes_id_publicacao
-INNER JOIN utilizadores
-ON utilizadores_has_publicacoes.utilizadores_id_utilizador = utilizadores.id_utilizador
-WHERE publicacoes.eventos_id_evento = 3 AND utilizadores_has_publicacoes.criacao_publicacao = 1
-ORDER BY publicacoes.id_publicacao DESC
-
--->

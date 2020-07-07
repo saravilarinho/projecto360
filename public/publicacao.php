@@ -133,19 +133,58 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                         ?>
                     </div>
 
-                    <div class="col-2 d-flex">
-                        <a class="btn botao_favorito" href="scripts/favoritar_evento.php?id=<?= $id ?>">
-                            <i class="far fa-comment"></i>
-                        </a>
-                        <p class="numero_likes">21</p>
-                    </div>
+
+                    <?php
+
+
+                    require_once "../admin/connections/connection2db.php";
+
+                    $link = new_db_connection();
+                    $stmt = mysqli_stmt_init($link);
+
+                    $query = "SELECT id_comentario
+                              FROM comentarios
+                              WHERE publicacoes_id_publicacao = ?";
+
+                    if (mysqli_stmt_prepare($stmt, $query)) {
+
+                        mysqli_stmt_bind_param($stmt, 'i', $id_pub);
+
+                        $id_pub = $id_publicacao;
+
+                        mysqli_stmt_execute($stmt);
+                        mysqli_stmt_bind_result($stmt, $id);
+
+                        $numero_comentarios = 0;
+
+                        while (mysqli_stmt_fetch($stmt)) {
+
+                            $numero_comentarios++;
+
+                        }
+
+                        ?>
+
+
+                        <div class="col-2 d-flex">
+                            <a class="btn botao_favorito" href="">
+                                <i class="far fa-comment"></i>
+                            </a>
+                            <p class="numero_likes"><?=$numero_comentarios?></p>
+                        </div>
+                        <?php
+                    }
+                        ?>
+
+
+
 
                     <div class="col-3 d-flex justify-content-center">
                         <i class="fas fa-angle-double-up"></i>
                     </div>
 
                     <div class="col-5">
-                        <a class="btn relacionados d-flex p-1" href="scripts/favoritar_evento.php?id=<?= $id ?>">
+                        <a class="btn relacionados d-flex p-1" href="">
                             <i class="far fa-images align-self-center"></i>
                             <p class="p-0 m-0">Relacionados</p></a>
                     </div>
@@ -172,47 +211,66 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
 
                 <div class="comentarios container mt-4" id="comentarios">
 
-                    <div class="comentario row pt-1 pb-1 m-0">
-                        <div class="col-3 align-self-center pr-0">
-                            <img class="w-75 rounded-circle" src="imagens/img_perfil.jpg">
-                        </div>
-                        <div class="col-7">
-                            <p class="m-0 nome_comentario"><b>Leonor Lima </b></p>
-                            <p class="m-0">Que foto incrível! </p>
-                        </div>
-                    </div>
 
-                    <div class="comentario row pt-1 pb-1 m-0 mt-3">
-                        <div class="col-3 align-self-center pr-0">
-                            <img class="w-75 rounded-circle" src="imagens/img_perfil.jpg">
-                        </div>
-                        <div class="col-7">
-                            <p class="m-0 nome_comentario"><b>Leonor Lima </b></p>
-                            <p class="m-0">Que foto incrível! </p>
-                        </div>
-                    </div>
+                    <?php
 
-                    <div class="comentario row pt-1 pb-1 m-0 mt-3">
-                        <div class="col-3 align-self-center pr-0">
-                            <img class="w-75 rounded-circle" src="imagens/img_perfil.jpg">
-                        </div>
-                        <div class="col-7">
-                            <p class="m-0 nome_comentario"><b>Leonor Lima </b></p>
-                            <p class="m-0">Que foto incrível! </p>
-                        </div>
-                    </div>
+
+                    require_once "../admin/connections/connection2db.php";
+
+                    $link = new_db_connection();
+                    $stmt = mysqli_stmt_init($link);
+
+                    $query = "SELECT comentarios.comentario, utilizadores.nome_utilizador, utilizadores.foto
+                              FROM comentarios
+                              INNER JOIN utilizadores
+                              ON comentarios.utilizadores_id_utilizador = utilizadores.id_utilizador
+                              WHERE comentarios.publicacoes_id_publicacao = ?";
+
+                    if (mysqli_stmt_prepare($stmt, $query)) {
+
+                        mysqli_stmt_bind_param($stmt, 'i', $id_pub);
+
+                        $id_pub = $id_publicacao;
+
+                        mysqli_stmt_execute($stmt);
+                        mysqli_stmt_bind_result($stmt, $comentario, $nome_user, $foto);
+
+
+                        while (mysqli_stmt_fetch($stmt)) {
+
+                            ?>
+
+
+                            <div class="comentario row pt-1 pb-1 m-0 mb-2">
+                                <div class="col-3 align-self-center pr-0">
+                                    <img class="w-75 rounded-circle" src="scripts/upload/<?=$foto?>">
+                                </div>
+                                <div class="col-7">
+                                    <p class="m-0 nome_comentario"><b><?=$nome_user?></b></p>
+                                    <p class="m-0 comentario_texto"><?=$comentario?></p>
+                                </div>
+                            </div>
+
+                            <?php
+                        }
+                    }
+                    ?>
+
+
+
 
 
                     <div class="add_comentario fixed-bottom row m-0">
                         <div class="align-self-center d-flex">
+                            <form action="scripts/add_comentario.php?idp=<?=$id_publicacao?>" role="form" method="post">
                             <div class="field col-10">
-                                <input type="text" name="descricao" value="" placeholder="Adiciona o teu comentário..."
-                                       class="texto_form_pesquisa">
+                                <input type="text" name="comentario" value="" placeholder="Adiciona o teu comentário..." class="texto_form_pesquisa">
                             </div>
 
                             <div class="col-2">
                                 <btn type="submit"><i class="fas fa-check ml-3"></i> </btn>
                             </div>
+                            </form>
                         </div>
                     </div>
 
