@@ -312,10 +312,25 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
 <!--
 
-SELECT utilizadores.nome_utilizador, utilizadores_has_eventos.utilizadores_id_utilizador, eventos.id_evento
-FROM utilizadores
-INNER JOIN utilizadores_has_eventos
-ON utilizadores.id_utilizador = utilizadores_has_eventos.utilizadores_id_utilizador
+
+//subscritores
+SELECT utilizadores_has_eventos.utilizadores_id_utilizador, eventos.id_evento, utilizadores.nome_utilizador
+FROM utilizadores_has_eventos
 INNER JOIN eventos
 ON utilizadores_has_eventos.eventos_id_evento = eventos.id_evento
-WHERE id_evento = 3-->
+INNER JOIN utilizadores
+ON utilizadores.id_utilizador = utilizadores_has_eventos.utilizadores_id_utilizador
+WHERE utilizadores_has_eventos.roles_id_role = 2 AND eventos.id_evento = ?
+
+
+//conteudos
+SELECT utilizadores.nome_utilizador, publicacoes.id_publicacao
+FROM publicacoes
+INNER JOIN utilizadores_has_publicacoes
+ON publicacoes.id_publicacao = utilizadores_has_publicacoes.publicacoes_id_publicacao
+INNER JOIN utilizadores
+ON utilizadores_has_publicacoes.utilizadores_id_utilizador = utilizadores.id_utilizador
+WHERE publicacoes.eventos_id_evento = 3 AND utilizadores_has_publicacoes.criacao_publicacao = 1
+ORDER BY publicacoes.id_publicacao DESC
+
+-->
