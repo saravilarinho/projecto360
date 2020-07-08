@@ -581,6 +581,10 @@ i.fa-calendar-alt {
           visibility: hidden;
 }
 
+#descer {
+    visibility: hidden;
+}
+
 .comentario {
     background-color: white;
     border-radius: 10px;
@@ -626,7 +630,7 @@ i.fa-calendar-alt {
     justify-content: space-evenly;
 }
 
-.fa-angle-double-up {
+.fa-angle-double-up, .fa-angle-double-down{
     color: #3e3f80;
     margin: 0;
     padding: 0;

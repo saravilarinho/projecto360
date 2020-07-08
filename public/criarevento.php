@@ -160,7 +160,7 @@ if (isset($_SESSION['id_utilizador'])){
         </div>
     </div>
     </form>
-    <div class="container_stepper botoes_stepper fixed-bottom e mb-5">
+    <div class="container_stepper botoes_stepper fixed-bottom e mb-3">
 
         <div id="main">
             <button class="button_stepper" id="previousBtn" type="button"  onclick="clicou_atras(currentStep);" disabled >Anterior</button>
