@@ -4,6 +4,10 @@ body {
     background-color: #EEF7F7 !important;
 }
 
+main {
+    margin-bottom: 13vh;
+}
+
 .texto-nav {
     font-size: 11px;
     color: white;
@@ -577,6 +581,10 @@ i.fa-calendar-alt {
           visibility: hidden;
 }
 
+#descer {
+    visibility: hidden;
+}
+
 .comentario {
     background-color: white;
     border-radius: 10px;
@@ -622,7 +630,7 @@ i.fa-calendar-alt {
     justify-content: space-evenly;
 }
 
-.fa-angle-double-up {
+.fa-angle-double-up, .fa-angle-double-down{
     color: #3e3f80;
     margin: 0;
     padding: 0;
@@ -642,6 +650,7 @@ i.fa-calendar-alt {
     width: 40%;
     border-radius: 10px;
     margin-top: -22px;
+    margin-bottom: 20px;
 }
 
 .mais {
@@ -685,4 +694,8 @@ i.fa-calendar-alt {
     width: 130% !important;
 }
 
-
+.corte {
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+}

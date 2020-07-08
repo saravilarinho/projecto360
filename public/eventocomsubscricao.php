@@ -81,7 +81,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
    }
    else {
        ?>
-       <img class="w-100" src="imagens/evento1.jpeg?>">
+       <img class="w-100" src="imagens/default-image.jpg">
        <?php
    }
    ?>

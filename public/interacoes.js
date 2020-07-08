@@ -11,6 +11,9 @@ function abrir() {
     document.getElementById("caixa").style.height = "400px";
     document.getElementById("comentarios").style.visibility = "visible";
     console.log("ABRI");
+    document.getElementById("subir").style.visibility = "hidden";
+    document.getElementById("descer").style.visibility = "visible";
+    document.getElementById("descer").style.position = "absolute";
 
 }
 

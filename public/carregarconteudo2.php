@@ -110,7 +110,7 @@ if (isset($_GET['message'])){
 
                 if (mysqli_stmt_fetch($stmt)) {
             ?>
-                    <div class="afteruploads mt-2">
+                    <div class="afteruploads mt-2 mb-2">
                         <a data-toggle="modal" data-target="#fotografiaModal">
                             <p style="padding-top: 7%; text-align: initial;">
                                <img id='imagem_nova' class="imagem_carregamento" src="scripts/upload/<?=$imagem?>">
@@ -141,15 +141,15 @@ if (isset($_GET['message'])){
 
             }
             ?>
-            <div class="field mt-5 mb-3">
+            <div class="field position-absolute" style="margin-top: 14vh">
                 <div class="title">Descrição da publicação.</div>
-                <input type="text" name="descricao" value="" placeholder="Escreve uma pequena descrição ..." class="campos_form_criarevento campo_descricao">
+                <input type="text" name="descricao" value="" placeholder="Escreve uma pequena descrição ..." class="campos_form_criarevento texto_form_pesquisa campo_descricao">
             </div>
         </div>
 </div>
 
 
-    <div class="fixed-bottom mb-5 botoes_stepper">
+    <div class="fixed-bottom mb-3 botoes_stepper">
         <?php
         if (isset($imagem)){
             ?>
@@ -169,7 +169,7 @@ if (isset($_GET['message'])){
 
     </form>
 
-    <div class="modal fade" id="fotografiaModal" tabindex="-1" role="dialog" aria-labelledby="modalFotos" aria-hidden="true" style="margin-top: 50%">
+    <div class="modal fade" id="fotografiaModal" tabindex="-1" role="dialog" aria-labelledby="modalFotos" aria-hidden="true" style="margin-top: 35vh">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header modalupload">

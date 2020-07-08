@@ -180,7 +180,8 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
 
 
                     <div class="col-3 d-flex justify-content-center">
-                        <i class="fas fa-angle-double-up"></i>
+                        <i class="fas fa-angle-double-up" id="subir"></i>
+                        <i class="fas fa-angle-double-down" id="descer"></i>
                     </div>
 
                     <div class="col-5">
@@ -261,15 +262,16 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
 
 
                     <div class="add_comentario fixed-bottom row m-0">
-                        <div class="align-self-center d-flex">
-                            <form action="scripts/add_comentario.php?idp=<?=$id_publicacao?>" role="form" method="post">
+                        <div class="align-self-center">
+                            <form action="scripts/add_comentario.php?idp=<?=$id_publicacao?>" role="form" method="post" class="d-flex">
                             <div class="field col-10">
                                 <input type="text" name="comentario" value="" placeholder="Adiciona o teu comentário..." class="texto_form_pesquisa">
                             </div>
 
-                            <div class="col-2">
-                                <btn type="submit"><i class="fas fa-check ml-2"></i> </btn>
+                            <div class="col-2 ml-3">
+                                <btn type="submit"><i class="fas fa-check"></i> </btn>
                             </div>
+
                             </form>
                         </div>
                     </div>
