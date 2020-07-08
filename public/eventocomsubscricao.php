@@ -281,7 +281,36 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
 
             <div id="atividade" class="tab-pane fade in">
-            <?php
+
+
+                <?php
+                require_once "../admin/connections/connection2db.php";
+
+                $link = new_db_connection();
+                $stmt = mysqli_stmt_init($link);
+
+                $query = "CALL atividade_cont($id_evento)";
+
+                if (mysqli_stmt_prepare($stmt, $query)) {
+
+                    mysqli_stmt_execute($stmt);
+
+                    mysqli_stmt_bind_result($stmt, $nome, $id_p);
+
+                    while (mysqli_stmt_fetch($stmt)) {
+                        ?>
+                        <div class="row">
+                            <img class="col-2 align-self-center" src="imagens/icones/icone_festa.png">
+                            <p class="col-10">
+                                <small><?=$nome?> adicionou conteúdos ao evento.</small>
+                            </p>
+                        </div>
+
+                        <?php
+                    }
+                }
+
+
             require_once "../admin/connections/connection2db.php";
 
             $link = new_db_connection();
@@ -313,33 +342,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                     ?>
 
 
-                    <?php
-                    require_once "../admin/connections/connection2db.php";
 
-                    $link = new_db_connection();
-                    $stmt = mysqli_stmt_init($link);
-
-                    $query = "CALL atividade_cont($id_evento)";
-
-                    if (mysqli_stmt_prepare($stmt, $query)) {
-
-                        mysqli_stmt_execute($stmt);
-
-                        mysqli_stmt_bind_result($stmt, $nome, $id_p);
-
-                        while (mysqli_stmt_fetch($stmt)) {
-                            ?>
-                            <div class="row">
-                                <img class="col-2 align-self-center" src="imagens/icones/icone_festa.png">
-                                <p class="col-10">
-                                    <small><?=$nome?> adicionou conteúdos ao evento.</small>
-                                </p>
-                            </div>
-
-                            <?php
-                        }
-                    }
-                    ?>
                 </div>
             </div>
         </div>
