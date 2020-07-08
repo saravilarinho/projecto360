@@ -4,6 +4,10 @@ body {
     background-color: #EEF7F7 !important;
 }
 
+main {
+    margin-bottom: 13vh;
+}
+
 .texto-nav {
     font-size: 11px;
     color: white;
@@ -685,4 +689,6 @@ i.fa-calendar-alt {
     width: 130% !important;
 }
 
-
+.corte {
+    clip-path: inset(20% 20% 20% 20%);
+}
