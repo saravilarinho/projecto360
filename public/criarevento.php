@@ -151,7 +151,7 @@ if (isset($_SESSION['id_utilizador'])){
         </div>
     </div>
 
-    <div id="toggle3"  style="display: none">
+    <div id="toggle3"  style="display: none" class="mb-3">
         <div class="title mt-4">Convida participantes!</div>
         <div class="field mt-2">
             <div class="label">Convida pessoas para o teu evento, conforme o exemplo. (utilizador1@email.com, utilizador2@email.com, ...)</div>

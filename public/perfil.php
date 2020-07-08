@@ -75,8 +75,8 @@ if (isset($_SESSION['id_utilizador'])){
 
     <div class="text-center mt-4 col-12">
 
-        <div style="width: 125px; height: 125px">
-        <img  src="scripts/upload/<?=$foto?>"></div>
+        <div>
+        <img class="w-75" src="scripts/upload/<?=$foto?>"></div>
 
         <h4 class="mt-2">
 

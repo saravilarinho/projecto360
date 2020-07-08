@@ -268,7 +268,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                             </div>
 
                             <div class="col-2">
-                                <btn type="submit"><i class="fas fa-check ml-3"></i> </btn>
+                                <btn type="submit"><i class="fas fa-check ml-2"></i> </btn>
                             </div>
                             </form>
                         </div>
