@@ -110,7 +110,7 @@ if (isset($_SESSION['id_utilizador'])){
 
 
 
-        <div class="fixed-bottom mb-5 botoes_stepper">
+        <div class="fixed-bottom mb-3 botoes_stepper">
             <button class="button_stepper" id="previousBtn" disabled>Anterior</button>
 
                 <button class="button_stepper" type="submit" id="nextBtn">Seguinte</button>

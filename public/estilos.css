@@ -646,6 +646,7 @@ i.fa-calendar-alt {
     width: 40%;
     border-radius: 10px;
     margin-top: -22px;
+    margin-bottom: 20px;
 }
 
 .mais {
@@ -690,5 +691,7 @@ i.fa-calendar-alt {
 }
 
 .corte {
-    clip-path: inset(20% 20% 20% 20%);
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
 }

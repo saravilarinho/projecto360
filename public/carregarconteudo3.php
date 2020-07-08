@@ -85,7 +85,7 @@ if (isset($_POST['descricao']) && isset($_GET['idp'])){
 
 
 
-    <div class="fixed-bottom mb-5 botoes_stepper">
+    <div class="fixed-bottom mb-3 botoes_stepper">
         <a href="carregarconteudo2.php?idp=<?=$id_pub?>&des=<?=$des?>"><button class="button_stepper" id="previousBtn">Anterior</button></a>
         <button class="button_stepper" id="nextBtn" disabled>Seguinte</button>
         <button class="button_stepper" type="submit" id="finishBtn">Confirmar</button>
