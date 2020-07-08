@@ -120,7 +120,7 @@ $id_pub = $_GET['idp'];
 
             } else {
                 ?>
-                <div class="uploads mt-2">
+                <div class="uploads mt-2 mb-2">
                     <a data-toggle="modal" data-target="#fotografiaModal">
                         <p style="padding-top: 7%;"><i class="fas fa-camera" style="font-size: font-size: 30px;"></i></p>
                     </a>
@@ -129,7 +129,7 @@ $id_pub = $_GET['idp'];
 
             }
             ?>
-            <div class="field mt-5">
+            <div class="field mt-5 mb-3">
                 <div class="title">Descrição da publicação.</div>
                 <input type="text" name="descricao" value="" placeholder="Escreve uma pequena descrição ..." class="campos_form_criarevento campo_descricao">
             </div>

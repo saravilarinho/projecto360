@@ -72,7 +72,7 @@ if (isset($_POST['descricao']) && isset($_GET['idp'])){
             </div>
         </div>
 
-        <div class="conteudo_stepper">
+        <div class="conteudo_stepper mb-3">
             <div class="field w-75 mx-auto stepper">
                 <div class="title mt-4">Identifica participantes!</div>
                 <div class="field mt-2">
