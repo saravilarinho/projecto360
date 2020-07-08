@@ -73,7 +73,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
 
 
-        <img class="w-100" src="imagens/evento2.jpeg">
+        <img class="w-100" src="scripts/upload/<?=$imagem?>">
     <div class="pl-4 container superior_redondo">
         <div class="info_evento">
             <p class="titulo_evento mb-3 mt-4"> <?= $nome?></p>
@@ -85,9 +85,70 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                 <p class="col-11 texto_descricao_evento"><?= $data_inicio?> - <?= $data_fim?></p>
             </div>
             <div class="row mb-0 alinhamento_icones" >
-                <p class="col-7 texto_descricao_evento">+ 47 participantes</p>
+
+                <?php
+
+
+                require_once "../admin/connections/connection2db.php";
+
+                $link = new_db_connection();
+                $stmt = mysqli_stmt_init($link);
+
+                $query = "SELECT utilizadores_id_utilizador
+                              FROM utilizadores_has_eventos
+                              WHERE eventos_id_eventos = ?";
+
+                if (mysqli_stmt_prepare($stmt, $query)) {
+
+                    mysqli_stmt_bind_param($stmt, 'i', $id_e);
+
+                    $id_e = $id_evento;
+
+                    mysqli_stmt_execute($stmt);
+                    mysqli_stmt_bind_result($stmt, $id);
+
+                    $numero_sub = 0;
+
+                    while (mysqli_stmt_fetch($stmt)) {
+
+                        $numero_sub++;
+
+                    }
+
+                    ?>
+
+                    <p class="col-7 texto_descricao_evento"><?= $numero_sub ?> subscitores</p>
+                    <?php
+                }
+                ?>
+
                 <p class="col-5 texto_descricao_evento">
-                    <img class="icone_categoria" src="imagens/icones/icone_festa.png"> Música </p>
+
+                    <?php
+                    if (isset($categoria)) {
+                        switch ($categoria) {
+                            // música
+                            case 1:
+                                echo '<img class="icone_categoria" src="imagens/icones/icone_musica.png"> Música</p>';
+                                break;
+
+                            // manifestações
+                            case 2:
+                                echo '<img class="icone_categoria" src="imagens/icones/icone_manif.png"> Manifestação</p>';
+                                break;
+
+                            // teatro
+                            case 3:
+                                echo '<img class="icone_categoria" src="imagens/icones/icone_teatro.png"> Teatro</p>';
+                                break;
+
+                            // festas
+                            case 4:
+                                echo '<img class="icone_categoria" src="imagens/icones/icone_festa.png"> Festa</p>';
+                                break;
+                        }
+                    }
+                    ?>
             </div>
         </div>
 
@@ -98,16 +159,36 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
         <div class="container">
             <div class="row info_evento">
-                <img class="icone_categoria" src="imagens/icones/icone_festa.png">
-                <p class="texto_descricao_evento col-10">4 novos subscritores</p>
+
+                <?php
+                require_once "../admin/connections/connection2db.php";
+
+                $link = new_db_connection();
+                $stmt = mysqli_stmt_init($link);
+
+                $query = "CALL sum_event_sub($id_evento)";
+
+                if (mysqli_stmt_prepare($stmt, $query)) {
+
+                    mysqli_stmt_execute($stmt);
+
+                    mysqli_stmt_bind_result($stmt, $id);
+
+                    $subscritores_24 = 0;
+                    while (mysqli_stmt_fetch($stmt)) {
+                            $subscritores_24++;
+                    }
+                    ?>
+
+                    <img class="icone_categoria" src="imagens/icones/icone_festa.png">
+                    <p class="texto_descricao_evento col-10"><?=$subscritores_24?> novos subscritores</p>
+                    <?php
+                }
+                ?>
             </div>
             <div class="row info_evento">
                 <img class="icone_categoria" src="imagens/icones/icone_festa.png">
                 <p class="texto_descricao_evento col-10">32 novos conteúdos</p>
-            </div>
-            <div class="row info_evento">
-                <img class="icone_categoria" src="imagens/icones/icone_festa.png">
-                <p class="texto_descricao_evento col-10">2 novas relações entre conteúdos</p>
             </div>
 
         </div>
@@ -122,31 +203,49 @@ if (mysqli_stmt_prepare($stmt, $query)) {
         if (isset($_GET['message'])){
             ?>
 
-            <p class="texto_descricao_evento">O administrador terá de rever o teu pedido de subscrição!</p>
+            <p class="texto_descricao_evento">O administrador irá rever o teu pedido de subscrição!</p>
+
+            <div class="justify-content-center d-flex mt-2">
+
+
+                <button class="btn botao_grande" disabled>
+                    <a class="linkar_branco">
+                        Pendente
+                    </a>
+                </button>
+
+            </div>
 
             <?php
         }
+        else{
+            ?>
+            <div class="justify-content-center d-flex mt-2">
+
+
+                <button class="btn botao_grande" >
+                    <a href="scripts/suscrever_evento.php?id=<?=$id_evento?>" class="linkar_branco">
+                        Subscrever
+                    </a>
+                </button>
+
+            </div>
+        <?php
+
+        }
 
 ?>
-
-        <div class="justify-content-center d-flex mt-2">
-
-
-            <button class="btn botao_grande" >
-                <a href="scripts/suscrever_evento.php?id=<?=$id_evento?>" class="linkar_branco">
-                Subscrever
-                </a>
-            </button>
-
-        </div>
-
-
-
-
-
     </div>
 
 </main>
 
 </body>
 </html>
+
+SELECT utilizadores_has_eventos.utilizadores_id_utilizador, eventos.id_evento, utilizadores.nome_utilizador
+FROM utilizadores_has_eventos
+INNER JOIN eventos
+ON utilizadores_has_eventos.eventos_id_evento = eventos.id_evento
+INNER JOIN utilizadores
+ON utilizadores.id_utilizador = utilizadores_has_eventos.utilizadores_id_utilizador
+WHERE utilizadores_has_eventos.roles_id_role = 2 AND eventos.id_evento = id; AND utilizadores_has_eventos.data > DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY);

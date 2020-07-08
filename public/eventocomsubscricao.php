@@ -271,6 +271,12 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                 <?php
                 include_once "mapacomeventos.php";
                 ?>
+
+
+
+
+
+
             </div>
 
 
