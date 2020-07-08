@@ -16,21 +16,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Ligacoes -->
-    <script src="interacoes.js" ></script>
-    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <script src="public/interacoes.js" ></script>
+    <link rel="stylesheet" type="text/css" href="public/estilos.css">
     <script src="https://kit.fontawesome.com/2a97b08cd6.js" crossorigin="anonymous"></script>
 
     <title>Inicio</title>
 </head>
 <body class="container">
 <div class="row justify-content-center inicio">
-    <img class="col-6 col-lg-3 align-self-center mt-5" src="imagens/logocslogan.png">
+    <img class="col-6 col-lg-3 align-self-center mt-5" src="public/imagens/logocslogan.png">
 </div>
 
 
 <div class="justify-content-center d-flex mt-5">
 
-<a href="login.php" style="width: 100%; text-align: center;">
+<a href="public/login.php" style="width: 100%; text-align: center;">
     <button type="button" class="btn botao_grande">
         Entrar
     </button>
@@ -38,7 +38,7 @@
 </div>
 
 <div class="justify-content-center d-flex mt-3">
-    <a href="registo.php" style="width: 100%; text-align: center;">
+    <a href="public/registo.php" style="width: 100%; text-align: center;">
     <button type="button" class="btn botao_grande">
         Registar
     </button>
