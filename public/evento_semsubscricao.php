@@ -85,16 +85,35 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     }
     ?>
 
+    <div class="row mt-1 ml-4 mr-0">
+        <div class="col-8 d-flex p-0">
+            <i class="fas fa-map-marker-alt"></i>
+            <small class="pl-1"><?= $localizacao ?></small>
+        </div>
+
+        <div class="col-4 d-flex p-0">
+            <i class="far fa-calendar-alt"></i>
+
+
+            <small class="pl-1"><?= $data_inicio?> - <?= $data_fim?></small>
+        </div>
+    </div>
+
+
 
     <div class="pl-4 container superior_redondo">
         <div class="info_evento">
             <p class="titulo_evento mb-3 mt-4"> <?= $nome?></p>
+
             <div class="row alinhamento_icones">
+
                 <i class="col-1 fas fa-map-marker-alt"></i>
-                <p class="col-11 texto_descricao_evento"><?= $localizacao?></p></div>
+                <p class="col-10 texto_descricao_evento"><?= $localizacao?></p></div>
+
+
             <div class="row alinhamento_icones">
                 <i class="col-1 far fa-calendar-alt"></i>
-                <p class="col-11 texto_descricao_evento"><?= $data_inicio?> - <?= $data_fim?></p>
+                <p class="col-10 texto_descricao_evento"><?= $data_inicio?> - <?= $data_fim?></p>
             </div>
             <div class="row mb-0 alinhamento_icones" >
 
