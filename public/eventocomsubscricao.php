@@ -89,41 +89,37 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
     <div class="pl-4 container superior_redondo">
 
-        <p class="titulo_evento mb-3 mt-3 col-10">
-            <?=$nome_evento ?>
-            <span class="alinhar_fav col-2">
-            <a class="btn botao_favorito" href="scripts/favoritar_evento.php?id=<?=$id?>">
+        <div class="row">
+
+            <p class="titulo_evento mb-3 mt-3 col-8">
+                <?= $nome_evento ?></p>
+
+            <span class="col-4 d-flex align-items-center justify-content-around">
+            <a class="btn botao_favorito" href="scripts/favoritar_evento.php?id=<?= $id ?>">
                     <?php
-                    if ($favorito === 0){
+                    if ($favorito === 0) {
                         ?>
-                            <i class="far fa-star" style="font-size: 15px;"></i>
-                            <?php
-                    }
-                    else {
-                        if ($favorito === 1){
+                        <i class="far fa-star" style="font-size: 15px;"></i>
+                        <?php
+                    } else {
+                        if ($favorito === 1) {
                             ?><i class="fas fa-star" style="font-size: 15px;"></i>
                             <?php
                         }
-
                     }
-
                     ?>
             </a>
-
                     <?php
-                    if ($id_role === 1){
+                    if ($id_role === 1) {
                         ?>
-                <a class="btn botao_favorito" href="editar_evento.php?id=<?=$id?>">
+                        <a class="btn botao_favorito" href="editar_evento.php?id=<?= $id ?>">
                         <i class="far fa-edit" style="font-size: 15px;"></i>
                     </a>
-
                         <?php
                     }
                     ?>
-
             </span>
-
-        </p>
+        </div>
 
 
 
