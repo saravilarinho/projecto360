@@ -79,12 +79,12 @@ if (isset($_SESSION['id_utilizador'])) {
                                 <?php
                                 if ($imagem != ''){
                                     ?>
-                                    <img src="scripts/upload/<?=$imagem?>" class="w-100 rounded-circle ml-2" style="height: 3.5rem;" >
+                                    <img src="scripts/upload/<?=$imagem?>" class="clip-circle rounded-circle ml-2">
                                     <?php
                                 }
                                 else {
                                     ?>
-                                    <img src="imagens/default-image.jpg" class="w-100 rounded-circle ml-2" style="height: 3.5rem;" >
+                                    <img src="imagens/default-image.jpg" class="clip-circle rounded-circle ml-2">
                                     <?php
                                 }
 
@@ -156,12 +156,12 @@ if (isset($_SESSION['id_utilizador'])) {
                             <?php
                             if ($imagem != ''){
                                 ?>
-                                <img src="scripts/upload/<?=$imagem?>" class="w-100 rounded-circle ml-2" style="height: 3.5rem;" >
+                                <img src="scripts/upload/<?=$imagem?>" class="clip-circle rounded-circle ml-2" style="height: 3.5rem;" >
                                 <?php
                             }
                             else {
                                 ?>
-                                <img src="imagens/default-image.jpg" class="w-100 rounded-circle ml-2" style="height: 3.5rem;" >
+                                <img src="imagens/default-image.jpg" class="clip-circle rounded-circle ml-2" style="height: 3.5rem;" >
                                 <?php
                             }
 
