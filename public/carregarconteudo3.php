@@ -76,10 +76,10 @@ if (isset($_POST['descricao']) && isset($_GET['idp']) && isset($_POST['data_real
 
         <div class="conteudo_stepper mb-3">
             <div class="field w-75 mx-auto stepper">
-                <div class="title mt-4">Identifica participantes!</div>
+                <div class="title mt-4 label">Identifica participantes!</div>
                 <div class="field mt-2">
                     <div class="label">Identifica utilizadores no conteúdo que publicaste, conforme o exemplo. (utilizador1@email.com, utilizador2@email.com, ...).</div>
-                    <input type="text" name="emailsusers" value="" class="campo_form">
+                    <input type="text" name="emailsusers" value="" class="campo_form p-2 w-100" placeholder="E-mail...">
                 </div>
             </div>
         </div>

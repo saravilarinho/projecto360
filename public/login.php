@@ -40,7 +40,7 @@ if(isset($_GET["message"])){
     <img class="img-fluid col-6  col-lg-3 align-self-center mt-5" src="imagens/logocslogan.png">
 </div>
 
-<div class="row  justify-content-center">
+<div class="row justify-content-center">
 
     <form class="form-horizontal mt-4 col-10" action="scripts/controlo_login.php" role="form" method="post">
         <div class="form-group">

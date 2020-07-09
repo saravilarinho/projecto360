@@ -527,11 +527,12 @@ i.fa-calendar-alt {
     -webkit-box-shadow: 7px 5px 21px -8px rgba(0,0,0,0.34);
     -moz-box-shadow: 7px 5px 21px -8px rgba(0,0,0,0.34);
     box-shadow: 7px 5px 21px -8px rgba(0,0,0,0.34);
-    border: none;
+
+    border: none !important;
     border-radius: 5px;
     margin-bottom: 0.7rem;
-    width: 90%;
-    font-size: 12px;
+
+    font-size: 12px !important;
 }
 
 .campo_data_hora {
