@@ -74,7 +74,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     <a href="eventos.php">
     <i class="fas fa-2x fa-chevron-circle-left voltar"></i></a>
    <?php
-   if (isset($imagem)){
+   if ($imagem != ''){
        ?>
        <img class="w-100" src="scripts/upload/<?=$imagem?>">
        <?php

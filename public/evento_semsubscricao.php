@@ -69,11 +69,21 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
     if (mysqli_stmt_fetch($stmt)) {
 
-?>
 
 
-
+    if ($imagem != ''){
+        ?>
         <img class="w-100" src="scripts/upload/<?=$imagem?>">
+        <?php
+    }
+    else {
+        ?>
+        <img class="w-100" src="imagens/default-image.jpg">
+        <?php
+    }
+    ?>
+
+
     <div class="pl-4 container superior_redondo">
         <div class="info_evento">
             <p class="titulo_evento mb-3 mt-4"> <?= $nome?></p>

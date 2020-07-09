@@ -37,7 +37,7 @@ if (isset($_GET['id']) && isset($_GET['lista']) && isset($_GET['nome']) && isset
             require_once('../../admin/PHPMailer/PHPMailerAutoload.php');
 
             $mail = new PHPMailer();
-           // $mail->isSMTP();
+            $mail->isSMTP();
             $mail->SMTPAuth = true;
             $mail->SMTPSecure = 'ssl';
             $mail->Host = 'smtp.gmail.com';
