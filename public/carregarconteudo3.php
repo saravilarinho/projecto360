@@ -12,6 +12,7 @@ if (isset($_POST['descricao']) && isset($_GET['idp']) && isset($_POST['data_real
     $id_pub = $_GET['idp'];
     $data_real = $_POST['data_real'];
 
+
 }
 
 ?>
