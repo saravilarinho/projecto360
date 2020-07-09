@@ -113,7 +113,7 @@ if (isset($_SESSION['id_utilizador'])){
                                     }
                                     else {
                                         ?>
-                                        <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
+                                        <img src="imagens/default-image.jpg" class="card-img-top" alt="...">
                                         <?php
                                     }
 
@@ -207,7 +207,7 @@ if (isset($_SESSION['id_utilizador'])){
                                     }
                                     else {
                                         ?>
-                                        <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
+                                        <img src="imagens/default-image.jpg" class="card-img-top" alt="...">
                                         <?php
                                     }
 
@@ -313,7 +313,7 @@ if (isset($_SESSION['id_utilizador'])){
                                 }
                                 else {
                                     ?>
-                                    <img src="imagens/evento1.jpeg" class="card-img-top" alt="...">
+                                    <img src="imagens/default-image.jpg" class="card-img-top" alt="...">
                                     <?php
                                 }
 
