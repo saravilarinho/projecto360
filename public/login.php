@@ -53,15 +53,22 @@ if(isset($_GET["message"])){
 
             <?php
 
-            if (isset($mensagem_erro)){
+            if (isset($mensagem_erro)) {
 
                 //outras mensagens
 
-                if ($mensagem_erro = 1){ echo "<p class='col-sm-10 text-danger mt-2 mb-0 text-left' style='font-size: 12px'>E-mail ou password incorretos. Tente de novo. </p>"; }
+                switch ($mensagem_erro) {
 
-                if ($mensagem_erro = 2){ echo "<p class='col-sm-10 text-danger mt-2 mb-0 text-left' style='font-size: 12px'>Ocorreu um erro. Tenta de novo.</p>"; }
+                    case 1:
+                        echo "<p class='col-sm-10 text-danger mt-2 mb-0 text-left' style='font-size: 12px;padding-left: 0;'>E-mail ou password incorretos. Tente de novo. </p>";
+
+                        break;
+
+                    case 2:
+                        echo "<p class='col-sm-10 text-danger mt-2 mb-0 text-left' style='font-size: 12px;padding-left: 0;'>Ocorreu um erro. Tenta de novo.</p>";
 
 
+                }
             }
             ?>
 
