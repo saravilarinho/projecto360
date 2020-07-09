@@ -368,9 +368,14 @@ i.fa-calendar-alt {
 /*fim timeline*/
 
 
+.gm-style-iw-d {
+    max-height: 200px;
+}
+
 .gm-style .gm-style-iw-c {
     overflow: hidden; !important;
     padding: 0; !important;
+
 }
 
 .gm-style .gm-style-iw {
@@ -385,6 +390,7 @@ i.fa-calendar-alt {
     line-height: 1.35; !important;
     overflow: hidden; !important;
     white-space: nowrap; !important;
+    position: fixed; !important;
 }
 
 .linkar_branco{

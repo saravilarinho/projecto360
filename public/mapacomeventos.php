@@ -16,6 +16,9 @@ if (isset($_SESSION['id_utilizador'])) {
             background-color: grey;
         }
     </style>
+
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+
 </head>
 <body>
 <!--The div element for the map -->
@@ -60,17 +63,17 @@ mysqli_stmt_bind_result($stmt, $id, $nome, $data_inicio, $localizacao, $imagem, 
 
         // cria os markers, e infowindows positioned at localizacao
         var infowindow<?=$i?> = new google.maps.InfoWindow({
-            content: '<div class="ok">' + '<div  class=" h-100">' +
+            content: '<div class="ok">' + '<div  class="p-fixed">' +
                 '<a class="linkar" href="scripts/verifica_evento.php?id=<?=$id?>">' +
-                '<img src="imagens/evento1.jpeg" class="card-img-top" alt="...">' +
-                '<div style="padding: 8%">' +
+                '<img src="imagens/evento1.jpeg" class="card-img-top w-100" alt="...">' +
+                '<div style="padding: 3% 5% 5%">' +
                 '<div class="row">' +
                 '<p class=" mb-1 titulo_card_eventos col-10"><b><?=$nome ?> </b></p> ' +
                 '<img class="icone_categoria" src="imagens/icones/icone_festa.png"></div> ' +
                 '<p class=" texto_card_eventos m-0">' +
                 '<small> <?=$data_inicio?> </small> </p>' +
                 '<p class=" texto_card_eventos m-0"> <small> <?=$localizacao?> </small>' +
-                '</p> </div>  </a> </div>' + '</div>',
+                '</p> </div>  </a> </div>' + '</div>' + '</div>',
             maxWidth: 250
         });
 
@@ -99,7 +102,7 @@ mysqli_stmt_bind_result($stmt, $id, $nome, $data_inicio, $localizacao, $imagem, 
 
 
                 infoWindow.setPosition(pos);
-                infoWindow.setContent('Estás aqui');
+                infoWindow.setContent('<h3 style="color: #1ec5bc">Estás aqui</h3>');
                 infoWindow.open(map);
                 map.setCenter(pos);
 
