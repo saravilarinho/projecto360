@@ -75,7 +75,20 @@ if (isset($_SESSION['id_utilizador'])) {
                         <a href="eventocomsubscricao.php?id=<?=$id_evento?>">
                         <div class="d-flex">
                             <div class="col-3 align-self-center">
-                                <img class="w-100 rounded-circle ml-2" style="height: 3.5rem;" src="scripts/upload/<?=$imagem?>">
+
+                                <?php
+                                if ($imagem != ''){
+                                    ?>
+                                    <img src="scripts/upload/<?=$imagem?>" class="w-100 rounded-circle ml-2" style="height: 3.5rem;" >
+                                    <?php
+                                }
+                                else {
+                                    ?>
+                                    <img src="imagens/default-image.jpg" class="w-100 rounded-circle ml-2" style="height: 3.5rem;" >
+                                    <?php
+                                }
+
+                                ?>
                             </div>
                             <div class="col-6 align-self-center">
                                 <p class="texto_card_historico"> <b><?=$nome?></b> tem um novo subscritor.
@@ -140,8 +153,19 @@ if (isset($_SESSION['id_utilizador'])) {
                     <a href="publicacao.php?idp=<?=$idp?>">
                     <div class="d-flex">
                         <div class="col-3 align-self-center">
-                            <img class="w-100 rounded-circle ml-2" style="height: 3.5rem;"  src="scripts/upload/<?=$imagem?>">
-                        </div>
+                            <?php
+                            if ($imagem != ''){
+                                ?>
+                                <img src="scripts/upload/<?=$imagem?>" class="w-100 rounded-circle ml-2" style="height: 3.5rem;" >
+                                <?php
+                            }
+                            else {
+                                ?>
+                                <img src="imagens/default-image.jpg" class="w-100 rounded-circle ml-2" style="height: 3.5rem;" >
+                                <?php
+                            }
+
+                            ?>                        </div>
                         <div class="col-6 align-self-center">
                             <p class="texto_card_historico"><b> <?=$nome_evento?></b> tem novos conteúdos.</p>
                             <?php
