@@ -85,7 +85,19 @@ if(isset ($_GET['msg'])&& isset ($_GET['id'])){
 
                         <p class="mt-2 mb-0 text-left">Nova Password</p>
 
-                        <input class="pl-2 mt-1 w-100" type="password" name="password" required="required" value="">
+                        <input class="pl-2 mt-1 w-100" type="password" name="password_hash" value="" placeholder="Nova password ...">
+
+                        <p class="mt-2 mb-0 text-left">Confirmação de Password</p>
+
+                        <input class="pl-2 mt-1 w-100" type="password" name="password_hash2" value="" placeholder="Nova password ...">
+
+                        <?php
+
+                        if (isset($mensagem_de_erro)){
+
+                            echo "<p class='col-sm-10 text-danger mt-2 mb-0 text-left' style='font-size: 12px'>As passwords não são iguais.</p>";
+                        }
+                        ?>
 
                         <p class="mt-2 mb-0 text-left">Imagem de perfil</p>
 
