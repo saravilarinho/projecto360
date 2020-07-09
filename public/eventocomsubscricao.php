@@ -302,7 +302,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                         <div class="row">
                             <img class="col-2 align-self-center" src="imagens/icones/icone_festa.png">
                             <p class="col-10">
-                                <small><?=$nome?> adicionou conteúdos ao evento.</small>
+                                <small><?=$nome?> adicionou <a class="link_conteudos" href="publicacao.php?idp=<?=$id_p?>">conteúdos</a> ao evento.</small>
                             </p>
                         </div>
 

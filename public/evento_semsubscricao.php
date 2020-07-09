@@ -44,6 +44,8 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['id'])) {
 <body>
 
 <main>
+    <a href="eventos.php">
+        <i class="fas fa-2x fa-chevron-circle-left voltar"></i></a>
 <?php
 
 
@@ -197,8 +199,32 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                 ?>
             </div>
             <div class="row info_evento">
+
+
+                <?php
+                require_once "../admin/connections/connection2db.php";
+
+                $link = new_db_connection();
+                $stmt = mysqli_stmt_init($link);
+
+                $query = "CALL sum_event_cont($id_evento)";
+
+                if (mysqli_stmt_prepare($stmt, $query)) {
+
+                mysqli_stmt_execute($stmt);
+
+                mysqli_stmt_bind_result($stmt, $id);
+
+                $conteudos = 0;
+                while (mysqli_stmt_fetch($stmt)) {
+                    $conteudos++;
+                }
+                ?>
                 <img class="icone_categoria" src="imagens/icones/icone_festa.png">
-                <p class="texto_descricao_evento col-10">32 novos conteúdos</p>
+                <p class="texto_descricao_evento col-10"><?=$conteudos?> novos conteúdos</p>
+                    <?php
+                }
+                ?>
             </div>
 
         </div>
@@ -252,10 +278,3 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 </body>
 </html>
 
-SELECT utilizadores_has_eventos.utilizadores_id_utilizador, eventos.id_evento, utilizadores.nome_utilizador
-FROM utilizadores_has_eventos
-INNER JOIN eventos
-ON utilizadores_has_eventos.eventos_id_evento = eventos.id_evento
-INNER JOIN utilizadores
-ON utilizadores.id_utilizador = utilizadores_has_eventos.utilizadores_id_utilizador
-WHERE utilizadores_has_eventos.roles_id_role = 2 AND eventos.id_evento = id; AND utilizadores_has_eventos.data > DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY);
