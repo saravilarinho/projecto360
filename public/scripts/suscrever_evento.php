@@ -51,7 +51,7 @@ if(isset($_GET["id"]) && isset($_SESSION['id_utilizador'])) {
 
                             mysqli_stmt_close($stmt);
                             mysqli_close($link);
-                            header("Location: ../eventocomsubscricao.php?id=$id");
+                            header("Location: update_estatisticas.php?id=$id&subscricao=1");
                         } else {
 
                             echo "Error:" . mysqli_stmt_error($stmt);

@@ -104,21 +104,93 @@ else {
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active show">
                 <div class="container">
+                    <?php
+                    require_once "../admin/connections/connection2db.php";
+
+                    $link = new_db_connection();
+                    $stmt = mysqli_stmt_init($link);
+
+                      $query = "SELECT eventos.id_evento, eventos.imagem_evento 
+                                FROM eventos 
+                                INNER JOIN utilizadores_has_eventos 
+                                ON utilizadores_has_eventos.eventos_id_evento = eventos.id_evento 
+                                WHERE utilizadores_has_eventos.utilizadores_id_utilizador = ? 
+                                AND utilizadores_has_eventos.roles_id_role = 1
+                                ORDER BY eventos.id_evento
+                                LIMIT 4";
+
+
+                    if (mysqli_stmt_prepare($stmt, $query)) {
+                    mysqli_stmt_bind_param($stmt, 'i', $id_utili);
+
+                    $id_utili = $id_utilizador;
+
+                    mysqli_stmt_execute($stmt);
+
+                    mysqli_stmt_bind_result($stmt, $id_evento, $imagem);
+                    ?>
+
+
                     <div class="card_horizontal text-center mt-4 mx-auto w-100">
                         <div class="row align-items-center">
                             <div class="col-4">
-                                <p class="mt-2 mb-0 pl-2 titulo_card_stats"><?php echo $eventos_criados?></p>
+                                <p class="mt-2 mb-0 pl-2 titulo_card_stats"><?php echo $eventos_criados ?></p>
                                 <p class="mb-2 mt-0 pl-2 titulo_card_stats">Eventos Criados</p>
                             </div>
                             <div class="imgs-stats col-6 align-middle">
-                                <img class="rounded-circle img_card_stats"
-                                     src="imagens/img_perfil.jpg">
-                                <img class="rounded-circle img_card_stats"
-                                     src="imagens/img_perfil.jpg">
+                                <?php
+
+                                while (mysqli_stmt_fetch($stmt)) {
+                                    if ($imagem != ''){
+                                        ?>
+                                        <img class="rounded-circle img_card_stats"
+                                             src="scripts/upload/<?=$imagem?>">
+                                        <?php
+                                    }else {
+                                        ?>
+
+                                        <img class="rounded-circle img_card_stats"
+                                             src="imagens/default-image.jpg">
+
+                                        <?php
+                                    }
+                                }
+
+                                ?>
 
                             </div>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
+
+
+                    <?php
+                    require_once "../admin/connections/connection2db.php";
+
+                    $link = new_db_connection();
+                    $stmt = mysqli_stmt_init($link);
+
+                    $query = "SELECT eventos.id_evento, eventos.imagem_evento 
+                                FROM eventos 
+                                INNER JOIN utilizadores_has_eventos 
+                                ON utilizadores_has_eventos.eventos_id_evento = eventos.id_evento 
+                                WHERE utilizadores_has_eventos.utilizadores_id_utilizador = ? 
+                                AND utilizadores_has_eventos.roles_id_role = 2
+                                ORDER BY eventos.id_evento
+                                LIMIT 4";
+
+
+                    if (mysqli_stmt_prepare($stmt, $query)) {
+                    mysqli_stmt_bind_param($stmt, 'i', $id_utili);
+
+                    $id_utili = $id_utilizador;
+
+                    mysqli_stmt_execute($stmt);
+
+                    mysqli_stmt_bind_result($stmt, $id_evento, $imagem);
+                    ?>
 
                     <div class="card_horizontal text-center mt-4 mx-auto">
                         <div class="row align-items-center">
@@ -127,15 +199,58 @@ else {
                                 <p class="mb-2 mt-0 pl-2 titulo_card_stats">Eventos Subscritos</p>
                             </div>
                             <div class="imgs-stats col-6 align-middle">
-                                <img class="rounded-circle img_card_stats"
-                                     src="imagens/img_perfil.jpg">
-                                <img class="rounded-circle img_card_stats"
-                                     src="imagens/img_perfil.jpg">
+                                <?php
+
+                                while (mysqli_stmt_fetch($stmt)) {
+                                    if ($imagem != ''){
+                                        ?>
+                                        <img class="rounded-circle img_card_stats"
+                                             src="scripts/upload/<?=$imagem?>">
+                                        <?php
+                                    }else {
+                                        ?>
+
+                                        <img class="rounded-circle img_card_stats"
+                                             src="imagens/default-image.jpg">
+
+                                        <?php
+                                    }
+                                }
+
+                                ?>
 
                             </div>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
 
+                    <?php
+                    require_once "../admin/connections/connection2db.php";
+
+                    $link = new_db_connection();
+                    $stmt = mysqli_stmt_init($link);
+
+                    $query = "SELECT publicacoes.id_publicacao, publicacoes.conteudo_publicacao
+                                FROM publicacoes 
+                                INNER JOIN utilizadores_has_publicacoes
+                                ON utilizadores_has_publicacoes.publicacoes_id_publicacao = publicacoes.id_publicacao
+                                WHERE utilizadores_has_publicacoes.utilizadores_id_utilizador = ? 
+                                AND utilizadores_has_publicacoes.criacao_publicacao = 1
+                                ORDER BY publicacoes.id_publicacao
+                                LIMIT 4";
+
+
+                    if (mysqli_stmt_prepare($stmt, $query)) {
+                    mysqli_stmt_bind_param($stmt, 'i', $id_utili);
+
+                    $id_utili = $id_utilizador;
+
+                    mysqli_stmt_execute($stmt);
+
+                    mysqli_stmt_bind_result($stmt, $id_pub, $imagem_pub);
+                    ?>
                     <div class="card_horizontal text-center mt-4 mx-auto">
                         <div class="row align-items-center">
                             <div class="col-4">
@@ -143,63 +258,106 @@ else {
                                 <p class="mb-2 mt-0 pl-2 titulo_card_stats">Conteúdos Partilhados</p>
                             </div>
                             <div class="imgs-stats col-6 align-middle">
-                                <img class="rounded-circle img_card_stats"
-                                     src="imagens/img_perfil.jpg">
-                                <img class="rounded-circle img_card_stats"
-                                     src="imagens/img_perfil.jpg">
+                                <?php
+
+                                while (mysqli_stmt_fetch($stmt)) {
+                                    if ($imagem_pub != ''){
+                                        ?>
+                                        <img class="rounded-circle img_card_stats"
+                                             src="scripts/upload/<?=$imagem_pub?>">
+                                        <?php
+                                    }else {
+                                        ?>
+
+                                        <img class="rounded-circle img_card_stats"
+                                             src="imagens/default-image.jpg">
+
+                                        <?php
+                                    }
+                                }
+
+                                ?>
                             </div>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
             </div>
             <div id="menu2" class="tab-pane fade">
-
                 <div class="mt-3 ml-3">
-                    <div class="row">
+                <?php
+                require_once "../admin/connections/connection2db.php";
 
-                        <img class="col-4 img_historico rounded-circle" src="imagens/img_perfil.jpg">
-                        <div class="col-6">
-                            <p class="titulo_card_historico"> Garagem do Reitor</p>
-                            <p class="texto_card_historico"> 15 de Março de 2020</p>
-                            <img class="icone_categoria" src="imagens/icones/icone_festa.png"></div>
-                    </div>
-                    <hr>
+                $link = new_db_connection();
+                $stmt = mysqli_stmt_init($link);
 
-                </div>
+                $query = "CALL historico()";
 
-                <div class="mt-2 ml-3">
-                    <div class="row">
-                        <img class="col-4 img_historico rounded-circle" src="imagens/img_perfil.jpg">
-                        <div class="col-6">
-                            <p class="titulo_card_historico"> Garagem do Reitor</p>
-                            <p class="texto_card_historico"> 15 de Março de 2020</p>
-                            <img class="icone_categoria" src="imagens/icones/icone_festa.png"></div>
-                    </div>
-                    <hr>
+                if (mysqli_stmt_prepare($stmt, $query)) {
+                    mysqli_stmt_execute($stmt);
 
-                </div>
+                    mysqli_stmt_bind_result($stmt, $nome, $data, $categoria, $imagem);
 
-                <div class="mt-2 ml-3">
-                    <div class="row">
-                        <img class="col-4 img_historico rounded-circle" src="imagens/img_perfil.jpg">
-                        <div class="col-6">
-                            <p class="titulo_card_historico"> Garagem do Reitor</p>
-                            <p class="texto_card_historico"> 15 de Março de 2020</p>
-                            <img class="icone_categoria" src="imagens/icones/icone_festa.png"></div>
-                    </div>
-                    <hr>
+                    while (mysqli_stmt_fetch($stmt)) {
+                        ?>
+                            <div class="row">
 
-                </div>
+                                <?php
+                                    if ($imagem != ''){
+                                        ?>
+                                        <img  class="col-4 img_historico rounded-circle"
+                                              src="scripts/upload/<?=$imagem?>">
+                                        <?php
+                                    }
+                                    else {
+                                        ?>
 
-                <div class="mt-2 ml-3">
-                    <div class="row">
-                        <img class="col-4 img_historico rounded-circle" src="imagens/img_perfil.jpg">
-                        <div class="col-6">
-                            <p class="titulo_card_historico"> Garagem do Reitor</p>
-                            <p class="texto_card_historico"> 15 de Março de 2020</p>
-                            <img class="icone_categoria" src="imagens/icones/icone_festa.png"></div>
-                    </div>
-                </div>
+                                        <img  class="col-4 img_historico rounded-circle"
+                                              src="imagens/default-image.jpg">
+
+                                        <?php
+                                    }
+
+                                ?>
+
+                                <div class="col-6">
+                                    <p class="titulo_card_historico"> <?=$nome?></p>
+                                    <p class="texto_card_historico"> <?=$data?></p>
+                                    <?php
+                                    if (isset($categoria)) {
+                                        switch ($categoria) {
+                                            // música
+                                            case 1:
+                                                echo '<img class="icone_categoria" src="imagens/icones/icone_musica.png">';
+                                                break;
+
+                                            // manifestações
+                                            case 2:
+                                                echo '<img class="icone_categoria" src="imagens/icones/icone_manif.png">';
+                                                break;
+
+                                            // teatro
+                                            case 3:
+                                                echo '<img class="icone_categoria" src="imagens/icones/icone_teatro.png">';
+                                                break;
+
+                                            // festas
+                                            case 4:
+                                                echo '<img class="icone_categoria" src="imagens/icones/icone_festa.png">';
+                                                break;
+                                        }
+                                    }
+                                    ?>
+                                </div>
+                            <hr>
+                        </div>
+
+                        <?php
+                } }
+
+                ?>
             </div>
 
 

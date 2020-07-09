@@ -58,7 +58,7 @@ if (isset($_SESSION['id_utilizador'])) {
         $link = new_db_connection();
         $stmt = mysqli_stmt_init($link);
 
-        $query = "CALL teste()";
+        $query = "CALL teste($id_utilizador)";
 
         if (mysqli_stmt_prepare($stmt, $query)) {
             mysqli_stmt_execute($stmt);
@@ -137,7 +137,7 @@ if (isset($_SESSION['id_utilizador'])) {
         $link = new_db_connection();
         $stmt = mysqli_stmt_init($link);
 
-        $query = "CALL teste2()";
+        $query = "CALL teste2($id_utilizador)";
 
         if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_execute($stmt);

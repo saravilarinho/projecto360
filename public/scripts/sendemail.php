@@ -58,7 +58,7 @@ if (isset($_GET['id']) && isset($_GET['lista']) && isset($_GET['nome']) && isset
 
             $mail->Send();
 
-            header("Location: ../eventocomsubscricao.php?id=$id_evento");
+            header("Location: update_estatisticas.php?id=$id_evento&novoevento=1");
 
         }
 
@@ -139,7 +139,7 @@ if (isset($_GET['idp']) && isset($_GET['lista']) && isset($_SESSION['id_utilizad
                     $mail->Send();
 
 
-                    header("Location: ../publicacao.php?idp=$id_p");
+                    header("Location: update_estatisticas.php?idp=$id_publicacao&conteudos=1");
 
                 }
             }

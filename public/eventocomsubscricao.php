@@ -298,6 +298,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                     mysqli_stmt_bind_result($stmt, $nome, $id_p, $data);
 ?>
                 <div class="container mt-4">
+
                 <?php
 
                     while (mysqli_stmt_fetch($stmt)) {
