@@ -54,7 +54,7 @@ if (isset($_SESSION['id_utilizador'])) {
     <form class="form-horizontal pesquisa mt-4" action="/action_page.php">
         <div class="form-group">
             <div class="col-sm-10">
-                <input type="text" class="form-control texto_form_pesquisa" id="form_pesquisa" placeholder="Pesquisa aqui o evento que procuras">
+                <input type="text" class="form-control campo_form" id="form_pesquisa" placeholder="Pesquisa aqui o evento que procuras">
             </div>
         </div>
     </form>

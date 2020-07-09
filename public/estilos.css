@@ -173,8 +173,7 @@ hr {
     margin: auto;
 }
 
-.texto_form_pesquisa {
-    font-size: 12px;
+.texto_form {
 }
 
 .texto_pesquisa {
@@ -524,25 +523,23 @@ i.fa-calendar-alt {
 }
 
 
-.campos_form_criarevento {
+.campo_form {
     -webkit-box-shadow: 7px 5px 21px -8px rgba(0,0,0,0.34);
     -moz-box-shadow: 7px 5px 21px -8px rgba(0,0,0,0.34);
     box-shadow: 7px 5px 21px -8px rgba(0,0,0,0.34);
-    border: none;
+
+    border: none !important;
     border-radius: 5px;
     margin-bottom: 0.7rem;
-    width: 90%;
+
+    font-size: 12px !important;
 }
 
 .campo_data_hora {
     width: 130px;
-    font-size: 12px;
     background-color: white;
 }
 
-.campo_descricao {
-    padding-bottom: 15px;
-}
 
 #toggle1 {
     margin: 1rem;
@@ -706,7 +703,7 @@ i.fa-calendar-alt {
     height: 11vh;
 }
 
-.add_comentario .texto_form_pesquisa {
+.add_comentario .texto_form {
     width: 267px;
     border-radius: 5px;
     padding: 5px;

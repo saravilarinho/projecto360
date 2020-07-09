@@ -70,7 +70,7 @@ if (isset($_SESSION['id_utilizador'])){
 
         <div class="conteudo_stepper ml-4">
                 <div id="toggle1" class="stepper">
-                    <div class="title mt-4">Escolhe o evento:</div>
+                    <div class="title mt-4 label">Escolhe o evento:</div>
                     <div class="field">
                         <div class="container">
                             <?php

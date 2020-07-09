@@ -85,11 +85,11 @@ if(isset ($_GET['msg'])&& isset ($_GET['id'])){
 
                         <p class="mt-2 mb-0 text-left">Nova Password</p>
 
-                        <input class="pl-2 mt-1 w-100" type="password" name="password_hash" value="" placeholder="Nova password ...">
+                        <input class="p-2 mt-1 w-100 campo_form" type="password" name="password_hash" value="" placeholder="Nova password ...">
 
-                        <p class="mt-2 mb-0 text-left">Confirmação de Password</p>
+                        <p class="p-2 mt-2 mb-0 text-left">Confirmação de Password</p>
 
-                        <input class="pl-2 mt-1 w-100" type="password" name="password_hash2" value="" placeholder="Nova password ...">
+                        <input class="p-2 mt-1 w-100 campo_form" type="password" name="password_hash2" value="" placeholder="Nova password ...">
 
                         <?php
 
