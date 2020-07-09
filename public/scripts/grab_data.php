@@ -30,33 +30,47 @@
             var loc = EXIF.getTag(this, "GPSLatitude");
             document.getElementById("makeAndModel1").innerHTML = loc;
 
-            var loc_l = EXIF.getTag(this, "GPSLongitudeRef");
+            var loc_l = EXIF.getTag(this, "GPSLongitude");
             document.getElementById("makeAndModel1").innerHTML += '  ' + loc_l;
 
-            ParseDMS(parseInt(loc_l));
+            ParseDMS(loc + ' ' + loc_l);
 
             function ParseDMS(input) {
+
                 var parts = input.split(/[^\d\w]+/);
-                var lat = ConvertDMSToDD(parts[0], parts[1], parts[2], parts[3]);
-              // var lng = ConvertDMSToDD(parts[4], parts[5], parts[6], parts[7]);
-                console.log(lat);
-               // console.log(lng);
+                var lat = (parseFloat(parts[2]+'.'+parts[3]));
+                var lng = (parseFloat(parts[6]+'.'+parts[7]));
+
+                var socorro = Number(''+lat+'');
+                var neg = lng * (-1);
+                console.log(neg);
+                var socorro2 = Number(''+neg+'');
+
+                DMStoDD(parts[0], parts[1], socorro);
+                DMStoDD(parts[4], parts[5], socorro2);
+
+                function DMStoDD(deg,min,sec)
+                {
+                    var scr = min * 60;
+                    var vamos = scr + sec;
+                    var opa = parseFloat(vamos)/ 3600;
+                    var help = opa.toFixed(8);
+
+                    // Converting DMS ( Degrees / minutes / seconds ) to decimal format
+                    var resultado = (parseFloat(deg) + parseFloat(help));
+                    console.log(resultado);
+
+
+                }
             }
         });
     }
 
 
-  //  dd = d + m/60 + s/3600
 
 
 
 </script>
-
-<?php
-
-?>
-
-
 
 </body>
 </html>
