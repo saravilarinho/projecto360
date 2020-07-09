@@ -56,16 +56,25 @@ mysqli_stmt_bind_result($stmt, $id, $nome, $data_inicio, $localizacao, $imagem, 
         <?php
         $i = 0;
         while (mysqli_stmt_fetch($stmt)) {
+
+            if ($imagem != ''){
+                $pic = 'scripts/upload/'.$imagem;
+            }else {
+                $pic = 'imagens/default-image.jpg';
+            }
+
         ?>
 
         // localizacao dos markers
         var localizacao = {lat: <?= $latitude ?>, lng: <?= $longitude ?>};
 
+
+
         // cria os markers, e infowindows positioned at localizacao
         var infowindow<?=$i?> = new google.maps.InfoWindow({
             content: '<div class="ok">' + '<div  class="p-fixed">' +
                 '<a class="linkar" href="scripts/verifica_evento.php?id=<?=$id?>">' +
-                '<img src="imagens/evento1.jpeg" class="card-img-top w-100" alt="...">' +
+                '<img src="<?=$pic?>" class="card-img-top w-100" alt="...">' +
                 '<div style="padding: 3% 5% 5%">' +
                 '<div class="row">' +
                 '<p class=" mb-1 titulo_card_eventos col-10"><b><?=$nome ?> </b></p> ' +

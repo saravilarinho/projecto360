@@ -300,7 +300,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                     while (mysqli_stmt_fetch($stmt)) {
                         ?>
                         <div class="row align-items-center">
-                            <img class="col-2 align-self-center" src="imagens/icones/icone_festa.png">
+                            <img class="col-2 align-self-center pb-2" src="imagens/icones/icone_mais.png">
                             <p class="col-10 align-self-center">
                                 <small><?=$nome?> adicionou <a class="link_conteudos" href="publicacao.php?idp=<?=$id_p?>">conteúdos</a> ao evento.</small>
                                 <small class="tempo_atras"><?php echo time_elapsed_string($data);?></small>
