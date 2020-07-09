@@ -295,21 +295,27 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
                     mysqli_stmt_execute($stmt);
 
-                    mysqli_stmt_bind_result($stmt, $nome, $id_p);
+                    mysqli_stmt_bind_result($stmt, $nome, $id_p, $data);
+?>
+                <div class="container mt-4">
+                <?php
 
                     while (mysqli_stmt_fetch($stmt)) {
                         ?>
-                        <div class="row">
+                        <div class="row align-items-center">
                             <img class="col-2 align-self-center" src="imagens/icones/icone_festa.png">
-                            <p class="col-10">
+                            <p class="col-10 align-self-center">
                                 <small><?=$nome?> adicionou <a class="link_conteudos" href="publicacao.php?idp=<?=$id_p?>">conteúdos</a> ao evento.</small>
+                                <small class="tempo_atras"><?php echo time_elapsed_string($data);?></small>
                             </p>
                         </div>
 
                         <?php
                     }
                 }
-
+?>
+                </div>
+<?php
 
             require_once "../admin/connections/connection2db.php";
 
@@ -322,10 +328,10 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
                 mysqli_stmt_execute($stmt);
 
-                mysqli_stmt_bind_result($stmt,  $id, $evento, $nome);
+                mysqli_stmt_bind_result($stmt,  $id, $evento, $nome, $dataa);
                     ?>
 
-                <div class="container mt-4">
+                <div class="container mt-2">
                     <?php
                     while (mysqli_stmt_fetch($stmt)) {
                         ?>
@@ -333,6 +339,8 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                             <img class="col-2 align-self-center" src="imagens/icones/icone_festa.png">
                             <p class="col-10 align-self-center">
                                 <small><?=$nome?> subscreveu o evento.</small>
+                                <small class="tempo_atras"><?php echo time_elapsed_string($dataa);?></small>
+
                             </p>
                         </div>
 
@@ -358,4 +366,36 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     }
 }
 
+function time_elapsed_string($datetime, $full = false) {
+    $now = new DateTime;
+    $ago = new DateTime($datetime);
+    $diff = $now->diff($ago);
+
+    $diff->w = floor($diff->d / 7);
+    $diff->d -= $diff->w * 7;
+
+    $string = array(
+        'y' => 'ano',
+        'm' => 'mês',
+        'w' => 'semana',
+        'd' => 'dia',
+        'h' => 'hora',
+        'i' => 'minuto',
+        's' => 'segundo',
+    );
+    foreach ($string as $k => &$v) {
+        if ($diff->$k) {
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+        } else {
+            unset($string[$k]);
+        }
+    }
+
+    if (!$full) $string = array_slice($string, 0, 1);
+    return $string ? implode(', ', $string) . ' atrás' : 'agora';
+}
+
 ?>
+
+
+
