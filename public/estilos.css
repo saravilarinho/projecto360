@@ -117,6 +117,12 @@ hr {
     font-size:10px;
 }
 
+.clip-circle {
+    height: 3.5rem;
+    width: 3.5rem;
+    object-fit: cover;
+}
+
 .card_vertical {
     background-color: white;
     border-radius: 6px;
