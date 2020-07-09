@@ -115,7 +115,7 @@ descricao_evento, categorias_id_categoria, niveis_privacidade_id_nivel_privacida
                     <input type="hidden" name="lat" id="lat">
                     <input type="hidden" name="lng" id="lng">
                     <input type="hidden" name="location" id="location">
-                    <input id="pac-input" type="text" name="localizacao" class="form-control campos_form_criarevento" style="height: 28px !important;"  value=" <?=$localizacao?>" required>
+                    <input id="pac-input" type="text" name="localizacao" class="form-control campo_form" style="height: 28px !important;"  value=" <?=$localizacao?>" required>
                 </div>
                 <div id="map" style="display: none"></div>
 

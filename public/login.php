@@ -45,10 +45,10 @@ if(isset($_GET["message"])){
     <form class="form-horizontal mt-4 col-10" action="scripts/controlo_login.php" role="form" method="post">
         <div class="form-group">
             <div class="mb-2">
-                <input type="email" class="form-control texto_form_pesquisa" name="email" id="email" placeholder="E-mail">
+                <input type="email" class="form-control campo_form" name="email" id="email" placeholder="E-mail">
             </div>
             <div class="">
-                <input type="password" class="form-control texto_form_pesquisa" name="password" id="password" placeholder="Password">
+                <input type="password" class="form-control campo_form" name="password" id="password" placeholder="Password">
             </div>
 
             <?php

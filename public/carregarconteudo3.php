@@ -79,7 +79,7 @@ if (isset($_POST['descricao']) && isset($_GET['idp']) && isset($_POST['data_real
                 <div class="title mt-4">Identifica participantes!</div>
                 <div class="field mt-2">
                     <div class="label">Identifica utilizadores no conteúdo que publicaste, conforme o exemplo. (utilizador1@email.com, utilizador2@email.com, ...).</div>
-                    <input type="text" name="emailsusers" value="" class="campos_form_criarevento">
+                    <input type="text" name="emailsusers" value="" class="campo_form">
                 </div>
             </div>
         </div>

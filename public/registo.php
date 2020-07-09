@@ -67,15 +67,15 @@
             <form action="scripts/registo_utilizadores.php" role="form" method="post">
 
                 <p class="mt-2 mb-0 text-left texto_pesquisa">Nome</p>
-                <input class="pl-2 mt-1 w-100 form-control texto_form_pesquisa" type="text" name="name" placeholder="ex: Tiago"
+                <input class="pl-2 mt-1 w-100 form-control campo_form" type="text" name="name" placeholder="ex: Tiago"
                        required="required">
 
                 <p class="mt-2 mb-0 text-left texto_pesquisa">E-mail</p>
-                <input class="pl-2 mt-1 w-100 form-control texto_form_pesquisa" type="email" name="email" placeholder="exemplo@gmail.com"
+                <input class="pl-2 mt-1 w-100 form-control campo_form" type="email" name="email" placeholder="exemplo@gmail.com"
                        required="required">
 
                 <p class="mt-2 mb-0 text-left texto_pesquisa">Palavra-passe</p>
-                <input class="pl-2 mt-1 w-100 form-control texto_form_pesquisa" type="password" name="password_hash" required="required" placeholder="Palavra-passe">
+                <input class="pl-2 mt-1 w-100 form-control campo_form" type="password" name="password_hash" required="required" placeholder="Palavra-passe">
 
 
                 <div class="justify-content-center d-flex fixed-bottom mb-5">

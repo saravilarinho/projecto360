@@ -143,7 +143,7 @@ if (isset($_GET['message'])){
             ?>
             <div class="field position-absolute" style="margin-top: 14vh">
                 <div class="title">Descrição da publicação.</div>
-                <input type="text" name="descricao" value="" placeholder="Escreve uma pequena descrição ..." class="campos_form_criarevento texto_form_pesquisa campo_descricao">
+                <input type="text" name="descricao" value="" placeholder="Escreve uma pequena descrição ..." class="campo_form pb-2">
             </div>
         </div>
 </div>

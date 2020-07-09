@@ -72,20 +72,20 @@ if (isset($_SESSION['id_utilizador'])){
     <div id="toggle1">
         <div class="field">
             <div class="label mt-2">Nome do evento</div>
-            <input type="text" name="nome_evento" class="campos_form_criarevento" placeholder="Nome do evento" required>
+            <input type="text" name="nome_evento" class="campo_form" placeholder="Nome do evento" required>
         </div>
         <div class="field">
             <div class="label">Descrição do evento</div>
-            <input type="text" name="descricao" class="campos_form_criarevento campo_descricao" placeholder="Escreve uma pequena descrição do evento" required>
+            <input type="text" name="descricao" class="campo_form pb-2" placeholder="Escreve uma pequena descrição do evento" required>
         </div>
-            <div class=" field" id="pac-card">
+            <div class="field" id="pac-card">
                 <div class="label">Localização</div>
 
                 <div id="pac-container">
                     <input type="hidden" name="lat" id="lat">
                     <input type="hidden" name="lng" id="lng">
                     <input type="hidden" name="location" id="location">
-                    <input id="pac-input" type="text" name="localizacao" class="form-control campos_form_criarevento" style="height: 28px !important;" placeholder="Localização..." value=" " required>
+                    <input id="pac-input" type="text" name="localizacao" class="form-control campo_form" style="height: 28px !important;" placeholder="Localização..." value=" " required>
                 </div>
             </div>
             <div id="map" style="display: none"></div>
@@ -93,12 +93,12 @@ if (isset($_SESSION['id_utilizador'])){
 
         <div class="field">
             <div class="label">Data de Início</div>
-            <input type="date"  name="data_inicio"  class="campos_form_criarevento campo_data_hora" required>
+            <input type="date"  name="data_inicio"  class="campo_form campo_data_hora" required>
             <input type="time"  name="hora_inicio"  class="campos_form_criarevento campo_data_hora" required>
 
             <div class="label">Data de Fim</div>
-            <input type="date"  name="data_fim"  class="campos_form_criarevento campo_data_hora">
-            <input type="time"  name="hora_fim"  class="campos_form_criarevento campo_data_hora">
+            <input type="date"  name="data_fim"  class="campo_form campo_data_hora">
+            <input type="time"  name="hora_fim"  class="campo_form campo_data_hora">
         </div>
     </div>
 
@@ -155,7 +155,7 @@ if (isset($_SESSION['id_utilizador'])){
         <div class="title mt-4">Convida participantes!</div>
         <div class="field mt-2">
             <div class="label">Convida pessoas para o teu evento, conforme o exemplo. (utilizador1@email.com, utilizador2@email.com, ...)</div>
-            <input type="text" name="convidado1" id="convidado1" class="campos_form_criarevento" placeholder="E-mail..." value="">
+            <input type="text" name="convidado1" id="convidado1" class="campo_form" placeholder="E-mail..." value="">
 
         </div>
     </div>
