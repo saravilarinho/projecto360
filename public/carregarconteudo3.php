@@ -7,9 +7,11 @@ if (isset($_SESSION['id_utilizador'])){
 
 }
 
-if (isset($_POST['descricao']) && isset($_GET['idp'])){
+if (isset($_POST['descricao']) && isset($_GET['idp']) && isset($_POST['data_real'])){
     $des = $_POST['descricao'];
     $id_pub = $_GET['idp'];
+    $data_real = $_POST['data_real'];
+
 
 }
 
@@ -51,7 +53,7 @@ if (isset($_POST['descricao']) && isset($_GET['idp'])){
 
 <main>
 
-    <form enctype="multipart/form-data" action="scripts/nova_publicacao.php?idp=<?=$id_pub?>&des=<?=$des?>" id="formulario" role="form" method="post">
+    <form enctype="multipart/form-data" action="scripts/nova_publicacao.php?idp=<?=$id_pub?>&des=<?=$des?>&data=<?=$data_real?>" id="formulario" role="form" method="post">
 
         <div class="stepper_passo2">
             <div id="stepProgressBar">
@@ -86,7 +88,7 @@ if (isset($_POST['descricao']) && isset($_GET['idp'])){
 
 
     <div class="fixed-bottom mb-3 botoes_stepper">
-        <a href="carregarconteudo2.php?idp=<?=$id_pub?>&des=<?=$des?>"><button class="button_stepper" id="previousBtn">Anterior</button></a>
+        <a href="carregarconteudo2.php?idp=<?=$id_pub?>&des=<?=$des?>&data=<?=$data_real?>"><button class="button_stepper" id="previousBtn">Anterior</button></a>
         <button class="button_stepper" id="nextBtn" disabled>Seguinte</button>
         <button class="button_stepper" type="submit" id="finishBtn">Confirmar</button>
     </div>

@@ -1,11 +1,14 @@
 <?php
 session_start();
 
-if (isset($_SESSION['id_utilizador']) && isset($_GET['des']) && isset($_GET['idp'])) {
+if (isset($_SESSION['id_utilizador']) && isset($_GET['des']) && isset($_GET['idp']) && isset($_GET['data'])) {
 
     $id_utilizador =$_SESSION['id_utilizador'];
     $descricao = $_GET['des'];
     $id_publicacao = $_GET['idp'];
+    $data_real = $_GET['data'];
+
+
     if (isset($_POST['emailsusers'])){
         $listausers = $_POST['emailsusers'];
 
@@ -23,6 +26,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['des']) && isset($_GET['idp
         if (mysqli_stmt_prepare($stmt, $query)) {
             mysqli_stmt_bind_param($stmt, 'iii', $id_user, $id_pub, $criacao);
 
+
             $id_user = $id_utilizador;
             $id_pub = $id_publicacao;
             $criacao = 1;
@@ -34,13 +38,13 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['des']) && isset($_GET['idp
 
 
                 $query = "UPDATE publicacoes 
-                          SET descricao  = ?
+                          SET descricao  = ? , data_publicacao = ?
                           WHERE id_publicacao = $id_pub";
 
 
                 if (mysqli_stmt_prepare($stmt, $query)) {
 
-                    mysqli_stmt_bind_param($stmt, 's', $descricao);
+                    mysqli_stmt_bind_param($stmt, 'ss', $descricao, $data_real);
 
                     if (mysqli_stmt_execute($stmt)) {
 
@@ -49,7 +53,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['des']) && isset($_GET['idp
                         }
                         else {
 
-                            header("Location: ../publicacao.php?idp=$id_pub");
+                                 header("Location: ../publicacao.php?idp=$id_pub");
 
                         }
 

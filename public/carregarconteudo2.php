@@ -14,6 +14,11 @@ if (isset($_POST['evento'])){
 if (isset($_GET['idp'])){
 
 $id_pub = $_GET['idp'];
+
+}
+
+if (isset($_GET['message'])){
+    $feedback = $_GET['message'];
 }
 
 ?>
@@ -37,6 +42,7 @@ $id_pub = $_GET['idp'];
     <script src="interacoes.js" ></script>
     <link rel="stylesheet" type="text/css" href="estilos.css">
     <script src="https://kit.fontawesome.com/2a97b08cd6.js" crossorigin="anonymous"></script>
+    <script src="../node_modules/exif-js/exif.js"></script>
 
     <title>Carregar Conteúdo</title>
 
@@ -107,7 +113,8 @@ $id_pub = $_GET['idp'];
                     <div class="afteruploads mt-2 mb-2">
                         <a data-toggle="modal" data-target="#fotografiaModal">
                             <p style="padding-top: 7%; text-align: initial;">
-                               <img class="imagem_carregamento" src="scripts/upload/<?=$imagem?>">
+                               <img id='imagem_nova' class="imagem_carregamento" src="scripts/upload/<?=$imagem?>">
+                                <input value="" id="data_real" type="hidden" name="data_real">
                             </p>
                         </a>
                     </div>
@@ -126,6 +133,11 @@ $id_pub = $_GET['idp'];
                     </a>
                 </div>
                 <?php
+                if (isset($feedback)){
+                    ?>
+                    <p><?=$feedback?></p>
+            <?php
+                }
 
             }
             ?>
@@ -175,6 +187,48 @@ $id_pub = $_GET['idp'];
 
 
 </main>
+<script>
+    <?php if (isset($imagem)){
+        ?>
+
+    window.onload = getExif;
+
+    function getExif() {
+        var img = document.getElementById("imagem_nova");
+        EXIF.getData(img, function() {
+            var data_imagem = EXIF.getTag(this, "DateTime");
+            document.getElementById("data_real").value = data_imagem;
+            console.log(data_imagem);
+
+        });
+/*
+        EXIF.getData(img1, function() {
+            var loc = EXIF.getTag(this, "GPSLatitude");
+            document.getElementById("makeAndModel1").innerHTML = loc;
+
+            var loc_l = EXIF.getTag(this, "GPSLongitudeRef");
+            document.getElementById("makeAndModel1").innerHTML += '  ' + loc_l;
+
+            ParseDMS(parseInt(loc_l));
+
+            function ParseDMS(input) {
+                var parts = input.split(/[^\d\w]+/);
+                var lat = ConvertDMSToDD(parts[0], parts[1], parts[2], parts[3]);
+                // var lng = ConvertDMSToDD(parts[4], parts[5], parts[6], parts[7]);
+                console.log(lat);
+                // console.log(lng);
+            }
+        });*/
+    }
+    <?php
+      } ?>
+
+    //  dd = d + m/60 + s/3600
+
+
+
+</script>
+
 
 </body>
 </html>
