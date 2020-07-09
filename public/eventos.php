@@ -103,7 +103,7 @@ if (isset($_SESSION['id_utilizador'])){
 
 
                         <div class="col align-content-center mb-3">
-                            <div class="card_vertical h-100">
+                            <div class="card_vertical">
                                 <a class="linkar" href="eventocomsubscricao.php?id=<?=$id_evento?>">
                                     <?php
                                     if ($imagem != ''){
@@ -120,7 +120,7 @@ if (isset($_SESSION['id_utilizador'])){
                                     ?>
                                     <div class="card-body pb-0">
                                     <div class="row">
-                                        <p class="card-title mb-1 titulo_card_eventos col-10"><b> <?php echo $nome_evento ?></b>
+                                        <p class="card-title mb-1 col-10"><b> <?php echo $nome_evento ?></b>
                                         </p>
 
                                         <?php
@@ -151,10 +151,10 @@ if (isset($_SESSION['id_utilizador'])){
 
 
                                     </div>
-                                    <p class="card-text texto_card_eventos m-0">
+                                    <p class="card-text m-0">
                                         <small><?php echo $data_evento?></small>
                                     </p>
-                                    <p class="card-text texto_card_eventos m-0">
+                                    <p class="card-text m-0">
                                         <small> <?= $localizacao ?></small>
                                     </p>
                                 </div>
@@ -196,8 +196,8 @@ if (isset($_SESSION['id_utilizador'])){
                         ?>
 
 
-                        <div class="col align-content-center">
-                            <div class="card card_eventos h-100">
+                        <div class="col align-content-center mb-3">
+                            <div class="card_vertical">
                                 <a class="linkar" href="eventocomsubscricao.php?id=<?=$id_evento?>">
                                     <?php
                                     if ($imagem != ''){
@@ -214,7 +214,7 @@ if (isset($_SESSION['id_utilizador'])){
                                     ?>
                                     <div class="card-body pb-0">
                                     <div class="row">
-                                        <p class="card-title mb-1 titulo_card_eventos col-10"><b><?=$nome_evento ?></b></p>
+                                        <p class="card-title mb-1 col-10"><b><?=$nome_evento ?></b></p>
 
                                         <?php
                                         if (isset($categoria)) {
@@ -245,8 +245,8 @@ if (isset($_SESSION['id_utilizador'])){
 
 
                                     </div>
-                                    <p class="card-text texto_card_eventos m-0"><small><?=$data_evento ?></small></p>
-                                    <p class="card-text texto_card_eventos m-0"><small><?=$localizacao ?></small>
+                                    <p class="card-text m-0"><small><?=$data_evento ?></small></p>
+                                    <p class="card-text m-0"><small><?=$localizacao ?></small>
                                     </p>
                                 </div>
                                     </a>
@@ -302,8 +302,8 @@ if (isset($_SESSION['id_utilizador'])){
                         ?>
 
 
-                        <div class="col align-content-center">
-                            <div class="card card_eventos h-100">
+                        <div class="col align-content-center mb-3">
+                            <div class="card_vertical">
                                 <a class="linkar" href="eventocomsubscricao.php?id=<?=$id_evento?>">
                                 <?php
                                 if ($imagem != ''){
@@ -321,7 +321,7 @@ if (isset($_SESSION['id_utilizador'])){
 
                                 <div class="card-body pb-0">
                                     <div class="row">
-                                        <p class="card-title mb-1 titulo_card_eventos col-10"><b> <?= $nome_evento ?> </b></p>
+                                        <p class="card-title mb-1 col-10"><b> <?= $nome_evento ?> </b></p>
 
                                         <?php
                                         if (isset($categoria)) {
@@ -354,11 +354,11 @@ if (isset($_SESSION['id_utilizador'])){
                                     $date = date('d-m-Y', strtotime($data_evento)); //date format
 
                                     ?>
-                                    <p class="card-text texto_card_eventos m-0"><small><?= $date ?></small></p>
+                                    <p class="card-text m-0"><small><?= $date ?></small></p>
 
 
 
-                                    <p class="card-text texto_card_eventos m-0"><small><?= $localizacao ?></small>
+                                    <p class="card-text m-0"><small><?= $localizacao ?></small>
                                     </p>
                                 </div>
                                 </a>

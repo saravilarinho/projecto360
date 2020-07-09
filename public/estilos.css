@@ -132,16 +132,31 @@ hr {
 
 }
 
+.card_vertical .card-img-top {
+    height: 92px;
+    object-fit: cover;
+}
+
+.card_vertical .card-body {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card_vertical .card-title {
+    line-height: 18px;
+}
+
 .linkar{
     color: #4E6969; !important;
 }
 
-.texto_card_eventos {
+.card_vertical .card-text {
     line-height: 15px;
-}
 
-.titulo_card_eventos {
-    line-height: 18px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .pesquisa {
@@ -699,3 +714,5 @@ i.fa-calendar-alt {
     width: 100px;
     height: 100px;
 }
+
+
