@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <!-- JS, Popper.js, and jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/esm/popper.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
@@ -21,15 +21,68 @@
 </head>
 <body>
 
-<div class="add_comentario fixed-bottom row m-0">
-    <div class="align-self-center">
-        <div class="field">
-            <input type="text" name="descricao" value="" placeholder="Adiciona o teu comentário..." class="texto_form_pesquisa">
-        </div>
-    </div>
-</div>
 
 
+   <!-- <button type="button" class="btn btn-secondary" data-toggle="popover" data-placement="bottom" title="Tooltip on bottom"
+            data-content="<i class="fas fa-camera"
+    style="font-size: font-size: 30px;"></i>">
+        Tooltip on bottom
+    </button>-->
 
+  <!--  <a
+  tabindex="0"
+  class="btn btn-secondary"
+  role="button" data-toggle="popover"    data-html="true"
+       data-placement="bottom" data-trigger="focus"
+       data-content='<div style="background-color: #4E6969;"> <b>Olá</b> </div>'   >
+
+        <i class="fas fa-camera"
+           style="font-size: 30px;"></i>
+        </a>-->
+
+<!--
+   TENTATIVA 2
+-->
+
+   <!-- Popover #1 -->
+   <a
+           tabindex="0"
+           role="button"
+           class="btn"
+           data-placement="bottom"
+           data-popover-content="#a1"
+           data-toggle="popover"
+           data-trigger="focus"
+           href="#"
+           >
+       <i class="fas fa-ellipsis-v p-3"></i>
+
+   </a>
+
+   <!-- Content for Popover #1 -->
+   <div class="hidden" id="a1">
+       <div class="popover-heading d-none container">
+           <div class="row">
+               <div class="col-8 justify-content-end"><small>Ver Mais</small></div>
+               <div class="col-4"><i class="fas fa-info-circle"></i> </div>
+           </div>
+
+           <div class="row">
+               <div class="col-8 justify-content-end"><small>Convidar</small></div>
+               <div class="col-4"><i class="fas fa-user-plus"></i> </div>
+           </div>
+
+           <div class="row">
+               <div class="col-8 justify-content-end"><small>Denunciar</small></div>
+               <div class="col-4"><i class="fas fa-bullhorn"></i> </div>
+           </div>
+       </div>
+
+       <div class="popover-body d-none">
+       </div>
+   </div>
+
+
+    <script src="interacoes.js"></script>
 </body>
 </html>
