@@ -116,6 +116,9 @@ if (isset($_GET['message'])){
                                             <img id='imagem_nova' class="imagem_carregamento"
                                                  src="scripts/upload/<?= $imagem ?>">
                                             <input value="" id="data_real" type="hidden" name="data_real">
+                                            <input value="" id="latitude" type="hidden" name="latitude">
+                                            <input value="" id="longitude" type="hidden" name="longitude">
+
                                         </p>
                                     </a>
                                 </div>
@@ -156,13 +159,13 @@ if (isset($_GET['message'])){
             <?php
             if (isset($imagem)) {
                 ?>
-                <a href="carregarconteudo1.php?<?= $id_evento ?>&img=<?= $imagem ?>">
+                <a href="carregarconteudo1.php?<?=$id_evento?>&img=<?=$imagem?>">
                     <button class="button_stepper" id="previousBtn">Anterior</button>
                 </a>
                 <?php
             } else {
                 ?>
-                <a href="carregarconteudo1.php?<?= $id_evento ?>">
+                <a href="carregarconteudo1.php?<?=$id_evento?>">
                     <button class="button_stepper" id="previousBtn">Anterior</button>
                 </a>
                 <?php
@@ -180,7 +183,7 @@ if (isset($_GET['message'])){
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header modalupload">
-                    <form action="scripts/upload_conteudos.php?id=<?= $id_evento ?>" method="post"
+                    <form action="scripts/upload_conteudos.php?id=<?=$id_evento?>" method="post"
                           enctype="multipart/form-data" class="formularioupload">
                         <p>Seleciona um ficheiro e clica em upload</p>
                         <input type="file" name="file" style="font-size: 12px;padding-bottom: 20px;">
@@ -203,35 +206,75 @@ if (isset($_GET['message'])){
 
     function getExif() {
         var img = document.getElementById("imagem_nova");
+
         EXIF.getData(img, function () {
             var data_imagem = EXIF.getTag(this, "DateTime");
             document.getElementById("data_real").value = data_imagem;
             console.log(data_imagem);
 
         });
-        /*
-                EXIF.getData(img1, function() {
-                    var loc = EXIF.getTag(this, "GPSLatitude");
-                    document.getElementById("makeAndModel1").innerHTML = loc;
 
-                    var loc_l = EXIF.getTag(this, "GPSLongitudeRef");
-                    document.getElementById("makeAndModel1").innerHTML += '  ' + loc_l;
 
-                    ParseDMS(parseInt(loc_l));
+        EXIF.getData(img, function() {
+            var loc = EXIF.getTag(this, "GPSLatitude");
+            var loc_l = EXIF.getTag(this, "GPSLongitude");
 
-                    function ParseDMS(input) {
-                        var parts = input.split(/[^\d\w]+/);
-                        var lat = ConvertDMSToDD(parts[0], parts[1], parts[2], parts[3]);
-                        // var lng = ConvertDMSToDD(parts[4], parts[5], parts[6], parts[7]);
-                        console.log(lat);
-                        // console.log(lng);
-                    }
-                });*/
+            ParseDMS(loc + ' ' + loc_l);
+
+            function ParseDMS(input) {
+
+                var parts = input.split(/[^\d\w]+/);
+                var lat = (parseFloat(parts[2]+'.'+parts[3]));
+                var lng = (parseFloat(parts[6]+'.'+parts[7]));
+
+                var socorro = Number(''+lat+'');
+                var neg = lng * (-1);
+                console.log(neg);
+                var socorro2 = Number(''+neg+'');
+
+                lati(parts[0], parts[1], socorro);
+                longi(parts[4], parts[5], socorro2);
+
+                function lati(deg,min,sec)
+                {
+                    var scr = min * 60;
+                    var vamos = scr + sec;
+                    var opa = parseFloat(vamos)/ 3600;
+                    var help = opa.toFixed(8);
+
+                    // Converting DMS ( Degrees / minutes / seconds ) to decimal format
+                    var resultado = (parseFloat(deg) + parseFloat(help));
+                    console.log(resultado);
+                    document.getElementById("latitude").value = resultado
+
+                }
+
+                function longi(deg,min,sec)
+                {
+                    var scr = min * 60;
+                    var vamos = scr + sec;
+                    var opa = parseFloat(vamos)/ 3600;
+                    var help = opa.toFixed(8);
+
+                    // Converting DMS ( Degrees / minutes / seconds ) to decimal format
+                    var resultado = (parseFloat(deg) + parseFloat(help));
+                    console.log(resultado * (-1));
+                    document.getElementById("longitude").value = resultado * (-1)
+                }
+
+            }
+        });
+
+
+
+
+
+
+
+
     }
     <?php
     } ?>
-
-    //  dd = d + m/60 + s/3600
 
 
 </script>
