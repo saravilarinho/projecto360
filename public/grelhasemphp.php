@@ -96,9 +96,12 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
     <div class="pl-4 container superior_redondo">
 
-        <p class="titulo_evento mb-3 mt-3 col-10">
-        <?=$nome_evento?>
-            <span class="alinhar_fav col-2">
+        <div class="row">
+
+        <p class="titulo_evento mb-3 mt-3 col-8">
+        <?=$nome_evento?></p>
+
+            <span class="col-4 d-flex align-items-center justify-content-around">
             <a class="btn botao_favorito" href="scripts/favoritar_evento.php?id=<?=$id_evento?>">
                   <?php
                     if ($favorito === 0) {?>
@@ -124,8 +127,8 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                     ?>
 
             </span>
+    </div>
 
-        </p>
 
 
         <ul class="nav nav-tabs justify-content-center">
