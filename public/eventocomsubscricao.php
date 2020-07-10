@@ -95,7 +95,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                 <?= $nome_evento ?></p>
 
             <span class="col-4 d-flex align-items-center justify-content-around">
-            <a class="btn botao_favorito" href="scripts/favoritar_evento.php?id=<?= $id ?>">
+            <a class="btn botao_favorito" href="scripts/favoritar_evento.php?id=<?=$id?>">
                     <?php
                     if ($favorito === 0) {
                         ?>
@@ -164,6 +164,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                                             <div class="timeline-status"></div>
                                             <div class="timeline-p">
                                                 <div class="hora"><?=$start?></div>
+                                                <a href="grelhasemphp.php?id=<?=$id_evento?>&hora=<?=$start?>">
                                                 <div class="fotografias">
                                                     <?php
                                                     require_once "../admin/connections/connection2db.php";
@@ -201,6 +202,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                                                     }
                                                     ?>
                                                 </div>
+                                                </a>
                                             </div>
                                         </div>
 
@@ -223,7 +225,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                                     <div class="timeline-object complete">
                                         <div class="timeline-status"></div>
                                         <div class="timeline-p">
-                                            <div class="inicio_evento">O evento irá iniciar dentro de umas horas!</div>
+                                            <div class="inicio_evento ">O evento irá iniciar dentro de umas horas!</div>
                                         </div>
                                     </div>
                                     <?php
@@ -234,12 +236,10 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                                 <div class="timeline-object complete">
                                     <div class="timeline-status"></div>
                                     <div class="timeline-p">
-                                        <div class="inicio_evento">Inicio do evento!</div>
+                                        <div class="inicio_evento fonte_menu" >Inicio do evento!</div>
 
                                     </div>
                                 </div>
-
-
                                 <?php
                             }
                             else
@@ -247,14 +247,23 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                                 //ainda nao comecou || dia check
 
                                 ?>
-                                <p class="col-10 align-self-center">O evento ainda não tem conteúdos. </p>
+                                <p class="col-10 align-self-center">O evento ainda não tem conteúdos associados durante o seu período de duração.</p>
                                 <?php
 
                             }
-
-
                             ?>
 
+
+
+
+                            <div class="timeline-object complete">
+                                <div class="timeline-status"></div>
+                                <div class="timeline-p">
+                                    <div class="inicio_evento fonte_menu"><b>Pré-Evento</b></div>
+                                    <p class="align-self-center">Conteúdos adicionados pela organização.</p>
+
+                                </div>
+                            </div>
 
                         </div>
 
