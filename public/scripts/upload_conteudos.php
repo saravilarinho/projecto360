@@ -49,9 +49,9 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
                         $stmt = mysqli_stmt_init($link);
 
                         $query = "SELECT id_publicacao
-                      FROM   publicacoes
-                      ORDER  BY id_publicacao DESC
-                      LIMIT  1;";
+                                  FROM   publicacoes
+                                  ORDER  BY id_publicacao DESC
+                                  LIMIT  1;";
 
                         if (mysqli_stmt_prepare($stmt, $query)) {
 
@@ -77,6 +77,7 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
             }
             else {
                 if (isset($_GET['x']) && isset($_SESSION['id_utilizador'])) {
+
                     $id_utilizador = $_SESSION['id_utilizador'];
 
                     $query = "UPDATE utilizadores

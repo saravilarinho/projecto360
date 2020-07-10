@@ -735,6 +735,9 @@ i.fa-calendar-alt {
     font-size: 10px;
 }
 
+.fonte_menu{
+    font: menu;
+}
 .popover-heading, .fa-user-plus , .fa-bullhorn {
     color: #3e3f80;
 }

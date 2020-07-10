@@ -1,12 +1,25 @@
 <?php
 session_start();
 
-if (isset($_SESSION['id_utilizador']) && isset($_GET['des']) && isset($_GET['idp']) && isset($_GET['data'])) {
+if (isset($_SESSION['id_utilizador']) && isset($_GET['des']) && isset($_GET['idp']) && isset($_GET['data']) && isset($_GET['lat'])  && isset($_GET['long'])) {
 
     $id_utilizador =$_SESSION['id_utilizador'];
     $descricao = $_GET['des'];
     $id_publicacao = $_GET['idp'];
-    $data_real = $_GET['data'];
+
+
+    if ($_GET['data'] != 'undefined' ){
+        $data_real = $_GET['data'];
+    }
+    else{
+        date_default_timezone_set('Europe/Lisbon');
+        $data_real = date('Y/m/d h:i:s', time());
+    }
+
+    if ($_GET['lat'] != '' && $_GET['long'] != ''){
+        $latitude = $_GET['lat'];
+        $longitude = $_GET['long'];
+    }
 
 
     if (isset($_POST['emailsusers'])){
@@ -38,13 +51,14 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['des']) && isset($_GET['idp
 
 
                 $query = "UPDATE publicacoes 
-                          SET descricao  = ? , data_publicacao = ?
+                          SET descricao  = ? , data_publicacao = ?, coor_lat = ?, coor_lng = ?
                           WHERE id_publicacao = $id_pub";
 
 
                 if (mysqli_stmt_prepare($stmt, $query)) {
 
-                    mysqli_stmt_bind_param($stmt, 'ss', $descricao, $data_real);
+                    mysqli_stmt_bind_param($stmt, 'ssdd', $descricao, $data_real, $latitude, $longitude);
+
 
                     if (mysqli_stmt_execute($stmt)) {
 
