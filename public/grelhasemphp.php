@@ -85,7 +85,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
         ?>
         <main>
 
-            <a href="eventos.php">
+            <a href="eventocomsubscricao.php?id=<?=$id_evento?>">
                 <i class="fas fa-2x fa-chevron-circle-left voltar"></i></a>
             <?php
             if (isset($imagem)) {
