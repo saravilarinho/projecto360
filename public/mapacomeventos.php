@@ -68,7 +68,7 @@ mysqli_stmt_bind_result($stmt, $id, $nome, $data_inicio, $localizacao, $imagem, 
         // localizacao dos markers
         var localizacao = {lat: <?= $latitude ?>, lng: <?= $longitude ?>};
 
-
+        var iconBase = 'imagens/icones/icons8-marker.png';
 
         // cria os markers, e infowindows positioned at localizacao
         var infowindow<?=$i?> = new google.maps.InfoWindow({
@@ -86,7 +86,7 @@ mysqli_stmt_bind_result($stmt, $id, $nome, $data_inicio, $localizacao, $imagem, 
             maxWidth: 250
         });
 
-        var marker<?=$i?> = new google.maps.Marker({position: localizacao, map: map});
+        var marker<?=$i?> = new google.maps.Marker({position: localizacao, map: map, icon: iconBase});
         //funcao que fica a ouvir por cliques nos cards
         marker<?=$i?>.addListener('click', function() {
             infowindow<?=$i?>.open(map, marker<?=$i?>);
@@ -110,12 +110,11 @@ mysqli_stmt_bind_result($stmt, $id, $nome, $data_inicio, $localizacao, $imagem, 
                 };
 
 
-                infoWindow.setPosition(pos);
-                infoWindow.setContent('<h3 style="color: #1ec5bc">Estás aqui</h3>');
-                infoWindow.open(map);
+                var icone = 'imagens/icones/icons8.png';
                 map.setCenter(pos);
 
-                var marker = new google.maps.Marker({position: pos, map: map});
+                var marker = new google.maps.Marker({position: pos, map: map, icon: icone ,animation: google.maps.Animation.DROP,
+                });
 
             }, function() {
                 handleLocationError(true, infoWindow, map.getCenter());
