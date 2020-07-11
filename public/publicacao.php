@@ -85,9 +85,9 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
             </div>
 
 
-            <div class="caixa fixed-bottom header_comentarios" id="caixa" onclick="abrir()">
+            <div class="caixa fixed-bottom header_comentarios" id="caixa">
 
-                <div class="row mt-3 ml-3 mr-0">
+                <div class="row mt-3 ml-3 mr-0" onclick="abrir()">
 
                     <div class="col-2 d-flex justify-content-space-evenly">
                         <a class="btn botao_favorito" href="scripts/add_gosto.php?idp=<?= $id_publicacao ?>">
