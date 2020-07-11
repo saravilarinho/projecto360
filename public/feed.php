@@ -165,7 +165,8 @@ if (isset($_SESSION['id_utilizador'])) {
                                 <?php
                             }
 
-                            ?>                        </div>
+                            ?>
+                        </div>
                         <div class="col-6 align-self-center">
                             <p class="texto_card_historico"><b> <?=$nome_evento?></b> tem novos conteúdos.</p>
                             <?php
