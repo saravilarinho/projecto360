@@ -137,7 +137,7 @@ else {
                                 <p class="mt-2 mb-0 pl-2 titulo_card_stats"><?php echo $eventos_criados ?></p>
                                 <p class="mb-2 mt-0 pl-2 titulo_card_stats">Eventos Criados</p>
                             </div>
-                            <div class="imgs-stats col-6 align-middle">
+                            <div class="d-flex col-6 align-middle">
                                 <?php
 
                                 while (mysqli_stmt_fetch($stmt)) {
@@ -198,7 +198,7 @@ else {
                                 <p class="mt-2 mb-0 pl-2 titulo_card_stats"><?php echo $eventos_subscritos?></p>
                                 <p class="mb-2 mt-0 pl-2 titulo_card_stats">Eventos Subscritos</p>
                             </div>
-                            <div class="imgs-stats col-6 align-middle">
+                            <div class="d-flex col-6 align-middle">
                                 <?php
 
                                 while (mysqli_stmt_fetch($stmt)) {
@@ -257,7 +257,7 @@ else {
                                 <p class="mt-2 mb-0 pl-2 titulo_card_stats"><?php echo $conteudos_partilhados?></p>
                                 <p class="mb-2 mt-0 pl-2 titulo_card_stats">Conteúdos Partilhados</p>
                             </div>
-                            <div class="imgs-stats col-6 align-middle">
+                            <div class="d-flex col-6 align-middle">
                                 <?php
 
                                 while (mysqli_stmt_fetch($stmt)) {
@@ -302,26 +302,26 @@ else {
 
                     while (mysqli_stmt_fetch($stmt)) {
                         ?>
-                            <div class="row">
-
+                            <div class="row mb-1">
+                            <div class="col-3">
                                 <?php
                                     if ($imagem != ''){
                                         ?>
-                                        <img  class="col-4 img_historico rounded-circle"
+                                        <img  class="img_historico rounded-circle"
                                               src="scripts/upload/<?=$imagem?>">
                                         <?php
                                     }
                                     else {
                                         ?>
 
-                                        <img  class="col-4 img_historico rounded-circle"
+                                        <img  class="img_historico rounded-circle"
                                               src="imagens/default-image.jpg">
 
                                         <?php
                                     }
 
                                 ?>
-
+                            </div>
                                 <div class="col-6">
                                     <p class="titulo_card_historico"> <?=$nome?></p>
                                     <p class="texto_card_historico"> <?=$data?></p>
@@ -351,9 +351,8 @@ else {
                                     }
                                     ?>
                                 </div>
-                            <hr>
-                        </div>
-
+                            </div>
+                        <hr>
                         <?php
                 } }
 
