@@ -311,7 +311,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
             <div id="mapa" class="tab-pane fade in">
                 <?php
-                include_once "mapacomeventos.php";
+                include_once "mapacomconteudos.php";
                 ?>
 
 
