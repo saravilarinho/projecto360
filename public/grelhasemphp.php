@@ -108,7 +108,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                         <?= $nome_evento ?></p>
 
                     <span class="col-4 d-flex align-items-center justify-content-around">
-            <a class="btn botao_favorito" href="scripts/favoritar_evento.php?id=<?= $id_evento ?>">
+                <a class="btn botao_favorito" href="scripts/favoritar_evento.php?id=<?= $id_evento ?>">
                   <?php
                   if ($favorito === 0) { ?>
                       <i class="far fa-star" style="font-size: 15px;"></i>
@@ -120,7 +120,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                       }
                   }
                   ?>
-            </a>
+                </a>
 
                 <?php
                 if ($id_role === 1) { ?>
@@ -132,7 +132,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                 }
                 ?>
 
-            </span>
+                </span>
                 </div>
 
 
@@ -190,8 +190,10 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                                         ?>
 
                                         <a href="publicacao.php?idp=<?= $id_p ?>">
-                                            <div class="col-3 m-2 imagem_grelha"
-                                                 style="height: 90px; background-image: url('scripts/upload/<?= $conteudo ?>'"></div>
+                                            <div class="col-3 m-2 imagem_grelha" onclick="publicacao()" id="pub"
+                                                 style="height: 90px; background-image: url('scripts/upload/<?= $conteudo ?>'">
+
+                                            </div>
                                         </a>
                                         <?php
                                     }

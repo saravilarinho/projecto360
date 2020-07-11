@@ -56,3 +56,11 @@ $(function(){
 $('.popover-dismiss').popover({
     trigger: "focus"
 });
+
+/*function publicacao() {
+document.getElementById("pub").onclick = "publicacao.php?idp=<?= $id_p ?>";
+}*/
+
+function publicacao() {
+    location.href = "publicacao.php?idp=<?= $id_p ?>";
+}
