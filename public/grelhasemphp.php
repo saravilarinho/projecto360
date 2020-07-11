@@ -148,7 +148,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                     <div id="timeline" class="tab-pane fade in active show">
 
 
-                        <a href="eventos.php">
+                        <a href="eventocomsubscricao.php?id=<?=$id_evento?>">
                             <div class="row">
                                 <i class="fas fa-2x fa-chevron-circle-left voltar" style="color: #1ec5bc"></i>
                                 <p style="color: #0a2b1d"><?= $hora ?></p>
@@ -189,12 +189,13 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
                                         ?>
 
-                                        <a href="publicacao.php?idp=<?= $id_p ?>">
-                                            <div class="col-3 m-2 imagem_grelha" onclick="publicacao()" id="pub"
-                                                 style="height: 90px; background-image: url('scripts/upload/<?= $conteudo ?>'">
+
+                                            <div class="col-3 m-2 imagem_grelha" onclick="publicacao(<?=$id_p?>)" id="pub" style="height: 90px; background-image: url('scripts/upload/<?= $conteudo ?>'">
 
                                             </div>
-                                        </a>
+
+
+
                                         <?php
                                     }
                                 }
@@ -214,6 +215,13 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     }
 }
 ?>
+<script>
+
+    function publicacao(id) {
+        location.href = "publicacao.php?idp="+id+"";
+    }
+
+</script>
 </body>
 
 </html>
