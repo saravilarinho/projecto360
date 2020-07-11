@@ -85,7 +85,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
             </div>
 
 
-            <div class="caixa fixed-bottom header_comentarios" id="caixa" onclick="abrir(); fechar();">
+            <div class="caixa fixed-bottom header_comentarios" id="caixa" onclick="abrir()">
 
                 <div class="row mt-3 ml-3 mr-0">
 
@@ -265,10 +265,10 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                         <div class="align-self-center">
                             <form action="scripts/add_comentario.php?idp=<?=$id_publicacao?>" role="form" method="post" class="d-flex">
                             <div class="field col-10">
-                                <input type="text" name="comentario" value="" placeholder="Adiciona o teu comentário..." class="texto_form_pesquisa">
+                                <input type="text" name="comentario" value="" placeholder="Adiciona o teu comentário..." class="p-1 campo_form" style="width: 245px">
                             </div>
 
-                            <div class="col-2 ml-3">
+                            <div class="col-2 ml-3 text-right">
                                 <btn type="submit"><i class="fas fa-check"></i> </btn>
                             </div>
 

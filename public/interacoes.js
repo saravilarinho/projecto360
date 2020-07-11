@@ -8,14 +8,25 @@ function off() {
 }
 
 function abrir() {
-    document.getElementById("caixa").style.height = "400px";
-    document.getElementById("comentarios").style.visibility = "visible";
-    console.log("ABRI");
-    document.getElementById("subir").style.visibility = "hidden";
-    document.getElementById("descer").style.visibility = "visible";
-    document.getElementById("descer").style.position = "absolute";
+    var x = document.getElementById("caixa");
+    var y = document.getElementById("comentarios");
+    var s = document.getElementById( "subir");
+    var d = document.getElementById("descer");
+    if (x.style.height === "150px") {
+        x.style.height = "400px";
+        y.style.visibility = "visible";
+        s.style.visibility = "hidden";
+        d.style.visibility = "visible";
+        d.style.position = "absolute";
 
+    } else {
+        x.style.height = "150px";
+        y.style.visibility = "hidden";
+        d.style.visibility = "hidden";
+        s.style.visibility = "visible";
+    }
 }
+
 
 /*function fechar() {
     document.getElementById("caixa").style.height = "150px";
@@ -56,3 +67,11 @@ $(function(){
 $('.popover-dismiss').popover({
     trigger: "focus"
 });
+
+/*function publicacao() {
+document.getElementById("pub").onclick = "publicacao.php?idp=<?= $id_p ?>";
+}*/
+
+function publicacao() {
+    location.href = "publicacao.php?idp=<?= $id_p ?>";
+}
