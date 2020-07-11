@@ -163,7 +163,10 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                                         <div class="timeline-object complete">
                                             <div class="timeline-status"></div>
                                             <div class="timeline-p">
-                                                <div class="hora"><?=$start?></div>
+                                                <div class="hora">
+                                                    <?=$start ?>
+
+                                                </div>
                                                 <a href="grelhasemphp.php?id=<?=$id_evento?>&hora=<?=$start?>">
                                                 <div class="fotografias">
                                                     <?php
@@ -260,8 +263,42 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                                 <div class="timeline-status"></div>
                                 <div class="timeline-p">
                                     <div class="inicio_evento fonte_menu"><b>Pré-Evento</b></div>
-                                    <p class="align-self-center">Conteúdos adicionados pela organização.</p>
+                                    <p class="align-self-center"><small>Conteúdos adicionados pela organização.</small></p>
+                                    <div class="fotografias">
+                                    <?php
+                                    require_once "../admin/connections/connection2db.php";
 
+                                    $link = new_db_connection();
+                                    $stmt = mysqli_stmt_init($link);
+
+                                    $query = "SELECT publicacoes.conteudo_publicacao, publicacoes.data_publicacao, eventos.data_inicio_evento, eventos.hora_inicio 
+                                                              FROM publicacoes 
+                                                              INNER JOIN eventos
+                                                              ON publicacoes.eventos_id_evento = eventos.id_evento
+                                                              WHERE publicacoes.data_publicacao < eventos.data_inicio_evento AND publicacoes.eventos_id_evento = ?
+                                                              ORDER BY publicacoes.id_publicacao DESC";
+
+
+                                    if (mysqli_stmt_prepare($stmt, $query)) {
+                                    mysqli_stmt_bind_param($stmt, 'i', $id);
+
+                                   // $inicio = date('Y-m-d H:i:s', strtotime('+0 hour', strtotime($data_inicio . $start)));
+                                  //  $fim = date('Y-m-d H:i:s', strtotime('+1 hour', strtotime($data_inicio . $start)));
+                                    $id = $_GET["id"];
+
+                                    mysqli_stmt_execute($stmt);
+
+                                    mysqli_stmt_bind_result($stmt, $conteudo, $data_pub, $data_inicio_evento, $hora_inicio_evento);
+
+
+                                    while (mysqli_stmt_fetch($stmt)) {
+
+                                        ?>
+                                        <img class="img_timeline" src="scripts/upload/<?= $conteudo ?>">
+                                        <?php
+                                    }}
+                                    ?>
+                                    </div>
                                 </div>
                             </div>
 

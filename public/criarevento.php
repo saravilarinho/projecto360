@@ -94,7 +94,7 @@ if (isset($_SESSION['id_utilizador'])){
         <div class="field">
             <div class="label">Data de Início</div>
             <input type="date"  name="data_inicio"  class="campo_form campo_data_hora" required>
-            <input type="time"  name="hora_inicio"  class="campos_form_criarevento campo_data_hora" required>
+            <input type="time"  name="hora_inicio"  class="campo_form campo_data_hora" required>
 
             <div class="label">Data de Fim</div>
             <input type="date"  name="data_fim"  class="campo_form campo_data_hora">

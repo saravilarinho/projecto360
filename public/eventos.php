@@ -303,9 +303,11 @@ if (isset($_SESSION['id_utilizador'])){
 
 
                         <div class="col align-content-center mb-3">
-                            <div class="card_vertical">
                                 <a class="linkar" href="eventocomsubscricao.php?id=<?=$id_evento?>">
-                                <?php
+
+                                    <div class="card_vertical">
+
+                                    <?php
                                 if ($imagem != ''){
                                     ?>
                                     <img src="scripts/upload/<?=$imagem?>" class="card-img-top" alt="...">
@@ -361,8 +363,8 @@ if (isset($_SESSION['id_utilizador'])){
                                     <p class="card-text m-0"><small><?= $localizacao ?></small>
                                     </p>
                                 </div>
-                                </a>
-                            </div>
+
+                            </div> </a>
                         </div>
 
                         <?php }

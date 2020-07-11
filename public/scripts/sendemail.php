@@ -36,7 +36,7 @@ if (isset($_GET['id']) && isset($_GET['lista']) && isset($_GET['nome']) && isset
 
             require_once('../../admin/PHPMailer/PHPMailerAutoload.php');
 
-            $mail = new PHPMailer();
+            $mail = new PHPMailer(true);
             $mail->isSMTP();
             $mail->SMTPAuth = true;
             $mail->SMTPSecure = 'ssl';
@@ -47,9 +47,11 @@ if (isset($_GET['id']) && isset($_GET['lista']) && isset($_GET['nome']) && isset
             $mail->Password = 'Projecto360%';
             $mail->SetFrom('no-reply@gmail.com');
             $mail->Subject = 'Convite para o evento ' . $nome_evento;
+            $mail->addEmbeddedImage('../imagens/logocslogan.png', 'image_cid');
+
             $mail->Body = '<p>Foste convidado por ' . $nome_utilizador . ' para o evento ' . $nome_evento . ', para saberes mais, acede à aplicação 360 e subscreve o evento!</p>
        <br>
-       <a href="http://360.web.ua.pt/projecto360/public/login.php">Projeto 360 </a>';
+       <a href="http://360.web.ua.pt/projecto360/public/login.php"><img src="cid:image_cid" style="width: 50%;">Projeto 360 </a>';
 
             foreach($lista_array as $value => $key)
             {
@@ -117,7 +119,7 @@ if (isset($_GET['idp']) && isset($_GET['lista']) && isset($_SESSION['id_utilizad
                     require_once ('../../admin/PHPMailer/class.phpmailer.php');
 
                     $mail = new PHPMailer();
-                  //  $mail->isSMTP();
+                    $mail->isSMTP();
                     $mail->SMTPAuth = true;
                     $mail->SMTPSecure = 'ssl';
                     $mail->Host = 'smtp.gmail.com';
@@ -127,9 +129,11 @@ if (isset($_GET['idp']) && isset($_GET['lista']) && isset($_SESSION['id_utilizad
                     $mail->Password = 'Projecto360%';
                     $mail->SetFrom('no-reply@gmail.com');
                     $mail->Subject = 'Foste identificado numapublicação ' . $nome_utilizador;
+                    $mail->addEmbeddedImage('../imagens/logocslogan.png', 'image_cid');
                     $mail->Body = '<p>Foste identificado por ' . $nome_utilizador . ' numa publicação do evento ' . $nome_evento_publicacao . ', para saberes mais, acede à aplicação 360 e subscreve o evento!</p>
        <br>
-       <a href="http://360.web.ua.pt/projecto360/public/login.php">Projeto 360 </a>';
+       <a href="http://360.web.ua.pt/projecto360/public/login.php"><img src="cid:image_cid">Projeto 360 </a>';
+
 
                     foreach($lista_array as $value => $key)
                     {
