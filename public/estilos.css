@@ -738,15 +738,14 @@ i.fa-calendar-alt {
     font: menu;
 }
 .popover-heading, .fa-user-plus , .fa-bullhorn {
-    color: #3e3f80;
+    color: #1ec5bc;
 }
 
 .fa-info-circle {
-    color: #3e3f80; !important;
+    color: #1ec5bc; !important;
 }
 
 .fa-ellipsis-v {
-    background-color: white;
     color: #1ec5bc;
 }
 

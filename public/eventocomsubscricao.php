@@ -70,9 +70,56 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 </head>
 <body>
 <main>
+    <div class="container position-absolute">
 
-    <a href="eventos.php">
-    <i class="fas fa-2x fa-chevron-circle-left voltar"></i></a>
+        <div class="row">
+            <div class="col-6 text-left">
+                <a href="eventos.php">
+                    <i class="fas fa-2x fa-chevron-circle-left voltar"></i></a>
+            </div>
+
+            <div class="col-6 text-right mt-2">
+
+                <a tabindex="0" role="button" class="btn rounded-circle" data-placement="bottom" data-popover-content="#a1" style="background-color: white; width: 32px; height: 32px;"
+                   data-toggle="popover" data-trigger="focus" href="#">
+                    <i class="fas fa-ellipsis-v pr-1 pb-1"></i>
+                </a>
+
+                <!-- Content for Popover #1 -->
+                <div class="hidden" id="a1">
+                    <div class="popover-heading d-none container">
+                        <div class="row">
+                            <div class="col-8 justify-content-end"><small>Ver Mais</small></div>
+                            <div class="col-4"><i class="fas fa-info-circle"></i></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-8 justify-content-end"><small>Convidar</small></div>
+                            <div class="col-4"><i class="fas fa-user-plus"></i></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-8 justify-content-end"><small>Denunciar</small></div>
+                            <div class="col-4"><i class="fas fa-bullhorn"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="popover-body d-none">
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+    </div>
+    </div>
+
+
+
+
    <?php
    if ($imagem != ''){
        ?>
