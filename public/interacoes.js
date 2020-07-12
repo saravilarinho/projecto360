@@ -27,29 +27,6 @@ function abrir() {
     }
 }
 
-
-/*function fechar() {
-    document.getElementById("caixa").style.height = "150px";
-    document.getElementById("comentarios").style.visibility = "hidden";
-}
-
-
-
-if (document.getElementById("caixa").style.height = "400px") {
-    fechar()
-}*/
-
-// popovers Initialization
-/*$(function () {
-    $('[data-toggle="popover"]').popover()
-});
-
-
-*/
-
-/*
-TENTATIVA 2*/
-
 $(function(){
     $("[data-toggle=popover]").popover({
         html : true,
@@ -68,10 +45,9 @@ $('.popover-dismiss').popover({
     trigger: "focus"
 });
 
-/*function publicacao() {
-document.getElementById("pub").onclick = "publicacao.php?idp=<?= $id_p ?>";
-}*/
-
 function publicacao() {
     location.href = "publicacao.php?idp=<?= $id_p ?>";
 }
+
+
+
