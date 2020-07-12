@@ -34,7 +34,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
 </head>
 
 
-<body>
+<body onload="altura()">
 
 
 <main style="background-color: black">
@@ -77,13 +77,25 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                     <div class="visualizacao">
                         <a href="eventocomsubscricao.php?id=<?= $id_evento ?>">
                             <i class="fas fa-2x fa-chevron-circle-left voltar"></i></a>
-                        <img src="scripts/upload/<?= $conteudo ?>" class="col-12 p-0 align-self-center">
-
+                        <img id="pub" src="scripts/upload/<?= $conteudo ?>" class="col-12 p-0 align-self-center">
 
                     </div>
                 </div>
             </div>
 
+            <script>
+            function altura() {
+                var x = document.getElementById("pub");
+            if ( x.style.height <= "250px" ) {
+            x.style.marginTop = "9rem";
+            console.log("pequena")
+            }
+            if (x.style.height >= "251px") {
+            x.style.marginTop = "0";
+            console.log("grande")
+            }
+            }
+            </script>
 
             <div class="caixa fixed-bottom header_comentarios" id="caixa">
 
@@ -287,6 +299,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
 
 
 </main>
+
 
 <script src="interacoes.js"></script>
 </body>
