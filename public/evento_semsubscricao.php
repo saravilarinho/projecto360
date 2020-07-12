@@ -44,7 +44,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['id'])) {
 <body>
 
 <main>
-    <div class="container">
+    <div class="container position-absolute">
         <div class="row">
             <div class="col-6 text-left">
 

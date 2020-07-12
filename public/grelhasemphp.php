@@ -144,17 +144,16 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                 </ul>
 
 
-                <div class="tab-content">
+                <div class="tab-content container">
                     <div id="timeline" class="tab-pane fade in active show">
 
 
                         <a href="eventocomsubscricao.php?id=<?=$id_evento?>">
-                            <div class="row">
-                                <i class="fas fa-2x fa-chevron-circle-left voltar" style="color: #1ec5bc"></i>
-                                <p style="color: #0a2b1d"><?= $hora ?></p>
+                            <div class="row mt-3">
+                                <i class="col-2 fas fa-2x fa-long-arrow-alt-left voltar" style="color: #1ec5bc"></i>
+                                <p class="col-3 pl-0" style="color: #0a2b1d"><?= $hora ?></p>
                             </div>
                         </a>
-
 
                         <div class="container">
                             <div class="row">
