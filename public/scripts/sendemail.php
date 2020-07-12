@@ -1,6 +1,15 @@
 <?php
 session_start();
 
+/*use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+// Load Composer's autoloader
+require 'vendor/autoload.php';
+$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+*/
+
 if (isset($_GET['id']) && isset($_GET['lista']) && isset($_GET['nome']) && isset($_SESSION['id_utilizador'])) {
 
     $lista_convidados = $_GET['lista'];
