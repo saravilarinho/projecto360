@@ -18,10 +18,8 @@ $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
 
 if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
     // Allow certain file formats
-    var_dump("entra dentro da condicao");
-    var_dump($targetFilePath);
 
-    $allowTypes = array('jpg','png','jpeg');
+    $allowTypes = array('JPG','PNG','JPEG');
     if(in_array($fileType, $allowTypes)){
 
 

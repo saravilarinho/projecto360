@@ -1,15 +1,17 @@
 <?php
 session_start();
 
-if (isset($_SESSION['id_utilizador']) && isset($_GET['des']) && isset($_GET['idp']) && isset($_GET['data']) && isset($_GET['lat'])  && isset($_GET['long'])) {
+if (isset($_SESSION['id_utilizador']) && isset($_GET['idp']) && isset($_GET['data']) ) {
 
     $id_utilizador =$_SESSION['id_utilizador'];
     $descricao = $_GET['des'];
     $id_publicacao = $_GET['idp'];
 
 
+
     if ($_GET['data'] != 'undefined' ){
         $data_real = $_GET['data'];
+
     }
     else{
         date_default_timezone_set('Europe/Lisbon');
@@ -57,7 +59,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['des']) && isset($_GET['idp
 
                 if (mysqli_stmt_prepare($stmt, $query)) {
 
-                    mysqli_stmt_bind_param($stmt, 'ssdd', $descricao, $data_real, $latitude, $longitude);
+                    mysqli_stmt_bind_param($stmt, 'ssdd', $descricao, $dataaaaa, $latitude, $longitude);
 
 
                     if (mysqli_stmt_execute($stmt)) {
