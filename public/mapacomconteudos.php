@@ -15,6 +15,12 @@ if (isset($_SESSION['id_utilizador'])) {
             height: 65vh;
             background-color: grey;
         }
+        #naohamapa{
+            width: 97%;
+            height: 20vh;
+            text-align: center;
+            margin-top: 35%;
+        }
     </style>
 
     <link rel="stylesheet" type="text/css" href="estilos.css">
@@ -23,6 +29,7 @@ if (isset($_SESSION['id_utilizador'])) {
 <body>
 <!--The div element for the map -->
 <div id="map"></div>
+<div id="naohamapa" ></div>
 
 <?php
 
@@ -65,12 +72,10 @@ mysqli_stmt_bind_result($stmt, $id_pub, $conteudo, $lat_pub, $long_pub, $evento_
         $i = 0;
         while (mysqli_stmt_fetch($stmt)) {
 
-
-
         ?>
-
         // localizacao dos markers
         var localizacao = {lat: <?= $evento_lat ?>, lng: <?= $evento_long ?>};
+
         var map = new google.maps.Map(document.getElementById('map'), {zoom: 16, center: localizacao});
 
         map.setCenter(localizacao);
@@ -105,7 +110,15 @@ mysqli_stmt_bind_result($stmt, $id_pub, $conteudo, $lat_pub, $long_pub, $evento_
         $i++;
 
         }
-        }
+        if (!mysqli_stmt_fetch($stmt)){
+        ?>
+
+        document.getElementById("naohamapa").innerHTML = "Este evento não possui conteúdos localizados geograficamente.";
+        document.getElementById("map").style.display ="none";
+
+        <?php }
+
+}
 
         ?>
 
