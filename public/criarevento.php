@@ -80,8 +80,9 @@ if (isset($_SESSION['id_utilizador'])){
         </div>
             <div class="field" id="pac-card">
                 <div class="label">Localização</div>
-
+                <div class="label"><small>Seleciona uma das localizações sugeridas.</small></div>
                 <div id="pac-container">
+
                     <input type="hidden" name="lat" id="lat">
                     <input type="hidden" name="lng" id="lng">
                     <input type="hidden" name="location" id="location">
