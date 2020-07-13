@@ -102,9 +102,8 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
             var_dump($statusMsg);
         }
     }else{
-        $statusMsg = 'Sorry, only JPG, JPEG, PNG files are allowed to upload.';
-        var_dump($statusMsg);
-
+        $statusMsg = '<small>Apenas são permitidos ficheiros JPG, JPEG e PNG.</small>';
+        header("Location: ../carregarconteudo2.php?message=$statusMsg&id=$id_evento");
     }
 }else{
     $statusMsg = 'Please select a file to upload.';

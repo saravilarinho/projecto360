@@ -21,6 +21,12 @@ if (isset($_GET['message'])){
     $feedback = $_GET['message'];
 }
 
+if (isset($_GET['id'])){
+    $id_evento = $_GET['id'];
+
+
+}
+
 ?>
 <!DOCTYPE html>
 <head>
