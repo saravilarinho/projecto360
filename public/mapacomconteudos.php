@@ -69,6 +69,22 @@ mysqli_stmt_bind_result($stmt, $id_pub, $conteudo, $lat_pub, $long_pub, $evento_
         infoWindow = new google.maps.InfoWindow;
 
         <?php
+
+
+        if (is_null(mysqli_stmt_fetch($stmt))){
+        ?>
+        console.log("wut");
+
+        document.getElementById("naohamapa").innerHTML = "Este evento não possui conteúdos localizados geograficamente.";
+        document.getElementById("map").style.display ="none";
+
+        <?php }
+
+        else {
+
+            if (mysqli_stmt_fetch($stmt) != 0){
+
+
         $i = 0;
         while (mysqli_stmt_fetch($stmt)) {
 
@@ -77,6 +93,7 @@ mysqli_stmt_bind_result($stmt, $id_pub, $conteudo, $lat_pub, $long_pub, $evento_
         var localizacao = {lat: <?= $evento_lat ?>, lng: <?= $evento_long ?>};
 
         var map = new google.maps.Map(document.getElementById('map'), {zoom: 16, center: localizacao});
+
 
         map.setCenter(localizacao);
 
@@ -95,28 +112,34 @@ mysqli_stmt_bind_result($stmt, $id_pub, $conteudo, $lat_pub, $long_pub, $evento_
             maxWidth: 250
         });
 
-        if (<?=$lat_pub?> != ''){
 
         var localizacao_pub = {lat: <?=$lat_pub?>, lng: <?=$long_pub?>};
         var marker<?=$i?> = new google.maps.Marker({position: localizacao_pub, map: map});
         //funcao que fica a ouvir por cliques nos cards
-        marker<?=$i?>.addListener('click', function() {
+        marker<?=$i?>.addListener('click', function () {
             infowindow<?=$i?>.open(map, marker<?=$i?>);
         });
-        }
+
 
         <?php
 
         $i++;
-
         }
-        if (!mysqli_stmt_fetch($stmt)){
+
+            } else{
         ?>
+        console.log("wut");
 
         document.getElementById("naohamapa").innerHTML = "Este evento não possui conteúdos localizados geograficamente.";
         document.getElementById("map").style.display ="none";
 
-        <?php }
+        <?php
+    }
+
+        }
+
+
+
 
 }
 

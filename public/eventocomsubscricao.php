@@ -183,9 +183,11 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
                             <?php
                             $agora_dia = date("Y-m-d");
-                            $agora_hora = date("H:i");
+                            $agora_hora = date("Y-m-d H:i:s", time());
 
-                            if ($agora_dia > $data_inicio ){
+                            $hora_evento = date('Y-m-d H:i:s', strtotime('+0 hour', strtotime($data_inicio . $hora_inicio)));
+
+                            if ($agora_dia > $hora_evento){
 
                                 //ja começou o evento || check dia
 
