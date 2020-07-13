@@ -7,6 +7,7 @@ if (isset($_SESSION['id_utilizador'])){
 
 }
 
+
 ?>
 <!DOCTYPE html>
 <head>
@@ -93,12 +94,32 @@ WHERE utilizadores_has_eventos.utilizadores_id_utilizador = $id_utilizador AND d
 
 
                                 while (mysqli_stmt_fetch($stmt)) {
-                                    ?>
 
-                                    <input type="radio" id="concerto1" name="evento" value="<?=$id?>">
-                                    <label for="concerto1" class="label"><?=$nome?></label> <br>
+                                    if (isset($_GET['id'])){
+                                        $id_evento = $_GET['id'];
 
-                                    <?php
+                                        if (''.$id.'' === $id_evento) {
+
+                                            ?>
+                                            <input type="radio" id="concerto1" name="evento" value="<?= $id ?>" checked>
+                                            <label for="concerto1" class="label"><?= $nome ?></label> <br>
+                                            <?php
+                                        }
+                                        else {
+                                            ?>
+                                            <input type="radio" id="concerto1" name="evento" value="<?=$id?>">
+                                            <label for="concerto1" class="label"><?=$nome?></label> <br>
+
+                                            <?php
+                                        }
+                                    }else {
+                                        ?>
+                                        <input type="radio" id="concerto1" name="evento" value="<?=$id?>">
+                                        <label for="concerto1" class="label"><?=$nome?></label> <br>
+
+                                        <?php
+                                    }
+
                                 }
                             }
                             ?>

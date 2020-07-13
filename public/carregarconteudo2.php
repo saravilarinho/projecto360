@@ -165,14 +165,15 @@ if (isset($_GET['id'])){
             <?php
             if (isset($imagem)) {
                 ?>
-                <a href="carregarconteudo1.php?<?=$id_evento?>&img=<?=$imagem?>">
-                    <button class="button_stepper" id="previousBtn">Anterior</button>
+                <a href="carregarconteudo1.php?id=<?=$id_evento?>&img=<?=$imagem?>&ide=ok">
+                    <button type="button" class="button_stepper" id="previousBtn">Anterior</button>
                 </a>
                 <?php
             } else {
                 ?>
-                <a href="carregarconteudo1.php?<?=$id_evento?>">
-                    <button class="button_stepper" id="previousBtn">Anterior</button>
+
+                <a href="carregarconteudo1.php?id=<?=$id_evento?>&ide=ok">
+                    <button type="button" class="button_stepper" id="previousBtn">Anterior</button>
                 </a>
                 <?php
             }
