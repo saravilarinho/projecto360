@@ -34,10 +34,10 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
 </head>
 
 
-<body onload="altura()">
+<body onload="altura()" style="background-color: black !important;">
 
 
-<main style="background-color: black">
+<main class="mb-0">
 
 
     <?php

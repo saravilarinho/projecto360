@@ -172,9 +172,6 @@ hr {
     margin: auto;
 }
 
-.texto_form {
-}
-
 .texto_pesquisa {
     color: #4E6969;
     font-size: 15px;
@@ -188,6 +185,7 @@ hr {
 .texto_descricao_evento {
     font-size: 15px;
     color: #4E6969;
+    line-height: 20px;
 }
 
 i.fa-map-marker-alt {
@@ -620,9 +618,6 @@ i.fa-calendar-alt {
    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35);
 }
 
-.visualizacao {
-    height: 800px;
-}
 
 .header_comentarios .col-2 {
     padding: 0;
@@ -743,6 +738,10 @@ i.fa-calendar-alt {
 
 .fa-info-circle {
     color: #1ec5bc; !important;
+}
+
+.texto-popover {
+font-size: 13px;
 }
 
 .fa-ellipsis-v {

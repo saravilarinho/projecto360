@@ -62,17 +62,17 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['id'])) {
                 <div class="hidden" id="a1">
                     <div class="popover-heading d-none container">
                         <div class="row">
-                            <div class="col-8 justify-content-end"><small>Ver Mais</small></div>
+                            <div class="col-8 justify-content-end"><p class="texto-popover">Ver Mais</p></div>
                             <div class="col-4"><i class="fas fa-info-circle"></i></div>
                         </div>
 
                         <div class="row">
-                            <div class="col-8 justify-content-end"><small>Convidar</small></div>
+                            <div class="col-8 justify-content-end"><p class="texto-popover">Convidar</p></div>
                             <div class="col-4"><i class="fas fa-user-plus"></i></div>
                         </div>
 
                         <div class="row">
-                            <div class="col-8 justify-content-end"><small>Denunciar</small></div>
+                            <div class="col-8 justify-content-end"><p class="texto-popover">Denunciar</p></div>
                             <div class="col-4"><i class="fas fa-bullhorn"></i></div>
                         </div>
                     </div>
@@ -125,22 +125,6 @@ if (mysqli_stmt_prepare($stmt, $query)) {
         <?php
     }
     ?>
-
-    <div class="row mt-1 ml-4 mr-0">
-        <div class="col-8 d-flex p-0">
-            <i class="fas fa-map-marker-alt"></i>
-            <small class="pl-1"><?= $localizacao ?></small>
-        </div>
-
-        <div class="col-4 d-flex p-0">
-            <i class="far fa-calendar-alt"></i>
-
-
-            <small class="pl-1"><?= $data_inicio?> - <?= $data_fim?></small>
-        </div>
-    </div>
-
-
 
     <div class="pl-4 container superior_redondo">
         <div class="info_evento">
@@ -316,7 +300,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
         }
         else{
             ?>
-            <div class="justify-content-center d-flex mt-2">
+            <div class="justify-content-center d-flex mt-2 mb-4">
 
 
                 <button class="btn botao_grande" >
