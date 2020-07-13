@@ -37,7 +37,8 @@ INNER JOIN utilizadores_has_publicacoes
 ON utilizadores_has_publicacoes.publicacoes_id_publicacao = publicacoes.id_publicacao 
 INNER JOIN eventos 
 ON eventos.id_evento = publicacoes.eventos_id_evento 
-WHERE publicacoes.eventos_id_evento = ? ";
+WHERE publicacoes.eventos_id_evento = ?
+";
 
 
 if (mysqli_stmt_prepare($stmt, $query)) {
@@ -58,7 +59,6 @@ mysqli_stmt_bind_result($stmt, $id_pub, $conteudo, $lat_pub, $long_pub, $evento_
     function initMap() {
 
         // The map, centered at localizacao
-        var map = new google.maps.Map(document.getElementById('map'), {zoom: 16, center: localizacao});
         infoWindow = new google.maps.InfoWindow;
 
         <?php
@@ -71,6 +71,7 @@ mysqli_stmt_bind_result($stmt, $id_pub, $conteudo, $lat_pub, $long_pub, $evento_
 
         // localizacao dos markers
         var localizacao = {lat: <?= $evento_lat ?>, lng: <?= $evento_long ?>};
+        var map = new google.maps.Map(document.getElementById('map'), {zoom: 16, center: localizacao});
 
         map.setCenter(localizacao);
 
@@ -90,16 +91,13 @@ mysqli_stmt_bind_result($stmt, $id_pub, $conteudo, $lat_pub, $long_pub, $evento_
         });
 
         if (<?=$lat_pub?> != ''){
-            if(<?=$lat_pub?> != 0)
-            {
 
-                var localizacao_pub = {lat: <?=$lat_pub?>, lng: <?=$long_pub?>};
-                var marker<?=$i?> = new google.maps.Marker({position: localizacao_pub, map: map});
-                //funcao que fica a ouvir por cliques nos cards
-                marker<?=$i?>.addListener('click', function () {
-                    infowindow<?=$i?>.open(map, marker<?=$i?>);
-                });
-            }
+        var localizacao_pub = {lat: <?=$lat_pub?>, lng: <?=$long_pub?>};
+        var marker<?=$i?> = new google.maps.Marker({position: localizacao_pub, map: map});
+        //funcao que fica a ouvir por cliques nos cards
+        marker<?=$i?>.addListener('click', function() {
+            infowindow<?=$i?>.open(map, marker<?=$i?>);
+        });
         }
 
         <?php

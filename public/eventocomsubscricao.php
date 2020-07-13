@@ -356,7 +356,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
             </div>
 
 
-            <div id="mapa" class="tab-pane fade in">
+            <div id="mapa" class="tab-pane fade in" style="    margin-top: 15px;">
                 <?php
                 include_once "mapacomconteudos.php";
                 ?>
@@ -426,7 +426,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                     while (mysqli_stmt_fetch($stmt)) {
                         ?>
                         <div class="row align-items-center">
-                            <img class="col-2 align-self-center" src="imagens/icones/icone_festa.png">
+                            <img class="col-2 align-self-center" src="imagens/icones/icone_mais.png">
                             <p class="col-10 align-self-center">
                                 <small><?=$nome?> subscreveu o evento.</small>
                                 <small class="tempo_atras"><?php echo time_elapsed_string($dataa);?></small>
