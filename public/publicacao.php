@@ -83,18 +83,34 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                 </div>
             </div>
 
-            <script>
-            function altura() {
-                var x = document.getElementById("pub");
-            if ( x.style.height <= "250px" ) {
-            x.style.marginTop = "9rem";
-            console.log("pequena")
-            }
-            if (x.style.height >= "251px") {
-            x.style.marginTop = "0";
-            console.log("grande")
-            }
-            }
+            <script type="text/javascript">
+
+                function altura() {
+
+                    var img = document.getElementById("pub");
+                    var height = parseInt(img.clientHeight);
+                    var minimo = parseInt("300px");
+                    var medio = parseInt("400px");
+                    console.log(minimo);
+                    console.log(height);
+
+                    if (height <= minimo) {
+                        console.log("pequena");
+                        console.log(height);
+                        img.style.marginTop = "8rem";
+                    }
+
+                    if (height > minimo && height < medio) {
+                        console.log("media");
+                        img.style.marginTop = "5rem";
+
+                    }
+
+                    if (height > medio) {
+                        console.log("grande");
+                        img.style.marginTop = "0";
+                    }
+                }
             </script>
 
             <div class="caixa fixed-bottom header_comentarios" id="caixa">
