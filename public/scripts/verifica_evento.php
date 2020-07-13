@@ -2,6 +2,7 @@
 session_start();
 if(isset($_GET["id"]) && isset($_SESSION['id_utilizador'])){
 
+
     //recebe id
     $id = $_GET["id"];
     $id_utilizador = $_SESSION['id_utilizador'];
@@ -25,7 +26,6 @@ if(isset($_GET["id"]) && isset($_SESSION['id_utilizador'])){
             $id_utilizador = $_SESSION['id_utilizador'];
             $id = $_GET["id"];
 
-
             mysqli_stmt_execute($stmt);
 
             mysqli_stmt_bind_result($stmt, $id_utilizador,  $id, $role);
@@ -35,37 +35,38 @@ if(isset($_GET["id"]) && isset($_SESSION['id_utilizador'])){
             if (mysqli_stmt_fetch($stmt)) {
                 var_dump($role);
 
-                    if ($role ===1){
+                    if ($role === 1){
 
                         //criou evento
                         header("Location: ../eventocomsubscricao.php?id=$id&&role=$role");
                         mysqli_stmt_close($stmt);
                         mysqli_close($link);
                     }
-                    if ($role ===2){
+                    if ($role === 2){
                         // está subscrito
                         header("Location: ../eventocomsubscricao.php?id=$id");
                         mysqli_stmt_close($stmt);
                         mysqli_close($link);
                     }
 
-
-                else
-                     {
-                         //o evento não está subscrito
-                         $id = $_GET["id"];
-                         header("Location: ../evento_semsubscricao.php?id=$id");
-                    }
-                }
-            //o evento não está subscrito
-            $id = $_GET["id"];
-            header("Location: ../evento_semsubscricao.php?id=$id");
-
+                } else {
+                //o evento não está subscrito
+                $id = $_GET["id"];
+                header("Location: ../evento_semsubscricao.php?id=$id");
+            }
 
             mysqli_stmt_close($stmt);
             mysqli_close($link);
 
-            }
+            }else
+
+            {
+                var_dump("estou aqui3");
+
+                //o evento não está subscrito
+            $id = $_GET["id"];
+          //  header("Location: ../evento_semsubscricao.php?id=$id");
+        }
 }
 
 else {

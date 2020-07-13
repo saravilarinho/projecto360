@@ -55,7 +55,7 @@ if(isset($_GET["id"]) && isset($_SESSION['id_utilizador'])) {
                         } else {
 
                             echo "Error:" . mysqli_stmt_error($stmt);
-                            header("Location: ../evento_semsubscricao.php?id=$id");
+                            header("Location: ../evento_semsubscricao.php?id=$id&message=2");
                         }
                     } else {
                         echo "Error:" . mysqli_error($link);
