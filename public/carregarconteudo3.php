@@ -89,7 +89,7 @@ if (isset($_POST['descricao']) && isset($_GET['idp']) && isset($_POST['data_real
 
 
 
-    <div class="fixed-bottom mb-3 botoes_stepper">
+    <div class="fixed-bottom mb-3 botoes_stepper position-fixed">
         <a href="carregarconteudo2.php?idp=<?=$id_pub?>&des=<?=$des?>&data=<?=$data_real?>&lat=<?=$latitude?>&long=<?=$longitude?>"><button class="button_stepper" id="previousBtn">Anterior</button></a>
         <button class="button_stepper" id="nextBtn" disabled>Seguinte</button>
         <button class="button_stepper" type="submit" id="finishBtn">Confirmar</button>
