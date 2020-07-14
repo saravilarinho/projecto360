@@ -80,8 +80,19 @@ else {
     <div class="text-center mt-4 col-12">
 
         <div>
-        <img class="corte" src="scripts/upload/<?=$foto?>"></div>
-
+        <?php
+        if ($foto != ''){
+            ?>
+            <img class="corte" src="scripts/upload/<?=$foto?>">
+            <?php
+        }
+        else {
+            ?>
+            <img class="corte" src="imagens/default-perfil.jpg">
+            <?php
+        }
+        ?>
+        </div>
         <h4 class="mt-2">
 
             <?php echo $nome ?> </h4>
