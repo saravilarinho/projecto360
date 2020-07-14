@@ -75,7 +75,7 @@ mysqli_stmt_bind_result($stmt, $id_pub, $conteudo, $lat_pub, $long_pub, $evento_
         ?>
         console.log("wut");
 
-        document.getElementById("naohamapa").innerHTML = "Este evento não possui conteúdos localizados geograficamente.";
+        document.getElementById("naohamapa").innerHTML = "Este evento ainda não possui conteúdos localizados geograficamente.";
         document.getElementById("map").style.display ="none";
 
         <?php }
@@ -101,7 +101,7 @@ mysqli_stmt_bind_result($stmt, $id_pub, $conteudo, $lat_pub, $long_pub, $evento_
         var infowindow<?=$i?> = new google.maps.InfoWindow({
             content: '<div class="ok">' + '<div class="position-fixed" style:"max-width: 25vh; max-height: 18vh; border-radius: 10px;">' +
                 '<a class="linkar" href="publicacao.php?idp=<?=$id_pub?>">' +
-                '<img src="scripts/upload/<?=$conteudo?>" class="card-img-top w-100" style="height: 110px !important; object-fit: cover" alt="...">' +
+                '<img src="scripts/upload/<?=$conteudo?>" class="card-img-top w-100 h-100"; object-fit: contain" alt="...">' +
                 '<div style="padding: 3% 5% 5%">' +
                 '<div class="row">' +
                 '<p class=" mb-1 titulo_card_eventos col-10"><b> </b></p> ' +

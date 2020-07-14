@@ -45,7 +45,7 @@
 
 </main>
 
-<footer>
+<footer class="position-absolute">
 
     <nav class="navbar navbar-expand fixed-bottom container p-0 pt-2" style="background-color: #1ec5bc">
         <div class="row no-gutters justify-content-around w-100">
