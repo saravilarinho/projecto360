@@ -61,25 +61,22 @@
             <div class="g-signin2" data-onsuccess="onSignIn" >
             </div>
 
-            <p class="texto_pesquisa">OU</p>
-
-
             <form action="scripts/registo_utilizadores.php" role="form" method="post">
 
-                <p class="mt-2 mb-0 text-left texto_pesquisa">Nome</p>
+                <p class="mt-2 mb-0 label">Nome</p>
                 <input class="pl-2 mt-1 w-100 form-control campo_form" type="text" name="name" placeholder="ex: Tiago"
                        required="required">
 
-                <p class="mt-2 mb-0 text-left texto_pesquisa">E-mail</p>
+                <p class="mt-2 mb-0 label ">E-mail</p>
                 <input class="pl-2 mt-1 w-100 form-control campo_form" type="email" name="email" placeholder="exemplo@gmail.com"
                        required="required">
 
-                <p class="mt-2 mb-0 text-left texto_pesquisa">Palavra-passe</p>
+                <p class="mt-2 mb-0 label">Palavra-passe</p>
                 <input class="pl-2 mt-1 w-100 form-control campo_form" type="password" name="password_hash" required="required" placeholder="Palavra-passe">
 
 
-                <div class="justify-content-center d-flex fixed-bottom mb-5">
-                    <button type="submit" class="btn  botao_grande"> Confirmar </button>
+                <div class="justify-content-center d-flex fixed-bottom position-fixed mb-3">
+                    <button type="submit" class="btn botao_grande"> Confirmar </button>
                 </div>
             </form>
 
