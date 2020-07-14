@@ -156,7 +156,7 @@ if (isset($_SESSION['id_utilizador'])){
         <div class="title mt-4">Convida participantes!</div>
         <div class="field mt-2">
             <div class="label">Convida pessoas para o teu evento, conforme o exemplo. (utilizador1@email.com, utilizador2@email.com, ...)</div>
-            <input type="text" name="convidado1" id="convidado1" class="campo_form p-2 w-100" placeholder="E-mail..." value="">
+            <input type="text" name="convidado1" id="convidado1" class="campo_form p-2 w-100" placeholder="E-mail..." value="" disabled>
 
         </div>
     </div>
