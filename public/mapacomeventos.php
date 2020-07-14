@@ -14,6 +14,7 @@ if (isset($_SESSION['id_utilizador'])) {
             width: 90%;
             height: 365px;
             background-color: grey;
+            margin-left: 0.5rem;
         }
     </style>
 
