@@ -11,15 +11,13 @@ require_once "../../admin/connections/connection2db.php";
 // File upload path
 $targetDir = "upload/";
 $fileName = basename($_FILES["file"]["name"]);
-//$targetFilePath = $_SERVER['DOCUMENT_ROOT'] . '/public/scripts/upload/' . $fileName;
-
 $targetFilePath = $targetDir . $fileName;
 $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
 
 if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
     // Allow certain file formats
 
-    $allowTypes = array('JPG','PNG','JPEG');
+    $allowTypes = array('jpg','png','jpeg');
     if(in_array($fileType, $allowTypes)){
 
 
