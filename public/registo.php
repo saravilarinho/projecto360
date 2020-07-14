@@ -41,7 +41,7 @@
 
 <header>
     <h3>
-        <a href="index.php" style="text-decoration: none; color: #03bd03;">
+        <a href="../index.php" style="text-decoration: none; color: #03bd03;">
             <i class="fas fa-chevron-left mr-2 ml-1"></i>
         </a>
         Registo
