@@ -469,6 +469,12 @@ i.fa-calendar-alt {
     margin-bottom: 0.3rem;
 }
 
+.label {
+    font-size: 14px;
+    color: #4E6969;
+    margin-bottom: 0.3rem;
+}
+
 .text-center {
     text-align: center;
 }

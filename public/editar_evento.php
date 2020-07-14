@@ -90,32 +90,32 @@ descricao_evento, categorias_id_categoria, niveis_privacidade_id_nivel_privacida
 
             <form enctype="multipart/form-data" action="scripts/update_evento.php?id=<?=$id_ev?>" role="form" method="post">
 
-                <p class="mt-2 mb-0 text-left">Nome do Evento</p>
-                <input class="pl-2 mt-1 w-100" type="text" name="nomeevento" value="<?=$nome_evento ?>" required="required">
+                <p class="mt-2 mb-0 text-left label">Nome do Evento</p>
+                <input class="pl-2 mt-1 w-100 campo_form p-2" type="text" name="nomeevento" value="<?=$nome_evento ?>" required="required">
 
-                <p class="mt-2 mb-0 text-left">Descrição</p>
-                <input class="pl-2 mt-1 w-100" type="text" name="descricao" value="<?=$descricao ?>"
+                <p class="mt-2 mb-0 text-left label">Descrição</p>
+                <input class="pl-2 mt-1 w-100 campo_form p-2" type="text" name="descricao" value="<?=$descricao ?>"
                        required="required">
 
-                <p class="mt-2 mb-0 text-left">Início</p>
+                <p class="mt-2 mb-0 text-left label">Início</p>
 
-                <input class="pl-2 mt-1 w-100" type="date" name="datainicio" required="required" value="<?=$data_inicio?>">
+                <input class="pl-2 mt-1 w-100 campo_form p-2" type="date" name="datainicio" required="required" value="<?=$data_inicio?>">
 
-                <input class="pl-2 mt-1 w-100" type="time" name="horainicio" required="required" value="<?=$horainicio ?>">
+                <input class="pl-2 mt-1 w-100 campo_form p-2" type="time" name="horainicio" required="required" value="<?=$horainicio ?>">
 
-                <p class="mt-2 mb-0 text-left">Fim</p>
+                <p class="mt-2 mb-0 text-left label">Fim</p>
 
-                <input class="pl-2 mt-1 w-100" type="date" name="datafim" required="required" value="<?=$data_fim?>">
+                <input class="pl-2 mt-1 w-100 campo_form p-2" type="date" name="datafim" required="required" value="<?=$data_fim?>">
 
-                <input class="pl-2 mt-1 w-100" type="time" name="horafim" required="required" value="<?=$horafim ?>">
+                <input class="pl-2 mt-1 w-100 campo_form p-2" type="time" name="horafim" required="required" value="<?=$horafim ?>">
 
 
-                <p class="mt-2 mb-0 text-left">Localização</p>
+                <p class="mt-2 mb-0 text-left label">Localização</p>
                 <div id="pac-container">
                     <input type="hidden" name="lat" id="lat">
                     <input type="hidden" name="lng" id="lng">
                     <input type="hidden" name="location" id="location">
-                    <input id="pac-input" type="text" name="localizacao" class="form-control campo_form" style="height: 28px !important;"  value=" <?=$localizacao?>" required>
+                    <input id="pac-input" type="text" name="localizacao" class="form-control campo_form p-2" style="height: 28px !important;"  value=" <?=$localizacao?>" required>
                 </div>
                 <div id="map" style="display: none"></div>
 
