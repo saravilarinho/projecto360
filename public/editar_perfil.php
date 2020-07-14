@@ -8,10 +8,15 @@ if (isset($_SESSION['id_utilizador'])){
 }
 
 
-if(isset ($_GET['msg'])&& isset ($_GET['id'])){
-    $user = $_GET['id'];
+if(isset ($_GET['msg'])){
     $mensagem_de_erro = $_GET['msg'];
 }
+
+if (isset($_GET['feedback'])) {
+$feedback = $_GET['feedback'];
+}
+
+
 
 
 
@@ -82,24 +87,30 @@ if(isset ($_GET['msg'])&& isset ($_GET['id'])){
 
                     <form enctype="multipart/form-data" action="scripts/update_evento.php?x=perfil" role="form" method="post">
 
+                        <p class="mt-4 mb-0 text-left">Alterar Password</p>
 
-                        <p class="mt-2 mb-0 text-left">Nova Password</p>
-
+                        <input class="p-2 mt-1 w-100 campo_form" type="password" name="password_hash_atual" value="" placeholder="Password atual ...">
                         <input class="p-2 mt-1 w-100 campo_form" type="password" name="password_hash" value="" placeholder="Nova password ...">
-
-                        <p class="p-2 mt-2 mb-0 text-left">Confirmação de Password</p>
-
-                        <input class="p-2 mt-1 w-100 campo_form" type="password" name="password_hash2" value="" placeholder="Nova password ...">
+                        <input class="p-2 mt-1 w-100 campo_form" type="password" name="password_hash2" value="" placeholder="Confirma a nova password ...">
 
                         <?php
 
                         if (isset($mensagem_de_erro)){
+                            switch ($mensagem_de_erro){
+                                case 1:
+                                    echo "<p class='text-danger mt-1 mb-0 text-left' style='font-size: 12px'>As passwords não são iguais.</p>";
+                                    break;
 
-                            echo "<p class='col-sm-10 text-danger mt-2 mb-0 text-left' style='font-size: 12px'>As passwords não são iguais.</p>";
+                                case 2:
+                                    echo "<p class='text-danger mt-1 mb-0 text-left' style='font-size: 12px'>Password incorreta, tenta de novo.</p>";
+
+                            }
                         }
+
+
                         ?>
 
-                        <p class="mt-2 mb-0 text-left">Imagem de perfil</p>
+                        <p class="mt-4 mb-0 text-left">Alterar foto de perfil</p>
 
                         <?php
                         if (isset($imagem)){
@@ -109,11 +120,24 @@ if(isset ($_GET['msg'])&& isset ($_GET['id'])){
 
                                 <a data-toggle="modal" data-target="#fotografiaModal">
 
+                                    <input name="foto" type="hidden" value="<?=$imagem?>">
                                     <p style="padding-top: 7%;"><i class="fas fa-camera" style="    font-size: x-large; !important;"></i></p>
                                 </a>
 
                             </div>
+
                             <?php
+                            if (isset($feedback)){
+                                switch ($feedback){
+                                    case 1:
+                                        echo '<p class="mt-3 mb-0 text-left" style="font-size: 13px; color: #1ec5bc;">Password alterada com sucesso!</p>';
+                                    break;
+
+                                    case 2:
+                                        echo '<p class="mt-3 mb-0 text-left" style="font-size: 13px; color: #1ec5bc;">Alterações guardadas com sucesso!</p>';
+
+                                }
+                            }
                         }
                         else {
 
@@ -138,7 +162,7 @@ if(isset ($_GET['msg'])&& isset ($_GET['id'])){
 
 
 
-                        <div class="justify-content-center d-flex">
+                        <div class="fixed-bottom mb-4 justify-content-center d-flex">
                             <button type="submit" class="btn mt-3 botao_grande"> Confirmar </button>
                         </div>
                     </form>

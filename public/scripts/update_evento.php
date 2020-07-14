@@ -57,7 +57,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['id']) && isset($_POST['nom
 
 if (isset($_SESSION['id_utilizador']) && (isset($_GET['x']))){
 
-    if (isset($_POST['password_hash']) && isset($_POST['password_hash2'])) {
+    if (isset($_POST['password_hash']) && isset($_POST['password_hash2']) && isset($_POST['password_hash_atual'])) {
 
 
         require_once "../../admin/connections/connection2db.php";
@@ -66,50 +66,91 @@ if (isset($_SESSION['id_utilizador']) && (isset($_GET['x']))){
         $stmt = mysqli_stmt_init($link);
 
         $id_utilizador = $_SESSION['id_utilizador'];
+        $password_atual = $_POST['password_hash_atual'];
         $password_1 = $_POST['password_hash'];
         $password_2 = $_POST['password_hash2'];
 
-        if ($password_1 ===  $password_2){
 
-            $query = "UPDATE utilizadores 
+
+        $query = "SELECT password 
+                  FROM utilizadores 
+                  WHERE id_utilizador = ?";
+
+
+        if (mysqli_stmt_prepare($stmt, $query)) {
+
+            mysqli_stmt_bind_param($stmt, 'i', $id);
+            $id = $id_utilizador;
+
+            mysqli_stmt_execute($stmt);
+
+            mysqli_stmt_bind_result($stmt, $password_real);
+
+
+        if (mysqli_stmt_fetch($stmt)) {
+
+            if (password_verify($password_atual, $password_real)) {
+
+                var_dump("lol");
+
+                if ($password_1 === $password_2){
+                    var_dump("ooooo");
+
+                    $query = "UPDATE utilizadores 
                       SET password = ?
                       WHERE id_utilizador = $id_utilizador";
 
 
-            if (mysqli_stmt_prepare($stmt, $query)) {
+                    if (mysqli_stmt_prepare($stmt, $query)) {
 
-                mysqli_stmt_bind_param($stmt, 's', $pass);
+                        mysqli_stmt_bind_param($stmt, 's', $pass);
 
-                $pass = password_hash($_POST['password_hash'], PASSWORD_DEFAULT);
+                        $pass = password_hash($_POST['password_hash'], PASSWORD_DEFAULT);
 
-                if (mysqli_stmt_execute($stmt)) {
+                        if (mysqli_stmt_execute($stmt)) {
 
-                    header("Location: ../editar_perfil.php");
+                           header("Location: ../editar_perfil.php?feedback=1");
 
-                    mysqli_stmt_close($stmt);
+                            mysqli_stmt_close($stmt);
+                        }
+
+                        if (!mysqli_stmt_execute($stmt)) {
+                            echo "Error: " . mysqli_stmt_error($stmt);
+                        }
+                        mysqli_stmt_close($stmt);
+
+                    } else {
+                        echo "Error: " . mysqli_error($link);
+                    }
+
+                    mysqli_close($link);
+
+                }
+                else {
+                    header("Location: ../editar_perfil.php?msg=1");
+
                 }
 
-                if (!mysqli_stmt_execute($stmt)) {
-                    echo "Error: " . mysqli_stmt_error($stmt);
-                }
-                mysqli_stmt_close($stmt);
 
-            } else {
-                echo "Error: " . mysqli_error($link);
+
+
+
+            }else{
+                if (isset($_POST['foto'])){
+                    header("Location: ../editar_perfil.php?feedback=2");
+
+                }else {
+                    header("Location: ../editar_perfil.php?msg=2");
+
+                }
             }
-
-            mysqli_close($link);
-
-        }
-        else {
-            header("Location: ../editar_perfil.php?msg=1");
-
         }
 
+        }
 
     }
     else {
-        header("Location: ../editar_perfil.php");
+        header("Location: ../editar_perfil.php?feedback=2");
 
     }
 }
