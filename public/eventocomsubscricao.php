@@ -216,7 +216,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                                                     <?=$start ?>
 
                                                 </div>
-                                                <a href="grelhasemphp.php?id=<?=$id_evento?>&hora=<?=$start?>">
+                                                <a href="galeria.php?id=<?=$id_evento?>&hora=<?=$start?>">
                                                 <div class="fotografias">
                                                     <?php
                                                     require_once "../admin/connections/connection2db.php";
