@@ -1,14 +1,14 @@
 <?php
 
-    //Including Database configuration file.
-    require_once "../admin/connections/connection2db.php";
+//Including Database configuration file.
+require_once "../admin/connections/connection2db.php";
 
-    $link = new_db_connection();
-    $stmt = mysqli_stmt_init($link);
+$link = new_db_connection();
+$stmt = mysqli_stmt_init($link);
 
-    //Getting value of "search" variable from "script.js".
+//Getting value of "search" variable from "script.js".
 
-    if (isset($_POST['search'])) {
+if (isset($_POST['search'])) {
     //Search box value assigning to $Name variable.
     $Name = $_POST['search'];
     //Search query.
@@ -20,26 +20,28 @@
 
     //Fetching result from database.
 
-        while ($Result = MySQLi_fetch_array($ExecQuery)) {
-       ?>
+    while ($Result = MySQLi_fetch_array($ExecQuery)) {
+        ?>
 
-            <!-- Creating unordered list itemsCalling javascript function named as "fill" found in "script.js" file.
-        By passing fetched result as parameter. -->
+        <!-- Creating unordered list itemsCalling javascript function named as "fill" found in "script.js" file.
+    By passing fetched result as parameter. -->
 
-            <li onclick='fill("<?php echo $Result['nome_evento']; ?>")'>
+        <li onclick='fill("<?php echo $Result['nome_evento']; ?>")'>
 
-                <a>
-   <!-- Assigning searched result in "Search box" in "search.php" file. -->
-                    <?php echo $Result['nome_evento']; ?>
+            <a>
 
-            </li></a>
-   <!-- Below php code is just for closing parenthesis. Don't be confused. -->
+                <!-- Assigning searched result in "Search box" in "search.php" file. -->
+                <?php echo $Result['nome_evento']; ?>
 
-            <?php
+        </li></a>
+        <!-- Below php code is just for closing parenthesis. Don't be confused. -->
 
-        }}
+        <?php
 
-    ?>
+    }
+}
+
+?>
 </ul>
 
 
