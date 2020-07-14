@@ -161,7 +161,7 @@ if (isset($_GET['id'])){
         </div>
 
 
-        <div class="fixed-bottom mb-3 botoes_stepper">
+        <div class="fixed-bottom position-fixed mb-3 botoes_stepper">
             <?php
             if (isset($imagem)) {
                 ?>

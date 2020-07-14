@@ -132,7 +132,7 @@ WHERE utilizadores_has_eventos.utilizadores_id_utilizador = $id_utilizador AND d
 
 
 
-        <div class="fixed-bottom mb-3 botoes_stepper">
+        <div class="fixed-bottom mb-3 botoes_stepper position-fixed">
             <button class="button_stepper" id="previousBtn" disabled>Anterior</button>
 
                 <button class="button_stepper" type="submit" id="nextBtn">Seguinte</button>

@@ -296,9 +296,9 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                                 <input type="text" name="comentario" value="" placeholder="Adiciona o teu comentário..." class="p-1 campo_form" style="width: 245px">
                             </div>
 
-                            <div class="col-2 ml-3 text-right">
+                            <!--<div class="col-2 ml-3 text-right">
                                 <btn type="submit"><i class="fas fa-check"></i> </btn>
-                            </div>
+                            </div>-->
 
                             </form>
                         </div>
