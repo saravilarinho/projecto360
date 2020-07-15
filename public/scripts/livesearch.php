@@ -28,7 +28,7 @@ if (isset($_POST['search'])) {
 
         <ul onclick='fill("<?php echo $Result['nome_evento']; ?>")' class="pesquisa_resultado">
 
-            <a style="font-size: 0.8rem; text-decoration: none;color: #1ec5bc;" href="verifica_evento.php?id=<?=$Result['id_evento']?>">
+            <a style="font-size: 0.8rem; text-decoration: none;color: #1ec5bc;" href="scripts/verifica_evento.php?id=<?=$Result['id_evento']?>">
 
                 <!-- Assigning searched result in "Search box" in "search.php" file. -->
                 <?php echo $Result['nome_evento']; ?>
