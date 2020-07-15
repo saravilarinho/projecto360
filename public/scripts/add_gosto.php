@@ -73,10 +73,10 @@ if (isset($_GET['idp']) && isset($_SESSION['id_utilizador'])){
                     $id_pub = $id_publicacao;
                     if (mysqli_stmt_execute($stmt)) {
 
+                        header("Location: ../publicacao.php?idp=$id_publicacao");
 
                         mysqli_stmt_close($stmt);
                         mysqli_close($link);
-                        header("Location: ../publicacao.php?idp=$id_publicacao");
                     } else {
 
                         echo "Error:" . mysqli_stmt_error($stmt);
