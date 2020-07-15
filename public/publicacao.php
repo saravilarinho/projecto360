@@ -116,7 +116,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
 
             <div class="caixa fixed-bottom header_comentarios" id="caixa">
 
-                <div class="row mt-3 ml-3 mr-0" onclick="abrir()">
+                <div class="row mt-3 ml-3 mr-0">
 
                     <div class="col-2 d-flex justify-content-space-evenly">
                         <a class="btn botao_favorito" href="scripts/add_gosto.php?idp=<?= $id_publicacao ?>">
@@ -195,10 +195,10 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                         ?>
 
 
-                        <div class="col-2 d-flex">
-                            <a class="btn botao_favorito" href="">
+                        <div class="col-2 d-flex" onclick="abrir()">
+                            <div class="btn botao_favorito">
                                 <i class="far fa-comment"></i>
-                            </a>
+                            </div>
                             <p class="numero_likes"><?=$numero_comentarios?></p>
                         </div>
                         <?php
@@ -206,20 +206,19 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                         ?>
 
 
-
-
-                    <div class="col-8 d-flex justify-content-center">
+                    <div class="col-4 d-flex justify-content-center" onclick="abrir()">
                         <i class="fas fa-angle-double-up" id="subir"></i>
                         <i class="fas fa-angle-double-down" id="descer"></i>
                     </div>
 
-                    <!--<div class="col-5">
-                        <a class="btn relacionados d-flex p-1" href="">
-                            <i class="far fa-images align-self-center"></i>
-                            <p class="p-0 m-0">Relacionados</p></a>
-                    </div>-->
-
                 </div>
+
+                <!--<div class="col-5">
+                    <a class="btn relacionados d-flex p-1" href="">
+                        <i class="far fa-images align-self-center"></i>
+                        <p class="p-0 m-0">Relacionados</p></a>
+                </div>-->
+
 
                 <div class="row mt-1 ml-4 mr-0">
                     <small>Por <b><?= $nome_utilizador ?></b></small>
@@ -273,7 +272,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
 
                             <div class="comentario row pt-1 pb-1 m-0 mb-2">
                                 <div class="col-3 align-self-center pr-0">
-                                    <img class="w-75 rounded-circle" src="scripts/upload/<?=$foto?>">
+                                    <img class="corte_pequena rounded-circle" src="scripts/upload/<?=$foto?>">
                                 </div>
                                 <div class="col-7">
                                     <p class="m-0 nome_comentario"><b><?=$nome_user?></b></p>

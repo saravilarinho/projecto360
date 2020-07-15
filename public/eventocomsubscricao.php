@@ -88,17 +88,17 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                 <!-- Content for Popover #1 -->
                 <div class="hidden" id="a1">
                     <div class="popover-heading d-none container">
-                        <div class="row">
+                        <div class="row p-1">
                             <div class="col-8 justify-content-end"><small>Ver Mais</small></div>
                             <div class="col-4"><i class="fas fa-info-circle"></i></div>
                         </div>
 
-                        <div class="row">
+                        <div class="row p-1">
                             <div class="col-8 justify-content-end"><small>Convidar</small></div>
                             <div class="col-4"><i class="fas fa-user-plus"></i></div>
                         </div>
 
-                        <div class="row">
+                        <div class="row p-1">
                             <div class="col-8 justify-content-end"><small>Denunciar</small></div>
                             <div class="col-4"><i class="fas fa-bullhorn"></i></div>
                         </div>
