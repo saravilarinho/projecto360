@@ -320,7 +320,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                                     $link = new_db_connection();
                                     $stmt = mysqli_stmt_init($link);
 
-                                    $query = "SELECT publicacoes.conteudo_publicacao, publicacoes.data_publicacao, eventos.data_inicio_evento, eventos.hora_inicio 
+                                    $query = "SELECT publicacoes.id_publicacao, publicacoes.conteudo_publicacao, publicacoes.data_publicacao, eventos.data_inicio_evento, eventos.hora_inicio 
                                                               FROM publicacoes 
                                                               INNER JOIN eventos
                                                               ON publicacoes.eventos_id_evento = eventos.id_evento
@@ -337,13 +337,14 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
                                     mysqli_stmt_execute($stmt);
 
-                                    mysqli_stmt_bind_result($stmt, $conteudo, $data_pub, $data_inicio_evento, $hora_inicio_evento);
+                                    mysqli_stmt_bind_result($stmt, $idp, $conteudo, $data_pub, $data_inicio_evento, $hora_inicio_evento);
 
 
                                     while (mysqli_stmt_fetch($stmt)) {
 
                                         ?>
-                                        <img class="img_timeline" src="scripts/upload/<?= $conteudo ?>">
+                                        <a href="publicacao.php?idp=<?=$idp?>">
+                                        <img class="img_timeline" src="scripts/upload/<?= $conteudo ?>"></a>
                                         <?php
                                     }}
                                     ?>
