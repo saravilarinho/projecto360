@@ -63,7 +63,7 @@ if (isset($_SESSION['id_utilizador'])) {
         if (mysqli_stmt_prepare($stmt, $query)) {
             mysqli_stmt_execute($stmt);
 
-            mysqli_stmt_bind_result($stmt,  $id, $id_ev, $nome, $id_evento, $imagem, $categoria);
+            mysqli_stmt_bind_result($stmt, $id, $nome, $id_evento, $imagem, $categoria);
 
             while (mysqli_stmt_fetch($stmt)) {
 
