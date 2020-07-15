@@ -765,3 +765,11 @@ font-size: 13px;
     height: 4.5vh;
     color: #3e3f80;
 }
+
+.texto_tl{
+    margin-top: 15%;
+    padding-left: 0%;
+    padding-right: 0%;
+    margin-left: 5%;
+    text-align: center;
+}

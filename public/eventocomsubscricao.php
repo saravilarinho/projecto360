@@ -299,7 +299,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                                 //ainda nao comecou || dia check
 
                                 ?>
-                                <p class="col-10 align-self-center">O evento ainda não tem conteúdos associados durante o seu período de duração.</p>
+                                <p class="col-10 align-self-center texto_tl">O evento ainda não tem conteúdos associados durante o seu período de duração.</p>
                                 <?php
 
                             }
