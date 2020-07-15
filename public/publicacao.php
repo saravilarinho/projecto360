@@ -208,16 +208,16 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
 
 
 
-                    <div class="col-3 d-flex justify-content-center">
+                    <div class="col-8 d-flex justify-content-center">
                         <i class="fas fa-angle-double-up" id="subir"></i>
                         <i class="fas fa-angle-double-down" id="descer"></i>
                     </div>
 
-                    <div class="col-5">
+                    <!--<div class="col-5">
                         <a class="btn relacionados d-flex p-1" href="">
                             <i class="far fa-images align-self-center"></i>
                             <p class="p-0 m-0">Relacionados</p></a>
-                    </div>
+                    </div>-->
 
                 </div>
 
