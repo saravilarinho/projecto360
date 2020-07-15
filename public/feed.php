@@ -58,12 +58,12 @@ if (isset($_SESSION['id_utilizador'])) {
         $link = new_db_connection();
         $stmt = mysqli_stmt_init($link);
 
-        $query = "CALL teste($id_utilizador)";
+        $query = "CALL teste()";
 
         if (mysqli_stmt_prepare($stmt, $query)) {
             mysqli_stmt_execute($stmt);
 
-            mysqli_stmt_bind_result($stmt,  $id, $nome, $id_evento, $imagem, $categoria);
+            mysqli_stmt_bind_result($stmt,  $id, $id_ev, $nome, $id_evento, $imagem, $categoria);
 
             while (mysqli_stmt_fetch($stmt)) {
 
@@ -146,65 +146,69 @@ if (isset($_SESSION['id_utilizador'])) {
 
         while (mysqli_stmt_fetch($stmt)) {
 
+            if($id_util === $id_utilizador){
+                ?>
+                <div class="mt-3">
+                    <div class="row col-12 card_horizontal p-2 ml-0">
+                        <a href="publicacao.php?idp=<?=$idp?>">
+                            <div class="d-flex">
+                                <div class="col-3 align-self-center">
+                                    <?php
+                                    if ($imagem != ''){
+                                        ?>
+                                        <img src="scripts/upload/<?=$imagem?>" class="clip-circle rounded-circle ml-2" style="height: 3.5rem;" >
+                                        <?php
+                                    }
+                                    else {
+                                        ?>
+                                        <img src="imagens/default-image.jpg" class="clip-circle rounded-circle ml-2" style="height: 3.5rem;" >
+                                        <?php
+                                    }
 
-            ?>
-            <div class="mt-3">
-                <div class="row col-12 card_horizontal p-2 ml-0">
-                    <a href="publicacao.php?idp=<?=$idp?>">
-                    <div class="d-flex">
-                        <div class="col-3 align-self-center">
-                            <?php
-                            if ($imagem != ''){
-                                ?>
-                                <img src="scripts/upload/<?=$imagem?>" class="clip-circle rounded-circle ml-2" style="height: 3.5rem;" >
-                                <?php
-                            }
-                            else {
-                                ?>
-                                <img src="imagens/default-image.jpg" class="clip-circle rounded-circle ml-2" style="height: 3.5rem;" >
-                                <?php
-                            }
+                                    ?>
+                                </div>
+                                <div class="col-6 align-self-center">
+                                    <p class="texto_card_historico"><b> <?=$nome_evento?></b> tem novos conteúdos.</p>
+                                    <?php
+                                    if (isset($categoria)) {
+                                        switch ($categoria) {
+                                            // música
+                                            case 1:
+                                                echo '<img class="icone_categoria" src="imagens/icones/icone_musica.png">';
+                                                break;
 
-                            ?>
-                        </div>
-                        <div class="col-6 align-self-center">
-                            <p class="texto_card_historico"><b> <?=$nome_evento?></b> tem novos conteúdos.</p>
-                            <?php
-                            if (isset($categoria)) {
-                                switch ($categoria) {
-                                    // música
-                                    case 1:
-                                        echo '<img class="icone_categoria" src="imagens/icones/icone_musica.png">';
-                                        break;
+                                            // manifestações
+                                            case 2:
+                                                echo '<img class="icone_categoria" src="imagens/icones/icone_manif.png">';
+                                                break;
 
-                                    // manifestações
-                                    case 2:
-                                        echo '<img class="icone_categoria" src="imagens/icones/icone_manif.png">';
-                                        break;
+                                            // teatro
+                                            case 3:
+                                                echo '<img class="icone_categoria" src="imagens/icones/icone_teatro.png">';
+                                                break;
 
-                                    // teatro
-                                    case 3:
-                                        echo '<img class="icone_categoria" src="imagens/icones/icone_teatro.png">';
-                                        break;
-
-                                    // festas
-                                    case 4:
-                                        echo '<img class="icone_categoria" src="imagens/icones/icone_festa.png">';
-                                        break;
-                                }
-                            }
-                            ?>
-                            <small class="small_feed">há 1 dia</small>
-                        </div>
-                        <div class="col-2 align-self-center">
-                            <i class="fas fa-chevron-right"></i>
-                        </div>
+                                            // festas
+                                            case 4:
+                                                echo '<img class="icone_categoria" src="imagens/icones/icone_festa.png">';
+                                                break;
+                                        }
+                                    }
+                                    ?>
+                                    <small class="small_feed">há 1 dia</small>
+                                </div>
+                                <div class="col-2 align-self-center">
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    </a>
                 </div>
-            </div>
 
-            <?php
+                <?php
+
+            }
+
+
         }
         }
         ?>

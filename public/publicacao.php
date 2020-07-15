@@ -6,6 +6,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
     $id_utilizador = $_SESSION['id_utilizador'];
     $id_publicacao = $_GET['idp'];
 
+
 }else{
     header("Location: login.php?message=2");
 
@@ -40,6 +41,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
 <main class="mb-0">
 
 
+
     <?php
 
 
@@ -57,13 +59,12 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
               ON utilizadores.id_utilizador = utilizadores_has_publicacoes.utilizadores_id_utilizador
               INNER JOIN eventos
               ON eventos.id_evento = publicacoes.eventos_id_evento
-              WHERE id_publicacao = ? AND utilizadores.id_utilizador = ? ";
+              WHERE id_publicacao = ? ";
 
     if (mysqli_stmt_prepare($stmt, $query)) {
-        mysqli_stmt_bind_param($stmt, 'ii', $id_p, $id_user);
+        mysqli_stmt_bind_param($stmt, 'i', $id_p);
 
         $id_p = $id_publicacao;
-        $id_user = $id_utilizador;
 
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $id_evento, $conteudo, $descricao, $data, $gosto, $nome_utilizador, $localizacao);

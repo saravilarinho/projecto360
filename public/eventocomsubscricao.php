@@ -320,12 +320,12 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                                     $link = new_db_connection();
                                     $stmt = mysqli_stmt_init($link);
 
-                                    $query = "SELECT publicacoes.id_publicacao, publicacoes.conteudo_publicacao, publicacoes.data_publicacao, eventos.data_inicio_evento, eventos.hora_inicio 
+                                    $query = "SELECT publicacoes.id_publicacao, publicacoes.conteudo_publicacao
                                                               FROM publicacoes 
                                                               INNER JOIN eventos
                                                               ON publicacoes.eventos_id_evento = eventos.id_evento
                                                               WHERE publicacoes.data_publicacao < eventos.data_inicio_evento AND publicacoes.eventos_id_evento = ?
-                                                              ORDER BY publicacoes.id_publicacao DESC";
+                                                              ";
 
 
                                     if (mysqli_stmt_prepare($stmt, $query)) {
@@ -337,13 +337,14 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
                                     mysqli_stmt_execute($stmt);
 
-                                    mysqli_stmt_bind_result($stmt, $idp, $conteudo, $data_pub, $data_inicio_evento, $hora_inicio_evento);
+                                    mysqli_stmt_bind_result($stmt, $idp, $conteudo);
 
 
                                     while (mysqli_stmt_fetch($stmt)) {
+                                        $pls = intval($idp);
 
                                         ?>
-                                        <a href="publicacao.php?idp=<?=$idp?>">
+                                        <a href="publicacao.php?idp=<?=$pls?>">
                                         <img class="img_timeline" src="scripts/upload/<?= $conteudo ?>"></a>
                                         <?php
                                     }}
