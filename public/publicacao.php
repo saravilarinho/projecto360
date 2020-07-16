@@ -76,8 +76,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
             <div class="container">
                 <div class="row">
                     <div class="visualizacao">
-                        <a href="eventocomsubscricao.php?id=<?= $id_evento ?>">
-                            <i class="fas fa-2x fa-chevron-circle-left voltar"></i></a>
+                        <i class="fas fa-2x fa-chevron-circle-left voltar" onclick="voltar()"></i>
                         <img id="pub" src="scripts/upload/<?= $conteudo ?>" class="col-12 p-0 align-self-center">
 
                     </div>
