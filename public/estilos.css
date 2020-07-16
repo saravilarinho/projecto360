@@ -728,6 +728,12 @@ i.fa-calendar-alt {
     height: 100px;
 }
 
+.corte_pequena {
+    object-fit: cover;
+    width: 55px;
+    height: 55px;
+}
+
 .link_conteudos{
     color: #3e3f80;
 }
