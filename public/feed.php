@@ -257,12 +257,6 @@ if (isset($_SESSION['id_utilizador'])) {
 include_once "components/footer.php";
 
 
-
-
-
-
-
-
 ?>
 
 
