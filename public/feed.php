@@ -50,85 +50,118 @@ if (isset($_SESSION['id_utilizador'])) {
 <main>
 
     <div class="container">
-
-
         <?php
         require_once "../admin/connections/connection2db.php";
 
         $link = new_db_connection();
         $stmt = mysqli_stmt_init($link);
 
-        $query = "CALL teste()";
+        $query = "SELECT eventos.id_evento
+                                     FROM eventos
+                                     INNER JOIN utilizadores_has_eventos
+                                     ON eventos.id_evento = utilizadores_has_eventos.eventos_id_evento
+                                     WHERE utilizadores_has_eventos.utilizadores_id_utilizador = ?";
+
 
         if (mysqli_stmt_prepare($stmt, $query)) {
-            mysqli_stmt_execute($stmt);
 
-            mysqli_stmt_bind_result($stmt, $id, $nome, $id_evento, $imagem, $categoria);
+        mysqli_stmt_bind_param($stmt, 'i', $user);
 
-            while (mysqli_stmt_fetch($stmt)) {
+        $user = $id_utilizador;
+
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt, $id_evento_associado);
+
+            $eventos_ass = array();
+
+        while (mysqli_stmt_fetch($stmt)) {
+
+            array_push($eventos_ass, $id_evento_associado);
+            }
+        }
 
 
-                ?>
+        foreach ($eventos_ass as $value){
 
-                <div class="mt-4">
-                    <div class="row col-12 card_horizontal p-2 ml-0">
-                        <a href="eventocomsubscricao.php?id=<?=$id_evento?>">
-                        <div class="d-flex">
-                            <div class="col-3 align-self-center">
+            require_once "../admin/connections/connection2db.php";
 
-                                <?php
-                                if ($imagem != ''){
-                                    ?>
-                                    <img src="scripts/upload/<?=$imagem?>" class="clip-circle rounded-circle ml-2">
-                                    <?php
-                                }
-                                else {
-                                    ?>
-                                    <img src="imagens/default-image.jpg" class="clip-circle rounded-circle ml-2">
-                                    <?php
-                                }
 
-                                ?>
-                            </div>
-                            <div class="col-6 align-self-center">
-                                <p class="texto_card_historico"> <b><?=$nome?></b> tem um novo subscritor.
-                                </p>
+            $link = new_db_connection();
+            $stmt = mysqli_stmt_init($link);
 
-                                <?php
-                                if (isset($categoria)) {
-                                    switch ($categoria) {
-                                        // música
-                                        case 1:
-                                            echo '<img class="icone_categoria" src="imagens/icones/icone_musica.png">';
-                                            break;
+            $query = "CALL teste($value)";
 
-                                        // manifestações
-                                        case 2:
-                                            echo '<img class="icone_categoria" src="imagens/icones/icone_manif.png">';
-                                            break;
+            if (mysqli_stmt_prepare($stmt, $query)) {
 
-                                        // teatro
-                                        case 3:
-                                            echo '<img class="icone_categoria" src="imagens/icones/icone_teatro.png">';
-                                            break;
+                mysqli_stmt_execute($stmt);
 
-                                        // festas
-                                        case 4:
-                                            echo '<img class="icone_categoria" src="imagens/icones/icone_festa.png">';
-                                            break;
-                                    }
-                                }
-                                ?>
-                                <small class="small_feed">há 1 dia</small>
-                            </div>
-                            <div class="col-2 align-self-center">
-                                <i class="fas fa-chevron-right"></i>
-                            </div>
+                mysqli_stmt_bind_result($stmt, $id, $nome, $id_evento, $imagem, $categoria);
+
+                while (mysqli_stmt_fetch($stmt)) {
+
+
+                    ?>
+                    <div class="mt-4">
+                        <div class="row col-12 card_horizontal p-2 ml-0">
+                            <a href="eventocomsubscricao.php?id=<?=$value?>">
+                                <div class="d-flex">
+                                    <div class="col-3 align-self-center">
+
+                                        <?php
+                                        if ($imagem != ''){
+                                            ?>
+                                            <img src="scripts/upload/<?=$imagem?>" class="clip-circle rounded-circle ml-2">
+                                            <?php
+                                        }
+                                        else {
+                                            ?>
+                                            <img src="imagens/default-image.jpg" class="clip-circle rounded-circle ml-2">
+                                            <?php
+                                        }
+
+                                        ?>
+                                    </div>
+                                    <div class="col-6 align-self-center">
+                                        <p class="texto_card_historico"> <b><?=$nome?></b> tem um novo subscritor.
+                                        </p>
+
+                                        <?php
+                                        if (isset($categoria)) {
+                                            switch ($categoria) {
+                                                // música
+                                                case 1:
+                                                    echo '<img class="icone_categoria" src="imagens/icones/icone_musica.png">';
+                                                    break;
+
+                                                // manifestações
+                                                case 2:
+                                                    echo '<img class="icone_categoria" src="imagens/icones/icone_manif.png">';
+                                                    break;
+
+                                                // teatro
+                                                case 3:
+                                                    echo '<img class="icone_categoria" src="imagens/icones/icone_teatro.png">';
+                                                    break;
+
+                                                // festas
+                                                case 4:
+                                                    echo '<img class="icone_categoria" src="imagens/icones/icone_festa.png">';
+                                                    break;
+                                            }
+                                        }
+                                        ?>
+                                        <small class="small_feed">há 1 dia</small>
+                                    </div>
+                                    <div class="col-2 align-self-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                        </a>
                     </div>
-                </div>
-                <?php
+
+                    <?php
+                }
             }
         }
 

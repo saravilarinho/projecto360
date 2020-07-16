@@ -202,19 +202,13 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                                     $iniciodoeventomesmo = date('Y-m-d H:i:s', strtotime('+0 hour', strtotime($data_inicio . $hora_inicio)));
                                     $fimdoeventomesmo = date('Y-m-d H:i:s', strtotime('+0 hour', strtotime($data_fim . $hora_fim)));
 
-                                    $date2 = strtotime("". $data_fim . $hora_fim."");
 
-                                    $date1 =
 
-                                    $diff = abs($date2 - $iniciodoeventomesmo);
-                                    echo $diff;
 
-                                    $datediff = $fimdoeventomesmo - $iniciodoeventomesmo;
 
                                     while($iniciodoeventomesmo <= $fimdoeventomesmo){
                                         $start=date('H:i', strtotime('+'.$tempo.' hour', strtotime($hora_inicio)));
 
-var_dump($datediff)
                                         ?>
 
 

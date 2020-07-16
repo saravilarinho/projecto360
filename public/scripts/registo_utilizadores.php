@@ -25,42 +25,49 @@ if(isset($_POST['email'])) {
         }
         else {
 
-            if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password_hash'])) {
+            if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password_hash']) && isset($_POST['password_hash1'])) {
 
                 if($_POST['password_hash'] != ""){
 
-                    $link = new_db_connection();
+                    if ($_POST['password_hash'] === $_POST['password_hash1']){
 
-                    $stmt = mysqli_stmt_init($link);
+                        $link = new_db_connection();
 
-                    $query = "INSERT INTO utilizadores (nome_utilizador, password, email) VALUES (?,?,?)";
+                        $stmt = mysqli_stmt_init($link);
 
-                    if (mysqli_stmt_prepare($stmt, $query)) {
+                        $query = "INSERT INTO utilizadores (nome_utilizador, password, email) VALUES (?,?,?)";
 
-                        mysqli_stmt_bind_param($stmt, 'sss', $nome,  $password_hash, $email);
-                        $nome = $_POST['name'];
-                        $password_hash = password_hash($_POST['password_hash'], PASSWORD_DEFAULT);
-                        $email = $_POST['email'];
+                        if (mysqli_stmt_prepare($stmt, $query)) {
 
-                        if (mysqli_stmt_execute($stmt)) {
-                            mysqli_stmt_close($stmt);
+                            mysqli_stmt_bind_param($stmt, 'sss', $nome,  $password_hash, $email);
+                            $nome = $_POST['name'];
+                            $password_hash = password_hash($_POST['password_hash'], PASSWORD_DEFAULT);
+                            $email = $_POST['email'];
+
+                            if (mysqli_stmt_execute($stmt)) {
+                                mysqli_stmt_close($stmt);
+                                mysqli_close($link);
+
+
+
+                                header("Location: ../login.php?x=0");
+                            }
+                            else {
+
+                                echo "Error:" . mysqli_stmt_error($stmt);
+
+                                header("Location: ../register.php?msg=1");
+                            }
+
+                        } else {
+                            echo "Error:" . mysqli_error($link);
                             mysqli_close($link);
-
-
-
-                            header("Location: ../login.php?x=0");
-                        }
-                        else {
-
-                            echo "Error:" . mysqli_stmt_error($stmt);
-
-                            header("Location: ../register.php?msg=1");
                         }
 
-                    } else {
-                        echo "Error:" . mysqli_error($link);
-                        mysqli_close($link);
+
                     }
+
+
                 }
                 else {
 

@@ -51,7 +51,7 @@
 <main>
 
     <p class="mt-3 ml-4 texto_pesquisa">Bem-vindo!</p>
-    <p class="mt-0 ml-4 texto_pesquisa">Começa por preencher os seguintes campos com as tuas informações.</p>
+    <p class="mt-0 ml-4 mr-3 texto_pesquisa">Começa por preencher os seguintes campos com as tuas informações.</p>
 
     <div class="row justify-content-around mr-0">
 
@@ -74,6 +74,8 @@
                 <p class="mt-2 mb-0 label">Palavra-passe</p>
                 <input class="pl-2 mt-1 w-100 form-control campo_form" type="password" name="password_hash" required="required" placeholder="Palavra-passe">
 
+                <p class="mt-2 mb-0 label">Confirmação da Palavra-passe</p>
+                <input class="pl-2 mt-1 w-100 form-control campo_form" type="password" name="password_hash1" required="required" placeholder="Confirmação da Palavra-passe">
 
                 <div class="justify-content-center d-flex fixed-bottom position-fixed mb-3">
                     <button type="submit" class="btn botao_grande"> Confirmar </button>
