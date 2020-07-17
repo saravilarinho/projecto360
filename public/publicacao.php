@@ -295,8 +295,8 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                     <div class="add_comentario fixed-bottom row m-0">
                         <div class="align-self-center">
                             <form action="scripts/add_comentario.php?idp=<?=$id_publicacao?>" role="form" method="post" class="d-flex">
-                            <div class="field col-8">
-                                <input type="text" name="comentario" value="" placeholder="Adiciona o teu comentário..." class="p-1 campo_form" style="width: 245px">
+                            <div class="field col-10">
+                                <input type="text" name="comentario" value="" placeholder="Escreve um comentário e clica em Enter" class="p-1 campo_form" style="width: 346px">
                             </div>
 
                             <div class="col-2 ml-3 text-right">
