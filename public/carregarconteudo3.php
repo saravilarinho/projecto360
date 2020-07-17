@@ -10,10 +10,9 @@ if (isset($_SESSION['id_utilizador'])){
 
 }
 
-if (isset($_POST['descricao']) && isset($_GET['idp']) && isset($_POST['data_real'])){
+if (isset($_POST['descricao']) && isset($_GET['idp'])){
     $des = $_POST['descricao'];
     $id_pub = $_GET['idp'];
-    $data_real = $_POST['data_real'];
     $latitude = $_POST['latitude'];
     $longitude = $_POST['longitude'];
 
@@ -58,7 +57,7 @@ if (isset($_POST['descricao']) && isset($_GET['idp']) && isset($_POST['data_real
 
 <main>
 
-    <form enctype="multipart/form-data" action="scripts/nova_publicacao.php?idp=<?=$id_pub?>&des=<?=$des?>&data=<?=$data_real?>&lat=<?=$latitude?>&long=<?=$longitude?>" id="formulario" role="form" method="post">
+    <form enctype="multipart/form-data" action="scripts/nova_publicacao.php?idp=<?=$id_pub?>&des=<?=$des?>&lat=<?=$latitude?>&long=<?=$longitude?>" id="formulario" role="form" method="post">
 
         <div class="stepper_passo2">
             <div id="stepProgressBar">
@@ -93,7 +92,7 @@ if (isset($_POST['descricao']) && isset($_GET['idp']) && isset($_POST['data_real
 
 
     <div class="fixed-bottom mb-3 botoes_stepper position-fixed">
-        <a href="carregarconteudo2.php?idp=<?=$id_pub?>&des=<?=$des?>&data=<?=$data_real?>&lat=<?=$latitude?>&long=<?=$longitude?>"><button class="button_stepper" id="previousBtn">Anterior</button></a>
+        <a href="carregarconteudo2.php?idp=<?=$id_pub?>&des=<?=$des?>&lat=<?=$latitude?>&long=<?=$longitude?>"><button class="button_stepper" id="previousBtn">Anterior</button></a>
         <button class="button_stepper" id="nextBtn" disabled>Seguinte</button>
         <button class="button_stepper" type="submit" id="finishBtn">Confirmar</button>
     </div>

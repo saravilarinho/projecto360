@@ -32,8 +32,8 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
 
             if (isset($id_evento)) {
                 // Insert image file name into database
-                $query = "INSERT INTO publicacoes (eventos_id_evento, conteudo_publicacao, data_publicacao)     
-                          VALUES ( ? ,'" . $fileName . "', NOW())";
+                $query = "INSERT INTO publicacoes (eventos_id_evento, conteudo_publicacao)     
+                          VALUES ( ? ,'" . $fileName . "')";
 
                 if (mysqli_stmt_prepare($stmt, $query)) {
                     mysqli_stmt_bind_param($stmt, 'i', $id);

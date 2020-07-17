@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION['id_utilizador']) && isset($_GET['idp']) && isset($_GET['data']) ) {
+if (isset($_SESSION['id_utilizador']) && isset($_GET['idp']) ) {
 
     $id_utilizador =$_SESSION['id_utilizador'];
     $descricao = $_GET['des'];
@@ -9,14 +9,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp']) && isset($_GET['dat
 
 
 
-    if ($_GET['data'] != 'undefined' ){
-        $data_real = $_GET['data'];
 
-    }
-    else{
-        date_default_timezone_set('Europe/Lisbon');
-        $data_real = date('Y/m/d h:i:s', time());
-    }
 
     if ($_GET['lat'] != '' && $_GET['long'] != ''){
         $latitude = $_GET['lat'];
@@ -53,13 +46,13 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp']) && isset($_GET['dat
 
 
                 $query = "UPDATE publicacoes 
-                          SET descricao  = ? , data_publicacao = ?, coor_lat = ?, coor_lng = ?
+                          SET descricao  = ? , coor_lat = ?, coor_lng = ?
                           WHERE id_publicacao = $id_pub";
 
 
                 if (mysqli_stmt_prepare($stmt, $query)) {
 
-                    mysqli_stmt_bind_param($stmt, 'ssdd', $descricao, $dataaaaa, $latitude, $longitude);
+                    mysqli_stmt_bind_param($stmt, 'sdd', $descricao, $latitude, $longitude);
 
 
                     if (mysqli_stmt_execute($stmt)) {
