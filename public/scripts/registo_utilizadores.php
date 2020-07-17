@@ -56,14 +56,17 @@ if(isset($_POST['email'])) {
 
                                 echo "Error:" . mysqli_stmt_error($stmt);
 
-                                header("Location: ../register.php?msg=1");
+                                header("Location: ../registo.php?msg=1");
                             }
 
                         } else {
                             echo "Error:" . mysqli_error($link);
-                            mysqli_close($link);
+                            header("Location: ../registo.php?msg=1");
                         }
 
+
+                    } else {
+                        header("Location: ../registo.php?msg=2");
 
                     }
 
@@ -71,14 +74,14 @@ if(isset($_POST['email'])) {
                 }
                 else {
 
-                    header("Location: ../register.php?msg=1");
+                    header("Location: ../registo.php?msg=3");
                 }
 
 
             }
             else {
 
-                header("Location: ../register.php?msg=1");
+                header("Location: ../registo.php?msg=3");
             }
 
         }
@@ -88,7 +91,7 @@ if(isset($_POST['email'])) {
 
 }
 else{
-    header("Location: ../register.php?msg=1");
+    header("Location: ../registo.php?msg=3");
 
 }
 

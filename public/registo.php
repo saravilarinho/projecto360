@@ -1,3 +1,14 @@
+<?php
+
+if (isset($_GET['msg'])){
+
+
+    $mensagem_erro = $_GET['msg'];
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,6 +87,34 @@
 
                 <p class="mt-2 mb-0 label">Confirmação da Palavra-passe</p>
                 <input class="pl-2 mt-1 w-100 form-control campo_form" type="password" name="password_hash1" required="required" placeholder="Confirmação da Palavra-passe">
+
+
+                <?php
+
+                if (isset($mensagem_erro)) {
+
+                    //outras mensagens
+
+                    switch ($mensagem_erro) {
+
+                        case 1:
+                            echo "<p class='col-sm-10 text-danger mt-2 mb-0 text-left' style='font-size: 12px;padding-left: 0;'>Ocorreu um erro. Tenta de novo.</p>";
+
+                            break;
+
+                        case 2:
+                            echo "<p class='col-sm-10 text-danger mt-2 mb-0 text-left' style='font-size: 12px;padding-left: 0;'>Palavras passe não são iguais. </p>";
+
+                            break;
+
+                        case 3:
+                            echo "<p class='col-sm-10 text-danger mt-2 mb-0 text-left' style='font-size: 12px;padding-left: 0;'>Por favor, preencha todos os campos devidamente.</p>";
+
+                    }
+                }
+                ?>
+
+
 
                 <div class="justify-content-center d-flex fixed-bottom position-fixed mb-3">
                     <button type="submit" class="btn botao_grande"> Confirmar </button>
