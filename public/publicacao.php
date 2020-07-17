@@ -298,11 +298,6 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                             <div class="field col-10">
                                 <input type="text" name="comentario" value="" placeholder="Escreve um comentário e clica em Enter" class="p-1 campo_form" style="width: 346px">
                             </div>
-
-                            <div class="col-2 ml-3 text-right">
-                                <btn type="submit"><i class="fas fa-check ml-5"></i> </btn>
-                            </div>
-
                             </form>
                         </div>
                     </div>
