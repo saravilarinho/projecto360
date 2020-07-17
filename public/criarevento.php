@@ -145,7 +145,7 @@ if (isset($_SESSION['id_utilizador'])){
                         <input type="radio" id="publico" name="gender" value="1"><br>
                         <label for="male" class="label">Público</label></div>
                     <div class="col-6">
-                        <input type="radio" id="privado" name="gender" value="2"><br>
+                        <input type="radio" id="privado" name="gender" value="2" disabled><br>
                         <label for="female" class="label">Privado</label></div>
                 </div>
             </div>
@@ -155,7 +155,7 @@ if (isset($_SESSION['id_utilizador'])){
     <div id="toggle3"  style="display: none" class="mb-3">
         <div class="title mt-4">Convida participantes!</div>
         <div class="field mt-2">
-            <div class="label">Convida pessoas para o teu evento, conforme o exemplo. (utilizador1@email.com, utilizador2@email.com, ...)</div>
+            <div class="label">Esta funcionalidade estará disponível em breve!</div>
             <input type="text" name="convidado1" id="convidado1" class="campo_form p-2 w-100" placeholder="E-mail..." value="" disabled>
 
         </div>
