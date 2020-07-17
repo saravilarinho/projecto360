@@ -5,6 +5,9 @@ if (isset($_SESSION['id_utilizador'])){
 
     $id_utilizador = $_SESSION['id_utilizador'];
 
+}else{
+    header("Location: login.php?message=3");
+
 }
 
 if (isset($_POST['descricao']) && isset($_GET['idp']) && isset($_POST['data_real'])){
@@ -80,8 +83,8 @@ if (isset($_POST['descricao']) && isset($_GET['idp']) && isset($_POST['data_real
             <div class="field w-75 mx-auto stepper">
                 <div class="title mt-4 label">Identifica participantes!</div>
                 <div class="field mt-2">
-                    <div class="label">Identifica utilizadores no conteúdo que publicaste, conforme o exemplo. (utilizador1@email.com, utilizador2@email.com, ...).</div>
-                    <input type="text" name="emailsusers" value="" class="campo_form p-2 w-100" placeholder="E-mail...">
+                    <div class="label">Funcionalidade disponível em breve!</div>
+                    <input type="text" name="emailsusers" value="" class="campo_form p-2 w-100" placeholder="E-mail..." disabled>
                 </div>
             </div>
         </div>

@@ -67,6 +67,10 @@ if(isset($_GET["message"])){
                     case 2:
                         echo "<p class='col-sm-10 text-danger mt-2 mb-0 text-left' style='font-size: 12px;padding-left: 0;'>Ocorreu um erro. Tenta de novo.</p>";
 
+                        break;
+
+                    case 3:
+                        echo "<p class='col-sm-10 mt-2 mb-0 text-left' style='font-size: 12px;padding-left: 0;'>A sua sessão terminou, faça login de novo.</p>";
 
                 }
             }

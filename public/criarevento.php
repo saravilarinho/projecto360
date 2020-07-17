@@ -7,7 +7,7 @@ if (isset($_SESSION['id_utilizador'])){
     $id_utilizador = $_SESSION['id_utilizador'];
 
 }else{
-    header("Location: login.php?message=2");
+    header("Location: login.php?message=3");
 
 }
 

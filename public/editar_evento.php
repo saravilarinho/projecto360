@@ -6,6 +6,9 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['id'])){
     $id_utilizador = $_SESSION['id_utilizador'];
     $id_evento = $_GET['id'];
 
+}else{
+    header("Location: login.php?message=3");
+
 }
 
 
