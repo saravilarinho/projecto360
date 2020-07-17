@@ -74,8 +74,9 @@ if (mysqli_stmt_prepare($stmt, $query)) {
         <div class="row">
 
             <div class="col-6 text-left">
-                    <i class="fas fa-2x fa-chevron-circle-left voltar" onclick="voltar()"></i>
-
+                <a href="eventos.php">
+                    <i class="fas fa-2x fa-chevron-circle-left voltar"></i>
+                </a>
             </div>
 
             <div class="col-6 text-right mt-2">
@@ -315,7 +316,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                             <div class="timeline-object complete">
                                 <div class="timeline-status"></div>
                                 <div class="timeline-p">
-                                    <div class="inicio_evento fonte_menu"><b>Pré-Evento</b></div>
+                                    <div class="inicio_evento"><b>Pré-Evento</b></div>
                                     <p class="align-self-center"><small>Conteúdos adicionados pela organização.</small></p>
                                     <div class="fotografias">
                                     <?php
