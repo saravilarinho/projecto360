@@ -76,7 +76,11 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
             <div class="container">
                 <div class="row">
                     <div class="visualizacao">
-                        <i class="fas fa-2x fa-chevron-circle-left voltar" onclick="voltar()"></i>
+
+                        <a href="eventos.php">
+                            <i class="fas fa-2x fa-chevron-circle-left voltar"></i>
+                        </a>
+
                         <img id="pub" src="scripts/upload/<?= $conteudo ?>" class="col-12 p-0 align-self-center">
 
                     </div>
@@ -291,13 +295,13 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                     <div class="add_comentario fixed-bottom row m-0">
                         <div class="align-self-center">
                             <form action="scripts/add_comentario.php?idp=<?=$id_publicacao?>" role="form" method="post" class="d-flex">
-                            <div class="field col-10">
+                            <div class="field col-8">
                                 <input type="text" name="comentario" value="" placeholder="Adiciona o teu comentário..." class="p-1 campo_form" style="width: 245px">
                             </div>
 
-                            <!--<div class="col-2 ml-3 text-right">
-                                <btn type="submit"><i class="fas fa-check"></i> </btn>
-                            </div>-->
+                            <div class="col-2 ml-3 text-right">
+                                <btn type="submit"><i class="fas fa-check ml-5"></i> </btn>
+                            </div>
 
                             </form>
                         </div>
