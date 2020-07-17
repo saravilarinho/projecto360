@@ -77,7 +77,7 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['idp'])){
                 <div class="row">
                     <div class="visualizacao">
 
-                        <a href="eventos.php">
+                        <a href="eventocomsubscricao.php?id=<?=$id_evento?>">
                             <i class="fas fa-2x fa-chevron-circle-left voltar"></i>
                         </a>
 
