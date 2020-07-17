@@ -48,8 +48,9 @@ if (isset($_SESSION['id_utilizador']) && isset($_GET['id'])) {
         <div class="row">
             <div class="col-6 text-left">
 
-                <a href="eventos.php">
-                    <i class="fas fa-2x fa-chevron-circle-left voltar"></i></a>
+<button onclick="voltar()">
+    <i class="fas fa-2x fa-chevron-circle-left voltar"></i>
+</button>
             </div>
             <div class="col-6 text-right mt-2">
 

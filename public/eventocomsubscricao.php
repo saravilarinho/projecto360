@@ -61,7 +61,6 @@ if (mysqli_stmt_prepare($stmt, $query)) {
             <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;500&display=swap" rel="stylesheet">
 
             <!-- Ligacoes -->
-            <script src="interacoes.js" ></script>
             <link rel="stylesheet" type="text/css" href="estilos.css">
             <script src="https://kit.fontawesome.com/2a97b08cd6.js" crossorigin="anonymous"></script>
 
@@ -73,9 +72,10 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     <div class="container position-absolute">
 
         <div class="row">
+
             <div class="col-6 text-left">
-                <a href="eventos.php">
-                    <i class="fas fa-2x fa-chevron-circle-left voltar"></i></a>
+                    <i class="fas fa-2x fa-chevron-circle-left voltar" onclick="voltar()"></i>
+
             </div>
 
             <div class="col-6 text-right mt-2">
@@ -455,7 +455,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     </div>
 </main>
 
-
+<script src="interacoes.js" ></script>
 </body>
 </html>
 

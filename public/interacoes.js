@@ -50,5 +50,8 @@ function publicacao() {
     location.href = "publicacao.php?idp=<?= $id_p ?>";
 }
 
+function voltar() {
+    window.history.back();
+}
 
 
